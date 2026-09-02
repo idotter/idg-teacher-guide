@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "appName": "IDG in the Classroom",
+    "shortName": "IDG",
+    "tagline": "Inner Development Goals for everyday teaching",
+    "description": "Explore the Inner Development Goals and use the 23 skills as flip cards in class — practical prompts for teachers."
+  },
+  "nav": {
+    "home": "Home",
+    "skills": "All skills",
+    "about": "About",
+    "drawCard": "Draw a card",
+    "menu": "Menu"
+  },
+  "home": {
+    "eyebrow": "For teachers",
+    "title": "Inner Development Goals for everyday teaching",
+    "lead": "23 skills on flip cards: the official IDG framework on the front, concrete prompts for you, your class and your lessons on the back — ready in minutes.",
+    "ctaPrimary": "Draw a card",
+    "ctaSecondary": "All skills",
+    "dimensionsHeading": "Five dimensions",
+    "dimensionsLead": "Pick a dimension or draw a random card for class council and morning circle."
+  },
+  "dimension": {
+    "skillsHeading": "Skills",
+    "backHome": "Back to overview",
+    "skillCount": "{count} skills"
+  },
+  "skills": {
+    "title": "All skills",
+    "lead": "Filter by dimension or browse the full deck.",
+    "filterAll": "All",
+    "empty": "No skills for this filter.",
+    "openCard": "Open card"
+  },
+  "card": {
+    "flip": "Flip",
+    "flipHint": "Tap or press Enter to flip the card",
+    "frontLabel": "Front — IDG framework",
+    "backLabel": "Back — classroom prompts",
+    "forYou": "For you",
+    "forClass": "For the class",
+    "inLesson": "In the lesson",
+    "forYouHint": "Self-reflection for the teacher",
+    "forClassHint": "Questions you can ask",
+    "inLessonHint": "5–15 minutes, low prep",
+    "prev": "Previous",
+    "next": "Next",
+    "share": "Share",
+    "shareCopied": "Link copied",
+    "dimensionOf": "Dimension {number}",
+    "backToDimension": "Back to dimension",
+    "skillOf": "Skill {current} of {total}"
+  },
+  "about": {
+    "title": "About this app",
+    "whatTitle": "What are the IDGs?",
+    "whatBody": "The Inner Development Goals (IDG) describe inner capacities that people and societies need to shape sustainable development. Five dimensions, 23 skills — a framework that connects being and doing.",
+    "howTitle": "Use it in 60 seconds",
+    "howSteps": [
+      "Draw a card or choose a dimension.",
+      "Read the front (official framework).",
+      "Flip: prompts for you, the class and the lesson.",
+      "Take one idea into your next lesson — that is enough."
+    ],
+    "licenseTitle": "License & attribution",
+    "inspired": "This work is inspired by the Inner Development Goals. Learn more at",
+    "frameworkNote": "The IDG Framework (dimension names, skill names and official descriptions) is unchanged. Classroom prompts on the card backs are original material for this app.",
+    "nonCommercial": "Non-commercial educational use. Not an official product of the Inner Development Goals Foundation.",
+    "languageTitle": "Language",
+    "languageLead": "The UI is translation-ready. German is the default; English is included.",
+    "brandTitle": "Brand note",
+    "brandBody": "Colors and dimension symbolism follow the IDG Brandguide. This app uses the «Inspired by IDG» treatment and not the Foundation’s restricted main logo as an official mark."
+  },
+  "install": {
+    "title": "Install the app",
+    "body": "Add IDG in the Classroom to your home screen — cards work offline too.",
+    "cta": "Install",
+    "dismiss": "Later",
+    "iosHint": "On iPhone: Share → «Add to Home Screen»"
+  },
+  "footer": {
+    "inspiredBy": "Inspired by IDG",
+    "inspiredText": "This work is inspired by the Inner Development Goals. Learn more at",
+    "frameworkUnchanged": "The IDG Framework itself is unchanged.",
+    "nonCommercial": "Non-commercial educational use"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "flipped": "Card flipped",
+    "notFlipped": "Front visible",
+    "dimensionIcon": "Icon for dimension {name}",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "offline": {
+    "ready": "Ready offline"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "appName": "IDG im Unterricht",
+    "shortName": "IDG",
+    "tagline": "Die Inner Development Goals im Unterrichtsalltag",
+    "description": "Entdecke die Inner Development Goals und nutze die 23 Kompetenzen als umdrehbare Karten im Unterricht — für Lehrplan 21, Sek I und Sek II."
+  },
+  "nav": {
+    "home": "Start",
+    "skills": "Alle Kompetenzen",
+    "about": "Über",
+    "drawCard": "Eine Karte ziehen",
+    "menu": "Menü"
+  },
+  "home": {
+    "eyebrow": "Für Lehrpersonen",
+    "title": "Die Inner Development Goals im Unterrichtsalltag",
+    "lead": "23 Kompetenzen auf umdrehbaren Karten: vorn das unveränderte IDG-Framework, hinten konkrete Impulse für dich, die Klasse und den Unterricht — in wenigen Minuten einsetzbar.",
+    "ctaPrimary": "Eine Karte ziehen",
+    "ctaSecondary": "Alle Kompetenzen",
+    "dimensionsHeading": "Fünf Dimensionen",
+    "dimensionsLead": "Wähle eine Dimension oder ziehe eine zufällige Karte für Klassenrat und Morgenkreis."
+  },
+  "dimension": {
+    "skillsHeading": "Kompetenzen",
+    "backHome": "Zur Übersicht",
+    "skillCount": "{count} Kompetenzen"
+  },
+  "skills": {
+    "title": "Alle Kompetenzen",
+    "lead": "Filtere nach Dimension oder durchstöbere den ganzen Stapel.",
+    "filterAll": "Alle",
+    "empty": "Keine Kompetenzen für diesen Filter.",
+    "openCard": "Karte öffnen"
+  },
+  "card": {
+    "flip": "Umdrehen",
+    "flipHint": "Tippe oder drücke Enter, um die Karte umzudrehen",
+    "frontLabel": "Vorderseite — IDG-Framework",
+    "backLabel": "Rückseite — Impulse für den Unterricht",
+    "forYou": "Für dich",
+    "forClass": "Für die Klasse",
+    "inLesson": "Im Unterricht",
+    "forYouHint": "Selbstreflexion für die Lehrperson",
+    "forClassHint": "Fragen, die du stellen kannst",
+    "inLessonHint": "5–15 Minuten, wenig Vorbereitung",
+    "prev": "Vorherige",
+    "next": "Nächste",
+    "share": "Teilen",
+    "shareCopied": "Link kopiert",
+    "dimensionOf": "Dimension {number}",
+    "backToDimension": "Zur Dimension",
+    "skillOf": "Kompetenz {current} von {total}"
+  },
+  "about": {
+    "title": "Über diese App",
+    "whatTitle": "Was sind die IDGs?",
+    "whatBody": "Die Inner Development Goals (IDG) beschreiben innere Fähigkeiten, die Menschen und Gesellschaften brauchen, um nachhaltige Entwicklung zu gestalten. Fünf Dimensionen, 23 Kompetenzen — ein Framework, das Haltung und Handeln verbindet.",
+    "howTitle": "In 60 Sekunden nutzen",
+    "howSteps": [
+      "Ziehe eine Karte oder wähle eine Dimension.",
+      "Lies die Vorderseite (offizielles Framework).",
+      "Drehe um: Impulse für dich, die Klasse und den Unterricht.",
+      "Nimm eine Idee mit in die nächste Stunde — mehr braucht es nicht."
+    ],
+    "licenseTitle": "Lizenz & Attribution",
+    "inspired": "This work is inspired by the Inner Development Goals. Learn more at",
+    "frameworkNote": "Das IDG-Framework (Dimensionsnamen, Kompetenznamen und offizielle Beschreibungen) bleibt unverändert. Die Unterrichtsimpulse auf den Kartennrückseiten sind originales Material dieser App.",
+    "nonCommercial": "Nicht-kommerzielle Bildungsnutzung. Kein offizielles Produkt der Inner Development Goals Foundation.",
+    "languageTitle": "Sprache",
+    "languageLead": "Die Oberfläche ist übersetzungsbereit. Deutsch ist die Standardsprache; Englisch ist vorhanden.",
+    "brandTitle": "Markenhinweis",
+    "brandBody": "Farben und Dimensionssymbolik folgen dem IDG Brandguide. Diese App nutzt die «Inspired by IDG»-Behandlung und nicht das restriktierte Hauptlogo der Foundation als offizielles Zeichen."
+  },
+  "install": {
+    "title": "App installieren",
+    "body": "IDG im Unterricht auf dem Homescreen — Karten auch offline verfügbar.",
+    "cta": "Installieren",
+    "dismiss": "Später",
+    "iosHint": "Auf dem iPhone: Teilen → «Zum Home-Bildschirm»"
+  },
+  "footer": {
+    "inspiredBy": "Inspired by IDG",
+    "inspiredText": "This work is inspired by the Inner Development Goals. Learn more at",
+    "frameworkUnchanged": "Das IDG-Framework selbst ist unverändert.",
+    "nonCommercial": "Nicht-kommerzielle Bildungsnutzung"
+  },
+  "a11y": {
+    "skipToContent": "Zum Inhalt springen",
+    "flipped": "Karte umgedreht",
+    "notFlipped": "Vorderseite sichtbar",
+    "dimensionIcon": "Symbol der Dimension {name}",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schliessen"
+  },
+  "offline": {
+    "ready": "Offline bereit"
+  }
+}
