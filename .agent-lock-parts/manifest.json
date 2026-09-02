@@ -1,0 +1,25 @@
+{
+  "sha256": "18324d663f9ba6169a49a257c7c7f4809e5a010f094280d769176360f529a2f0",
+  "length": 222882,
+  "chunks": [
+    "lockfile.part000",
+    "lockfile.part001",
+    "lockfile.part002",
+    "lockfile.part003",
+    "lockfile.part004",
+    "lockfile.part005",
+    "lockfile.part006",
+    "lockfile.part007",
+    "lockfile.part008",
+    "lockfile.part009",
+    "lockfile.part010",
+    "lockfile.part011",
+    "lockfile.part012",
+    "lockfile.part013",
+    "lockfile.part014",
+    "lockfile.part015",
+    "lockfile.part016",
+    "lockfile.part017",
+    "lockfile.part018"
+  ]
+}
