@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "next build --webpack",
     "dev": "next dev --port 43123 --webpack",
-    "start": "next start --port 43123",
+    "build": "next build --webpack",
+    "start": "next start --hostname 0.0.0.0 --port ${PORT:-3000}",
     "lint": "eslint",
     "icons": "python3 scripts/generate-icons.py"
   },
