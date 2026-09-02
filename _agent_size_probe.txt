@@ -1,1 +1,1 @@
-TEST_PLACEHOLDER_SIZE_CHECK
+file:///workspace/package-lock.json
