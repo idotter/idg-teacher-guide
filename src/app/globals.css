@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+:root {
+  --idg-being: #d4b88c;
+  --idg-thinking: #e585a1;
+  --idg-relating: #ef4136;
+  --idg-collaborating: #ff7e2a;
+  --idg-acting: #661a30;
+  --idg-bg: #faf7f5;
+  --idg-black: #000000;
+  --idg-white: #ffffff;
+  --background: var(--idg-bg);
+  --foreground: var(--idg-black);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-idg-being: var(--idg-being);
+  --color-idg-thinking: var(--idg-thinking);
+  --color-idg-relating: var(--idg-relating);
+  --color-idg-collaborating: var(--idg-collaborating);
+  --color-idg-acting: var(--idg-acting);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), "Inter", sans-serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-bold {
+  font-weight: 700;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+/* Card flip */
+.card-scene {
+  position: relative;
+}
+
+.card-flipper {
+  min-height: inherit;
+}
+
+.card-flipper.is-flipped:not(.card-reduced) {
+  transform: rotateY(180deg);
+}
+
+.card-flipper.card-reduced .card-front {
+  transition: opacity 400ms ease;
+}
+
+.card-flipper.card-reduced .card-back {
+  transition: opacity 400ms ease;
+  transform: none !important;
+}
+
+.card-face {
+  min-height: inherit;
+}
+
+/* Enter animations */
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-rise {
+  animation: fade-rise 0.55s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out both;
+}
+
+.skill-enter {
+  animation: fade-rise 0.5s ease-out both;
+}
+
+.dimension-tile {
+  animation: fade-rise 0.55s ease-out both;
+}
+
+.page-fade {
+  animation: fade-in 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-fade-rise,
+  .animate-fade-in,
+  .skill-enter,
+  .dimension-tile,
+  .page-fade {
+    animation: none;
+  }
+
+  .dimension-tile:hover,
+  .skill-enter:hover {
+    transform: none;
+  }
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* Burgundy contrast helper for small text on beige */
+.text-on-being {
+  color: #000;
+}
