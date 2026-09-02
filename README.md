@@ -17,7 +17,6 @@ App: [http://127.0.0.1:43123](http://127.0.0.1:43123) (leitet auf `/de` um)
 Produktion:
 
 ```bash
-npm install
 npm run build
 npm start
 ```
@@ -56,5 +55,18 @@ Mehr: [innerdevelopmentgoals.org](https://innerdevelopmentgoals.org)
 - `next-intl` (DE Standard, EN vorhanden)
 - PWA: Web App Manifest + Serwist Service Worker (Offline nach erstem Besuch)
 - Kein Backend, kein Auth — statischer Content
+- Production: `output: "standalone"` + multi-stage `Dockerfile`
 
 Icons neu erzeugen: `npm run icons`
+
+## Deploy with Coolify (GitHub)
+
+Repo: [`idotter/idg-teacher-guide`](https://github.com/idotter/idg-teacher-guide)
+
+1. In Coolify, create a new application from the GitHub repository `idotter/idg-teacher-guide` (branch `main`).
+2. Build pack: prefer **Dockerfile** (recommended). Coolify can also use **Nixpacks**; for Nixpacks set the start command to `npm run start` and ensure the build command is `npm run build`.
+3. Port: **3000** (container listens on `0.0.0.0:3000` via `PORT` / `HOSTNAME`).
+4. HTTPS: enable Coolify’s proxy / Let’s Encrypt on your domain — no app-level TLS config needed.
+5. Optional local check: `docker compose up --build` then open `http://127.0.0.1:3000`.
+
+No secrets are required for the default static PWA deploy.
