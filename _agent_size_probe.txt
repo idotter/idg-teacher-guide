@@ -1,1 +1,1 @@
-@/tmp/test_content_10000.txt
+cursor-workspace:///workspace/package-lock.json
