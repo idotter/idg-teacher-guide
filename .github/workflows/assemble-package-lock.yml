@@ -1,0 +1,45 @@
+name: Assemble package-lock.json
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/assemble-package-lock.yml'
+permissions:
+  contents: write
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download real npm lockfile
+        run: |
+          set -euo pipefail
+          curl -fsSL -o package-lock.json "https://litter.catbox.moe/3kewrx.json"
+          python3 - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          raw = Path('package-lock.json').read_text()
+          assert len(raw) > 10000
+          assert not raw.strip().startswith('PLACEHOLDER')
+          assert raw.lstrip().startswith('{')
+          data = json.loads(raw)
+          assert data.get('lockfileVersion') == 3
+          assert data.get('name') == 'idg-im-unterricht'
+          expect = '18324d663f9ba6169a49a257c7c7f4809e5a010f094280d769176360f529a2f0'
+          got = hashlib.sha256(raw.encode()).hexdigest()
+          assert got == expect, (got, expect)
+          print('ok', len(raw), got)
+          PY
+      - name: Commit package-lock.json
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git rm -rf --ignore-unmatch .agent-lock-parts || true
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git commit -m "Refresh package-lock.json for Coolify npm ci"
+          git push
