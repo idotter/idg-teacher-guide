@@ -3,6 +3,9 @@ import { LANGS } from '../../content/langs.js'
 import { keyPaths } from './key-paths.js'
 import { SEGMENTS } from './segments.js'
 import de from './de.js'
+import en from './en.js'
+
+const ALL = { de, en }
 
 describe('deutsche i18n-Datei', () => {
   it('hat keine leeren Werte', () => {
@@ -23,4 +26,23 @@ describe('deutsche i18n-Datei', () => {
     expect(de.pages.privacy.precedenceNote).toBeUndefined()
     expect(de.pages.terms.precedenceNote).toBeUndefined()
   })
+})
+
+describe('alle i18n-Dateien', () => {
+  const reference = keyPaths(de).sort()
+  for (const [lang, data] of Object.entries(ALL)) {
+    it(`${lang} hat dieselben Schlüssel wie Deutsch`, () => {
+      const own = keyPaths(data).sort().filter((p) => p !== 'pages.privacy.precedenceNote' && p !== 'pages.terms.precedenceNote')
+      expect(own).toEqual(reference.filter((p) => !p.endsWith('precedenceNote')))
+    })
+    it(`${lang} deklariert sich selbst`, () => {
+      expect(data.lang).toBe(lang)
+    })
+  }
+  for (const lang of Object.keys(ALL).filter((l) => l !== 'de')) {
+    it(`${lang} trägt die Vorrangklausel in beiden Rechtstexten`, () => {
+      expect(ALL[lang].pages.privacy.precedenceNote).toBeTruthy()
+      expect(ALL[lang].pages.terms.precedenceNote).toBeTruthy()
+    })
+  }
 })
