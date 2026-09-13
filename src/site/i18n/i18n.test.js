@@ -4,8 +4,9 @@ import { keyPaths } from './key-paths.js'
 import { SEGMENTS } from './segments.js'
 import de from './de.js'
 import en from './en.js'
+import fr from './fr.js'
 
-const ALL = { de, en }
+const ALL = { de, en, fr }
 
 describe('deutsche i18n-Datei', () => {
   it('hat keine leeren Werte', () => {
