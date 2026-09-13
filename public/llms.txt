@@ -33,6 +33,42 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 - Datenschutz: https://guide.zukunftskompetenzchallenge.ch/datenschutz/
 - Nutzungsbedingungen: https://guide.zukunftskompetenzchallenge.ch/nutzungsbedingungen/
 
+### Dimensionen
+
+- Sein: https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/
+- Denken: https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/
+- Beziehungen: https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/
+- Zusammenarbeit: https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/
+- Handeln: https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/
+
+### Kompetenzen
+
+- Innerer Kompass: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=innerer-kompass)
+- Integrität und Authentizität: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=integritaet-und-authentizitaet)
+- Offenheit und Lernbereitschaft: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=offenheit-und-lernbereitschaft)
+- Selbsterkenntnis: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=selbsterkenntnis)
+- Präsenz: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=praesenz)
+- Kritisches Denken: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=kritisches-denken)
+- Perspektivische Fähigkeiten: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=perspektivische-faehigkeiten)
+- Systemisches Denken: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=systemisches-denken)
+- Langfristige Orientierung und Visionen: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=langfristige-orientierung)
+- Kreativität: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=kreativitaet)
+- Wertschätzung: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=wertschaetzung)
+- Verbundenheit: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=verbundenheit)
+- Demut und Bescheidenheit: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=demut-und-bescheidenheit)
+- Empathie und Mitgefühl: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=empathie-und-mitgefuehl)
+- Vergebung: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=vergebung)
+- Beziehungen aufbauen: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=beziehungen-aufbauen)
+- Inklusive Denkweise und interkulturelle Kompetenz: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=inklusive-denkweise)
+- Gemeinsam Gestalten: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=gemeinsam-gestalten)
+- Kommunizieren: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=kommunizieren)
+- Mobilisieren: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=mobilisieren)
+- Mut: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=mut)
+- Hoffnung und Optimismus: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=hoffnung-und-optimismus)
+- Bewusster Umgang mit Ressourcen: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=bewusster-umgang-mit-ressourcen)
+- Proaktiv Handeln: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=proaktiv-handeln)
+- Resilienz: https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/ (App: https://guide.zukunftskompetenzchallenge.ch/app/?card=resilienz)
+
 ## Verwandtes Angebot
 
 - **Zukunftskompetenz-Challenge:** https://zukunftskompetenzchallenge.ch — kostenloser 6-Wochen-E-Mail-Kurs für Lehrpersonen zu Zukunftskompetenzen, BNE, Lehrplan 21 und Inner Development Goals
@@ -44,7 +80,7 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 ## Fünf Dimensionen und 25 Kompetenzen
 
 ### Sein — Unser inneres Leben kultivieren
-Eine komplexe Welt erfordert mehr denn je ein vertieftes Bewusstsein für unsere inneren Erfahrungen und unsere dynamische Beziehung zur Welt um uns herum. Das fordert und fördert unsere Achtsamkeit und Präsenz, innere Klarheit und unsere Fähigkeit zum reflektierten Handeln.
+Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unsere inneren Erfahrungen und unsere dynamische Beziehung zur Welt um uns herum. Dies fordert und fördert unsere Achtsamkeit und Präsenz, innere Klarheit und unsere Fähigkeit zum reflektierten Handeln.
 
 - **Innerer Kompass**: Eine tief empfundene Verpflichtung, in Übereinstimmung mit Werten und Zielen zu leben und zu handeln, die dem Wohl des Ganzen dienen.
 - **Integrität und Authentizität**: Eine aufrichtige Verpflichtung zu Ehrlichkeit und fest verankerten Werten, die in allen Handlungen zum Ausdruck kommen und verkörpert werden.
@@ -53,7 +89,7 @@ Eine komplexe Welt erfordert mehr denn je ein vertieftes Bewusstsein für unsere
 - **Präsenz**: Die Fähigkeit, ganz im Hier und Jetzt präsent zu sein, die Realität so zu akzeptieren, wie sie ist, und auf sinnvolle Weise darauf zu reagieren.
 
 ### Denken — Unsere komplexe Welt verstehen
-Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unseres Handelns bedenken, hilft uns das, die Komplexität unserer Welt zu verstehen, mit ihr umzugehen und in unserer vernetzten Welt klügere Entscheidungen zu treffen.
+Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unseres Handelns berücksichtigen und bedenken, hilft es uns, die Komplexität unserer Welt zu verstehen, mit ihr umzugehen, und in unserer vernetzten Welt klügere Entscheidungen zu treffen.
 
 - **Kritisches Denken**: Die Fähigkeit, über die Gültigkeit von Ideen, Beweisen, Annahmen und Plänen nachzudenken.
 - **Perspektivische Fähigkeiten**: Die Fähigkeit, unterschiedliche Perspektiven zu berücksichtigen und die Erkenntnisse in ein reflektiertes Verstehen und Handeln einfliessen zu lassen.
@@ -80,7 +116,7 @@ Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte
 - **Mobilisieren**: Andere inspirieren und befähigen, sich für gemeinsame Ziele und kollektives Handeln zu engagieren.
 
 ### Handeln — Veränderungen einleiten und ermöglichen
-Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten aufbauen, können wir zielgerichtet und beharrlich handeln. In unsicheren Zeiten setzt das unsere gemeinsamen Visionen in sinnvolle und konkrete Veränderungen um.
+Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten aufbauen, können wir zielgerichtet und beharrlich handeln. In unsicheren Zeiten setzt dies unsere gemeinsamen Visionen in sinnvolle und konkrete Veränderungen um.
 
 - **Mut**: Für grundlegende Werte einstehen, Entscheidungen treffen, Massnahmen ergreifen und, wenn nötig, etablierte Strukturen und Ansichten hinterfragen und aufbrechen.
 - **Hoffnung und Optimismus**: Die gemeinsame Überzeugung, eine gerechtere, integrativere und nachhaltigere Zukunft schaffen, aufbauen und aufrechterhalten zu können.

@@ -11,7 +11,9 @@
     "generate:share": "node scripts/generate-share-cards.mjs",
     "generate:og": "node scripts/generate-og.mjs",
     "generate:seo": "node scripts/generate-seo-files.mjs",
-    "prebuild": "npm run generate:share && npm run generate:og && npm run generate:seo"
+    "generate:content": "node scripts/generate-content-pages.mjs",
+    "predev": "npm run generate:content",
+    "prebuild": "npm run generate:share && npm run generate:og && npm run generate:content && npm run generate:seo"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -1,7 +1,12 @@
 // Deutsch (de-CH). Weitere Sprachen: Datei kopieren (z. B. fr.js), Werte übersetzen, IDs unverändert lassen.
 // Inhalt: Inner Development Guide 2.0 (Version 7.2) — 25 Kompetenzen in fünf Dimensionen.
-// Namen und Beschreibungen stammen aus dem Rahmenwerk (Schweizer Rechtschreibung),
-// Fragen, Ideen und Mini-Übungen sind für diese App geschrieben.
+// Dimensionsnamen, Untertitel, Einleitungen, Kompetenznamen und Beschreibungen sind
+// wörtlich aus der offiziellen deutschen Ausgabe; Fragen, Ideen, Anknüpfungspunkte und
+// Mini-Übungen sind für diese App geschrieben.
+//
+// Zwei Eingriffe in die Vorlage: ß → ss (de-CH), und der Untertitel von «Zusammenarbeit»
+// heisst hier «zusammenarbeiten» — die Vorlage trennt «zusammen arbeiten» nur, weil dort
+// ein Zeilenumbruch sitzt.
 export const ui = {
   appName: "Inner Development Guide",
   appNameSub: "im Schulalltag",
@@ -55,15 +60,15 @@ export const ui = {
 
 export const dimensions = [
   { id: "being", num: 1, name: "Sein", subtitle: "Unser inneres Leben kultivieren", color: "#D4B88C",
-    intro: "Eine komplexe Welt erfordert mehr denn je ein vertieftes Bewusstsein für unsere inneren Erfahrungen und unsere dynamische Beziehung zur Welt um uns herum. Das fordert und fördert unsere Achtsamkeit und Präsenz, innere Klarheit und unsere Fähigkeit zum reflektierten Handeln." },
+    intro: "Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unsere inneren Erfahrungen und unsere dynamische Beziehung zur Welt um uns herum. Dies fordert und fördert unsere Achtsamkeit und Präsenz, innere Klarheit und unsere Fähigkeit zum reflektierten Handeln." },
   { id: "thinking", num: 2, name: "Denken", subtitle: "Unsere komplexe Welt verstehen", color: "#E585A1",
-    intro: "Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unseres Handelns bedenken, hilft uns das, die Komplexität unserer Welt zu verstehen, mit ihr umzugehen und in unserer vernetzten Welt klügere Entscheidungen zu treffen." },
+    intro: "Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unseres Handelns berücksichtigen und bedenken, hilft es uns, die Komplexität unserer Welt zu verstehen, mit ihr umzugehen, und in unserer vernetzten Welt klügere Entscheidungen zu treffen." },
   { id: "relating", num: 3, name: "Beziehungen", subtitle: "Fürsorge für andere und die Welt", color: "#EF4136",
     intro: "Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinschaften, dem lebenden Planeten und zukünftigen Generationen schaffen wir eine gerechtere, integrativere und blühendere Welt." },
   { id: "collaborating", num: 4, name: "Zusammenarbeit", subtitle: "Vertrauen aufbauen und zusammenarbeiten", color: "#FF7E2A",
     intro: "Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte, Fähigkeiten und Perspektiven sowie die Schaffung sicherer Räume ermöglichen es allen, zu gemeinsamen Zielen und kollektiven Wirkungen beizutragen." },
   { id: "acting", num: 5, name: "Handeln", subtitle: "Veränderungen einleiten und ermöglichen", color: "#661A30",
-    intro: "Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten aufbauen, können wir zielgerichtet und beharrlich handeln. In unsicheren Zeiten setzt das unsere gemeinsamen Visionen in sinnvolle und konkrete Veränderungen um." }
+    intro: "Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten aufbauen, können wir zielgerichtet und beharrlich handeln. In unsicheren Zeiten setzt dies unsere gemeinsamen Visionen in sinnvolle und konkrete Veränderungen um." }
 ];
 
 export const skills = [

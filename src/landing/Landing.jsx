@@ -41,7 +41,7 @@ const ringGlyph = (size = 18, fill = 'none') => (
    wenn sich die Reihenfolge im Guide ändert.
    Vorne liegt «Kritisches Denken»: ein schulnaher Einstieg statt der ersten
    Karte aus «Sein». */
-const startId = 't1'
+const startId = 'kritisches-denken'
 const heroDeck = [
   startId,
   ...dimensions

@@ -3,6 +3,7 @@ export const LANGS = [
   { v: 'en', label: 'English' },
   { v: 'fr', label: 'Français' },
   { v: 'es', label: 'Español' },
+  { v: 'it', label: 'Italiano' },
   { v: 'sv', label: 'Svenska' },
 ]
 

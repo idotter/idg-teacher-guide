@@ -11,7 +11,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
 const OUT_DIR = join(ROOT, 'public/assets/share')
 const GLYPH_DIR = join(ROOT, 'public/assets/skills/white')
-const LANGS = ['de', 'en', 'fr', 'es', 'sv']
+const LANGS = ['de', 'en', 'fr', 'es', 'it', 'sv']
 
 const W = 500
 const H = 700

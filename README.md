@@ -1,9 +1,11 @@
-# IDG im Schulalltag
+# Inner Development Guide im Schulalltag
 
-Die Inner Development Goals als Reflexionskarten für Lehrpersonen. 25 Kompetenzen
-in 5 Dimensionen, je mit Reflexionsfragen für die Lehrperson und für die Klasse,
-Ideen für den Unterricht, Anknüpfungspunkten an die Fachbereiche und einer
-Mini-Übung.
+Reflexionskarten für Lehrpersonen auf Basis des Inner Development Guide 2.0:
+25 Kompetenzen in fünf Dimensionen, je mit Reflexionsfragen für die Lehrperson
+und für die Klasse, Ideen für den Unterricht, Anknüpfungspunkten an die
+Fachbereiche und einer Mini-Übung.
+
+Produktions-URL: `https://guide.zukunftskompetenzchallenge.ch`
 
 Umgesetzt aus dem Claude-Design-Projekt **IDG Reflexionsfragen App**, Datei
 `IDG Karten v3 organisch.dc.html`.
@@ -24,9 +26,10 @@ npm run build
 npm run preview
 ```
 
-Share-Bilder der Kartenfront (`public/assets/share/{lang}/{id}.png`) werden beim
-Build erzeugt (`npm run generate:share`, läuft automatisch als `prebuild`). Nach
-Änderungen an `src/content/` oder am Front-Layout das Skript erneut ausführen.
+Share-Bilder der Kartenfront (`public/assets/share/{lang}/{id}.png`), das
+OG-Bild, `robots.txt`, `sitemap.xml`, `llms.txt` und die Dimensions-/Kompetenzseiten
+werden beim Build erzeugt (siehe `prebuild` in `package.json`). Nach Änderungen an
+`src/content/` oder am Front-Layout die Generatorskripte erneut ausführen.
 
 ## Aufbau
 
@@ -45,11 +48,21 @@ src/
   content/{en,fr,es,sv}.js  dieselbe Struktur, gleiche IDs
   ds/                   Design-System-Tokens, unverändert aus dem Projekt
 scripts/
-  extract-skill-glyphs.mjs  Kompetenzglyphen aus dem Guide-PDF schneiden
-  generate-share-cards.mjs  Share-PNG der Kartenfront je Sprache und Kompetenz
+  extract-skill-glyphs.mjs   Kompetenzglyphen aus dem Guide-PDF schneiden
+  generate-share-cards.mjs   Share-PNG der Kartenfront je Sprache und Kompetenz
+  generate-og.mjs            Open-Graph-Bild
+  generate-seo-files.mjs     robots.txt, sitemap.xml, llms.txt
+  generate-content-pages.mjs Dimensions- und Kompetenzseiten
+src/seo/                     Meta-Daten, JSON-LD, Vite-SEO-Plugin
+dimensionen/                 generiert: /dimensionen/{id}/
+kompetenzen/                 generiert: /kompetenzen/{id}/
 public/
   assets/               Symbole, Kompetenzgrafiken, Icons
   manifest.webmanifest
+  robots.txt            generiert
+  sitemap.xml           generiert
+  llms.txt              generiert für KI-Assistenten
+  og-image.png          generiert
   sw.js                 Service Worker für den Offline-Betrieb
 ```
 
@@ -85,20 +98,25 @@ der Landingpage überschreibt also keine echte Merkliste.
 
 ## Sprachen
 
-Deutsch, Englisch, Französisch, Spanisch und Schwedisch. Jede Sprache ist ein
-eigenes Bündel; geladen wird nur die aktive.
+Deutsch, Englisch, Französisch, Spanisch, Italienisch und Schwedisch. Jede
+Sprache ist ein eigenes Bündel; geladen wird nur die aktive.
 
 Jede Karte hat zwei Schichten, die unterschiedlich entstanden sind:
 
 - **Rahmenwerk** — Dimensionsname, Untertitel, Einleitung, Kompetenzname und
-  Beschreibung. Aus dem **Inner Development Guide 2.0 (Version 7.2)**,
-  deutsche Ausgabe; im Deutschen wörtlich übernommen und nur auf Schweizer
-  Rechtschreibung gebracht (ß → ss), in en/fr/es/sv daraus übersetzt. Wo die
-  Formulierung der Version 1.0 der 2.0-Definition noch entspricht, ist sie
-  stehen geblieben.
+  Beschreibung. Wörtlich aus dem **Inner Development Guide 2.0 (Version 7.2)**,
+  und zwar je Sprache aus deren **eigener** Ausgabe. Das ist keine Formsache:
+  die Ausgaben sind eigenständige Fassungen, keine Übersetzungen voneinander.
+  Englisch behält in „Collaborating" das Wort *Skills*, wo Deutsch Verben nutzt;
+  Französisch nennt die Dimension „Coopérer" und formuliert durchwegs länger.
+  Wer das Rahmenwerk anfasst, nimmt deshalb die Ausgabe der Zielsprache zur
+  Hand und übersetzt nicht aus einer anderen.
 - **Pädagogik** — Reflexionsfragen, Unterrichtsideen, Anknüpfungspunkte und
   Mini-Übung. Nicht Teil des IDG-Rahmenwerks, sondern für diese App
-  geschrieben. In en/fr/es/sv aus dem Deutschen übersetzt.
+  geschrieben. In en/fr/es/it/sv aus dem Deutschen übersetzt.
+
+Die Vorlagen enthalten vereinzelt Tippfehler und Interpunktionsfehler. Sie sind
+korrigiert, und jede Korrektur steht im Kopf der betroffenen Datei.
 
 Die IDs der Kompetenzen sind sprechende Slugs (`vergebung`, `resilienz`) und
 nicht durchnummeriert. Sie stehen im Deep-Link (`/app/?card=resilienz`), in der
@@ -114,8 +132,14 @@ der Schweiz nichts bezeichnet.
 ### Weitere Sprache ergänzen
 
 `src/content/de.js` kopieren, Werte übersetzen, IDs und `icon`-Namen unverändert
-lassen, dann in `src/app/IdgCards.jsx` in `LANGS` eintragen. Die Sprachauswahl
-listet nur Sprachen, die es wirklich gibt.
+lassen. Das Rahmenwerk kommt aus der Ausgabe des Guide in dieser Sprache, nicht
+aus einer Übersetzung. Danach die Sprache in drei Listen eintragen:
+
+- `src/content/langs.js` — die Sprachauswahl
+- `scripts/generate-share-cards.mjs` — sonst fehlen die Share-Karten
+- `src/seo/meta.js` (`inLanguage`) — strukturierte Daten
+
+Zum Schluss `node scripts/generate-share-cards.mjs` laufen lassen.
 
 ## Zeichen auf den Karten
 

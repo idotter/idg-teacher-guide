@@ -1,4 +1,10 @@
 /** Zentrale SEO-/GEO-Daten für alle HTML-Einstiege. */
+import {
+  buildContentPages,
+  contentPageFromHtmlFilename,
+  dimensionPath,
+} from './content-pages.js'
+
 export const SITE_URL = 'https://guide.zukunftskompetenzchallenge.ch'
 export const SITE_NAME = 'Inner Development Guide im Schulalltag'
 export const CONTACT_MAIL = 'guide@zukunftskompetenzchallenge.ch'
@@ -89,7 +95,17 @@ export const htmlRouteMap = {
   'nutzungsbedingungen/index.html': '/nutzungsbedingungen/',
 }
 
+function toSeoPage(page) {
+  return {
+    ...page,
+    title: page.documentTitle || page.title,
+  }
+}
+
 export function pageFromHtmlFilename(filename) {
+  const contentPage = contentPageFromHtmlFilename(filename)
+  if (contentPage) return toSeoPage(contentPage)
+
   const normalized = filename.replace(/\\/g, '/')
   const matches = Object.entries(htmlRouteMap)
     .filter(([htmlPath]) => normalized.endsWith(htmlPath))
@@ -106,7 +122,27 @@ function breadcrumbJsonLd(page) {
   const items = [
     { '@type': 'ListItem', position: 1, name: 'Startseite', item: absoluteUrl('/') },
   ]
-  if (page.path !== '/') {
+  if (page.kind === 'dimension') {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: page.pageLabel,
+      item: absoluteUrl(page.path),
+    })
+  } else if (page.kind === 'skill') {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: page.dim.name,
+      item: absoluteUrl(dimensionPath(page.dim.id)),
+    })
+    items.push({
+      '@type': 'ListItem',
+      position: 3,
+      name: page.pageLabel,
+      item: absoluteUrl(page.path),
+    })
+  } else if (page.path !== '/') {
     items.push({
       '@type': 'ListItem',
       position: 2,
@@ -147,7 +183,7 @@ function webApplicationJsonLd({ slim = false } = {}) {
     operatingSystem: 'Web',
     browserRequirements: 'Requires JavaScript. Works offline after installation.',
     isAccessibleForFree: true,
-    inLanguage: ['de-CH', 'en', 'fr', 'es', 'sv'],
+    inLanguage: ['de-CH', 'en', 'fr', 'es', 'it', 'sv'],
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -272,7 +308,40 @@ export function jsonLdForPage(page) {
       blocks.unshift(webApplicationJsonLd({ slim: true }))
       break
     default:
-      blocks.unshift(genericWebPageJsonLd(page))
+      if (page.kind === 'dimension') {
+        blocks.unshift({
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: page.pageLabel,
+          description: page.description,
+          url: absoluteUrl(page.path),
+          inLanguage: 'de-CH',
+          isPartOf: {
+            '@type': 'WebSite',
+            name: SITE_NAME,
+            url: absoluteUrl('/'),
+          },
+        })
+      } else if (page.kind === 'skill') {
+        blocks.unshift({
+          '@context': 'https://schema.org',
+          '@type': 'LearningResource',
+          name: page.skill.name,
+          description: page.skill.desc,
+          url: absoluteUrl(page.path),
+          inLanguage: 'de-CH',
+          learningResourceType: 'Reflection prompt',
+          educationalLevel: 'Professional',
+          isAccessibleForFree: true,
+          isPartOf: {
+            '@type': 'WebSite',
+            name: SITE_NAME,
+            url: absoluteUrl('/'),
+          },
+        })
+      } else {
+        blocks.unshift(genericWebPageJsonLd(page))
+      }
       break
   }
 
@@ -343,5 +412,8 @@ export function renderSeoHead(page) {
 }
 
 export function indexedPages() {
-  return Object.values(pages).filter((page) => page.indexed)
+  return [
+    ...Object.values(pages).filter((page) => page.indexed),
+    ...buildContentPages().filter((page) => page.indexed),
+  ]
 }

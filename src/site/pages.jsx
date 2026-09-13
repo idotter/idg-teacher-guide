@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { contentPageFromPath } from '../seo/content-pages.js'
 import { CONTACT_MAIL, pages as seoPages } from '../seo/meta.js'
+import { dimensionPageBody, skillPageBody } from './content-page-bodies.jsx'
 
 export { CONTACT_MAIL }
 
@@ -293,6 +295,19 @@ export const pages = {
 }
 
 export function pageFromPath(pathname) {
+  const contentPage = contentPageFromPath(pathname)
+  if (contentPage) {
+    return {
+      title: contentPage.title,
+      documentTitle: contentPage.documentTitle,
+      description: contentPage.description,
+      lead: contentPage.kind === 'dimension' ? contentPage.dim.subtitle : contentPage.skill.desc,
+      body: contentPage.kind === 'dimension'
+        ? dimensionPageBody(contentPage)
+        : skillPageBody(contentPage),
+    }
+  }
+
   const key = pathname.replace(/\/+$/, '')
   return pages[key ? `${key}/` : '/']
 }
