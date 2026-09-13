@@ -10,7 +10,7 @@
  * dieselben Pfade, eine German-only und eine sprachbewusste.
  */
 import { DEFAULT_LANG, LANG_IDS, localizedPath } from '../site/routes.js'
-import { SITE_NAME } from './site-info.js'
+import { dimensionPageDescription, pageLabel, skillPageDescription } from './site-info.js'
 
 import de from '../content/de.js'
 import en from '../content/en.js'
@@ -31,10 +31,6 @@ const SITE_BY_LANG = { de: deSite, en: enSite, fr: frSite, es: esSite, it: itSit
 
 const INDEX_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 
-function pageLabel(name, suffix = SITE_NAME) {
-  return `${name} — ${suffix}`
-}
-
 export function buildDimensionPages(lang) {
   const { dimensions, skills, ui } = CONTENT_BY_LANG[lang]
   return dimensions.map((dim) => {
@@ -47,7 +43,7 @@ export function buildDimensionPages(lang) {
       ui,
       title: dim.name,
       documentTitle: pageLabel(dim.name),
-      description: `${dim.subtitle}. ${dim.intro.slice(0, 140).trim()}…`,
+      description: dimensionPageDescription(dim),
       robots: INDEX_ROBOTS,
       indexed: true,
       sitemapPriority: 0.7,
@@ -75,7 +71,7 @@ export function buildSkillPages(lang) {
       ui,
       title: skill.name,
       documentTitle: pageLabel(skill.name),
-      description: `${skill.desc} ${descriptionSuffix}`,
+      description: skillPageDescription(skill, descriptionSuffix),
       robots: INDEX_ROBOTS,
       indexed: true,
       sitemapPriority: 0.6,

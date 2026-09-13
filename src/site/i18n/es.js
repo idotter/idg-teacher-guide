@@ -227,6 +227,12 @@ export const site = {
   contentPages: {
     skillDescriptionSuffix: 'Una carta de reflexión como punto de partida en el Inner Development Guide 2.0 para el profesorado.',
     crumbHome: 'Inicio',
+    crumbsAriaLabel: 'Ruta de navegación',
+    dimensionPrefix: 'Dimensión',
+    dimensionHeading: 'Habilidades en «{dimName}»',
+    openAppCta: 'Abrir las cartas de reflexión',
+    openCardCta: 'Abrir la carta «{skillName}»',
+    otherSkillsHeading: 'Más habilidades en «{dimName}»',
   },
 }
 

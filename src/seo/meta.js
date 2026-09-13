@@ -517,9 +517,10 @@ export function renderSeoHead(page) {
     metaTag('description', page.description),
     metaTag('robots', page.robots),
     // `site.lang` (kurzer Code, z. B. 'de'/'fr'), nicht `site.htmlLang`
-    // ('de-CH'): so bleibt dieser Tag für Deutsch identisch mit dem
-    // bisherigen Wert und `document.documentElement.lang` (chrome.jsx)
-    // bleibt konsistent mit dem, was hier steht.
+    // ('de-CH'): Vor Task 6 stand hier fest 'de', nicht 'de-CH' — mit
+    // `site.htmlLang` änderte sich dieser Wert für Deutsch, obwohl die
+    // deutschen Seiten unverändert bleiben sollen. `site.lang` liefert für
+    // Deutsch exakt den alten Wert.
     metaTag('language', site.lang),
     metaTag('geo.region', 'CH'),
     ...(page.indexed

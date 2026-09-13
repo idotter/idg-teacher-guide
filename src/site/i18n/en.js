@@ -225,6 +225,12 @@ export const site = {
   contentPages: {
     skillDescriptionSuffix: 'A reflection card as a way into the Inner Development Guide 2.0 for teachers.',
     crumbHome: 'Home',
+    crumbsAriaLabel: 'Breadcrumb',
+    dimensionPrefix: 'Dimension',
+    dimensionHeading: 'Skills in “{dimName}”',
+    openAppCta: 'Open the reflection cards',
+    openCardCta: 'Open the “{skillName}” card',
+    otherSkillsHeading: 'More skills in “{dimName}”',
   },
 }
 

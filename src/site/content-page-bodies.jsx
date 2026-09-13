@@ -1,10 +1,17 @@
 import React from 'react'
 import { localizedPath } from './routes.js'
 
-export function Crumbs({ items }) {
+/* Ersetzt {platzhalter} in einem contentPages-Text — dieselbe Regel wie in
+   pages.jsx/Landing.jsx, hier bewusst eine eigene, kleine Kopie statt eines
+   gemeinsamen Imports: diese Datei soll nicht an deren Bundle hängen. */
+function fill(text, vars) {
+  return text.replace(/\{(\w+)\}/g, (whole, name) => (name in vars ? vars[name] : whole))
+}
+
+export function Crumbs({ items, ariaLabel }) {
   if (!items?.length) return null
   return (
-    <nav className="crumbs" aria-label="Brotkrumen">
+    <nav className="crumbs" aria-label={ariaLabel}>
       <ol>
         {items.map((item, i) => {
           const last = i === items.length - 1
@@ -51,15 +58,17 @@ function QuestionList({ items }) {
 }
 
 /* `ui` kommt vom Aufrufer (die Kartendaten der Route-Sprache aus
-   `pages.jsx`/`lang-modules.js`) statt fest aus `content/de.js` — sonst
-   stünden auf `/it/competenze/mut/` deutsche Beschriftungen im
-   vorgerenderten Rumpf. */
-export function dimensionPageBody(page) {
+   `pages.jsx`/`lang-modules.js`) statt fest aus `content/de.js`; die
+   sichtbaren Beschriftungen dieser Datei selbst (Knöpfe, Überschriften,
+   Brotkrumen-aria-label) kommen aus `site.contentPages` — sonst stünden auf
+   `/it/competenze/mut/` deutsche Beschriftungen im vorgerenderten Rumpf. */
+export function dimensionPageBody(page, site) {
   const { dim, dimSkills, lang } = page
+  const cp = site.contentPages
   return (
     <>
       <p>{dim.intro}</p>
-      <h2>Kompetenzen in «{dim.name}»</h2>
+      <h2>{fill(cp.dimensionHeading, { dimName: dim.name })}</h2>
       <ul>
         {dimSkills.map((skill) => (
           <li key={skill.id}>
@@ -70,20 +79,21 @@ export function dimensionPageBody(page) {
         ))}
       </ul>
       <p>
-        <a className="btn" href="/app/">Reflexionskarten öffnen</a>
+        <a className="btn" href="/app/">{cp.openAppCta}</a>
       </p>
     </>
   )
 }
 
-export function skillPageBody(page, ui) {
+export function skillPageBody(page, site, ui) {
   const { skill, dim, dimSkills, lang } = page
+  const cp = site.contentPages
   const siblings = (dimSkills || []).filter((item) => item.id !== skill.id)
 
   return (
     <>
       <p>
-        Dimension{' '}
+        {cp.dimensionPrefix}{' '}
         <a href={localizedPath('dimension', lang, dim.id)}>{dim.name}</a>
         {' '}— {dim.subtitle}
       </p>
@@ -126,13 +136,13 @@ export function skillPageBody(page, ui) {
 
       <p>
         <a className="btn" href={`/app/?card=${encodeURIComponent(skill.id)}`}>
-          Karte «{skill.name}» öffnen
+          {fill(cp.openCardCta, { skillName: skill.name })}
         </a>
       </p>
 
       {siblings.length > 0 && (
         <>
-          <h2>Weitere Kompetenzen in «{dim.name}»</h2>
+          <h2>{fill(cp.otherSkillsHeading, { dimName: dim.name })}</h2>
           <ul>
             {siblings.map((item) => (
               <li key={item.id}>

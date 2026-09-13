@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CONTACT_MAIL, SITE_NAME } from '../seo/site-info.js'
+import { CONTACT_MAIL, pageLabel } from '../seo/site-info.js'
 import {
   dimensionCrumbs,
   dimensionPageBody,
@@ -151,14 +151,15 @@ function ContactForm({ labels }) {
   )
 }
 
-function pageLabel(name) {
-  return `${name} — ${SITE_NAME}`
-}
-
 /* Dimensions- und Kompetenzseiten kommen aus den Kartendaten der
    Route-Sprache (`content`, von lang-modules.js geladen) — nicht mehr aus
    dem build-only `seo/content-pages.js`. Das importiert inzwischen alle
-   sechs Sprachen statisch und darf deshalb nie ins Client-Bundle geraten. */
+   sechs Sprachen statisch und darf deshalb nie ins Client-Bundle geraten.
+   `pageLabel` kommt aus `seo/site-info.js` — dieselbe Ableitung wie beim
+   Build (content-pages.js), damit Crawler-Titel und Hydrations-Titel nicht
+   auseinanderlaufen, wenn nur eine Stelle geändert wird. Ein `description`-
+   Feld gibt es hier bewusst nicht: PageLayout rendert es nicht, das brauchen
+   nur die SEO-Metatags des Builds. */
 function contentPage(pathname, lang, site, content) {
   const { key, id } = routeKeyFromPath(pathname)
   const { dimensions, skills, ui } = content
@@ -171,10 +172,9 @@ function contentPage(pathname, lang, site, content) {
     return {
       title: dim.name,
       documentTitle: pageLabel(dim.name),
-      description: `${dim.subtitle}. ${dim.intro.slice(0, 140).trim()}…`,
       lead: dim.subtitle,
       crumbs: dimensionCrumbs(page, site),
-      body: dimensionPageBody(page),
+      body: dimensionPageBody(page, site),
     }
   }
 
@@ -187,10 +187,9 @@ function contentPage(pathname, lang, site, content) {
     return {
       title: skill.name,
       documentTitle: pageLabel(skill.name),
-      description: `${skill.desc} ${site.contentPages.skillDescriptionSuffix}`,
       lead: skill.desc,
       crumbs: skillCrumbs(page, site),
-      body: skillPageBody(page, ui),
+      body: skillPageBody(page, site, ui),
     }
   }
 

@@ -230,6 +230,12 @@ export const site = {
   contentPages: {
     skillDescriptionSuffix: "Une carte de réflexion comme porte d'entrée dans le Inner Development Guide 2.0 pour les enseignantes et enseignants.",
     crumbHome: "Accueil",
+    crumbsAriaLabel: "Fil d'Ariane",
+    dimensionPrefix: 'Dimension',
+    dimensionHeading: 'Capacités dans « {dimName} »',
+    openAppCta: 'Ouvrir les cartes de réflexion',
+    openCardCta: 'Ouvrir la carte « {skillName} »',
+    otherSkillsHeading: 'Autres capacités dans « {dimName} »',
   },
 }
 

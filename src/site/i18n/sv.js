@@ -227,6 +227,12 @@ export const site = {
   contentPages: {
     skillDescriptionSuffix: 'Ett reflektionskort som ingång till Inner Development Guide 2.0 för lärare.',
     crumbHome: 'Startsida',
+    crumbsAriaLabel: 'Brödsmulor',
+    dimensionPrefix: 'Dimension',
+    dimensionHeading: 'Förmågor inom ”{dimName}”',
+    openAppCta: 'Öppna reflektionskorten',
+    openCardCta: 'Öppna kortet ”{skillName}”',
+    otherSkillsHeading: 'Fler förmågor inom ”{dimName}”',
   },
 }
 

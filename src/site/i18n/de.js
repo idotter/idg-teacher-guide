@@ -240,6 +240,12 @@ export const site = {
   contentPages: {
     skillDescriptionSuffix: 'Reflexionskarten-Einstieg für Lehrpersonen im Inner Development Guide 2.0.',
     crumbHome: 'Startseite',
+    crumbsAriaLabel: 'Brotkrumen',
+    dimensionPrefix: 'Dimension',
+    dimensionHeading: 'Kompetenzen in «{dimName}»',
+    openAppCta: 'Reflexionskarten öffnen',
+    openCardCta: 'Karte «{skillName}» öffnen',
+    otherSkillsHeading: 'Weitere Kompetenzen in «{dimName}»',
   },
 }
 

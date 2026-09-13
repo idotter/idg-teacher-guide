@@ -26,7 +26,7 @@ export function PageLayout({ page, here = '/', site }) {
     <div className="site">
       <SiteHeader site={site} here={here} />
       <main className="page wrap">
-        <Crumbs items={page.crumbs} />
+        <Crumbs items={page.crumbs} ariaLabel={site.contentPages.crumbsAriaLabel} />
         <h1>{page.title}</h1>
         {page.lead && <p className="page-lead">{page.lead}</p>}
         <div className="prose">{page.body}</div>
