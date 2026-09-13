@@ -131,6 +131,46 @@ const oSvg = (els) => (
   </svg>
 )
 
+function buildShareText(sk, dim, ui, code) {
+  const parts = [
+    `${sk.name}${code ? ` · ${code}` : ''} (${dim.name})`,
+    '',
+    sk.desc,
+    '',
+  ]
+  if (sk.teacher?.length) {
+    parts.push(ui.forMe)
+    sk.teacher.forEach((q) => parts.push(`• ${q}`))
+    parts.push('')
+  }
+  if (sk.students?.length) {
+    parts.push(ui.forStudents)
+    sk.students.forEach((q) => parts.push(`• ${q}`))
+    parts.push('')
+  }
+  if (sk.ideas?.length) {
+    parts.push(ui.ideas)
+    sk.ideas.forEach((q) => parts.push(`• ${q}`))
+    parts.push('')
+  }
+  if (sk.subjects?.length) {
+    parts.push(`${ui.subjects}: ${sk.subjects.join(', ')}`)
+    parts.push('')
+  }
+  if (sk.exercise?.title) {
+    parts.push(ui.exercise)
+    parts.push(`${sk.exercise.title}: ${sk.exercise.text}`)
+    parts.push('')
+  }
+  parts.push(ui.attribution)
+  return parts.join('\n').trim()
+}
+
+function cardShareUrl(id) {
+  if (typeof window === 'undefined') return `/app/?card=${encodeURIComponent(id)}`
+  return `${window.location.origin}/app/?card=${encodeURIComponent(id)}`
+}
+
 const TOUR_STEPS = [
   {
     t: 'Karte umdrehen',
@@ -195,6 +235,49 @@ export default class IdgCards extends React.Component {
     try { localStorage.setItem(this.key(k), JSON.stringify(v)) } catch { /* Privatmodus o. Ä. */ }
   }
 
+  usesDeepLink = () => !this.props.embedded && !(this.props.only && this.props.only.length)
+
+  resolveCardIndex = (id) => {
+    const d = this.state.data
+    if (!d || !id) return -1
+    if (!d.skills.some((k) => k.id === id)) return -1
+    const base = (this.state.prefs || {}).shuffle ? d.shuffled : d.order
+    return base.findIndex((k) => k.id === id)
+  }
+
+  openCardInFullStack = (id, cb) => {
+    const idx = this.resolveCardIndex(id)
+    if (idx < 0) return false
+    this.setState({
+      tab: 'stack', filter: 'all', index: idx, flipped: false, dx: 0, sheet: false, menu: false,
+    }, cb)
+    return true
+  }
+
+  syncUrlToCard = (sk) => {
+    if (!this.usesDeepLink() || !sk || typeof window === 'undefined') return
+    const url = new URL(window.location.href)
+    url.searchParams.set('card', sk.id)
+    window.history.replaceState(null, '', `${url.pathname}${url.search}`)
+  }
+
+  syncUrlFromIndex = () => {
+    const sk = this.list()[this.state.index]
+    if (sk) this.syncUrlToCard(sk)
+  }
+
+  initialCardIndex = (data, shuffled, prefs, preserveId) => {
+    if (!this.usesDeepLink()) return 0
+    const urlId = typeof window !== 'undefined'
+      ? new URLSearchParams(window.location.search).get('card')
+      : null
+    const targetId = urlId || preserveId
+    if (!targetId || !data.skills.some((k) => k.id === targetId)) return 0
+    const base = prefs.shuffle ? shuffled : data.skills
+    const idx = base.findIndex((k) => k.id === targetId)
+    return idx >= 0 ? idx : 0
+  }
+
   async componentDidMount() {
     this.mounted = true
 
@@ -232,6 +315,16 @@ export default class IdgCards extends React.Component {
     await this.loadLang(prefs.lang ?? this.props.lang ?? 'de', saved)
   }
 
+  componentDidUpdate(_prevProps, prevState) {
+    if (!this.usesDeepLink() || this.state.tab !== 'stack' || !this.state.data) return
+    if (!prevState.data) return
+    const list = this.list()
+    const sk = list[this.state.index]
+    const prevList = this.list(prevState)
+    const prevSk = prevList[prevState.index]
+    if (sk && sk.id !== prevSk?.id) this.syncUrlToCard(sk)
+  }
+
   componentWillUnmount() {
     this.mounted = false
     if (this.keyTarget && this.onKey) this.keyTarget.removeEventListener('keydown', this.onKey)
@@ -239,6 +332,8 @@ export default class IdgCards extends React.Component {
   }
 
   async loadLang(lang, saved = this.state.saved) {
+    const preserveId = this.state.data ? this.list()[this.state.index]?.id : null
+    const prefs = this.state.prefs || this.read('prefs', {}) || {}
     let mod
     try { mod = await import(`../content/${lang}.js`) } catch { mod = await import('../content/de.js') }
     const data = mod.default || mod
@@ -255,7 +350,11 @@ export default class IdgCards extends React.Component {
     }
     this.dayId = shuffled[0].id
     if (this.mounted === false) return
-    this.setState({ data: { ...data, order: data.skills, shuffled }, saved, index: 0, flipped: false })
+    const index = this.initialCardIndex(data, shuffled, prefs, preserveId)
+    this.setState(
+      { data: { ...data, order: data.skills, shuffled }, saved, index, filter: 'all', flipped: false },
+      () => { if (this.usesDeepLink()) this.syncUrlFromIndex() },
+    )
   }
 
   list(s = this.state) {
@@ -333,12 +432,22 @@ export default class IdgCards extends React.Component {
 
   doShare = async (sk, card, dim, ui) => {
     if (!sk) return
-    const text = `${card.name} (${dim.name}) – ${sk.desc}\n\n${ui.forMe}: ${sk.teacher[0]}\n\n${ui.attribution}`
+    const body = buildShareText(sk, dim, ui, card.code)
+    const text = `${body}\n\n${cardShareUrl(sk.id)}`
     try {
-      if (navigator.share) { await navigator.share({ title: card.name, text }); return }
+      if (navigator.share) {
+        await navigator.share({ title: card.name, text })
+        return
+      }
       await navigator.clipboard.writeText(text)
       this.toast(ui.shared)
-    } catch { this.toast(ui.shared) }
+    } catch (err) {
+      if (err?.name === 'AbortError') return
+      try {
+        await navigator.clipboard.writeText(text)
+        this.toast(ui.shared)
+      } catch { /* Privatmodus o. Ä. */ }
+    }
   }
 
   render() {
