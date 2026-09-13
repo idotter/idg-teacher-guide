@@ -4,7 +4,7 @@ import {
   contentPageFromHtmlFilename,
 } from './content-pages.js'
 import { SEGMENTS } from '../site/i18n/segments.js'
-import { CONTACT_MAIL, SITE_NAME } from './site-info.js'
+import { CONTACT_MAIL, SITE_NAME, siteBrand } from './site-info.js'
 import {
   DEFAULT_LANG,
   LANG_IDS,
@@ -25,6 +25,16 @@ const SITE_BY_LANG = { de: deSite, en: enSite, fr: frSite, es: esSite, it: itSit
 
 function siteOf(lang) {
   return SITE_BY_LANG[lang] || SITE_BY_LANG[DEFAULT_LANG]
+}
+
+/** `<html lang>` einer Sprache — für die generierten HTML-Stubs
+ *  (`src/seo/content-routes.js`, gebraucht von
+ *  `scripts/generate-content-pages.mjs`). Eigener Export statt einer
+ *  weiteren `SITE_BY_LANG`-Kopie dort: `siteOf` kennt die sechs Sprachbäume
+ *  bereits, eine vierte Stelle mit derselben Zuordnung wäre reine
+ *  Wiederholung (Fix-Runde 1, Punkt 4). */
+export function htmlLangOf(lang) {
+  return siteOf(lang).htmlLang
 }
 
 // Reexportiert, damit bestehende Aufrufer (scripts/generate-seo-files.mjs
@@ -497,6 +507,12 @@ function jsonLdScript(block) {
  *  trüge z. B. `/fr/index.html` einen deutschen noscript-Block. */
 export function landingNoscriptHtml(lang = DEFAULT_LANG) {
   const site = siteOf(lang)
+  // Lokalisierter Markenname (chrome.brand + chrome.brandSub), nicht das
+  // feste, sprachübergreifende SITE_NAME: sonst widerspricht sich die Seite
+  // im eigenen Kopf, z. B. <title>„…en classe"</title> neben einem
+  // noscript-Block, der „…im Schulalltag" zeigt. Für Deutsch ist
+  // siteBrand(site) wortgleich mit SITE_NAME (Fix-Runde 1, Punkt 1).
+  const brand = siteBrand(site)
   const dimLinks = buildContentPages(lang)
     .filter((page) => page.kind === 'dimension')
     .map((page) => `<a href="${escapeHtml(page.path)}">${escapeHtml(page.dim.name)}</a>`)
@@ -506,10 +522,13 @@ export function landingNoscriptHtml(lang = DEFAULT_LANG) {
   const projectPath = localizedPath('project', lang)
   const contactPath = localizedPath('contact', lang)
 
+  // dimensionsLabel trägt die Interpunktion (Doppelpunkt) schon selbst, nicht
+  // fest im Template: Französisch braucht ein Leerzeichen davor
+  // ("Dimensions :"), die anderen Sprachen nicht (Fix-Runde 1, Punkt 7).
   return `<noscript>
-  <p><strong>${escapeHtml(SITE_NAME)}</strong> — ${escapeHtml(site.landing.noscript.tagline)}</p>
+  <p><strong>${escapeHtml(brand)}</strong> — ${escapeHtml(site.landing.noscript.tagline)}</p>
   <p>${escapeHtml(site.landing.noscript.intro)}</p>
-  <p>${escapeHtml(site.landing.noscript.dimensionsLabel)}: ${dimLinks}</p>
+  <p>${escapeHtml(site.landing.noscript.dimensionsLabel)} ${dimLinks}</p>
   <p><a href="${escapeHtml(appPath)}">${escapeHtml(site.contentPages.openAppCta)}</a> · <a href="${escapeHtml(projectPath)}">${escapeHtml(site.pages.project.navLabel)}</a> · <a href="${escapeHtml(contactPath)}">${escapeHtml(site.pages.contact.navLabel)}</a></p>
 </noscript>`
 }

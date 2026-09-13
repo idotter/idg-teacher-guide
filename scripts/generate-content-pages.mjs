@@ -6,33 +6,21 @@
  * projekt/, kontakt/, datenschutz/, nutzungsbedingungen/, app/) sind
  * handgepflegt und bleiben unangetastet.
  *
- * Welche Stubs das sind und welchen Rollup-Einstiegsnamen (`inputKey`) sie
- * bekommen, entscheidet die reine Funktion `buildContentRoutes` in
- * `src/seo/content-routes.js` — hier wird nur noch geschrieben.
+ * Welche Stubs das sind, welchen Rollup-Einstiegsnamen (`inputKey`), welches
+ * `<html lang>` und welchen JS-Einstieg (`scriptSrc`) sie bekommen,
+ * entscheidet die reine Funktion `buildContentRoutes` in
+ * `src/seo/content-routes.js` — hier wird nur noch geschrieben. (Vorher
+ * importierte dieses Skript dafür selbst alle sechs `site/i18n/<lang>.js`
+ * und hielt eine eigene `SITE_BY_LANG`-Kopie — die vierte im Repo neben
+ * `content-pages.js`, `meta.js`, `vite-plugin-seo.js`. Fix-Runde 1, Punkt 4.)
  */
 import { mkdir, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { buildContentRoutes, contentRouteFindings } from '../src/seo/content-routes.js'
 
-import deSite from '../src/site/i18n/de.js'
-import enSite from '../src/site/i18n/en.js'
-import frSite from '../src/site/i18n/fr.js'
-import esSite from '../src/site/i18n/es.js'
-import itSite from '../src/site/i18n/it.js'
-import svSite from '../src/site/i18n/sv.js'
-
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
-
-const SITE_BY_LANG = { de: deSite, en: enSite, fr: frSite, es: esSite, it: itSite, sv: svSite }
-
-/** Die Startseite jeder Sprache lädt die Landingpage-Bundle, jede andere
- *  generierte Seite (Unterseite, Dimension, Kompetenz) die Seitenrumpf-Bundle
- *  von `src/site/page-main.jsx` — genau wie die handgepflegten Einstiege. */
-function scriptSrcFor(routeKey) {
-  return routeKey === 'home' ? '/src/landing/main.jsx' : '/src/site/page-main.jsx'
-}
 
 function pageHtml(htmlLang, scriptSrc) {
   return `<!DOCTYPE html>
@@ -65,9 +53,8 @@ async function main() {
 
   for (const route of routes) {
     const dir = join(ROOT, dirname(route.html))
-    const htmlLang = SITE_BY_LANG[route.lang].htmlLang
     await mkdir(dir, { recursive: true })
-    await writeFile(join(ROOT, route.html), pageHtml(htmlLang, scriptSrcFor(route.routeKey)))
+    await writeFile(join(ROOT, route.html), pageHtml(route.htmlLang, route.scriptSrc))
   }
 
   await writeFile(

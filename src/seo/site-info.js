@@ -15,12 +15,31 @@
  * `site/pages.jsx` beim Rendern (`document.title` bei der Hydration, siehe
  * `site/Page.jsx`). Stünden sie an zwei Stellen, liefe eine Änderung am
  * Trennzeichen nur auf einer Seite still auseinander.
+ *
+ * `SITE_NAME` bleibt der feste, sprachübergreifende Produktname für JSON-LD
+ * (`og:site_name`, `WebApplication.name` u. Ä. in `seo/meta.js`) — das ist
+ * eine bewusste Design-Entscheidung aus Task 6. Für sichtbaren Text wie den
+ * `<title>` einer Inhaltsseite oder den Noscript-Block der Startseite ist er
+ * aber falsch: `pageLabel`/`landingNoscriptHtml` sollen den lokalisierten
+ * Markennamen zeigen (`chrome.brand` + `chrome.brandSub` der Route-Sprache),
+ * sonst trägt z. B. `/fr/dimensions/being/` einen deutschen Titelanhang neben
+ * einem `<title>`, das für `/fr/projet/` korrekt "Inner Development Guide en
+ * classe" zeigt (Fix-Runde 1, Punkt 1+3). `siteBrand` baut genau diesen
+ * String; für Deutsch ist er wortgleich mit `SITE_NAME` (geprüft in
+ * `site-info.test.js`), darum bleibt `pageLabel(name)` ohne zweites Argument
+ * unverändert deutsch.
  */
 export const SITE_NAME = 'Inner Development Guide im Schulalltag'
 export const CONTACT_MAIL = 'guide@zukunftskompetenzchallenge.ch'
 
-export function pageLabel(name) {
-  return `${name} — ${SITE_NAME}`
+/** Lokalisierter Markenname einer Sprache — `chrome.brand` + `chrome.brandSub`
+ *  des übergebenen `site`-Objekts (`site/i18n/<lang>.js`). */
+export function siteBrand(site) {
+  return `${site.chrome.brand} ${site.chrome.brandSub}`
+}
+
+export function pageLabel(name, brand = SITE_NAME) {
+  return `${name} — ${brand}`
 }
 
 export function dimensionPageDescription(dim) {

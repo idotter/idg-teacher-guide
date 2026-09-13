@@ -226,7 +226,7 @@ export const site = {
     noscript: {
       tagline: '25 förmågor som reflektionskort för lärare.',
       intro: 'Inner Development Guide 2.0 beskriver 25 inre förmågor i fem dimensioner: Vara, Tänka, Relatera, Samarbeta och Agera. Den här digitala kortleken översätter dem till skolvardagen — med reflektionsfrågor, idéer för undervisningen och miniövningar.',
-      dimensionsLabel: 'Dimensioner',
+      dimensionsLabel: 'Dimensioner:',
     },
   },
 

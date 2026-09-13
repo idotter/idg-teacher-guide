@@ -244,7 +244,7 @@ export const site = {
     noscript: {
       tagline: '25 Kompetenzen als Reflexionskarten für Lehrpersonen.',
       intro: 'Der Inner Development Guide 2.0 beschreibt 25 innere Fähigkeiten in fünf Dimensionen: Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses digitale Kartenset übersetzt sie in den Unterrichtsalltag — mit Reflexionsfragen, Ideen für die Klasse und Mini-Übungen.',
-      dimensionsLabel: 'Dimensionen',
+      dimensionsLabel: 'Dimensionen:',
     },
   },
 

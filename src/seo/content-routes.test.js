@@ -1,5 +1,10 @@
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 import { buildContentRoutes, contentRouteFindings, HANDCRAFTED_INPUT_KEYS } from './content-routes.js'
+
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
 /* Diese Suite sichert genau das zu, was der Task-7-Auftrag als stillen
    Fehlerkanal benennt: `Object.fromEntries` in vite.config.js verschluckt
@@ -60,6 +65,51 @@ describe('buildContentRoutes', () => {
       const siteStubs = routes.filter((r) => r.lang === lang && r.routeKey !== 'dimension' && r.routeKey !== 'skill')
       expect(siteStubs).toHaveLength(5)
     }
+  })
+
+  /* Fix-Runde 1, Punkt 4: htmlLang/scriptSrc lebten vorher ungetestet im
+     .mjs-Skript. Fehlerszenario aus dem Review: wer `routeKey === 'home'`
+     versehentlich auf `'landing'` ändert, bekommt fünf kaputte Startseiten
+     bei sonst grüner Suite — die erste Zusicherung hier fängt genau das. */
+  it('lädt genau die fünf Startseiten über landing/main.jsx, alle übrigen 200 über page-main.jsx', () => {
+    const landing = routes.filter((r) => r.scriptSrc === '/src/landing/main.jsx')
+    const pageMain = routes.filter((r) => r.scriptSrc === '/src/site/page-main.jsx')
+    expect(landing).toHaveLength(5)
+    expect(pageMain).toHaveLength(200)
+    expect(landing.every((r) => r.routeKey === 'home')).toBe(true)
+    expect(landing.map((r) => r.path).sort()).toEqual(['/en/', '/es/', '/fr/', '/it/', '/sv/'])
+  })
+
+  it('trägt für jede Route das htmlLang ihrer Sprache', () => {
+    const expected = { de: 'de-CH', en: 'en', fr: 'fr', es: 'es', it: 'it', sv: 'sv' }
+    for (const route of routes) {
+      expect(route.htmlLang).toBe(expected[route.lang])
+    }
+  })
+})
+
+/* Fix-Runde 1, Punkt 5: `HANDCRAFTED_INPUT_KEYS` spiegelt die sechs
+   handgepflegten Einstiegsnamen aus `vite.config.js` von Hand. Dieser Test
+   schliesst die Schleife: kommt in `vite.config.js` ein siebter Einstieg vor
+   dem `...loadContentInputs(__dirname)`-Spread dazu, ohne dass die Konstante
+   hier mitwächst, würde `...loadContentInputs` ihn (als letzter Eintrag im
+   Objekt-Literal) still überschreiben können, falls ein generierter Stub
+   je denselben Namen trüge — genau der Kanal, den `contentRouteFindings`
+   eigentlich zumachen soll. */
+describe('HANDCRAFTED_INPUT_KEYS bleibt synchron mit vite.config.js', () => {
+  function handcraftedKeysFromViteConfig() {
+    const src = readFileSync(join(REPO_ROOT, 'vite.config.js'), 'utf8')
+    const match = src.match(/input:\s*\{([\s\S]*?)\.\.\.loadContentInputs/)
+    if (!match) {
+      throw new Error('vite.config.js: input-Block mit ...loadContentInputs nicht gefunden — Testannahme prüfen')
+    }
+    return [...match[1].matchAll(/^\s*([A-Za-z_][A-Za-z0-9_]*):/gm)].map((m) => m[1])
+  }
+
+  it('enthält genau die Einstiegsnamen, die vite.config.js von Hand vor dem Spread aus content-routes.json einträgt', () => {
+    const fromViteConfig = handcraftedKeysFromViteConfig()
+    expect(fromViteConfig.length).toBeGreaterThan(0)
+    expect(new Set(fromViteConfig)).toEqual(new Set(HANDCRAFTED_INPUT_KEYS))
   })
 })
 

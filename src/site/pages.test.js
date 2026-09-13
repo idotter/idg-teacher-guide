@@ -46,4 +46,17 @@ describe('pageFromPath — Inhaltsseiten in fremder Sprache', () => {
     expect(page.crumbs[0]).toEqual({ href: '/', label: 'Startseite' })
     expect(page.title).toBe(skill.name)
   })
+
+  /* Fix-Runde 1, Punkt 3: `documentTitle` hing hier bisher am festen
+     `SITE_NAME` (Deutsch) statt am lokalisierten Markennamen der Route-
+     Sprache — derselbe Fund wie in `content-pages.js` (Build), nur für den
+     Hydrations-Titel. `.toContain(skill.name)` oben hätte das nie gemeldet:
+     ein deutscher Markenname enthält den italienischen Kompetenznamen
+     trotzdem. */
+  it('trägt im documentTitle den italienischen Markennamen, nicht "im Schulalltag"', () => {
+    const page = pageFromPath('/it/competenze/mut/', itSite, itContent)
+    expect(page.documentTitle).toBe(`Coraggio — ${itSite.chrome.brand} ${itSite.chrome.brandSub}`)
+    expect(page.documentTitle).toBe('Coraggio — Inner Development Guide in classe')
+    expect(page.documentTitle).not.toContain('im Schulalltag')
+  })
 })

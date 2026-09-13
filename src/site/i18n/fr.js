@@ -229,7 +229,7 @@ export const site = {
     noscript: {
       tagline: "25 capacités sous forme de cartes de réflexion pour les enseignantes et enseignants.",
       intro: "Le Inner Development Guide 2.0 décrit 25 capacités intérieures réparties en cinq dimensions : Être, Penser, Interagir, Coopérer et Agir. Ce jeu de cartes numérique les traduit dans le quotidien scolaire — avec des questions de réflexion, des idées pour la classe et des mini-exercices.",
-      dimensionsLabel: "Dimensions",
+      dimensionsLabel: "Dimensions :",
     },
   },
 

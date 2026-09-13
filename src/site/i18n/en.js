@@ -224,7 +224,7 @@ export const site = {
     noscript: {
       tagline: '25 skills as reflection cards for teachers.',
       intro: 'The Inner Development Guide 2.0 describes 25 inner abilities in five dimensions: Being, Thinking, Relating, Collaborating and Acting. This digital card set translates them into everyday school life — with reflection questions, classroom ideas and mini-exercises.',
-      dimensionsLabel: 'Dimensions',
+      dimensionsLabel: 'Dimensions:',
     },
   },
 

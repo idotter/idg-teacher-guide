@@ -1,21 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { injectSeoPlugin } from './src/seo/vite-plugin-seo.js'
-
-function loadContentInputs(rootDir) {
-  try {
-    const routes = JSON.parse(
-      readFileSync(resolve(rootDir, 'scripts/content-routes.json'), 'utf8'),
-    )
-    return Object.fromEntries(
-      routes.map((route) => [route.inputKey, resolve(rootDir, route.html)]),
-    )
-  } catch {
-    return {}
-  }
-}
+import { loadContentInputs } from './scripts/load-content-inputs.mjs'
 
 // Einstiegspunkte:
 //   /                      Landingpage (Deutsch, handgepflegt)

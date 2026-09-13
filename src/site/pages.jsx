@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CONTACT_MAIL, pageLabel } from '../seo/site-info.js'
+import { CONTACT_MAIL, pageLabel, siteBrand } from '../seo/site-info.js'
 import {
   dimensionCrumbs,
   dimensionPageBody,
@@ -155,11 +155,14 @@ function ContactForm({ labels }) {
    Route-Sprache (`content`, von lang-modules.js geladen) — nicht mehr aus
    dem build-only `seo/content-pages.js`. Das importiert inzwischen alle
    sechs Sprachen statisch und darf deshalb nie ins Client-Bundle geraten.
-   `pageLabel` kommt aus `seo/site-info.js` — dieselbe Ableitung wie beim
-   Build (content-pages.js), damit Crawler-Titel und Hydrations-Titel nicht
-   auseinanderlaufen, wenn nur eine Stelle geändert wird. Ein `description`-
-   Feld gibt es hier bewusst nicht: PageLayout rendert es nicht, das brauchen
-   nur die SEO-Metatags des Builds. */
+   `pageLabel`/`siteBrand` kommen aus `seo/site-info.js` — dieselbe Ableitung
+   wie beim Build (content-pages.js), damit Crawler-Titel und Hydrations-Titel
+   nicht auseinanderlaufen, wenn nur eine Stelle geändert wird. `siteBrand(site)`
+   liefert den lokalisierten Markennamen der Route-Sprache (`chrome.brand` +
+   `chrome.brandSub`) statt des festen, sprachübergreifenden `SITE_NAME`
+   (Fix-Runde 1, Punkt 3 — sonst trüge z. B. `/it/competenze/mut/` einen
+   deutschen Titelanhang). Ein `description`-Feld gibt es hier bewusst nicht:
+   PageLayout rendert es nicht, das brauchen nur die SEO-Metatags des Builds. */
 function contentPage(pathname, lang, site, content) {
   const { key, id } = routeKeyFromPath(pathname)
   const { dimensions, skills, ui } = content
@@ -171,7 +174,7 @@ function contentPage(pathname, lang, site, content) {
     const page = { kind: 'dimension', lang, dim, dimSkills }
     return {
       title: dim.name,
-      documentTitle: pageLabel(dim.name),
+      documentTitle: pageLabel(dim.name, siteBrand(site)),
       lead: dim.subtitle,
       crumbs: dimensionCrumbs(page, site),
       body: dimensionPageBody(page, site),
@@ -186,7 +189,7 @@ function contentPage(pathname, lang, site, content) {
     const page = { kind: 'skill', lang, skill, dim, dimSkills }
     return {
       title: skill.name,
-      documentTitle: pageLabel(skill.name),
+      documentTitle: pageLabel(skill.name, siteBrand(site)),
       lead: skill.desc,
       crumbs: skillCrumbs(page, site),
       body: skillPageBody(page, site, ui),

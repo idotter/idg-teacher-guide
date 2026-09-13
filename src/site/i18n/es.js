@@ -226,7 +226,7 @@ export const site = {
     noscript: {
       tagline: '25 habilidades como cartas de reflexión para docentes.',
       intro: 'El Inner Development Guide 2.0 describe 25 habilidades interiores en cinco dimensiones: Ser, Pensar, Relacionarse, Colaborar y Actuar. Este juego de cartas digital las traduce al día a día escolar — con preguntas de reflexión, ideas para el aula y miniejercicios.',
-      dimensionsLabel: 'Dimensiones',
+      dimensionsLabel: 'Dimensiones:',
     },
   },
 

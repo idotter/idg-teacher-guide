@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { LANG_IDS } from '../site/routes.js'
 import enSite from '../site/i18n/en.js'
 import frSite from '../site/i18n/fr.js'
-import { htmlRouteMap, landingNoscriptHtml, pagesFor, renderSeoHead } from './meta.js'
+import { buildContentPages } from './content-pages.js'
+import { htmlRouteMap, landingNoscriptHtml, pagesFor, renderSeoHead, SITE_NAME } from './meta.js'
 
 describe('htmlRouteMap', () => {
   it('deckt alle sechs Sprachen mal fünf Routen plus /app/ ab', () => {
@@ -156,16 +157,56 @@ describe('landingNoscriptHtml', () => {
     expect(html).not.toContain('/kontakt/')
   })
 
+  /* Fix-Runde 1, Punkt 1: der Markenname im noscript-Block war fest
+     `SITE_NAME` (Deutsch), egal welche Sprache die Seite trägt — Widerspruch
+     zum eigenen <title> derselben Datei (z. B. "…en classe" bei /fr/). Jetzt
+     kommt er aus `chrome.brand` + `chrome.brandSub` der Route-Sprache. */
+  it('zeigt den lokalisierten Markennamen (chrome.brand + chrome.brandSub), nicht das feste SITE_NAME', () => {
+    const html = landingNoscriptHtml('fr')
+    expect(html).toContain(`<strong>${frSite.chrome.brand} ${frSite.chrome.brandSub}</strong>`)
+    expect(html).toContain('<strong>Inner Development Guide en classe</strong>')
+    expect(html).not.toContain(SITE_NAME)
+  })
+
+  it('für Deutsch ist der lokalisierte Markenname wortgleich mit SITE_NAME (keine Regression)', () => {
+    expect(landingNoscriptHtml('de')).toContain(`<strong>${SITE_NAME}</strong>`)
+  })
+
+  /* Fix-Runde 1, Punkt 7: Der Doppelpunkt vor der Dimensionsliste war fest im
+     Template verdrahtet (kein Leerzeichen davor) — für Französisch falsch,
+     das im selben Absatz zwei Sätze vorher korrekt "cinq dimensions : Être"
+     schreibt. Jetzt trägt `dimensionsLabel` die Interpunktion selbst. */
+  it('setzt für Französisch die Interpunktion vor dem Doppelpunkt (« Dimensions : »), nicht direkt danach', () => {
+    const html = landingNoscriptHtml('fr')
+    expect(html).toContain('Dimensions :')
+    expect(html).not.toContain('Dimensions:')
+  })
+
+  it('setzt für Deutsch weiterhin keine Leerstelle vor dem Doppelpunkt («Dimensionen:»)', () => {
+    const html = landingNoscriptHtml('de')
+    expect(html).toContain('Dimensionen:')
+    expect(html).not.toContain('Dimensionen :')
+  })
+
   it('default ist Deutsch, wenn kein Sprachparameter übergeben wird', () => {
     expect(landingNoscriptHtml()).toBe(landingNoscriptHtml('de'))
   })
 
-  it('verlinkt für jede Sprache alle fünf Dimensionsseiten dieser Sprache', () => {
+  /* Fix-Runde 1, Punkt 2: die alte Fassung filterte auf `/${lang}/` und zählte
+     damit Projekt- und Kontaktlink mit — `>= 5` hielt deshalb auch, wenn zwei
+     der fünf Dimensionslinks fehlten (belegt: mit `.slice(0, lang === 'de' ?
+     5 : 3)` in `landingNoscriptHtml` blieben vorher alle 19 Tests grün).
+     Jetzt: exakt die fünf erwarteten Pfade aus `buildContentPages`, plus eine
+     Gesamtzahl-Kontrolle (5 Dimensionen + App + Projekt + Kontakt = 8 Links). */
+  it('verlinkt für jede Sprache genau die fünf Dimensionsseiten dieser Sprache — nicht mehr, nicht weniger', () => {
     for (const lang of LANG_IDS) {
       const html = landingNoscriptHtml(lang)
-      const links = html.match(/<a href="[^"]+">/g).filter((a) => a.includes(lang === 'de' ? '/dimensionen/' : `/${lang}/`))
-      // 5 Dimensionslinks + Projekt + Kontakt (App ist unpräfixiert)
-      expect(links.length).toBeGreaterThanOrEqual(5)
+      const dimPaths = buildContentPages(lang).filter((p) => p.kind === 'dimension').map((p) => p.path)
+      expect(dimPaths).toHaveLength(5)
+      for (const path of dimPaths) {
+        expect(html).toContain(`<a href="${path}">`)
+      }
+      expect(html.match(/<a href="/g)).toHaveLength(8)
     }
   })
 })

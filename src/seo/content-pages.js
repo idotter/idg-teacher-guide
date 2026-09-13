@@ -10,7 +10,7 @@
  * dieselben Pfade, eine German-only und eine sprachbewusste.
  */
 import { DEFAULT_LANG, LANG_IDS, localizedPath } from '../site/routes.js'
-import { dimensionPageDescription, pageLabel, skillPageDescription } from './site-info.js'
+import { dimensionPageDescription, pageLabel, siteBrand, skillPageDescription } from './site-info.js'
 
 import de from '../content/de.js'
 import en from '../content/en.js'
@@ -33,6 +33,7 @@ const INDEX_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, ma
 
 export function buildDimensionPages(lang) {
   const { dimensions, skills, ui } = CONTENT_BY_LANG[lang]
+  const brand = siteBrand(SITE_BY_LANG[lang])
   return dimensions.map((dim) => {
     const dimSkills = skills.filter((s) => s.dim === dim.id)
     return {
@@ -42,7 +43,7 @@ export function buildDimensionPages(lang) {
       lang,
       ui,
       title: dim.name,
-      documentTitle: pageLabel(dim.name),
+      documentTitle: pageLabel(dim.name, brand),
       description: dimensionPageDescription(dim),
       robots: INDEX_ROBOTS,
       indexed: true,
@@ -59,7 +60,9 @@ export function buildDimensionPages(lang) {
 export function buildSkillPages(lang) {
   const { dimensions, skills, ui } = CONTENT_BY_LANG[lang]
   const dimById = new Map(dimensions.map((d) => [d.id, d]))
-  const descriptionSuffix = SITE_BY_LANG[lang].contentPages.skillDescriptionSuffix
+  const site = SITE_BY_LANG[lang]
+  const descriptionSuffix = site.contentPages.skillDescriptionSuffix
+  const brand = siteBrand(site)
   return skills.map((skill) => {
     const dim = dimById.get(skill.dim)
     const dimSkills = skills.filter((item) => item.dim === skill.dim)
@@ -70,7 +73,7 @@ export function buildSkillPages(lang) {
       lang,
       ui,
       title: skill.name,
-      documentTitle: pageLabel(skill.name),
+      documentTitle: pageLabel(skill.name, brand),
       description: skillPageDescription(skill, descriptionSuffix),
       robots: INDEX_ROBOTS,
       indexed: true,

@@ -1,9 +1,11 @@
 /**
  * Reine Bauvorschrift für scripts/content-routes.json: welche HTML-Stubs für
- * welche Sprache mit welchem Rollup-Einstiegsnamen (`inputKey`) erzeugt
- * werden. Getrennt von scripts/generate-content-pages.mjs (das nur noch
+ * welche Sprache mit welchem Rollup-Einstiegsnamen (`inputKey`), welchem
+ * `<html lang>` und welchem JS-Einstieg (`scriptSrc`) erzeugt werden.
+ * Getrennt von scripts/generate-content-pages.mjs (das nur noch
  * Verzeichnisse anlegt und schreibt), damit ein Test Anzahl, Eindeutigkeit
- * und Kollisionsfreiheit der inputKeys prüfen kann, ohne Dateien anzufassen.
+ * und Kollisionsfreiheit der inputKeys sowie `htmlLang`/`scriptSrc` prüfen
+ * kann, ohne Dateien anzufassen.
  *
  * Erzeugt werden:
  *  - Dimensions- und Kompetenzseiten aller sechs Sprachen (`buildAllContentPages`)
@@ -15,8 +17,15 @@
  * `/app/` zusätzlich sprachübergreifend eine einzige Route.
  */
 import { buildAllContentPages } from './content-pages.js'
-import { pagesFor } from './meta.js'
+import { htmlLangOf, pagesFor } from './meta.js'
 import { DEFAULT_LANG, LANG_IDS, routeKeyFromPath } from '../site/routes.js'
+
+/** JS-Einstieg eines Stubs: die Startseite jeder Sprache lädt die
+ *  Landingpage-Bundle, jede andere generierte Seite (Unterseite, Dimension,
+ *  Kompetenz) den Seitenrumpf von `src/site/page-main.jsx` — genau wie die
+ *  handgepflegten Einstiege. */
+const LANDING_SCRIPT = '/src/landing/main.jsx'
+const PAGE_SCRIPT = '/src/site/page-main.jsx'
 
 /** Rollup-Einstiegsnamen, die vite.config.js von Hand vergibt — kein
  *  generierter inputKey darf damit zusammenfallen. */
@@ -42,7 +51,7 @@ function stubsToGenerate() {
 }
 
 /**
- * {path, html, inputKey, lang, routeKey} je Stub.
+ * {path, html, inputKey, lang, routeKey, htmlLang, scriptSrc} je Stub.
  *
  * `inputKey` aus **allen** Pfadsegmenten (`segments.join('-')`), nicht nur
  * den ersten zweien: eine Startseite hat nur ein Segment (`/fr/` → `fr`,
@@ -52,6 +61,12 @@ function stubsToGenerate() {
  * bestehenden zweisegmentigen deutschen Pfade (`dimensionen/mut` u. Ä.)
  * ändert sich dadurch nichts — `segments.join('-')` und das alte
  * `${segments[0]}-${segments[1]}` ergeben dort denselben String.
+ *
+ * `htmlLang`/`scriptSrc` stehen hier statt in `scripts/generate-content-pages.mjs`,
+ * damit dieses Skript keine eigene, vierte Kopie von `SITE_BY_LANG` braucht
+ * (die gibt es schon in `content-pages.js`, `meta.js`, `vite-plugin-seo.js`)
+ * und ein Test beide Felder direkt an den reinen Routen prüfen kann, ohne
+ * Dateien zu schreiben (Fix-Runde 1, Punkt 4).
  */
 export function buildContentRoutes() {
   return stubsToGenerate().map((stub) => {
@@ -63,6 +78,8 @@ export function buildContentRoutes() {
       inputKey: segments.join('-'),
       lang: stub.lang,
       routeKey,
+      htmlLang: htmlLangOf(stub.lang),
+      scriptSrc: routeKey === 'home' ? LANDING_SCRIPT : PAGE_SCRIPT,
     }
   })
 }
