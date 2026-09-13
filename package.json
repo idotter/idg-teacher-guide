@@ -17,7 +17,8 @@
     "check:build": "node scripts/check-build.mjs",
     "predev": "npm run generate:content",
     "pretest": "npm run generate:content",
-    "prebuild": "npm run generate:share && npm run generate:og && npm run check:i18n && npm run generate:content && npm run generate:seo"
+    "prebuild": "npm run generate:share && npm run generate:og && npm run check:i18n && npm run generate:content && npm run generate:seo",
+    "postbuild": "npm run check:build"
   },
   "dependencies": {
     "react": "^18.3.1",

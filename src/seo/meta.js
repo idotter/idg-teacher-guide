@@ -457,10 +457,16 @@ export function jsonLdForPage(page) {
           isAccessibleForFree: true,
           teaches: page.skill.name,
           about: page.dim?.name,
+          // `educationalFramework` nur für Deutsch: der Fliesstext derselben
+          // Kompetenzseiten schränkt den Lehrplan-21-Bezug ausdrücklich aufs
+          // Deutsche ein (z. B. it: „In tedesco si collegano alle aree
+          // disciplinari del Lehrplan 21"); ein sprachunabhängiges Feld
+          // widerspräche dem in den strukturierten Daten der anderen fünf
+          // Sprachen.
           educationalAlignment: (page.skill.subjects || []).map((subject) => ({
             '@type': 'AlignmentObject',
             alignmentType: 'educationalSubject',
-            educationalFramework: 'Lehrplan 21',
+            ...(page.lang === 'de' ? { educationalFramework: 'Lehrplan 21' } : {}),
             targetName: subject,
           })),
           hasPart: parts,

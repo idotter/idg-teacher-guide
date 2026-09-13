@@ -3,7 +3,7 @@ import { LANG_IDS } from '../site/routes.js'
 import enSite from '../site/i18n/en.js'
 import frSite from '../site/i18n/fr.js'
 import { buildContentPages } from './content-pages.js'
-import { htmlRouteMap, landingNoscriptHtml, pagesFor, renderSeoHead, SITE_NAME } from './meta.js'
+import { htmlRouteMap, jsonLdForPage, landingNoscriptHtml, pagesFor, renderSeoHead, SITE_NAME } from './meta.js'
 
 describe('htmlRouteMap', () => {
   it('deckt alle sechs Sprachen mal fünf Routen plus /app/ ab', () => {
@@ -224,6 +224,35 @@ describe('landingNoscriptHtml', () => {
         expect(html).toContain(`<a href="${path}">`)
       }
       expect(html.match(/<a href="/g)).toHaveLength(8)
+    }
+  })
+})
+
+/* Schlussprüfung, Punkt 4: `educationalFramework: 'Lehrplan 21'` stand fest
+   in jedem `educationalAlignment`-Eintrag, sprachunabhängig — im Widerspruch
+   zum Fliesstext derselben fremdsprachigen Kompetenzseiten, der den
+   Lehrplan-21-Bezug ausdrücklich aufs Deutsche einschränkt (z. B. it:
+   „In tedesco si collegano alle aree disciplinari del Lehrplan 21"). */
+describe('jsonLdForPage — educationalFramework', () => {
+  const skillPage = (lang) => buildContentPages(lang).find((p) => p.kind === 'skill' && p.id === 'mut')
+  const learningResourceBlock = (page) => jsonLdForPage(page).find((b) => b['@type'] === 'LearningResource')
+
+  it('setzt den Lehrplan-21-Bezug für Deutsch', () => {
+    const block = learningResourceBlock(skillPage('de'))
+    expect(block.educationalAlignment.length).toBeGreaterThan(0)
+    for (const alignment of block.educationalAlignment) {
+      expect(alignment.educationalFramework).toBe('Lehrplan 21')
+    }
+  })
+
+  it('lässt den Lehrplan-21-Bezug für die fünf anderen Sprachen weg', () => {
+    for (const lang of LANG_IDS.filter((l) => l !== 'de')) {
+      const block = learningResourceBlock(skillPage(lang))
+      expect(block.educationalAlignment.length).toBeGreaterThan(0)
+      for (const alignment of block.educationalAlignment) {
+        expect(alignment.educationalFramework).toBeUndefined()
+        expect(alignment).not.toHaveProperty('educationalFramework')
+      }
     }
   })
 })

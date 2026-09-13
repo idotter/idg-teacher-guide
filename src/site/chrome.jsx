@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { dimensions } from '../content/de.js'
+import { RING_COLORS } from './ring-colors.js'
 import { LANGS, writeStoredLang } from '../content/langs.js'
 import { langFromPath, localizedPath, translationsOf } from './routes.js'
 
@@ -32,7 +32,7 @@ export function pagePath(pathname = window.location.pathname) {
 export function RingMark({ size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      {dimensions.map((d, i) => (
+      {RING_COLORS.map((d, i) => (
         <circle key={d.id} cx="12" cy="12" r={3 + i * 1.95} stroke={d.color} strokeWidth="1.1" />
       ))}
     </svg>
@@ -90,20 +90,26 @@ function LangSwitcher({ lang, label, onChange }) {
   )
 }
 
+/* Der Wähler ist Navigation, keine Einstellung: er führt auf dieselbe Seite
+   in der Zielsprache. Gibt es sie dort nicht (unbekannter Pfad, App), führt
+   er auf die Startseite der Zielsprache. Reine Funktion, ausgelagert aus dem
+   Klick-Handler unten, damit die Zielberechnung ohne DOM/window testbar ist. */
+export function langSwitchTarget(here, next) {
+  const target = translationsOf(here).find((t) => t.lang === next)
+  return target ? target.path : localizedPath('home', next)
+}
+
 /* Die angezeigte Sprache kommt aus dem Pfad, nicht aus dem Speicher — sonst
    zeigte der Wähler etwas anderes an als die Seite darunter. */
 export function SiteHeader({ site, here = '/' }) {
   const lang = langFromPath(here)
   const { chrome } = site
 
-  /* Der Wähler ist Navigation, keine Einstellung: er führt auf dieselbe Seite
-     in der Zielsprache. Gibt es sie dort nicht (unbekannter Pfad, App), bleibt
-     die Startseite der Zielsprache. `writeStoredLang` bleibt trotzdem, damit
-     /app/ — die einzige Route ohne Präfix — derselben Wahl folgt. */
+  /* `writeStoredLang` bleibt trotzdem, damit /app/ — die einzige Route ohne
+     Präfix — derselben Wahl folgt. */
   const changeLang = (next) => {
     writeStoredLang(next)
-    const target = translationsOf(here).find((t) => t.lang === next)
-    window.location.assign(target ? target.path : localizedPath('home', next))
+    window.location.assign(langSwitchTarget(here, next))
   }
 
   return (
