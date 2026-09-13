@@ -9,8 +9,9 @@ import es from './es.js'
 // Italienisch bewusst unter anderem Namen importiert: `it` ist bereits die
 // Testfunktion von vitest, ein `import it from './it.js'` würde sie überdecken.
 import itSite from './it.js'
+import sv from './sv.js'
 
-const ALL = { de, en, fr, es, it: itSite }
+const ALL = { de, en, fr, es, it: itSite, sv }
 
 describe('deutsche i18n-Datei', () => {
   it('hat keine leeren Werte', () => {
