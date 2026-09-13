@@ -54,7 +54,7 @@ export function injectSeoPlugin() {
 
         const { key } = routeKeyFromPath(page.path)
         if (key === 'home') {
-          out = out.replace('</body>', `  ${landingNoscriptHtml()}\n</body>`)
+          out = out.replace('</body>', `  ${landingNoscriptHtml(page.lang)}\n</body>`)
         } else if (key !== 'app') {
           const lang = langFromPath(page.path)
           const markup = renderStaticPageHtml(page.path, SITE_BY_LANG[lang], CONTENT_BY_LANG[lang])

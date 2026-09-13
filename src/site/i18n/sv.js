@@ -222,6 +222,12 @@ export const site = {
       heading: 'Lägg till på hemskärmen',
       body: 'I Safari via ”Dela” och ”Lägg till på hemskärmen”, i Chrome via menyn och ”Installera app”. Därefter fungerar allt offline. Sparade kort stannar på enheten och laddas inte upp någonstans.',
     },
+
+    noscript: {
+      tagline: '25 förmågor som reflektionskort för lärare.',
+      intro: 'Inner Development Guide 2.0 beskriver 25 inre förmågor i fem dimensioner: Vara, Tänka, Relatera, Samarbeta och Agera. Den här digitala kortleken översätter dem till skolvardagen — med reflektionsfrågor, idéer för undervisningen och miniövningar.',
+      dimensionsLabel: 'Dimensioner',
+    },
   },
 
   contentPages: {

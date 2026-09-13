@@ -235,6 +235,17 @@ export const site = {
       heading: 'Zum Startbildschirm hinzufügen',
       body: 'In Safari über „Teilen“ und „Zum Home-Bildschirm“, in Chrome über das Menü und „App installieren“. Danach läuft alles offline. Gemerkte Karten bleiben auf dem Gerät und werden nirgends hochgeladen.',
     },
+
+    // Statischer <noscript>-Block auf der Startseite (Crawler ohne JS,
+    // src/seo/meta.js#landingNoscriptHtml). Eigene, kurze Texte statt
+    // Wiederverwendung von `project.body` & Co.: die Sätze dort sind länger
+    // und leicht anders formuliert; ein Fragment daraus herauszuschneiden
+    // wäre brüchiger als zwei eigene Sätze.
+    noscript: {
+      tagline: '25 Kompetenzen als Reflexionskarten für Lehrpersonen.',
+      intro: 'Der Inner Development Guide 2.0 beschreibt 25 innere Fähigkeiten in fünf Dimensionen: Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses digitale Kartenset übersetzt sie in den Unterrichtsalltag — mit Reflexionsfragen, Ideen für die Klasse und Mini-Übungen.',
+      dimensionsLabel: 'Dimensionen',
+    },
   },
 
   contentPages: {

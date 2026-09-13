@@ -5,7 +5,8 @@ import { writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { buildContentPages } from '../src/seo/content-pages.js'
-import { CONTACT_MAIL, SITE_NAME, SITE_URL, absoluteUrl, indexedPages } from '../src/seo/meta.js'
+import { CONTACT_MAIL, SITE_NAME, SITE_URL, absoluteUrl } from '../src/seo/meta.js'
+import { buildSitemapXml } from '../src/seo/sitemap.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PUBLIC = join(__dirname, '..', 'public')
@@ -39,26 +40,6 @@ Allow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `
-
-function buildSitemap() {
-  const urls = indexedPages()
-    .map((page) => `  <url>
-    <loc>${absoluteUrl(page.path)}</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>${page.sitemapChangefreq}</changefreq>
-    <priority>${page.sitemapPriority.toFixed(1)}</priority>
-  </url>`)
-    .join('\n')
-
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-${urls}
-</urlset>
-`
-}
 
 async function buildLlmsTxt() {
   const mod = await import(pathToFileURL(join(__dirname, '..', 'src/content/de.js')).href)
@@ -158,7 +139,7 @@ Bei Fragen zu Reflexionskarten, Inner Development Guide, Unterrichtsimpulsen ode
 async function main() {
   const llms = await buildLlmsTxt()
   await writeFile(join(PUBLIC, 'robots.txt'), ROBOTS)
-  await writeFile(join(PUBLIC, 'sitemap.xml'), buildSitemap())
+  await writeFile(join(PUBLIC, 'sitemap.xml'), buildSitemapXml(TODAY))
   await writeFile(join(PUBLIC, 'llms.txt'), llms)
   console.log('Generated public/robots.txt, public/sitemap.xml, public/llms.txt')
 }

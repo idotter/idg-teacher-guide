@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { LANG_IDS } from '../site/routes.js'
 import enSite from '../site/i18n/en.js'
-import { htmlRouteMap, pagesFor, renderSeoHead } from './meta.js'
+import frSite from '../site/i18n/fr.js'
+import { htmlRouteMap, landingNoscriptHtml, pagesFor, renderSeoHead } from './meta.js'
 
 describe('htmlRouteMap', () => {
   it('deckt alle sechs Sprachen mal fünf Routen plus /app/ ab', () => {
@@ -125,5 +126,46 @@ describe('renderSeoHead', () => {
     const head = renderSeoHead(page)
     expect(head).toContain('<meta property="og:locale" content="it_IT">')
     expect(head).toContain(`<link rel="canonical" href="${SITE_URL}/it/">`)
+  })
+})
+
+/* Vor Task 7 war dieser Block fest Deutsch (deutscher Text, feste Links auf
+   /app/, /projekt/, /kontakt/) — seit jede Sprache einen eigenen HTML-Einstieg
+   bekommt, würde /fr/index.html sonst einen deutschen noscript-Block tragen.
+   Jeder Fall hier ist gegen eine Mutation (Rückbau auf feste deutsche Strings)
+   gegengeprüft, siehe task-7-report.md. */
+describe('landingNoscriptHtml', () => {
+  it('bleibt für Deutsch wortgleich mit dem bisherigen, fest verdrahteten Block (Regression)', () => {
+    expect(landingNoscriptHtml('de')).toBe(`<noscript>
+  <p><strong>Inner Development Guide im Schulalltag</strong> — 25 Kompetenzen als Reflexionskarten für Lehrpersonen.</p>
+  <p>Der Inner Development Guide 2.0 beschreibt 25 innere Fähigkeiten in fünf Dimensionen: Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses digitale Kartenset übersetzt sie in den Unterrichtsalltag — mit Reflexionsfragen, Ideen für die Klasse und Mini-Übungen.</p>
+  <p>Dimensionen: <a href="/dimensionen/being/">Sein</a> · <a href="/dimensionen/thinking/">Denken</a> · <a href="/dimensionen/relating/">Beziehungen</a> · <a href="/dimensionen/collaborating/">Zusammenarbeit</a> · <a href="/dimensionen/acting/">Handeln</a></p>
+  <p><a href="/app/">Reflexionskarten öffnen</a> · <a href="/projekt/">Das Projekt</a> · <a href="/kontakt/">Kontakt</a></p>
+</noscript>`)
+  })
+
+  it('trägt für Französisch französischen Text und französische Linkziele statt deutscher', () => {
+    const html = landingNoscriptHtml('fr')
+    expect(html).toContain(frSite.landing.noscript.tagline)
+    expect(html).toContain(frSite.landing.noscript.intro)
+    expect(html).toContain('<a href="/fr/projet/">')
+    expect(html).toContain('<a href="/fr/contact/">')
+    expect(html).toContain('<a href="/app/">')
+    expect(html).not.toContain('Reflexionskarten')
+    expect(html).not.toContain('/projekt/')
+    expect(html).not.toContain('/kontakt/')
+  })
+
+  it('default ist Deutsch, wenn kein Sprachparameter übergeben wird', () => {
+    expect(landingNoscriptHtml()).toBe(landingNoscriptHtml('de'))
+  })
+
+  it('verlinkt für jede Sprache alle fünf Dimensionsseiten dieser Sprache', () => {
+    for (const lang of LANG_IDS) {
+      const html = landingNoscriptHtml(lang)
+      const links = html.match(/<a href="[^"]+">/g).filter((a) => a.includes(lang === 'de' ? '/dimensionen/' : `/${lang}/`))
+      // 5 Dimensionslinks + Projekt + Kontakt (App ist unpräfixiert)
+      expect(links.length).toBeGreaterThanOrEqual(5)
+    }
   })
 })

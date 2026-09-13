@@ -225,6 +225,12 @@ export const site = {
       heading: "Ajouter à l'écran d'accueil",
       body: "Dans Safari via « Partager » puis « Sur l'écran d'accueil », dans Chrome via le menu et « Installer l'application ». Ensuite, tout fonctionne hors ligne. Les cartes gardées restent sur l'appareil et ne sont téléversées nulle part.",
     },
+
+    noscript: {
+      tagline: "25 capacités sous forme de cartes de réflexion pour les enseignantes et enseignants.",
+      intro: "Le Inner Development Guide 2.0 décrit 25 capacités intérieures réparties en cinq dimensions : Être, Penser, Interagir, Coopérer et Agir. Ce jeu de cartes numérique les traduit dans le quotidien scolaire — avec des questions de réflexion, des idées pour la classe et des mini-exercices.",
+      dimensionsLabel: "Dimensions",
+    },
   },
 
   contentPages: {

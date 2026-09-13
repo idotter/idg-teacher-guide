@@ -224,6 +224,12 @@ export const site = {
       heading: "Aggiungi alla schermata iniziale",
       body: "In Safari con «Condividi» e «Aggiungi a Home», in Chrome dal menu con «Installa app». Dopodiché tutto funziona offline. Le carte salvate restano sul dispositivo e non vengono caricate da nessuna parte.",
     },
+
+    noscript: {
+      tagline: "25 competenze come carte di riflessione per insegnanti.",
+      intro: "L'Inner Development Guide 2.0 descrive 25 capacità interiori in cinque dimensioni: Essere, Pensare, Relazionarsi, Collaborare e Agire. Questo set di carte digitale le traduce nella vita scolastica quotidiana — con domande di riflessione, idee per la lezione e miniesercizi.",
+      dimensionsLabel: "Dimensioni",
+    },
   },
 
   contentPages: {

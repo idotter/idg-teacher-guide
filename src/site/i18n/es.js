@@ -222,6 +222,12 @@ export const site = {
       heading: 'Añadir a la pantalla de inicio',
       body: 'En Safari, con «Compartir» y «Añadir a pantalla de inicio»; en Chrome, desde el menú y «Instalar aplicación». Después todo funciona sin conexión. Las cartas guardadas permanecen en el dispositivo y no se suben a ningún sitio.',
     },
+
+    noscript: {
+      tagline: '25 habilidades como cartas de reflexión para docentes.',
+      intro: 'El Inner Development Guide 2.0 describe 25 habilidades interiores en cinco dimensiones: Ser, Pensar, Relacionarse, Colaborar y Actuar. Este juego de cartas digital las traduce al día a día escolar — con preguntas de reflexión, ideas para el aula y miniejercicios.',
+      dimensionsLabel: 'Dimensiones',
+    },
   },
 
   contentPages: {

@@ -18,14 +18,20 @@ function loadContentInputs(rootDir) {
 }
 
 // Einstiegspunkte:
-//   /                      Landingpage
-//   /app/                  die installierbare PWA (start_url im Manifest)
-//   /projekt/              Über das Projekt
-//   /kontakt/              Kontakt
-//   /datenschutz/          Datenschutz
-//   /nutzungsbedingungen/  Nutzungsbedingungen
-//   /dimensionen/{id}/     Dimensionsseiten (generiert)
-//   /kompetenzen/{id}/     Kompetenzseiten (generiert)
+//   /                      Landingpage (Deutsch, handgepflegt)
+//   /app/                  die installierbare PWA (start_url im Manifest),
+//                          sprachübergreifend eine einzige Route
+//   /projekt/              Über das Projekt (Deutsch, handgepflegt)
+//   /kontakt/              Kontakt (Deutsch, handgepflegt)
+//   /datenschutz/          Datenschutz (Deutsch, handgepflegt)
+//   /nutzungsbedingungen/  Nutzungsbedingungen (Deutsch, handgepflegt)
+//   /dimensionen/{id}/     Dimensionsseiten, Deutsch (generiert)
+//   /kompetenzen/{id}/     Kompetenzseiten, Deutsch (generiert)
+//   /{lang}/…              alle Routen der fünf nichtdeutschen Sprachen:
+//                          Startseite, Projekt/Kontakt/Datenschutz/AGB,
+//                          Dimensionen und Kompetenzen (alle generiert,
+//                          siehe scripts/generate-content-pages.mjs und
+//                          scripts/content-routes.json)
 export default defineConfig({
   plugins: [react(), injectSeoPlugin()],
   base: '/',

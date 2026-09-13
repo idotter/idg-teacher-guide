@@ -220,6 +220,12 @@ export const site = {
       heading: 'Add to the home screen',
       body: 'In Safari via “Share” and “Add to Home Screen”, in Chrome via the menu and “Install app”. After that everything runs offline. Saved cards stay on the device and are not uploaded anywhere.',
     },
+
+    noscript: {
+      tagline: '25 skills as reflection cards for teachers.',
+      intro: 'The Inner Development Guide 2.0 describes 25 inner abilities in five dimensions: Being, Thinking, Relating, Collaborating and Acting. This digital card set translates them into everyday school life — with reflection questions, classroom ideas and mini-exercises.',
+      dimensionsLabel: 'Dimensions',
+    },
   },
 
   contentPages: {

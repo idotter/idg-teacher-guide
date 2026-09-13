@@ -8,5 +8,9 @@
         { "key": "X-XSS-Protection", "value": "1; mode=block" }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/de", "destination": "/", "permanent": true },
+    { "source": "/de/:path*", "destination": "/:path*", "permanent": true }
   ]
 }

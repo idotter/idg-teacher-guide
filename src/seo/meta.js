@@ -490,20 +490,27 @@ function jsonLdScript(block) {
   return `<script type="application/ld+json">${JSON.stringify(block)}</script>`
 }
 
-/** Statischer Noscript-Fallback für die Landingpage (Crawler ohne JS).
- *  Bleibt Deutsch: die Landingpage hat in Task 6 noch keinen fremdsprachigen
- *  HTML-Einstieg — den legt Task 7 an. */
-export function landingNoscriptHtml() {
-  const dimLinks = buildContentPages(DEFAULT_LANG)
+/** Statischer Noscript-Fallback für die Landingpage (Crawler ohne JS), in der
+ *  Sprache der jeweiligen Route. Seit Task 7 hat jede Sprache einen eigenen
+ *  HTML-Einstieg (`/en/`, `/fr/`, …) — Text und Linkziele kommen darum aus
+ *  den i18n-Daten und aus `localizedPath` statt fest aus dem Deutschen, sonst
+ *  trüge z. B. `/fr/index.html` einen deutschen noscript-Block. */
+export function landingNoscriptHtml(lang = DEFAULT_LANG) {
+  const site = siteOf(lang)
+  const dimLinks = buildContentPages(lang)
     .filter((page) => page.kind === 'dimension')
     .map((page) => `<a href="${escapeHtml(page.path)}">${escapeHtml(page.dim.name)}</a>`)
     .join(' · ')
 
+  const appPath = localizedPath('app', lang)
+  const projectPath = localizedPath('project', lang)
+  const contactPath = localizedPath('contact', lang)
+
   return `<noscript>
-  <p><strong>Inner Development Guide im Schulalltag</strong> — 25 Kompetenzen als Reflexionskarten für Lehrpersonen.</p>
-  <p>Der Inner Development Guide 2.0 beschreibt 25 innere Fähigkeiten in fünf Dimensionen: Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses digitale Kartenset übersetzt sie in den Unterrichtsalltag — mit Reflexionsfragen, Ideen für die Klasse und Mini-Übungen.</p>
-  <p>Dimensionen: ${dimLinks}</p>
-  <p><a href="/app/">Reflexionskarten öffnen</a> · <a href="/projekt/">Das Projekt</a> · <a href="/kontakt/">Kontakt</a></p>
+  <p><strong>${escapeHtml(SITE_NAME)}</strong> — ${escapeHtml(site.landing.noscript.tagline)}</p>
+  <p>${escapeHtml(site.landing.noscript.intro)}</p>
+  <p>${escapeHtml(site.landing.noscript.dimensionsLabel)}: ${dimLinks}</p>
+  <p><a href="${escapeHtml(appPath)}">${escapeHtml(site.contentPages.openAppCta)}</a> · <a href="${escapeHtml(projectPath)}">${escapeHtml(site.pages.project.navLabel)}</a> · <a href="${escapeHtml(contactPath)}">${escapeHtml(site.pages.contact.navLabel)}</a></p>
 </noscript>`
 }
 
