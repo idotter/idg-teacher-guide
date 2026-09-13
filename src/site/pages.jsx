@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
-import { contentPageFromPath } from '../seo/content-pages.js'
-import { CONTACT_MAIL, pages as seoPages } from '../seo/meta.js'
-import { dimensionPageBody, skillPageBody } from './content-page-bodies.jsx'
+import { dimensions } from '../content/de.js'
+import { contentPageFromPath, dimensionPath } from '../seo/content-pages.js'
+import { CONTACT_MAIL, PROJECT_FAQ, pages as seoPages } from '../seo/meta.js'
+import {
+  dimensionCrumbs,
+  dimensionPageBody,
+  skillCrumbs,
+  skillPageBody,
+} from './content-page-bodies.jsx'
 
 export { CONTACT_MAIL }
 
@@ -92,9 +98,28 @@ export const pages = {
           formuliert. Im Deutschen knüpfen sie an die Fachbereiche des Lehrplans 21 an.
         </p>
         <p>
-          Ausser Deutsch gibt es die Karten auf Englisch, Französisch, Spanisch und
-          Schwedisch.
+          Ausser Deutsch gibt es die Karten auf Englisch, Französisch, Spanisch,
+          Italienisch und Schwedisch.
         </p>
+
+        <h2>Die fünf Dimensionen</h2>
+        <ul>
+          {dimensions.map((dim) => (
+            <li key={dim.id}>
+              <a href={dimensionPath(dim.id)}>{dim.name}</a>
+              {' — '}
+              {dim.subtitle}
+            </li>
+          ))}
+        </ul>
+
+        <h2>Häufige Fragen</h2>
+        {PROJECT_FAQ.map((item) => (
+          <React.Fragment key={item.question}>
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </React.Fragment>
+        ))}
 
         <h2>Herkunft</h2>
         <p>
@@ -302,6 +327,9 @@ export function pageFromPath(pathname) {
       documentTitle: contentPage.documentTitle,
       description: contentPage.description,
       lead: contentPage.kind === 'dimension' ? contentPage.dim.subtitle : contentPage.skill.desc,
+      crumbs: contentPage.kind === 'dimension'
+        ? dimensionCrumbs(contentPage)
+        : skillCrumbs(contentPage),
       body: contentPage.kind === 'dimension'
         ? dimensionPageBody(contentPage)
         : skillPageBody(contentPage),

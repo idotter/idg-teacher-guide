@@ -46,6 +46,7 @@ export function buildDimensionPages() {
 export function buildSkillPages() {
   return skills.map((skill) => {
     const dim = dimById.get(skill.dim)
+    const dimSkills = skills.filter((item) => item.dim === skill.dim)
     const path = skillPath(skill.id)
     const title = pageLabel(skill.name)
     const description = `${skill.desc} Reflexionskarten-Einstieg für Lehrpersonen im Inner Development Guide 2.0.`
@@ -64,6 +65,7 @@ export function buildSkillPages() {
       pageLabel: skill.name,
       skill,
       dim,
+      dimSkills,
     }
   })
 }

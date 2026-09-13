@@ -3,6 +3,7 @@ import {
   buildContentPages,
   contentPageFromHtmlFilename,
   dimensionPath,
+  skillPath,
 } from './content-pages.js'
 
 export const SITE_URL = 'https://guide.zukunftskompetenzchallenge.ch'
@@ -83,6 +84,55 @@ export const pages = {
     ogType: 'website',
     pageLabel: 'Reflexionskarten',
   },
+}
+
+/** Gemeinsame FAQ für /projekt/ (sichtbarer Text und JSON-LD). */
+export const PROJECT_FAQ = [
+  {
+    question: 'Was ist der Inner Development Guide im Schulalltag?',
+    answer:
+      'Ein kostenloses digitales Kartenset für Lehrpersonen: 25 Kompetenzen des Inner Development Guide 2.0 als umdrehbare Reflexionskarten — mit Fragen für dich und deine Klasse, Unterrichtsideen, Anknüpfung an den Lehrplan 21 und einer Mini-Übung.',
+  },
+  {
+    question: 'Kostet das Angebot etwas?',
+    answer:
+      'Nein. Die Nutzung ist unentgeltlich. Es gibt keinen Store-Kauf und kein Abonnement.',
+  },
+  {
+    question: 'Brauche ich ein Konto?',
+    answer:
+      'Nein. Es gibt keine Anmeldung. Gemerkte Karten und Einstellungen bleiben nur auf deinem Gerät.',
+  },
+  {
+    question: 'Wie hängt das mit dem Lehrplan 21 zusammen?',
+    answer:
+      'Die deutschen Karten knüpfen an Fachbereiche des Lehrplans 21 an — etwa Ethik, Religionen, Gemeinschaft oder Natur, Mensch, Gesellschaft. Die Karten ersetzen den Lehrplan nicht; sie geben Impulse für den Unterricht.',
+  },
+  {
+    question: 'Ist das ein offizielles Produkt des Rahmenwerks?',
+    answer:
+      'Nein. Dieses Angebot ist inspiriert vom Inner Development Guide. Namen und Beschreibungen der Kompetenzen stammen aus dem Inner Development Guide 2.0 (Version 7.2). Fragen, Unterrichtsideen und Mini-Übungen sind eigens für diese Website geschrieben.',
+  },
+  {
+    question: 'Wie nutze ich eine Karte in fünf Minuten?',
+    answer:
+      'Eine Karte öffnen, eine Frage an dich selbst oder an die Klasse wählen, kurz ins Gespräch gehen. Wenn die Karte trägt, stehen dahinter Ideen, Anknüpfungspunkte und eine Mini-Übung.',
+  },
+]
+
+function faqPageJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: PROJECT_FAQ.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
 }
 
 /** HTML-Datei → Routenschlüssel */
@@ -215,7 +265,7 @@ function webApplicationJsonLd({ slim = false } = {}) {
       'Fragen für Lehrperson und Klasse',
       'Unterrichtsideen und Mini-Übungen',
       'Offline-fähig als installierbare Web-App',
-      'Fünf Sprachen: Deutsch, Englisch, Französisch, Spanisch, Schwedisch',
+      'Sechs Sprachen: Deutsch, Englisch, Französisch, Spanisch, Italienisch, Schwedisch',
     ],
   }
 }
@@ -299,7 +349,7 @@ export function jsonLdForPage(page) {
       blocks.unshift(webSiteJsonLd(), webApplicationJsonLd(), landingWebPageJsonLd(page))
       break
     case '/projekt/':
-      blocks.unshift(aboutPageJsonLd(page))
+      blocks.unshift(aboutPageJsonLd(page), faqPageJsonLd())
       break
     case '/kontakt/':
       blocks.unshift(contactPageJsonLd(page))
@@ -316,13 +366,42 @@ export function jsonLdForPage(page) {
           description: page.description,
           url: absoluteUrl(page.path),
           inLanguage: 'de-CH',
+          about: page.dim.name,
           isPartOf: {
             '@type': 'WebSite',
             name: SITE_NAME,
             url: absoluteUrl('/'),
           },
+          mainEntity: {
+            '@type': 'ItemList',
+            name: `Kompetenzen in ${page.dim.name}`,
+            numberOfItems: page.dimSkills.length,
+            itemListElement: page.dimSkills.map((skill, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              name: skill.name,
+              url: absoluteUrl(skillPath(skill.id)),
+            })),
+          },
         })
       } else if (page.kind === 'skill') {
+        const parts = []
+        for (const text of page.skill.teacher || []) {
+          parts.push({ '@type': 'Question', name: 'Für mich', text })
+        }
+        for (const text of page.skill.students || []) {
+          parts.push({ '@type': 'Question', name: 'Für meine Klasse', text })
+        }
+        for (const text of page.skill.ideas || []) {
+          parts.push({ '@type': 'CreativeWork', name: 'Im Unterricht', text })
+        }
+        if (page.skill.exercise?.title) {
+          parts.push({
+            '@type': 'HowTo',
+            name: page.skill.exercise.title,
+            text: page.skill.exercise.text,
+          })
+        }
         blocks.unshift({
           '@context': 'https://schema.org',
           '@type': 'LearningResource',
@@ -333,6 +412,15 @@ export function jsonLdForPage(page) {
           learningResourceType: 'Reflection prompt',
           educationalLevel: 'Professional',
           isAccessibleForFree: true,
+          teaches: page.skill.name,
+          about: page.dim?.name,
+          educationalAlignment: (page.skill.subjects || []).map((subject) => ({
+            '@type': 'AlignmentObject',
+            alignmentType: 'educationalSubject',
+            educationalFramework: 'Lehrplan 21',
+            targetName: subject,
+          })),
+          hasPart: parts,
           isPartOf: {
             '@type': 'WebSite',
             name: SITE_NAME,
@@ -371,9 +459,15 @@ function jsonLdScript(block) {
 
 /** Statischer Noscript-Fallback für die Landingpage (Crawler ohne JS). */
 export function landingNoscriptHtml() {
+  const dimLinks = buildContentPages()
+    .filter((page) => page.kind === 'dimension')
+    .map((page) => `<a href="${escapeHtml(page.path)}">${escapeHtml(page.dim.name)}</a>`)
+    .join(' · ')
+
   return `<noscript>
   <p><strong>Inner Development Guide im Schulalltag</strong> — 25 Kompetenzen als Reflexionskarten für Lehrpersonen.</p>
   <p>Der Inner Development Guide 2.0 beschreibt 25 innere Fähigkeiten in fünf Dimensionen: Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses digitale Kartenset übersetzt sie in den Unterrichtsalltag — mit Reflexionsfragen, Ideen für die Klasse und Mini-Übungen.</p>
+  <p>Dimensionen: ${dimLinks}</p>
   <p><a href="/app/">Reflexionskarten öffnen</a> · <a href="/projekt/">Das Projekt</a> · <a href="/kontakt/">Kontakt</a></p>
 </noscript>`
 }

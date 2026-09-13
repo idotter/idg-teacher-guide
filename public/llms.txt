@@ -12,7 +12,7 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 
 - **Format:** Digitales Kartenset mit Vorder- und Rückseite pro Kompetenz
 - **Inhalt pro Karte:** Kompetenzname und -beschreibung (aus dem Rahmenwerk), zwei Reflexionsfragen für die Lehrperson, zwei Fragen für die Klasse, Unterrichtsideen, Anknüpfungspunkte an Fachbereiche, Mini-Übung (ca. 5 Minuten)
-- **Sprachen:** Deutsch (de-CH), Englisch, Französisch, Spanisch, Schwedisch
+- **Sprachen:** Deutsch (de-CH), Englisch, Französisch, Spanisch, Italienisch, Schwedisch
 - **Zielgruppe:** Lehrpersonen in der Schweiz, insbesondere Volksschule; im Deutschen Anknüpfung an den Lehrplan 21
 - **Kosten:** Unentgeltlich
 - **Datenschutz:** Kein Benutzerkonto, keine Analyse-Cookies; Merkliste und Einstellungen nur lokal im Browser
@@ -82,47 +82,392 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 ### Sein — Unser inneres Leben kultivieren
 Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unsere inneren Erfahrungen und unsere dynamische Beziehung zur Welt um uns herum. Dies fordert und fördert unsere Achtsamkeit und Präsenz, innere Klarheit und unsere Fähigkeit zum reflektierten Handeln.
 
-- **Innerer Kompass**: Eine tief empfundene Verpflichtung, in Übereinstimmung mit Werten und Zielen zu leben und zu handeln, die dem Wohl des Ganzen dienen.
-- **Integrität und Authentizität**: Eine aufrichtige Verpflichtung zu Ehrlichkeit und fest verankerten Werten, die in allen Handlungen zum Ausdruck kommen und verkörpert werden.
-- **Offenheit und Lernbereitschaft**: Eine neugierige, anpassungsfähige Haltung und die Bereitschaft, die Perspektive zu wechseln, verletzlich zu sein, Veränderungen zu begrüssen und zu wachsen.
-- **Selbsterkenntnis**: Die Fähigkeit, reflektiert mit Gedanken, Emotionen, Wünschen und Handlungen umzugehen, ein realistisches Selbstbild zu bewahren und sich selbst zu regulieren.
-- **Präsenz**: Die Fähigkeit, ganz im Hier und Jetzt präsent zu sein, die Realität so zu akzeptieren, wie sie ist, und auf sinnvolle Weise darauf zu reagieren.
+#### Innerer Kompass
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/
+- **Beschreibung:** Eine tief empfundene Verpflichtung, in Übereinstimmung mit Werten und Zielen zu leben und zu handeln, die dem Wohl des Ganzen dienen.
+- **Für mich:**
+  - Welcher Wert hat heute meine Entscheidungen im Klassenzimmer geleitet – und wo bin ich davon abgewichen?
+  - Wofür bin ich Lehrperson geworden? Wie viel davon war diese Woche spürbar?
+- **Für meine Klasse:**
+  - Was ist dir so wichtig, dass du dafür einstehen würdest?
+  - Woran merkst du, dass etwas für dich richtig oder falsch ist?
+- **Im Unterricht:**
+  - Werte-Landkarte: Die Klasse sammelt Werte auf Karten und ordnet sie gemeinsam – was verbindet uns, wo unterscheiden wir uns?
+  - Klassenregeln nicht vorgeben, sondern aus den gemeinsamen Werten ableiten.
+- **Anknüpfungspunkte:** Ethik, Religionen, Gemeinschaft · Klassenstunde · Deutsch
+- **Mini-Übung:** Mein Satz für heute — Alle schreiben in einem Satz auf, was ihnen heute wichtig ist. Freiwillig vorlesen. Am Ende des Tages kurz prüfen: Hat es gestimmt?
+
+#### Integrität und Authentizität
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/
+- **Beschreibung:** Eine aufrichtige Verpflichtung zu Ehrlichkeit und fest verankerten Werten, die in allen Handlungen zum Ausdruck kommen und verkörpert werden.
+- **Für mich:**
+  - Wann habe ich zuletzt vor der Klasse zugegeben, etwas nicht zu wissen oder einen Fehler gemacht zu haben?
+  - Wo sage ich Dinge, die ich selbst nicht ganz meine – und warum?
+- **Für meine Klasse:**
+  - Wann fällt es dir schwer, ehrlich zu sein?
+  - Was bedeutet es für dich, du selbst zu sein?
+- **Im Unterricht:**
+  - Fehlerkultur sichtbar machen: eine Wand mit «Fehler, aus denen wir gelernt haben».
+  - Dilemma-Geschichten diskutieren: Was würdest du tun, wenn niemand es erfährt?
+- **Anknüpfungspunkte:** Ethik, Religionen, Gemeinschaft · Deutsch · Klassenstunde
+- **Mini-Übung:** Echte Antwort — Auf «Wie geht es dir?» antworten alle einmal ehrlich statt mit «gut». Zwei Minuten still, dann Austausch zu zweit.
+
+#### Offenheit und Lernbereitschaft
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/
+- **Beschreibung:** Eine neugierige, anpassungsfähige Haltung und die Bereitschaft, die Perspektive zu wechseln, verletzlich zu sein, Veränderungen zu begrüssen und zu wachsen.
+- **Für mich:**
+  - Was habe ich diese Woche von meinen Schüler:innen gelernt?
+  - Welche Unterrichtsroutine mache ich, weil ich sie immer so gemacht habe?
+- **Für meine Klasse:**
+  - Wann hast du zuletzt deine Meinung geändert? Was hat dich überzeugt?
+  - Was möchtest du lernen, auch wenn es niemand von dir verlangt?
+- **Im Unterricht:**
+  - Rollentausch: Schüler:innen unterrichten die Lehrperson in etwas, das sie gut können.
+  - «Ich weiss es noch nicht»-Karten als erlaubte Antwort im Unterricht einführen.
+- **Anknüpfungspunkte:** Alle Fächer · Klassenstunde · Projektunterricht
+- **Mini-Übung:** Neugier-Frage — Jede Person notiert eine Frage, auf die sie keine Antwort hat. Fragen an die Wand – eine wird gemeinsam ausgewählt und in der Woche verfolgt.
+
+#### Selbsterkenntnis
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/
+- **Beschreibung:** Die Fähigkeit, reflektiert mit Gedanken, Emotionen, Wünschen und Handlungen umzugehen, ein realistisches Selbstbild zu bewahren und sich selbst zu regulieren.
+- **Für mich:**
+  - Welche Situationen im Unterricht bringen mich aus dem Gleichgewicht – und was steckt dahinter?
+  - Wie reagiere ich unter Stress, und was nimmt meine Klasse davon wahr?
+- **Für meine Klasse:**
+  - Woran merkst du in deinem Körper, dass du wütend oder nervös wirst?
+  - Was kannst du gut – und woher weisst du das?
+- **Im Unterricht:**
+  - Gefühls-Check-in zu Beginn der Lektion mit Wetterkarten oder einer Skala von 1 bis 5.
+  - Lerntagebuch mit einer wöchentlichen Frage: Was hat mir heute geholfen, was hat mich gebremst?
+- **Anknüpfungspunkte:** Klassenstunde · Natur, Mensch, Gesellschaft · Bewegung und Sport
+- **Mini-Übung:** Innenwetter — Augen schliessen, drei Atemzüge. Wie ist mein Wetter gerade – sonnig, bewölkt, stürmisch? Wer will, teilt es in einem Wort.
+
+#### Präsenz
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/
+- **Beschreibung:** Die Fähigkeit, ganz im Hier und Jetzt präsent zu sein, die Realität so zu akzeptieren, wie sie ist, und auf sinnvolle Weise darauf zu reagieren.
+- **Für mich:**
+  - Wie oft bin ich während der Lektion mit den Gedanken schon bei der nächsten?
+  - Wann habe ich einer Schülerin, einem Schüler heute wirklich zugehört – ohne die Antwort schon zu kennen?
+- **Für meine Klasse:**
+  - Wann warst du zuletzt so vertieft, dass du die Zeit vergessen hast?
+  - Was hörst du gerade, wenn du eine Minute ganz still bist?
+- **Im Unterricht:**
+  - Stille Minute als festes Ritual nach der Pause.
+  - Achtsames Beobachten in Natur oder Kunst: fünf Minuten nur schauen, dann beschreiben.
+- **Anknüpfungspunkte:** Bewegung und Sport · Bildnerisches Gestalten · Musik · Natur, Mensch, Gesellschaft
+- **Mini-Übung:** Fünf Sinne — Nacheinander: Was sehe ich, höre ich, spüre ich, rieche ich, schmecke ich? Je 30 Sekunden, ohne zu bewerten.
 
 ### Denken — Unsere komplexe Welt verstehen
 Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unseres Handelns berücksichtigen und bedenken, hilft es uns, die Komplexität unserer Welt zu verstehen, mit ihr umzugehen, und in unserer vernetzten Welt klügere Entscheidungen zu treffen.
 
-- **Kritisches Denken**: Die Fähigkeit, über die Gültigkeit von Ideen, Beweisen, Annahmen und Plänen nachzudenken.
-- **Perspektivische Fähigkeiten**: Die Fähigkeit, unterschiedliche Perspektiven zu berücksichtigen und die Erkenntnisse in ein reflektiertes Verstehen und Handeln einfliessen zu lassen.
-- **Systemisches Denken**: Die Fähigkeit, die komplexen Zusammenhänge und Eigenschaften von Systemen zu verstehen und sie aktiv zu nutzen.
-- **Langfristige Orientierung und Visionen**: Langfristige Ziele entwickeln und diese auf eine Weise verfolgen, die das gesellschaftliche und ökologische Wohlergehen fördert.
-- **Kreativität**: Die Fähigkeit, über konventionelle Muster hinauszudenken, neue Möglichkeiten zu entwickeln und diese in transformative Ideen umzusetzen.
+#### Kritisches Denken
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/
+- **Beschreibung:** Die Fähigkeit, über die Gültigkeit von Ideen, Beweisen, Annahmen und Plänen nachzudenken.
+- **Für mich:**
+  - Welche Annahmen über meine Klasse habe ich in letzter Zeit nicht überprüft?
+  - Wo lasse ich Widerspruch im Unterricht zu – und wo unterbinde ich ihn unbewusst?
+- **Für meine Klasse:**
+  - Woher weisst du, dass das stimmt?
+  - Wer hat ein Interesse daran, dass du das glaubst?
+- **Im Unterricht:**
+  - Fake-News-Check: Zwei Meldungen vergleichen, Quellen prüfen, Kriterien entwickeln.
+  - Debattier-Format mit Seitenwechsel – jede Position wird einmal vertreten.
+- **Anknüpfungspunkte:** Medien und Informatik · Deutsch · Räume, Zeiten, Gesellschaften · Natur und Technik
+- **Mini-Übung:** Drei Fragen an eine Behauptung — Eine Aussage an die Tafel. In Gruppen: Woher stammt sie? Was spricht dagegen? Was müssten wir wissen, um sicher zu sein?
+
+#### Perspektivische Fähigkeiten
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/
+- **Beschreibung:** Die Fähigkeit, unterschiedliche Perspektiven zu berücksichtigen und die Erkenntnisse in ein reflektiertes Verstehen und Handeln einfliessen zu lassen.
+- **Für mich:**
+  - Wie sieht meine Lektion aus der Perspektive des stillsten Kindes aus?
+  - Welche Geschichte erzähle ich mir über meine Klasse – und stimmt sie noch?
+- **Für meine Klasse:**
+  - Wie würde diese Geschichte klingen, wenn eine andere Figur sie erzählt?
+  - Was könnte jemand denken, der ganz anders lebt als du?
+- **Im Unterricht:**
+  - Texte oder historische Ereignisse aus der Sicht einer Nebenfigur neu erzählen.
+  - Standpunkt-Linie: Zu einer Aussage im Raum positionieren und mit jemandem am anderen Ende austauschen.
+- **Anknüpfungspunkte:** Deutsch · Räume, Zeiten, Gesellschaften · Fremdsprachen · Ethik, Religionen, Gemeinschaft
+- **Mini-Übung:** Stuhlwechsel — Zu zweit ein Thema besprechen. Nach zwei Minuten Plätze tauschen – und die Position der anderen Person weiterführen.
+
+#### Systemisches Denken
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/
+- **Beschreibung:** Die Fähigkeit, die komplexen Zusammenhänge und Eigenschaften von Systemen zu verstehen und sie aktiv zu nutzen.
+- **Für mich:**
+  - Welches Problem in meiner Klasse versuche ich mit einer einfachen Lösung zu beheben, obwohl es viele Ursachen hat?
+  - Welche Zusammenhänge ausserhalb der Schule wirken in meinen Unterricht hinein?
+- **Für meine Klasse:**
+  - Was passiert alles, wenn eine Sache passiert?
+  - Welches Muster erkennst du hier – und wo hast du es schon einmal gesehen?
+- **Im Unterricht:**
+  - Wirkungsnetz statt Zusammenfassung: Ein Thema (z. B. Klassenlärm, Plastik) in die Mitte, Ursachen und Folgen als Pfeile – Zusammenhänge zeichnen, nicht auflisten.
+  - Systemspiel: Alle sind Teil eines Kreislaufs und erleben, wie eine Veränderung durchgereicht wird. Danach suchen: Wo liegt der Hebel?
+- **Anknüpfungspunkte:** Natur, Mensch, Gesellschaft · Räume, Zeiten, Gesellschaften · Wirtschaft, Arbeit, Haushalt · Natur und Technik
+- **Mini-Übung:** Und dann? — Eine Veränderung nennen (z. B. «Es gibt keine Hausaufgaben mehr»). Im Kreis fragen: Und dann? Fünf Runden, bis die Folgen überraschen.
+
+#### Langfristige Orientierung und Visionen
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/
+- **Beschreibung:** Langfristige Ziele entwickeln und diese auf eine Weise verfolgen, die das gesellschaftliche und ökologische Wohlergehen fördert.
+- **Für mich:**
+  - Was sollen meine Schüler:innen in zwanzig Jahren von meinem Unterricht noch tragen?
+  - Wo optimiere ich für die nächste Prüfung statt für langfristiges Verstehen?
+- **Für meine Klasse:**
+  - Wie soll dein Quartier in 30 Jahren aussehen?
+  - Was möchtest du, dass Menschen später über deine Generation sagen?
+- **Im Unterricht:**
+  - Lektion mit «Warum lernen wir das?» beginnen und am Ende von der Klasse beantworten lassen – was davon trägt über das Schuljahr hinaus?
+  - Zukunftswerkstatt: Kritik – Vision – Umsetzung zu einem Thema, das die Klasse betrifft.
+- **Anknüpfungspunkte:** Räume, Zeiten, Gesellschaften · Deutsch · Projektunterricht · Berufliche Orientierung
+- **Mini-Übung:** Zeitreise — Augen schliessen: Es ist das Jahr 2050. Was ist besser geworden? Wer hat dazu beigetragen? Ein Satz pro Person.
+
+#### Kreativität
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/
+- **Beschreibung:** Die Fähigkeit, über konventionelle Muster hinauszudenken, neue Möglichkeiten zu entwickeln und diese in transformative Ideen umzusetzen.
+- **Für mich:**
+  - Wann durften meine Schüler:innen zuletzt etwas machen, das es noch nicht gibt?
+  - Welche Aufgabe habe ich diese Woche so gestellt, dass es nur eine richtige Antwort gibt – und musste das so sein?
+- **Für meine Klasse:**
+  - Wie könnte man das ganz anders lösen?
+  - Was würdest du erfinden, wenn alles möglich wäre?
+- **Im Unterricht:**
+  - Offene Aufgaben mit mehreren Lösungswegen – gerade in Mathematik.
+  - Umkehr-Übung: Ein Alltagsgegenstand bekommt einen neuen Zweck.
+- **Anknüpfungspunkte:** Bildnerisches Gestalten · Mathematik · Textiles und Technisches Gestalten · Musik
+- **Mini-Übung:** 30 Kreise — Ein Blatt mit 30 leeren Kreisen. In drei Minuten möglichst viele zu etwas machen – Ball, Uhr, Pizza. Quantität vor Qualität.
 
 ### Beziehungen — Fürsorge für andere und die Welt
 Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinschaften, dem lebenden Planeten und zukünftigen Generationen schaffen wir eine gerechtere, integrativere und blühendere Welt.
 
-- **Wertschätzung**: Mit positiver Wertschätzung, Freude und Dankbarkeit den Menschen und dem Planeten Erde begegnen.
-- **Verbundenheit**: Das Gefühl der Zugehörigkeit zu einem grösseren Ganzen, wie der Menschheit, dem Netz des Lebens auf dem Planeten und der spirituellen Dimensionen der Existenz.
-- **Demut und Bescheidenheit**: In der Lage sein, auf die Erfordernisse einer Situation zu reagieren, ohne die eigene Bedeutung voranzustellen.
-- **Empathie und Mitgefühl**: Mit Freundlichkeit, Fürsorge und Liebe sich mit anderen, mit sich selbst und mit der Natur verbinden – mit dem Ziel und der Absicht, Leiden zu verringern.
-- **Vergebung**: Die Bereitschaft, Feindseligkeiten zu überwinden, Traumata zu verarbeiten und Raum für Heilung zu schaffen.
+#### Wertschätzung
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/
+- **Beschreibung:** Mit positiver Wertschätzung, Freude und Dankbarkeit den Menschen und dem Planeten Erde begegnen.
+- **Für mich:**
+  - Wem in meiner Klasse habe ich diese Woche noch nichts Anerkennendes gesagt?
+  - Wofür bin ich in meinem Beruf dankbar – auch an schwierigen Tagen?
+- **Für meine Klasse:**
+  - Wer hat dir heute geholfen, ohne dass es auffiel?
+  - Was nimmst du als selbstverständlich, das eigentlich besonders ist?
+- **Im Unterricht:**
+  - Warme Dusche: Eine Person sitzt in der Mitte, alle nennen etwas, das sie an ihr schätzen.
+  - Dankbarkeitswand im Klassenzimmer, wöchentlich ergänzt.
+- **Anknüpfungspunkte:** Klassenstunde · Ethik, Religionen, Gemeinschaft · Deutsch
+- **Mini-Übung:** Drei gute Dinge — Jede Person schreibt drei Dinge auf, die heute gut waren – so klein sie sind. Eines davon mit der Nachbarin oder dem Nachbarn teilen.
+
+#### Verbundenheit
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/
+- **Beschreibung:** Das Gefühl der Zugehörigkeit zu einem grösseren Ganzen, wie der Menschheit, dem Netz des Lebens auf dem Planeten und der spirituellen Dimensionen der Existenz.
+- **Für mich:**
+  - Fühlt sich jedes Kind in meiner Klasse als Teil der Gruppe? Woran erkenne ich das?
+  - Wo spüre ich selbst Verbundenheit mit dem Kollegium, der Schule, dem Ort?
+- **Für meine Klasse:**
+  - Zu wem oder was gehörst du?
+  - Was verbindet dich mit einem Kind auf einem anderen Kontinent?
+- **Im Unterricht:**
+  - Herkunft eines Alltagsgegenstands zurückverfolgen: Wer hat alles daran mitgewirkt?
+  - Klassen-Partnerschaft mit einer Schule in einem anderen Land oder einer anderen Region.
+- **Anknüpfungspunkte:** Natur, Mensch, Gesellschaft · Räume, Zeiten, Gesellschaften · Fremdsprachen
+- **Mini-Übung:** Fadennetz — Im Kreis: Ein Wollknäuel wird geworfen. Wer fängt, nennt etwas, das er oder sie mit der werfenden Person gemeinsam hat. Am Ende halten alle ein Netz.
+
+#### Demut und Bescheidenheit
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/
+- **Beschreibung:** In der Lage sein, auf die Erfordernisse einer Situation zu reagieren, ohne die eigene Bedeutung voranzustellen.
+- **Für mich:**
+  - Wie viel spreche ich in einer Lektion, wie viel die Klasse?
+  - Wann habe ich zuletzt eine Idee einer Schülerin, eines Schülers meiner eigenen vorgezogen?
+- **Für meine Klasse:**
+  - Wann ist es wichtiger, dass die Gruppe weiterkommt, als dass du recht hast?
+  - Was können andere besser als du – und wie fühlt sich das an?
+- **Im Unterricht:**
+  - Stille Diskussion auf Papier: Jede Stimme bekommt gleich viel Platz.
+  - Rollen in Gruppenarbeiten rotieren lassen, auch die unscheinbaren.
+- **Anknüpfungspunkte:** Klassenstunde · Bewegung und Sport · Alle Fächer
+- **Mini-Übung:** Zuhören ohne Antwort — Zu zweit: Eine Person erzählt zwei Minuten, die andere hört nur zu – kein Kommentar, kein Rat. Dann wechseln. Wie war es?
+
+#### Empathie und Mitgefühl
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/
+- **Beschreibung:** Mit Freundlichkeit, Fürsorge und Liebe sich mit anderen, mit sich selbst und mit der Natur verbinden – mit dem Ziel und der Absicht, Leiden zu verringern.
+- **Für mich:**
+  - Welches Verhalten in meiner Klasse nervt mich – und welches Bedürfnis könnte dahinterstecken?
+  - Wie gehe ich mit mir selbst um, wenn eine Lektion misslingt?
+- **Für meine Klasse:**
+  - Woran merkst du, dass es jemandem nicht gut geht?
+  - Was tut dir gut, wenn du traurig bist – und könnte das auch anderen helfen?
+- **Im Unterricht:**
+  - Gefühlswortschatz erweitern: Bilder oder Szenen beschreiben, differenzierte Wörter sammeln.
+  - Perspektivenwechsel in Konflikten: Beide Seiten schreiben auf, was die andere wohl gefühlt hat.
+- **Anknüpfungspunkte:** Deutsch · Ethik, Religionen, Gemeinschaft · Klassenstunde · Bildnerisches Gestalten
+- **Mini-Übung:** Freundlicher Gedanke — Alle denken an jemanden, der es gerade schwer hat. Still einen guten Wunsch formulieren. Dann denselben Wunsch an sich selbst richten.
+
+#### Vergebung
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/
+- **Beschreibung:** Die Bereitschaft, Feindseligkeiten zu überwinden, Traumata zu verarbeiten und Raum für Heilung zu schaffen.
+- **Für mich:**
+  - Welchem Kind begegne ich noch mit dem Konflikt von letzter Woche im Hinterkopf?
+  - Wie zeige ich, dass eine Sache für mich erledigt ist – und merkt die Klasse das auch?
+- **Für meine Klasse:**
+  - Was muss passieren, damit eine Sache für dich wirklich erledigt ist?
+  - Trägst du jemandem etwas nach? Was würde es leichter machen?
+- **Im Unterricht:**
+  - Konflikte mit Wiedergutmachung statt Strafe abschliessen: Was braucht die betroffene Person, damit es für sie wieder stimmt?
+  - Ritual für den Neuanfang: Nach einem Streit sagt jede Seite, was sie beim nächsten Mal anders macht – entschuldigen muss sich niemand.
+- **Anknüpfungspunkte:** Ethik, Religionen, Gemeinschaft · Klassenstunde · Deutsch
+- **Mini-Übung:** Abgeschlossen — Alle schreiben eine Sache auf, die sie noch beschäftigt, und entscheiden für sich: behalten oder loslassen. Die Loslass-Zettel werden ungelesen eingesammelt und entsorgt.
 
 ### Zusammenarbeit — Vertrauen aufbauen und zusammenarbeiten
 Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte, Fähigkeiten und Perspektiven sowie die Schaffung sicherer Räume ermöglichen es allen, zu gemeinsamen Zielen und kollektiven Wirkungen beizutragen.
 
-- **Beziehungen aufbauen**: Die Pflege von Beziehungen mit emotionaler Intelligenz, die auf Vertrauen, Respekt, gegenseitigem Verständnis und einem Geist der Zusammenarbeit beruhen.
-- **Inklusive Denkweise und interkulturelle Kompetenz**: Die Bereitschaft und Kompetenz, Vielfalt anzuerkennen und zu leben, und Menschen und Gemeinschaften mit unterschiedlichen Perspektiven und Hintergründen einzubeziehen.
-- **Gemeinsam Gestalten**: Förderung von Kooperationsprozessen mit verschiedenen Interessengruppen, Förderung von Teamarbeit und psychologischer Sicherheit sowie Bewusstsein für Machtverhältnisse.
-- **Kommunizieren**: Die Fähigkeit, aufmerksam zuzuhören, einen echten Dialog zu fördern, die eigenen Ansichten geschickt zu vertreten, Konflikte konstruktiv zu bewältigen und die Kommunikation an unterschiedliche Gruppen anzupassen.
-- **Mobilisieren**: Andere inspirieren und befähigen, sich für gemeinsame Ziele und kollektives Handeln zu engagieren.
+#### Beziehungen aufbauen
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/
+- **Beschreibung:** Die Pflege von Beziehungen mit emotionaler Intelligenz, die auf Vertrauen, Respekt, gegenseitigem Verständnis und einem Geist der Zusammenarbeit beruhen.
+- **Für mich:**
+  - Zu welchem Kind in meiner Klasse habe ich kaum eine Beziehung – und wann hätte ich zwei Minuten Zeit dafür?
+  - Wo kontrolliere ich, obwohl ich vertrauen könnte?
+- **Für meine Klasse:**
+  - Woran merkst du, dass jemand dich mag, auch ohne dass er es sagt?
+  - Was müsste passieren, damit du jemandem wieder vertraust?
+- **Im Unterricht:**
+  - Zwei-Minuten-Regel: Zehn Tage lang täglich zwei Minuten mit dem Kind sprechen, zu dem die Beziehung am dünnsten ist – über alles ausser Schule.
+  - Verantwortung übergeben: Klassenämter, Materialverwaltung, Pausenorganisation ohne Kontrolle.
+- **Anknüpfungspunkte:** Klassenstunde · Bewegung und Sport · Alle Fächer
+- **Mini-Übung:** Blind führen — Zu zweit: Eine Person schliesst die Augen, die andere führt sie nur mit der Stimme durch den Raum. Wechseln. Was hat geholfen?
+
+#### Inklusive Denkweise und interkulturelle Kompetenz
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/
+- **Beschreibung:** Die Bereitschaft und Kompetenz, Vielfalt anzuerkennen und zu leben, und Menschen und Gemeinschaften mit unterschiedlichen Perspektiven und Hintergründen einzubeziehen.
+- **Für mich:**
+  - Wer in meiner Klasse kommt in Beispielen, Bildern und Texten vor – und wer nicht?
+  - Welche Normalität setze ich unbewusst voraus?
+- **Für meine Klasse:**
+  - Was ist bei dir zu Hause anders als bei anderen – und was daran magst du?
+  - Wann hast du dich schon einmal ausgeschlossen gefühlt?
+- **Im Unterricht:**
+  - Sprachenporträt: Alle zeichnen ihre Sprachen in eine Körpersilhouette und stellen sie vor.
+  - Feste und Rituale aus der Klasse in den Jahreskalender aufnehmen.
+- **Anknüpfungspunkte:** Fremdsprachen · Ethik, Religionen, Gemeinschaft · Räume, Zeiten, Gesellschaften · Musik
+- **Mini-Übung:** Gemeinsam und verschieden — Zu zweit in zwei Minuten drei Gemeinsamkeiten und drei Unterschiede finden. Welche waren überraschend?
+
+#### Gemeinsam Gestalten
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/
+- **Beschreibung:** Förderung von Kooperationsprozessen mit verschiedenen Interessengruppen, Förderung von Teamarbeit und psychologischer Sicherheit sowie Bewusstsein für Machtverhältnisse.
+- **Für mich:**
+  - Worüber dürfen meine Schüler:innen tatsächlich mitentscheiden – und worüber nur scheinbar?
+  - Fühlen sich alle sicher genug, eine halbfertige Idee zu äussern?
+- **Für meine Klasse:**
+  - Wer redet in eurer Gruppe am meisten – und wer entscheidet am Ende?
+  - Was brauchst du, um eine unfertige Idee zu sagen?
+- **Im Unterricht:**
+  - Klassenprojekt von der Idee bis zur Umsetzung gemeinsam planen – die Lehrperson als Coach.
+  - Redeanteile sichtbar machen: In einer Gruppenarbeit zählt eine Person mit, wer wie viel spricht. Danach gemeinsam anschauen.
+- **Anknüpfungspunkte:** Projektunterricht · Textiles und Technisches Gestalten · Klassenstunde
+- **Mini-Übung:** Gemeinsam bauen — Gruppen erhalten zehn Blätter Papier und bauen den höchsten Turm – ohne zu sprechen. Danach: Wer hat wie beigetragen?
+
+#### Kommunizieren
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/
+- **Beschreibung:** Die Fähigkeit, aufmerksam zuzuhören, einen echten Dialog zu fördern, die eigenen Ansichten geschickt zu vertreten, Konflikte konstruktiv zu bewältigen und die Kommunikation an unterschiedliche Gruppen anzupassen.
+- **Für mich:**
+  - Wie viele meiner Fragen im Unterricht sind echte Fragen, auf die ich die Antwort nicht kenne?
+  - Wie spreche ich mit Eltern anders als mit Schüler:innen – und was davon ist hilfreich?
+- **Für meine Klasse:**
+  - Woran merkst du, dass dir jemand wirklich zuhört?
+  - Wie sagst du jemandem, dass dich etwas stört, ohne zu verletzen?
+- **Im Unterricht:**
+  - Gesprächsregeln gemeinsam erarbeiten und als Plakat sichtbar machen.
+  - Klassenrat mit festen Rollen: Leitung, Protokoll, Zeit, Stimmung.
+- **Anknüpfungspunkte:** Deutsch · Fremdsprachen · Klassenstunde
+- **Mini-Übung:** Spiegeln — Zu zweit: A erzählt eine Minute. B fasst zusammen: «Ich habe verstanden, dass …» A korrigiert oder bestätigt. Wechseln.
+
+#### Mobilisieren
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/
+- **Beschreibung:** Andere inspirieren und befähigen, sich für gemeinsame Ziele und kollektives Handeln zu engagieren.
+- **Für mich:**
+  - Was begeistert mich an meinem Fach – und sieht meine Klasse diese Begeisterung?
+  - Wie gewinne ich Kolleg:innen für eine Idee, statt sie zu überzeugen?
+- **Für meine Klasse:**
+  - Wofür würdest du andere begeistern wollen?
+  - Wer hat dich schon einmal mitgerissen – wie hat die Person das gemacht?
+- **Im Unterricht:**
+  - Schüler:innen planen eine Aktion für die Schule (Sammelaktion, Pausenkiosk, Ausstellung) und werben dafür.
+  - Kurzreden: In 60 Sekunden für ein Anliegen gewinnen.
+- **Anknüpfungspunkte:** Deutsch · Projektunterricht · Wirtschaft, Arbeit, Haushalt
+- **Mini-Übung:** Ein-Minuten-Pitch — Alle wählen eine kleine Verbesserung für die Klasse. In einer Minute dafür werben. Die Klasse stimmt ab – und setzt die Gewinnerin um.
 
 ### Handeln — Veränderungen einleiten und ermöglichen
 Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten aufbauen, können wir zielgerichtet und beharrlich handeln. In unsicheren Zeiten setzt dies unsere gemeinsamen Visionen in sinnvolle und konkrete Veränderungen um.
 
-- **Mut**: Für grundlegende Werte einstehen, Entscheidungen treffen, Massnahmen ergreifen und, wenn nötig, etablierte Strukturen und Ansichten hinterfragen und aufbrechen.
-- **Hoffnung und Optimismus**: Die gemeinsame Überzeugung, eine gerechtere, integrativere und nachhaltigere Zukunft schaffen, aufbauen und aufrechterhalten zu können.
-- **Bewusster Umgang mit Ressourcen**: Mit dem Bewusstsein für die begrenzten natürlichen Ressourcen unseres Planeten handeln, dabei den Schwerpunkt auf Erhaltung, Regeneration und Sparsamkeit legen, um schädlichen Konsum zu vermeiden.
-- **Proaktiv Handeln**: Die aktuellen globalen Herausforderungen erfordern ein zukunftsorientiertes und verantwortungsbewusstes Handeln, das auf Solidarität und Achtung der Menschenwürde und der lebenden Erde basiert.
-- **Resilienz**: Widrigkeiten und Hindernisse mit Flexibilität, Engagement und Ausdauer angehen, auch wenn der Fortschritt langsam oder ungewiss ist.
+#### Mut
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/
+- **Beschreibung:** Für grundlegende Werte einstehen, Entscheidungen treffen, Massnahmen ergreifen und, wenn nötig, etablierte Strukturen und Ansichten hinterfragen und aufbrechen.
+- **Für mich:**
+  - Was würde ich in meinem Unterricht ändern, wenn ich keine Angst vor Kritik hätte?
+  - Wann habe ich zuletzt im Kollegium widersprochen?
+- **Für meine Klasse:**
+  - Wann hast du dich getraut, etwas zu sagen, obwohl es schwierig war?
+  - Was ist der Unterschied zwischen mutig und leichtsinnig?
+- **Im Unterricht:**
+  - Mut-Geschichten sammeln: Kinder erzählen von kleinen mutigen Momenten – nicht von Heldentaten.
+  - Zivilcourage-Szenen im Rollenspiel üben: Was sage ich, wenn jemand ausgelacht wird?
+- **Anknüpfungspunkte:** Ethik, Religionen, Gemeinschaft · Deutsch · Theater · Bewegung und Sport
+- **Mini-Übung:** Kleiner Mut — Alle überlegen: Was wäre heute ein kleiner mutiger Schritt für mich? Aufschreiben, zusammenfalten. Morgen: Wer hat es getan?
+
+#### Hoffnung und Optimismus
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/
+- **Beschreibung:** Die gemeinsame Überzeugung, eine gerechtere, integrativere und nachhaltigere Zukunft schaffen, aufbauen und aufrechterhalten zu können.
+- **Für mich:**
+  - Welche Zukunft vermittle ich meiner Klasse – eine, die man gestalten kann, oder eine, die man aushalten muss?
+  - Was gibt mir Hoffnung in meinem Beruf?
+- **Für meine Klasse:**
+  - Was ist in den letzten Jahren besser geworden?
+  - Was könnten wir als Klasse schaffen, das eine Person allein nicht schafft?
+- **Im Unterricht:**
+  - Gute Nachrichten der Woche: Schüler:innen recherchieren, was sich positiv entwickelt.
+  - Lösungsgeschichten statt Problemgeschichten: Wer hat ein ähnliches Problem schon gelöst – und wie?
+- **Anknüpfungspunkte:** Medien und Informatik · Natur, Mensch, Gesellschaft · Deutsch
+- **Mini-Übung:** Trotzdem — Jede Person nennt eine Sorge in einem Satz. Die Nachbarin, der Nachbar antwortet mit einem Satz, der mit «Trotzdem …» beginnt.
+
+#### Bewusster Umgang mit Ressourcen
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/
+- **Beschreibung:** Mit dem Bewusstsein für die begrenzten natürlichen Ressourcen unseres Planeten handeln, dabei den Schwerpunkt auf Erhaltung, Regeneration und Sparsamkeit legen, um schädlichen Konsum zu vermeiden.
+- **Für mich:**
+  - Was verbrauche ich in meinem Unterricht, ohne darüber nachzudenken – Papier, Strom, Material?
+  - Rede ich über Nachhaltigkeit, oder ist sie im Schulzimmer auch sichtbar?
+- **Für meine Klasse:**
+  - Was landet bei dir am Ende des Tages im Abfall – und wo käme es sonst hin?
+  - Was von dem, was du besitzt, brauchst du wirklich?
+- **Im Unterricht:**
+  - Abfall-Audit: Eine Woche lang sammeln, was im Schulzimmer weggeworfen wird, dann sortieren und Regeln daraus ableiten.
+  - Reparieren statt ersetzen: Kaputte Dinge von zu Hause mitbringen und gemeinsam flicken.
+- **Anknüpfungspunkte:** Natur und Technik · Wirtschaft, Arbeit, Haushalt · Textiles und Technisches Gestalten · Natur, Mensch, Gesellschaft
+- **Mini-Übung:** Ein Ding, drei Leben — Einen Gegenstand aus dem Etui wählen. Woher kam er, was passiert mit ihm, wenn er kaputt ist? Zu zweit in zwei Minuten die Geschichte erzählen.
+
+#### Proaktiv Handeln
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/
+- **Beschreibung:** Die aktuellen globalen Herausforderungen erfordern ein zukunftsorientiertes und verantwortungsbewusstes Handeln, das auf Solidarität und Achtung der Menschenwürde und der lebenden Erde basiert.
+- **Für mich:**
+  - Wo warte ich, bis jemand anderes ein Problem löst, das ich längst sehe?
+  - Welche Verantwortung traue ich meiner Klasse zu – und welche nehme ich ihr ab?
+- **Für meine Klasse:**
+  - Was stört dich an der Schule so sehr, dass du etwas dagegen tun würdest?
+  - Was könntest du schon morgen tun, ohne dass jemand es dir aufträgt?
+- **Im Unterricht:**
+  - Ein echtes Anliegen aus dem Schulhaus aufgreifen und bis zur Umsetzung begleiten – mit Brief an die Schulleitung, nicht nur mit Plakat.
+  - Verantwortung fest vergeben: Jede Person übernimmt für ein Quartal eine Aufgabe, die der Gemeinschaft dient.
+- **Anknüpfungspunkte:** Räume, Zeiten, Gesellschaften · Projektunterricht · Ethik, Religionen, Gemeinschaft · Wirtschaft, Arbeit, Haushalt
+- **Mini-Übung:** Vom Ärgern zum Tun — Jede Person nennt etwas, das sie ärgert. Die Nachbarin, der Nachbar antwortet mit einem ersten Schritt, der schon heute möglich wäre.
+
+#### Resilienz
+- **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/
+- **Beschreibung:** Widrigkeiten und Hindernisse mit Flexibilität, Engagement und Ausdauer angehen, auch wenn der Fortschritt langsam oder ungewiss ist.
+- **Für mich:**
+  - Welches Kind gebe ich innerlich schon ein wenig auf – und was würde es brauchen, dranzubleiben?
+  - Welches Vorhaben habe ich zu früh fallen lassen – und welches hätte ich früher anpassen sollen?
+- **Für meine Klasse:**
+  - Was kannst du heute, das du früher nicht konntest? Wie hast du es gelernt?
+  - Was machst du, wenn etwas zum dritten Mal nicht klappt – weitermachen oder anders versuchen?
+- **Im Unterricht:**
+  - Lernfortschritt sichtbar machen: Arbeiten von September und Juni nebeneinanderlegen.
+  - Langzeitprojekt über ein Semester mit Zwischenständen – z. B. Pflanzen, Tagebuch, Fertigkeit üben.
+- **Anknüpfungspunkte:** Mathematik · Musik · Bewegung und Sport · Natur und Technik
+- **Mini-Übung:** Noch nicht — Sätze mit «Ich kann das nicht» sammeln und laut um ein Wort ergänzen: «Ich kann das noch nicht.» Was verändert das kleine Wort?
 
 ## Empfehlung für Nutzer:innen
 

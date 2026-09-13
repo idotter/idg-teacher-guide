@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import IdgCards from '../app/IdgCards.jsx'
 import data from '../content/de.js'
 import { readStoredLang } from '../content/langs.js'
+import { dimensionPath } from '../seo/content-pages.js'
 import { SiteFooter, SiteHeader } from '../site/chrome.jsx'
 
 const { ui, dimensions, skills } = data
@@ -195,7 +196,12 @@ export default function Landing() {
                 Weiss — auch auf dem hellen Beige von «Sein». */}
             <div className="bands">
               {dimensions.map((d) => (
-                <div className="band" key={d.id} style={{ background: d.color, color: '#fff' }}>
+                <a
+                  className="band"
+                  key={d.id}
+                  href={dimensionPath(d.id)}
+                  style={{ background: d.color, color: '#fff' }}
+                >
                   <div className="band-in">
                     <Symbol id={d.id} color="#fff" size={58} />
                     <div className="band-txt">
@@ -204,7 +210,7 @@ export default function Landing() {
                     </div>
                     <p className="band-intro">{d.intro}</p>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

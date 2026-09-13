@@ -250,6 +250,9 @@ body {
 .dims-head { padding: 0 0 34px; }
 .dims-body { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .bands { border-radius: var(--lp-r); overflow: hidden; box-shadow: var(--lp-shadow); }
+a.band { display: block; color: inherit; text-decoration: none; }
+a.band:hover .band-name { text-decoration: underline; }
+a.band:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
 .band-in { display: flex; align-items: center; gap: 22px; padding: 26px 28px; }
 .band-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.18; }
 .band-name { font-size: clamp(22px, 2.6vw, 30px); font-weight: var(--weight-bold); }
@@ -346,6 +349,17 @@ body {
 /* --- Innenseiten --- */
 .site { min-height: 100dvh; display: flex; flex-direction: column; }
 .site > main { flex: 1 0 auto; }
+.crumbs { margin: 0 0 16px; font-size: 14px; font-weight: var(--weight-light); }
+.crumbs ol {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0;
+  color: rgba(0, 0, 0, .55);
+}
+.crumbs li { display: inline; }
+.crumbs li:not(:last-child)::after { content: " · "; }
+.crumbs a { color: inherit; text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+.crumbs [aria-current="page"] { color: var(--idg-black); font-weight: var(--weight-regular); }
 .page { padding: 64px 0 8px; }
 .page h1 {
   margin: 0 0 18px;
@@ -366,11 +380,17 @@ body {
   font-size: 20px; font-weight: var(--weight-bold); letter-spacing: -.01em;
 }
 .prose h2:first-child { margin-top: 0; }
+.prose h3 {
+  margin: 22px 0 8px;
+  font-size: 17px; font-weight: var(--weight-semibold); letter-spacing: -.01em;
+}
 .prose p {
   margin: 0 0 14px;
   font-size: 16px; font-weight: var(--weight-light); line-height: 1.55;
   text-wrap: pretty;
 }
+.prose a { color: inherit; }
+.prose .btn { margin-top: 8px; }
 .prose ul {
   margin: 0 0 16px; padding: 0 0 0 1.15em;
   font-size: 16px; font-weight: var(--weight-light); line-height: 1.55;

@@ -1,4 +1,7 @@
 import { landingNoscriptHtml, pageFromHtmlFilename, renderSeoHead } from './meta.js'
+import { renderStaticPageHtml } from './static-page.jsx'
+
+const SKIP_STATIC_BODY = new Set(['/', '/app/'])
 
 /** Entfernt manuell gepflegte SEO-Tags — das Plugin ist die einzige Quelle. */
 function stripExistingSeo(html) {
@@ -30,6 +33,11 @@ export function injectSeoPlugin() {
         let out = cleaned.replace('</head>', `  ${seoHead}\n</head>`)
         if (page.path === '/') {
           out = out.replace('</body>', `  ${landingNoscriptHtml()}\n</body>`)
+        } else if (!SKIP_STATIC_BODY.has(page.path)) {
+          const markup = renderStaticPageHtml(page.path)
+          if (markup) {
+            out = out.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
+          }
         }
         return out
       },

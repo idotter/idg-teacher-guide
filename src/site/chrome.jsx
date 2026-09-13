@@ -119,8 +119,8 @@ function FootList({ items, here }) {
   )
 }
 
-export function SiteFooter() {
-  const here = pagePath()
+export function SiteFooter({ here: hereProp } = {}) {
+  const here = hereProp ?? (typeof window !== 'undefined' ? pagePath() : '/')
   return (
     <footer className="foot">
       <div className="wrap foot-in">

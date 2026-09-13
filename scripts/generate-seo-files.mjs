@@ -64,10 +64,34 @@ async function buildLlmsTxt() {
   const mod = await import(pathToFileURL(join(__dirname, '..', 'src/content/de.js')).href)
   const { dimensions, skills } = mod.default || mod
 
+  const skillPages = buildContentPages().filter((p) => p.kind === 'skill')
+  const skillById = new Map(skillPages.map((p) => [p.id, p]))
+
   const dimBlocks = dimensions.map((d) => {
     const dimSkills = skills.filter((s) => s.dim === d.id)
-    const skillLines = dimSkills.map((s) => `- **${s.name}**: ${s.desc}`).join('\n')
-    return `### ${d.name} — ${d.subtitle}\n${d.intro}\n\n${skillLines}`
+    const skillBlocks = dimSkills.map((s) => {
+      const page = skillById.get(s.id)
+      const url = page ? absoluteUrl(page.path) : ''
+      const teacher = (s.teacher || []).map((q) => `  - ${q}`).join('\n')
+      const students = (s.students || []).map((q) => `  - ${q}`).join('\n')
+      const ideas = (s.ideas || []).map((q) => `  - ${q}`).join('\n')
+      const subjects = (s.subjects || []).join(' · ')
+      const exercise = s.exercise?.title
+        ? `**Mini-Übung:** ${s.exercise.title}${s.exercise.text ? ` — ${s.exercise.text}` : ''}`
+        : ''
+      return `#### ${s.name}
+- **Permalink:** ${url}
+- **Beschreibung:** ${s.desc}
+- **Für mich:**
+${teacher}
+- **Für meine Klasse:**
+${students}
+- **Im Unterricht:**
+${ideas}
+- **Anknüpfungspunkte:** ${subjects}
+- ${exercise}`
+    }).join('\n\n')
+    return `### ${d.name} — ${d.subtitle}\n${d.intro}\n\n${skillBlocks}`
   }).join('\n\n')
 
   return `---
@@ -84,7 +108,7 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 
 - **Format:** Digitales Kartenset mit Vorder- und Rückseite pro Kompetenz
 - **Inhalt pro Karte:** Kompetenzname und -beschreibung (aus dem Rahmenwerk), zwei Reflexionsfragen für die Lehrperson, zwei Fragen für die Klasse, Unterrichtsideen, Anknüpfungspunkte an Fachbereiche, Mini-Übung (ca. 5 Minuten)
-- **Sprachen:** Deutsch (de-CH), Englisch, Französisch, Spanisch, Schwedisch
+- **Sprachen:** Deutsch (de-CH), Englisch, Französisch, Spanisch, Italienisch, Schwedisch
 - **Zielgruppe:** Lehrpersonen in der Schweiz, insbesondere Volksschule; im Deutschen Anknüpfung an den Lehrplan 21
 - **Kosten:** Unentgeltlich
 - **Datenschutz:** Kein Benutzerkonto, keine Analyse-Cookies; Merkliste und Einstellungen nur lokal im Browser
