@@ -287,6 +287,29 @@ export default class IdgCards extends React.Component {
     return idx >= 0 ? idx : 0
   }
 
+  getScreenBg() {
+    const p = this.props
+    const bare = (p.ui ?? 'minimal') === 'ohne'
+    if (bare || p.embedded) return null
+
+    const s = this.state
+    const farbe = (p.variant ?? 'farbe') === 'farbe'
+    const list = this.list()
+    const sk = list[s.index] || list[0]
+    const d = s.data
+    const dims = d ? d.dimensions : []
+    const dim = sk ? (dims.find((x) => x.id === sk.dim) || {}) : {}
+    const onColor = farbe && s.tab === 'stack' && !!sk && !bare
+    return onColor ? dim.color : '#FAF7F5'
+  }
+
+  syncRootScreenBg() {
+    if (typeof document === 'undefined') return
+    const bg = this.getScreenBg()
+    if (bg == null) document.documentElement.style.removeProperty('--idg-screen-bg')
+    else document.documentElement.style.setProperty('--idg-screen-bg', bg)
+  }
+
   async componentDidMount() {
     this.mounted = true
 
@@ -328,6 +351,8 @@ export default class IdgCards extends React.Component {
   }
 
   componentDidUpdate(_prevProps, prevState) {
+    this.syncRootScreenBg()
+
     if (!this.usesDeepLink() || this.state.tab !== 'stack' || !this.state.data) return
     if (!prevState.data) return
     const list = this.list()
@@ -341,6 +366,7 @@ export default class IdgCards extends React.Component {
     this.mounted = false
     if (this.keyTarget && this.onKey) this.keyTarget.removeEventListener('keydown', this.onKey)
     clearTimeout(this.tt); clearTimeout(this.splashT); clearTimeout(this.toastT)
+    if (typeof document !== 'undefined') document.documentElement.style.removeProperty('--idg-screen-bg')
   }
 
   async loadLang(lang, saved = this.state.saved) {

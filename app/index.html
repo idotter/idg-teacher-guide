@@ -12,8 +12,15 @@
   <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="64x64" href="/assets/icons/favicon-64.png">
   <style>
-    html, body { margin: 0; height: 100%; background: #FAF7F5; overscroll-behavior: none; }
-    #root { height: 100%; }
+    html, body, #root {
+      margin: 0;
+      height: 100%;
+      min-height: -webkit-fill-available;
+      min-height: 100dvh;
+      background: #FAF7F5;
+    }
+    html { background: #FAF7F5; }
+    body { overscroll-behavior: none; }
   </style>
 </head>
 <body>
