@@ -58,7 +58,7 @@ export const site = {
         { t: 'h2', v: 'Utan butik, utan konto' },
         { t: 'p', v: 'Appen körs i webbläsaren och kan läggas på hemskärmen. Sparade kort och inställningar stannar i den här enhetens minne. Det finns ingen inloggning, och ingenting laddas upp till en server.' },
         { t: 'h2', v: 'Skrivet för skolvardagen' },
-        { t: 'p', v: 'Förmågornas namn och beskrivningar kommer från Inner Development Guide 2.0 (version 7.2). Reflektionsfrågorna, undervisningsidéerna och miniövningarna är skrivna särskilt för den här appen. På tyska knyter de an till ämnesområdena i Lehrplan 21, den schweiziska läroplanen.' },
+        { t: 'p', v: 'Förmågornas namn och beskrivningar kommer från Inner Development Guide 2.0 (version 7.2). Reflektionsfrågorna, undervisningsidéerna och miniövningarna är skrivna särskilt för den här appen. På tyska knyter de an till ämnesområdena i Lehrplan 21, läroplanen i den tyskspråkiga delen av Schweiz.' },
         { t: 'p', v: 'Förutom på tyska finns korten på engelska, franska, spanska, italienska och svenska.' },
         { t: 'h2', v: 'De fem dimensionerna' },
         { t: 'dimList' },
@@ -82,7 +82,7 @@ export const site = {
         },
         {
           q: 'Hur hänger det ihop med Lehrplan 21?',
-          a: 'De tyska korten knyter an till ämnesområden i Lehrplan 21, den schweiziska läroplanen — till exempel Etik, religioner, gemenskap eller Natur, människa, samhälle. Korten ersätter inte läroplanen; de ger impulser till undervisningen.',
+          a: 'De tyska korten knyter an till ämnesområden i Lehrplan 21, läroplanen i den tyskspråkiga delen av Schweiz — till exempel Etik, religioner, gemenskap eller Natur, människa, samhälle. Korten ersätter inte läroplanen; de ger impulser till undervisningen.',
         },
         {
           q: 'Är det här en officiell produkt från ramverket?',

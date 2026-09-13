@@ -35,7 +35,7 @@ export const site = {
   pages: {
     home: {
       documentTitle: 'Inner Development Guide in the classroom — shape the future in five minutes',
-      description: '25 skills from the Inner Development Guide 2.0 as digital reflection cards for teachers: questions for you and your class, ideas for the classroom and links to Lehrplan 21, the Swiss curriculum — no account, works offline.',
+      description: '25 skills from the Inner Development Guide 2.0 as digital reflection cards for teachers: questions for you and your class, ideas for the classroom and links to Lehrplan 21, the curriculum of German-speaking Switzerland — no account, works offline.',
     },
 
     app: {
@@ -56,7 +56,7 @@ export const site = {
         { t: 'h2', v: 'No store, no account' },
         { t: 'p', v: 'The app runs in the browser and can be added to the home screen. Saved cards and settings stay in the storage of this device. There is no sign-in, and nothing is uploaded to a server.' },
         { t: 'h2', v: 'Written for everyday school life' },
-        { t: 'p', v: 'The names and descriptions of the skills come from the Inner Development Guide 2.0 (version 7.2). The reflection questions, classroom ideas and mini-exercises were written specifically for this app. In German they link to the subject areas of Lehrplan 21, the Swiss curriculum.' },
+        { t: 'p', v: 'The names and descriptions of the skills come from the Inner Development Guide 2.0 (version 7.2). The reflection questions, classroom ideas and mini-exercises were written specifically for this app. In German they link to the subject areas of Lehrplan 21, the curriculum of German-speaking Switzerland.' },
         { t: 'p', v: 'Besides German, the cards are available in English, French, Spanish, Italian and Swedish.' },
         { t: 'h2', v: 'The five dimensions' },
         { t: 'dimList' },
@@ -80,7 +80,7 @@ export const site = {
         },
         {
           q: 'How does this relate to Lehrplan 21?',
-          a: 'The German cards link to subject areas of Lehrplan 21, the Swiss curriculum — for example Ethics, Religions, Community or Nature, People, Society. The cards do not replace the curriculum; they offer impulses for the classroom.',
+          a: 'The German cards link to subject areas of Lehrplan 21, the curriculum of German-speaking Switzerland — for example Ethics, Religions, Community or Nature, People, Society. The cards do not replace the curriculum; they offer impulses for the classroom.',
         },
         {
           q: 'Is this an official product of the framework?',
@@ -164,7 +164,7 @@ export const site = {
         { t: 'h2', v: 'Not an official framework product' },
         { t: 'p', v: 'This offering is inspired by the Inner Development Guide. It is not published by the publishers of the framework and does not speak on their behalf. Names and descriptions of the skills come from the Inner Development Guide 2.0 (version 7.2). Questions, classroom ideas, subject links and mini-exercises come from this offering.' },
         { t: 'h2', v: 'Content and liability' },
-        { t: 'p', v: 'The cards are impulses, not a curriculum and not professional advice. Whether a question or an exercise suits your class is for you to decide. We give no warranty as to completeness, currency or suitability for any particular lesson, and we are not liable for decisions based on this offering — as far as the law permits.' },
+        { t: 'p', v: 'The cards are impulses, not a curriculum and not advice. Whether a question or an exercise suits your class is for you to decide. We give no warranty as to completeness, currency or suitability for any particular lesson, and we are not liable for decisions based on this offering — as far as the law permits.' },
         { t: 'h2', v: 'Data on the device' },
         { t: 'p', v: 'Saved cards and settings are held in the browser of this device. Whoever shares the device also shares these entries. More on this in the [privacy policy](path:privacy).' },
         { t: 'h2', v: 'Passing it on' },

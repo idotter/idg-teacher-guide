@@ -60,7 +60,7 @@ export const site = {
         { t: "h2", v: "Senza store, senza account" },
         { t: "p", v: "L'app funziona nel browser e si può aggiungere alla schermata iniziale. Le carte salvate e le impostazioni restano nella memoria di questo dispositivo. Non c'è registrazione e non viene caricato nulla su un server." },
         { t: "h2", v: "Scritto per la vita scolastica quotidiana" },
-        { t: "p", v: "I nomi e le descrizioni delle competenze provengono dall'Inner Development Guide 2.0 (versione 7.2). Le domande di riflessione, le idee per la lezione e i miniesercizi sono stati formulati appositamente per questa app. In tedesco si collegano alle aree disciplinari del Lehrplan 21, il piano di studio svizzero." },
+        { t: "p", v: "I nomi e le descrizioni delle competenze provengono dall'Inner Development Guide 2.0 (versione 7.2). Le domande di riflessione, le idee per la lezione e i miniesercizi sono stati formulati appositamente per questa app. In tedesco si collegano alle aree disciplinari del Lehrplan 21, il piano di studio della Svizzera tedesca." },
         { t: "p", v: "Oltre che in tedesco, le carte esistono in inglese, francese, spagnolo, italiano e svedese." },
         { t: "h2", v: "Le cinque dimensioni" },
         { t: "dimList" },
@@ -84,7 +84,7 @@ export const site = {
         },
         {
           q: "Che rapporto c'è con il Lehrplan 21?",
-          a: "Le carte in tedesco si collegano ad aree disciplinari del Lehrplan 21, il piano di studio svizzero, per esempio Etica, religioni, comunità oppure Natura, uomo, società. Le carte non sostituiscono il piano di studio: danno impulsi per la lezione.",
+          a: "Le carte in tedesco si collegano ad aree disciplinari del Lehrplan 21, il piano di studio della Svizzera tedesca, per esempio Etica, religioni, comunità oppure Natura, uomo, società. Le carte non sostituiscono il piano di studio: danno impulsi per la lezione.",
         },
         {
           q: "È un prodotto ufficiale del quadro di riferimento?",
@@ -126,7 +126,7 @@ export const site = {
       body: [
         { t: "p", v: "Ultimo aggiornamento: 13 settembre 2026" },
         { t: "h2", v: "Titolare del trattamento" },
-        { t: "p", v: "Responsabile del trattamento dei dati su questo sito è la persona che pubblica questa proposta. È raggiungibile tramite la pagina [Contatti](path:contact)." },
+        { t: "p", v: "Il titolare del trattamento dei dati su questo sito è la persona che pubblica questa proposta. È raggiungibile tramite la pagina [Contatti](path:contact)." },
         { t: "h2", v: "Che cosa questo sito non fa" },
         { t: "p", v: "Non c'è registrazione, non ci sono cookie di analisi o pubblicitari e non vengono caricate le carte salvate né le impostazioni. L'app e la pagina iniziale non memorizzano nulla sui nostri server." },
         { t: "h2", v: "Dati sul tuo dispositivo" },

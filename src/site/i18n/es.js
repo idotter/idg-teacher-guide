@@ -58,7 +58,7 @@ export const site = {
         { t: 'h2', v: 'Sin tienda, sin cuenta' },
         { t: 'p', v: 'La aplicación funciona en el navegador y se puede añadir a la pantalla de inicio. Las cartas guardadas y los ajustes permanecen en la memoria de este dispositivo. No hay registro y no se sube nada a ningún servidor.' },
         { t: 'h2', v: 'Escrito para el día a día escolar' },
-        { t: 'p', v: 'Los nombres y las descripciones de las habilidades proceden del Inner Development Guide 2.0 (versión 7.2). Las preguntas de reflexión, las ideas para el aula y los miniejercicios se han redactado expresamente para esta aplicación. En alemán enlazan con las áreas del Lehrplan 21, el plan de estudios suizo.' },
+        { t: 'p', v: 'Los nombres y las descripciones de las habilidades proceden del Inner Development Guide 2.0 (versión 7.2). Las preguntas de reflexión, las ideas para el aula y los miniejercicios se han redactado expresamente para esta aplicación. En alemán enlazan con las áreas del Lehrplan 21, el plan de estudios de la Suiza de habla alemana.' },
         { t: 'p', v: 'Además de en alemán, las cartas están disponibles en inglés, francés, español, italiano y sueco.' },
         { t: 'h2', v: 'Las cinco dimensiones' },
         { t: 'dimList' },
@@ -82,7 +82,7 @@ export const site = {
         },
         {
           q: '¿Qué relación tiene con el Lehrplan 21?',
-          a: 'Las cartas en alemán enlazan con áreas del Lehrplan 21, el plan de estudios suizo, por ejemplo Ética, religiones, comunidad o Naturaleza, ser humano, sociedad. Las cartas no sustituyen al plan de estudios; ofrecen impulsos para el aula.',
+          a: 'Las cartas en alemán enlazan con áreas del Lehrplan 21, el plan de estudios de la Suiza de habla alemana, por ejemplo Ética, religiones, comunidad o Naturaleza, ser humano, sociedad. Las cartas no sustituyen al plan de estudios; ofrecen impulsos para el aula.',
         },
         {
           q: '¿Es un producto oficial del marco de referencia?',
