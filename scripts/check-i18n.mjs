@@ -14,6 +14,13 @@
  *    identisch mit dem Deutschen geblieben sind (typisches Zeichen einer
  *    kopierten, aber nicht übersetzten Datei)
  *
+ * Dazu eine Prüfung, die **alle sechs Dateien einschliesslich Deutsch** trifft
+ * und nicht vergleicht, sondern zusichert: jedes Linkziel muss so gebaut sein,
+ * dass der Inline-Parser in `src/site/pages.jsx` es lesen kann — `path:`-Ziele
+ * lösen in der Segment-Tabelle auf, kein Ziel trägt eine Klammer. Der Vergleich
+ * gegen Deutsch fängt einen Neuzugang in einer Übersetzung ab; die deutsche
+ * Referenz selbst liest sonst niemand gegen. Siehe `src/site/i18n/link-targets.js`.
+ *
  * Übersetzungsdateien, die es noch nicht gibt (z. B. vor Task 3), werden
  * stillschweigend übersprungen — das ist kein Befund.
  *
@@ -25,31 +32,12 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { LANGS } from '../src/content/langs.js'
 import { keyPaths } from '../src/site/i18n/key-paths.js'
+import { collectLinkTargets, linkTargetFindings } from '../src/site/i18n/link-targets.js'
+import { SEGMENTS } from '../src/site/i18n/segments.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const I18N_DIR = path.resolve(__dirname, '../src/site/i18n')
 const DEFAULT_LANG = 'de'
-
-// Erkennt `[Text](ziel)` — nur das Ziel (Klammerinhalt) ist für den Vergleich
-// relevant, der sichtbare Linktext wird ja übersetzt.
-const LINK_TARGET_RE = /\[[^\]]*\]\(([^)]+)\)/g
-
-function linkTargets(str) {
-  if (typeof str !== 'string') return []
-  const out = []
-  let m
-  LINK_TARGET_RE.lastIndex = 0
-  while ((m = LINK_TARGET_RE.exec(str))) out.push(m[1])
-  return out
-}
-
-/** Sammelt alle Link-Ziele aus einem beliebig verschachtelten Wert, in Fundreihenfolge. */
-function collectLinkTargets(value) {
-  if (typeof value === 'string') return linkTargets(value)
-  if (Array.isArray(value)) return value.flatMap(collectLinkTargets)
-  if (value && typeof value === 'object') return Object.keys(value).flatMap((k) => collectLinkTargets(value[k]))
-  return []
-}
 
 /**
  * Vergleicht Array-Strukturen rekursiv gegen die deutsche Referenz (`de`):
@@ -139,6 +127,14 @@ async function main() {
   // precedenceNote ist im Deutschen erlaubt zu fehlen, in den Übersetzungen Pflicht.
   const requiredExtra = ['pages.privacy.precedenceNote', 'pages.terms.precedenceNote']
 
+  // Zusicherung über alle Sprachen, Deutsch eingeschlossen: Linkziele, die der
+  // Inline-Parser lesen kann. Kein Vergleich, sondern eine eigene Prüfung.
+  const deLinks = linkTargetFindings(de, SEGMENTS[DEFAULT_LANG])
+  if (deLinks.length) {
+    findings.push({ lang: DEFAULT_LANG, missing: [], extra: [], structural: [], identity: [], links: deLinks })
+  }
+  let linkChecked = 1
+
   const translationLangs = LANGS.map((l) => l.v).filter((v) => v !== DEFAULT_LANG)
   let checked = 0
 
@@ -146,6 +142,7 @@ async function main() {
     const file = path.join(I18N_DIR, `${lang}.js`)
     if (!existsSync(file)) continue // noch nicht übersetzt — kein Befund
     checked += 1
+    linkChecked += 1
 
     const translation = await loadSite(lang)
     const ownKeys = new Set(keyPaths(translation))
@@ -155,9 +152,10 @@ async function main() {
     const extra = [...ownKeys].filter((k) => !expected.has(k)).sort()
     const structural = structuralFindings(de, translation)
     const identity = identityFindings(lang, translation, de)
+    const links = linkTargetFindings(translation, SEGMENTS[lang] || SEGMENTS[DEFAULT_LANG])
 
-    if (missing.length || extra.length || structural.length || identity.length) {
-      findings.push({ lang, missing, extra, structural, identity })
+    if (missing.length || extra.length || structural.length || identity.length || links.length) {
+      findings.push({ lang, missing, extra, structural, identity, links })
     }
   }
 
@@ -165,17 +163,18 @@ async function main() {
     const note = checked === 0
       ? '(noch keine Übersetzungsdateien vorhanden)'
       : `(${checked} Übersetzung${checked === 1 ? '' : 'en'} geprüft)`
-    console.log(`i18n-Check: keine Abweichungen ${note}.`)
+    console.log(`i18n-Check: keine Abweichungen ${note}, Linkziele in ${linkChecked} Dateien geprüft.`)
     process.exit(0)
   }
 
   console.error('i18n-Check: Abweichungen gefunden:\n')
-  for (const { lang, missing, extra, structural, identity } of findings) {
+  for (const { lang, missing, extra, structural, identity, links = [] } of findings) {
     console.error(`  ${lang}.js`)
     for (const key of missing) console.error(`    fehlt:      ${key}`)
     for (const key of extra) console.error(`    überzählig: ${key}`)
     for (const msg of identity) console.error(`    identität:  ${msg}`)
     for (const msg of structural) console.error(`    struktur:   ${msg}`)
+    for (const msg of links) console.error(`    linkziel:   ${msg}`)
   }
   console.error('')
   process.exit(1)

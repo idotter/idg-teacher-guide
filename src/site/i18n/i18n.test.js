@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { LANGS } from '../../content/langs.js'
 import { keyPaths } from './key-paths.js'
+import { linkTargetFindings } from './link-targets.js'
 import { SEGMENTS } from './segments.js'
 import de from './de.js'
 import en from './en.js'
@@ -51,4 +52,48 @@ describe('alle i18n-Dateien', () => {
       expect(ALL[lang].pages.terms.precedenceNote).toBeTruthy()
     })
   }
+})
+
+/* Dieselbe Zusicherung läuft in `scripts/check-i18n.mjs` und bricht dort den
+   Build. Hier steht sie noch einmal, weil ein Test zeigen kann, dass sie
+   beisst: ein absichtlich kaputtes Ziel muss einen Befund auslösen. */
+describe('Linkziele', () => {
+  const body = (v) => ({ pages: { terms: { body: [{ t: 'p', v }] } } })
+
+  for (const [lang, data] of Object.entries(ALL)) {
+    it(`${lang} hat nur auflösbare, klammerfreie Linkziele`, () => {
+      expect(linkTargetFindings(data, SEGMENTS[lang])).toEqual([])
+    })
+  }
+
+  it('meldet einen Routenschlüssel, den die Segment-Tabelle nicht kennt', () => {
+    const broken = body('Mehr in der [Datenschutzerklärung](path:datenschutz).')
+    const findings = linkTargetFindings(broken, SEGMENTS.de)
+    expect(findings).toHaveLength(1)
+    expect(findings[0]).toContain('path:datenschutz')
+    expect(findings[0]).toContain('pages.terms.body[0].v')
+    // Gegenprobe: der richtige Schlüssel ist unauffällig.
+    expect(linkTargetFindings(body('… [Datenschutzerklärung](path:privacy).'), SEGMENTS.de)).toEqual([])
+  })
+
+  it('meldet eine Klammer im Ziel', () => {
+    const broken = body('Siehe [Bern](https://de.wikipedia.org/wiki/Bern_(Stadt)).')
+    const findings = linkTargetFindings(broken, SEGMENTS.de)
+    expect(findings).toHaveLength(1)
+    expect(findings[0]).toContain('Klammer im Ziel')
+    // Eine Klammer im sichtbaren Text ist dagegen in Ordnung.
+    expect(linkTargetFindings(body('Siehe [Bern (Stadt)](https://example.org/bern).'), SEGMENTS.de)).toEqual([])
+  })
+
+  it('prüft auch verschachtelte Listen und die Vorrangklausel', () => {
+    const broken = {
+      pages: {
+        privacy: {
+          precedenceNote: 'Vorrang: [Impressum](path:impressum).',
+          body: [{ t: 'ul', v: ['… [Kontakt](path:kontakt) …'] }],
+        },
+      },
+    }
+    expect(linkTargetFindings(broken, SEGMENTS.de)).toHaveLength(2)
+  })
 })
