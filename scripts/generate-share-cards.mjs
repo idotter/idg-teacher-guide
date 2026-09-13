@@ -3,7 +3,7 @@
  * Ausgabe: public/assets/share/{lang}/{id}.png
  */
 import sharp from 'sharp'
-import { mkdir, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -141,6 +141,8 @@ async function main() {
     const dimById = new Map(data.dimensions.map((d) => [d.id, d]))
     const outLang = join(OUT_DIR, lang)
     await mkdir(outLang, { recursive: true })
+    // Aufräumen, sonst bleiben Karten liegen, deren Kompetenz es nicht mehr gibt.
+    for (const f of await readdir(outLang)) if (f.endsWith('.png')) await rm(join(outLang, f))
 
     for (const skill of data.skills) {
       const dim = dimById.get(skill.dim)

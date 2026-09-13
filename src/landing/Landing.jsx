@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import IdgCards from '../app/IdgCards.jsx'
 import data from '../content/de.js'
+import { readStoredLang } from '../content/langs.js'
 import { SiteFooter, SiteHeader } from '../site/chrome.jsx'
 
 const { ui, dimensions, skills } = data
 
 // Für die Kartenanatomie eine echte Karte statt Blindtext.
-const sample = skills.find((k) => k.id === 'b4')
+const sample = skills.find((k) => k.id === 'selbsterkenntnis')
 const sampleDim = dimensions.find((d) => d.id === sample.dim)
 
 // Zeichen werden als Maske eingefärbt, nicht als fertiges Bild geladen:
@@ -54,7 +55,7 @@ const heroDeck = [
    Kein Rahmen, kein Grund, keine Bedienelemente — nur die Karten, wie sie
    auf einem Tisch liegen würden.
    (Das frühere Schaltpult liegt weiterhin in Simulator.jsx.) */
-function HeroDeck() {
+function HeroDeck({ lang }) {
   return (
     <div className="deck" aria-label="Kartenstapel zum Ausprobieren">
       <IdgCards
@@ -65,7 +66,8 @@ function HeroDeck() {
         radius="weich"
         ui="ohne"
         showNumbers={false}
-        lang="de"
+        lang={lang}
+        key={lang}
         embedded
         only={heroDeck}
         storagePrefix="idg-demo"
@@ -129,9 +131,11 @@ function CardBack() {
 }
 
 export default function Landing() {
+  const [lang, setLang] = useState(readStoredLang)
+
   return (
     <div className="site">
-      <SiteHeader />
+      <SiteHeader lang={lang} onLangChange={setLang} />
 
       <main>
         <section className="hero">
@@ -139,7 +143,7 @@ export default function Landing() {
             <div className="hero-text">
               <h1>Zukunft gestalten.<em>In fünf Minuten.</em></h1>
               <p className="hero-lead">
-                Der Inner Development Guide beschreibt 23 Fähigkeiten, die wir brauchen,
+                Der Inner Development Guide beschreibt {skills.length} Fähigkeiten, die wir brauchen,
                 um Wandel zu gestalten. Dieses digitale Kartenset übersetzt sie in den Schulalltag.
               </p>
               <div className="hero-act">
@@ -147,7 +151,7 @@ export default function Landing() {
               </div>
             </div>
             <div className="hero-deck">
-              <HeroDeck />
+              <HeroDeck lang={lang} />
             </div>
           </div>
         </section>
@@ -183,7 +187,7 @@ export default function Landing() {
 
         <section className="dims">
           <div className="wrap dims-head">
-            <h2>Fünf Dimensionen<em>23 Kompetenzen</em></h2>
+            <h2>Fünf Dimensionen<em>{skills.length} Kompetenzen</em></h2>
             <p className="sec-lead">{ui.intro}</p>
           </div>
           <div className="dims-body">

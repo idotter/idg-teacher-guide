@@ -1,4 +1,5 @@
 import React from 'react'
+import { LANGS } from '../content/langs.js'
 import './cards.css'
 
 /* --------------------------------------------------------------------------
@@ -8,18 +9,10 @@ import './cards.css'
    Berechnungen, gleiche Inline-Styles. Nur Pseudoklassen (:hover/:active)
    wandern nach cards.css, weil React sie inline nicht setzen kann.
 
-   Sprachen: content/<lang>.js. Aktuell nur de. Eine weitere Sprache ergänzt
-   man, indem man die Datei kopiert, die Werte übersetzt, die IDs unverändert
-   lässt und den Code unten in LANGS einträgt.
+   Sprachen: content/<lang>.js. Eine weitere Sprache ergänzt man, indem man
+   die Datei kopiert, die Werte übersetzt, die IDs unverändert lässt und den
+   Eintrag in content/langs.js ergänzt.
    -------------------------------------------------------------------------- */
-
-const LANGS = [
-  { v: 'de', label: 'Deutsch' },
-  { v: 'en', label: 'English' },
-  { v: 'fr', label: 'Français' },
-  { v: 'es', label: 'Español' },
-  { v: 'sv', label: 'Svenska' },
-]
 
 const asset = (p) => `/assets/${p}`
 
@@ -328,7 +321,10 @@ export default class IdgCards extends React.Component {
       this.splashT = setTimeout(() => this.setState({ splash: false }), 3200)
     }
 
-    await this.loadLang(prefs.lang ?? this.props.lang ?? 'de', saved)
+    const lang = this.props.embedded
+      ? (this.props.lang ?? 'de')
+      : (prefs.lang ?? this.props.lang ?? 'de')
+    await this.loadLang(lang, saved)
   }
 
   componentDidUpdate(_prevProps, prevState) {
@@ -882,7 +878,7 @@ export default class IdgCards extends React.Component {
               <div style={{ flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ padding: '6px 20px 18px', display: 'flex', flexDirection: 'column', gap: 6 }}>
                   <h1 style={{ margin: 0, fontSize: 26, lineHeight: 1.12, fontWeight: 700, letterSpacing: '-.01em', paddingRight: 56 }}>
-                    5 Dimensionen<br /><span style={{ fontWeight: 300 }}>23 Kompetenzen</span>
+                    {d.dimensions.length} {ui.tabs.dimensions}<br /><span style={{ fontWeight: 300 }}>{d.skills.length} {ui.skillsCount}</span>
                   </h1>
                   <p style={{ margin: 0, fontSize: 14, fontWeight: 300, lineHeight: 1.45, textWrap: 'pretty' }}>{ui.intro}</p>
                 </div>

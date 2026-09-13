@@ -57,14 +57,14 @@ export const pages = {
   '/projekt/': {
     title: 'Das Projekt',
     documentTitle: 'Das Projekt — IDG im Schulalltag',
-    description: 'Der Inner Development Guide als Reflexionskarten für den Schulalltag: 23 Kompetenzen, fünf Dimensionen, ohne Konto.',
+    description: 'Der Inner Development Guide als Reflexionskarten für den Schulalltag: 25 Kompetenzen, fünf Dimensionen, ohne Konto.',
     lead: 'Ein digitales Kartenset, das den Inner Development Guide in den Unterricht übersetzt — eine Karte, eine Frage, ein Einstieg.',
     body: (
       <>
         <h2>Worum es geht</h2>
         <p>
-          Der Inner Development Guide beschreibt 23 innere Fähigkeiten in fünf Dimensionen:
-          Sein, Denken, Beziehung, Zusammenarbeit und Handeln. Dieses Angebot macht sie für
+          Der Inner Development Guide beschreibt 25 innere Fähigkeiten in fünf Dimensionen:
+          Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses Angebot macht sie für
           Lehrpersonen greifbar: als Karten, die sich umdrehen, merken und offline auf dem
           Gerät behalten lassen.
         </p>
@@ -83,7 +83,8 @@ export const pages = {
 
         <h2>Für den Schulalltag geschrieben</h2>
         <p>
-          Die Namen und Beschreibungen der Kompetenzen stammen aus dem Rahmenwerk. Die
+          Die Namen und Beschreibungen der Kompetenzen stammen aus dem Inner Development
+          Guide 2.0 (Version 7.2). Die
           Reflexionsfragen, Unterrichtsideen und Mini-Übungen sind eigens für diese App
           formuliert. Im Deutschen knüpfen sie an die Fachbereiche des Lehrplans 21 an.
         </p>
@@ -232,7 +233,7 @@ export const pages = {
         <h2>Angebot</h2>
         <p>
           «IDG im Schulalltag» stellt Reflexionskarten zum Inner Development Guide bereit:
-          23 Kompetenzen, Fragen für Lehrperson und Klasse, Ideen für den Unterricht und
+          25 Kompetenzen, Fragen für Lehrperson und Klasse, Ideen für den Unterricht und
           Mini-Übungen. Die Nutzung ist unentgeltlich.
         </p>
 

@@ -1,6 +1,6 @@
 # IDG im Schulalltag
 
-Die Inner Development Goals als Reflexionskarten für Lehrpersonen. 23 Kompetenzen
+Die Inner Development Goals als Reflexionskarten für Lehrpersonen. 25 Kompetenzen
 in 5 Dimensionen, je mit Reflexionsfragen für die Lehrperson und für die Klasse,
 Ideen für den Unterricht, Anknüpfungspunkten an die Fachbereiche und einer
 Mini-Übung.
@@ -42,7 +42,11 @@ src/
                         nicht mehr eingebunden — siehe Kopf der Datei
   landing/landing.css
   content/de.js         alle Inhalte: ui, dimensions, skills
+  content/{en,fr,es,sv}.js  dieselbe Struktur, gleiche IDs
   ds/                   Design-System-Tokens, unverändert aus dem Projekt
+scripts/
+  extract-skill-glyphs.mjs  Kompetenzglyphen aus dem Guide-PDF schneiden
+  generate-share-cards.mjs  Share-PNG der Kartenfront je Sprache und Kompetenz
 public/
   assets/               Symbole, Kompetenzgrafiken, Icons
   manifest.webmanifest
@@ -87,17 +91,20 @@ eigenes Bündel; geladen wird nur die aktive.
 Jede Karte hat zwei Schichten, die unterschiedlich entstanden sind:
 
 - **Rahmenwerk** — Dimensionsname, Untertitel, Einleitung, Kompetenzname und
-  Beschreibung. Wörtlich aus den offiziellen IDG-Framework-Dateien der
-  jeweiligen Sprache übernommen.
+  Beschreibung. Aus dem **Inner Development Guide 2.0 (Version 7.2)**,
+  deutsche Ausgabe; im Deutschen wörtlich übernommen und nur auf Schweizer
+  Rechtschreibung gebracht (ß → ss), in en/fr/es/sv daraus übersetzt. Wo die
+  Formulierung der Version 1.0 der 2.0-Definition noch entspricht, ist sie
+  stehen geblieben.
 - **Pädagogik** — Reflexionsfragen, Unterrichtsideen, Anknüpfungspunkte und
   Mini-Übung. Nicht Teil des IDG-Rahmenwerks, sondern für diese App
   geschrieben. In en/fr/es/sv aus dem Deutschen übersetzt.
 
-Zwei Eingriffe in die Quelldateien sind in den Dateiköpfen vermerkt: Die
-englische Framework-Datei führt unter *Courage* die Beschreibung von
-*Creativity* und unter *Creativity* die von *Inclusive Mindset*; hier steht die
-korrekte Fassung, die Französisch, Spanisch und Schwedisch übereinstimmend
-belegen. In der französischen Datei sind zwei Schreibfehler korrigiert.
+Die IDs der Kompetenzen sind sprechende Slugs (`vergebung`, `resilienz`) und
+nicht durchnummeriert. Sie stehen im Deep-Link (`/app/?card=resilienz`), in der
+Merkliste und als Dateiname der Glyphen und Share-Karten — eine erneute
+Umstellung des Rahmenwerks soll sie deshalb nicht verschieben. Die angezeigte
+Nummer (`2.3`) wird aus der Position berechnet.
 
 Die Anknüpfungspunkte sind im Deutschen Lehrplan-21-Fachbereiche. Für die
 anderen Sprachen wurden sie sinngemäss verallgemeinert („Natur, Mensch,
@@ -115,7 +122,7 @@ listet nur Sprachen, die es wirklich gibt.
 Kompetenz- und Dimensionszeichen werden nicht als fertige Bilddatei geladen,
 sondern als CSS-Maske eingefärbt (`Glyph` in `IdgCards.jsx`). Die Form eines
 Zeichens steckt allein im Alphakanal — die farbige und die weisse Datei
-unterscheiden sich nur in den RGB-Werten, geprüft über alle 28 Paare mit
+unterscheiden sich nur in den RGB-Werten, geprüft über alle 30 Paare mit
 0 Alpha-Abweichungen. Dadurch bestimmt der Code die Vordergrundfarbe:
 
 - auf einer Fläche in Dimensionsfarbe **immer Weiss**, auch auf dem hellen
@@ -154,17 +161,28 @@ weg.
 
 ## Herkunft der Grafiken
 
-Alle Grafiken stammen aus dem Design-Projekt. Ausnahme: 17 der 23 farbigen
-Kompetenzgrafiken überschreiten das Limit von 256 KiB, mit dem die Design-API
-Dateien ausliefert, und liessen sich nur abgeschnitten laden. Sie wurden aus den
-weissen Varianten rekonstruiert. Das ist verlustfrei möglich, weil beide
-Varianten denselben Glyph zeigen und sich nur in der Farbe unterscheiden: Der
-Alphakanal beider Dateien ist pixelgenau identisch (geprüft an
-`b4-selbsterkenntnis`: 0 Abweichungen bei 1 166 400 Pixeln). Die Rekonstruktion
-füllt die Form flächig mit der Dimensionsfarbe; die Originale tragen dort noch
-etwas Kompressionsrauschen (98,8 % der Pixel innerhalb von 20 Stufen um die
-reine Markenfarbe). Wer die Originaldateien vorliegen hat, kann sie einfach
-nach `public/assets/skills/` kopieren.
+Die Dimensionssymbole, die App-Icons und das Kartenlayout stammen aus dem
+Design-Projekt. Die 25 Kompetenzglyphen sind aus dem Guide-PDF selbst
+geschnitten — `scripts/extract-skill-glyphs.mjs` rendert die Kachelspalte jeder
+Dimensionsseite mit `pdftoppm` in 600 dpi, findet die fünf Kacheln über den
+Kontrast zum Seitenhintergrund und rechnet jede in eine Alpha-Maske um (Alpha =
+Projektion des Pixels auf die Strecke von der Dimensionsfarbe nach Weiss):
+
+```
+node scripts/extract-skill-glyphs.mjs "~/Downloads/Inner Development Guide (German).pdf"
+```
+
+Aus dem PDF statt aus dem Design-Projekt, weil die Version 2.0 vier Glyphen
+mitbringt, die es im alten Satz nicht gab (Kreativität als Neuneck der Dimension
+„Denken", Vergebung, Bewusster Umgang mit Ressourcen, Proaktiv Handeln). Alle 25
+aus einer Quelle zu schneiden hält den Satz in sich konsistent. Der Faktor
+`scale` je Dimension hält die Glyphen auf der Grösse des bisherigen Satzes, damit
+die Karten beim Update nicht springen.
+
+Gespeichert wird als Palette-PNG mit 128 Farben — Strichgrafik auf Transparenz
+braucht nicht mehr, und es spart gegenüber RGBA rund zwei Drittel. Die farbige
+Variante entsteht aus der bereits quantisierten weissen, damit beide denselben
+Alphakanal tragen.
 
 ## Attribution
 
