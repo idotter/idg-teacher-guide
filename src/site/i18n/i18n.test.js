@@ -5,8 +5,9 @@ import { SEGMENTS } from './segments.js'
 import de from './de.js'
 import en from './en.js'
 import fr from './fr.js'
+import es from './es.js'
 
-const ALL = { de, en, fr }
+const ALL = { de, en, fr, es }
 
 describe('deutsche i18n-Datei', () => {
   it('hat keine leeren Werte', () => {
