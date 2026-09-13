@@ -143,7 +143,7 @@ export default function Landing() {
             <div className="hero-text">
               <h1>Zukunft gestalten.<em>In fünf Minuten.</em></h1>
               <p className="hero-lead">
-                Der Inner Development Guide beschreibt {skills.length} Fähigkeiten, die wir brauchen,
+                Der Inner Development Guide 2.0 beschreibt {skills.length} Fähigkeiten, die wir brauchen,
                 um Wandel zu gestalten. Dieses digitale Kartenset übersetzt sie in den Schulalltag.
               </p>
               <div className="hero-act">

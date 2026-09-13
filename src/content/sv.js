@@ -8,9 +8,10 @@
 // inte i IDG-ramverket – de skrevs för den här appen och är översatta från tyskan.
 // De schweiziska läroplansämnena har generaliserats.
 export const ui = {
-  appName: "IDG i skolvardagen",
+  appName: "Inner Development Guide",
+  appNameSub: "i skolvardagen",
   tagline: "25 förmågor. Ett kort i taget.",
-  intro: "Inner Development Goals beskriver inre förmågor som vi behöver för att kunna forma förändring. De här korten översätter dem till din skolvardag.",
+  intro: "Inner Development Guide 2.0 beskriver inre förmågor som vi behöver för att kunna forma förändring. De här korten översätter dem till din skolvardag.",
   tabs: { stack: "Kortlek", dimensions: "Dimensioner", saved: "Sparade", settings: "Inställningar" },
   language: "Språk",
   cardDesign: "Kortens utseende",
@@ -21,7 +22,7 @@ export const ui = {
   flipV: "Lodrätt",
   clearSaved: "Töm sparade",
   cleared: "Sparade tömda",
-  about: "Den här appen gör Inner Development Goals tillgängliga för lärare: 25 förmågor, var och en med reflektionsfrågor för dig och för din klass samt idéer för undervisningen.",
+  about: "Den här appen gör Inner Development Guide tillgängligt för lärare: 25 förmågor, var och en med reflektionsfrågor för dig och för din klass samt idéer för undervisningen.",
   cardOfDay: "Dagens kort",
   random: "Slumpkort",
   flipHint: "Tryck för att vända",
@@ -45,7 +46,7 @@ export const ui = {
   emptySavedHint: "Tryck på ”Spara” när ett kort ska följa med dig.",
   skillsCount: "förmågor",
   ofCards: "av",
-  attribution: "Det här arbetet är inspirerat av Inner Development Goals. Mer på innerdevelopmentgoals.org",
+  attribution: "Det här arbetet är inspirerat av Inner Development Guide. Mer på innerdevelopmentgoals.org",
   dimensionLabel: "Dimension",
   allCards: "Alla kort",
   close: "Stäng",

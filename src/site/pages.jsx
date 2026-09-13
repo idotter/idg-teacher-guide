@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { CONTACT_MAIL, pages as seoPages } from '../seo/meta.js'
 
-export const CONTACT_MAIL = 'guide@zukunftskompetenzchallenge.ch'
+export { CONTACT_MAIL }
 
 function ContactForm() {
   const [name, setName] = useState('')
@@ -55,15 +56,15 @@ function ContactForm() {
 
 export const pages = {
   '/projekt/': {
-    title: 'Das Projekt',
-    documentTitle: 'Das Projekt — IDG im Schulalltag',
-    description: 'Der Inner Development Guide als Reflexionskarten für den Schulalltag: 25 Kompetenzen, fünf Dimensionen, ohne Konto.',
-    lead: 'Ein digitales Kartenset, das den Inner Development Guide in den Unterricht übersetzt — eine Karte, eine Frage, ein Einstieg.',
+    title: seoPages['/projekt/'].pageLabel,
+    documentTitle: seoPages['/projekt/'].title,
+    description: seoPages['/projekt/'].description,
+    lead: 'Ein digitales Kartenset, das den Inner Development Guide 2.0 in den Unterricht übersetzt — eine Karte, eine Frage, ein Einstieg.',
     body: (
       <>
         <h2>Worum es geht</h2>
         <p>
-          Der Inner Development Guide beschreibt 25 innere Fähigkeiten in fünf Dimensionen:
+          Der Inner Development Guide 2.0 beschreibt 25 innere Fähigkeiten in fünf Dimensionen:
           Sein, Denken, Beziehungen, Zusammenarbeit und Handeln. Dieses Angebot macht sie für
           Lehrpersonen greifbar: als Karten, die sich umdrehen, merken und offline auf dem
           Gerät behalten lassen.
@@ -96,7 +97,7 @@ export const pages = {
         <h2>Herkunft</h2>
         <p>
           Dieses Angebot ist inspiriert vom Inner Development Guide. Es ist kein
-          offizielles Produkt der Inner Development Goals. Mehr zum Rahmenwerk unter{' '}
+          offizielles Produkt der Herausgeber:innen des Rahmenwerks. Mehr unter{' '}
           <a href="https://innerdevelopmentgoals.org" rel="noopener noreferrer">
             innerdevelopmentgoals.org
           </a>
@@ -111,9 +112,9 @@ export const pages = {
   },
 
   '/kontakt/': {
-    title: 'Kontakt',
-    documentTitle: 'Kontakt — IDG im Schulalltag',
-    description: 'Frage, Hinweis oder Rückmeldung zum Inner Development Guide im Schulalltag.',
+    title: seoPages['/kontakt/'].pageLabel,
+    documentTitle: seoPages['/kontakt/'].title,
+    description: seoPages['/kontakt/'].description,
     lead: 'Eine Frage zum Kartenset, ein Hinweis aus dem Unterricht oder der Wunsch, das Angebot im Kollegium zu teilen — schreib uns.',
     body: (
       <>
@@ -128,9 +129,9 @@ export const pages = {
   },
 
   '/datenschutz/': {
-    title: 'Datenschutz',
-    documentTitle: 'Datenschutz — IDG im Schulalltag',
-    description: 'Wie IDG im Schulalltag Daten bearbeitet: lokal auf dem Gerät, ohne Konto, ohne Upload.',
+    title: seoPages['/datenschutz/'].pageLabel,
+    documentTitle: seoPages['/datenschutz/'].title,
+    description: seoPages['/datenschutz/'].description,
     lead: 'Dieses Angebot kommt ohne Benutzerkonto aus. Was du merkst, bleibt auf deinem Gerät.',
     body: (
       <>
@@ -222,9 +223,9 @@ export const pages = {
   },
 
   '/nutzungsbedingungen/': {
-    title: 'Nutzungsbedingungen',
-    documentTitle: 'Nutzungsbedingungen — IDG im Schulalltag',
-    description: 'Bedingungen für die Nutzung der Reflexionskarten IDG im Schulalltag.',
+    title: seoPages['/nutzungsbedingungen/'].pageLabel,
+    documentTitle: seoPages['/nutzungsbedingungen/'].title,
+    description: seoPages['/nutzungsbedingungen/'].description,
     lead: 'Das Kartenset ist für den Unterricht gedacht. Die Verantwortung für den Einsatz bleibt bei dir.',
     body: (
       <>
@@ -232,9 +233,9 @@ export const pages = {
 
         <h2>Angebot</h2>
         <p>
-          «IDG im Schulalltag» stellt Reflexionskarten zum Inner Development Guide bereit:
-          25 Kompetenzen, Fragen für Lehrperson und Klasse, Ideen für den Unterricht und
-          Mini-Übungen. Die Nutzung ist unentgeltlich.
+          «Inner Development Guide im Schulalltag» stellt Reflexionskarten zum Inner Development
+          Guide 2.0 bereit: 25 Kompetenzen, Fragen für Lehrperson und Klasse, Ideen für den
+          Unterricht und Mini-Übungen. Die Nutzung ist unentgeltlich.
         </p>
 
         <h2>Wer nutzen darf</h2>
@@ -244,13 +245,13 @@ export const pages = {
           Vorbereitung und in der Aus- und Weiterbildung ist gestattet.
         </p>
 
-        <h2>Kein offizielles IDG-Produkt</h2>
+        <h2>Kein offizielles Rahmenwerk-Produkt</h2>
         <p>
           Dieses Angebot ist inspiriert vom Inner Development Guide. Es wird nicht von
-          den Inner Development Goals herausgegeben und spricht nicht in ihrem Namen.
-          Namen und Beschreibungen der Kompetenzen stammen aus dem Rahmenwerk. Fragen,
-          Unterrichtsideen, Anknüpfungspunkte und Mini-Übungen stammen von diesem
-          Angebot.
+          den Herausgeber:innen des Rahmenwerks herausgegeben und spricht nicht in deren
+          Namen. Namen und Beschreibungen der Kompetenzen stammen aus dem Inner Development
+          Guide 2.0 (Version 7.2). Fragen, Unterrichtsideen, Anknüpfungspunkte und
+          Mini-Übungen stammen von diesem Angebot.
         </p>
 
         <h2>Inhalte und Haftung</h2>

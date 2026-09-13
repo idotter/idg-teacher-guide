@@ -1061,8 +1061,8 @@ export default class IdgCards extends React.Component {
                   ))}
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, animation: 'idgWordIn .6s ease 1.2s both' }}>
-                  <span style={{ fontSize: 22, lineHeight: 1.1, fontWeight: 700, letterSpacing: '-.01em' }}>IDG Reflexionskarten</span>
-                  <span style={{ fontSize: 22, lineHeight: 1.1, fontWeight: 300 }}>für den Unterricht</span>
+                  <span style={{ fontSize: 22, lineHeight: 1.1, fontWeight: 700, letterSpacing: '-.01em' }}>{ui.appName}</span>
+                  <span style={{ fontSize: 22, lineHeight: 1.1, fontWeight: 300 }}>{ui.appNameSub || ''}</span>
                 </div>
                 <img src={asset('inspired-by-idg.png')} alt="Inspired by IDG"
                   style={{ position: 'absolute', bottom: 'calc(var(--idg-sab) + 28px)', height: 30, width: 'auto', animation: 'idgWordIn .6s ease 1.6s both' }} />

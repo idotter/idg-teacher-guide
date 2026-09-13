@@ -10,9 +10,10 @@
 // aplicación y están traducidos del alemán. Las materias del plan de estudios suizo
 // se han generalizado.
 export const ui = {
-  appName: "Los IDG en el aula",
+  appName: "Inner Development Guide",
+  appNameSub: "en el aula",
   tagline: "25 habilidades. Una carta cada vez.",
-  intro: "Los Inner Development Goals describen habilidades interiores que necesitamos para dar forma al cambio. Estas cartas las traducen a tu día a día docente.",
+  intro: "El Inner Development Guide 2.0 describe habilidades interiores que necesitamos para dar forma al cambio. Estas cartas las traducen a tu día a día docente.",
   tabs: { stack: "Mazo", dimensions: "Dimensiones", saved: "Guardadas", settings: "Ajustes" },
   language: "Idioma",
   cardDesign: "Diseño de las cartas",
@@ -23,7 +24,7 @@ export const ui = {
   flipV: "Vertical",
   clearSaved: "Vaciar las guardadas",
   cleared: "Guardadas vaciadas",
-  about: "Esta aplicación acerca los Inner Development Goals al profesorado: 25 habilidades, cada una con preguntas de reflexión para ti y para tu clase, además de ideas para el aula.",
+  about: "Esta aplicación acerca el Inner Development Guide al profesorado: 25 habilidades, cada una con preguntas de reflexión para ti y para tu clase, además de ideas para el aula.",
   cardOfDay: "Carta del día",
   random: "Carta al azar",
   flipHint: "Toca para girar",
@@ -47,7 +48,7 @@ export const ui = {
   emptySavedHint: "Toca «Guardar» cuando quieras que una carta te acompañe.",
   skillsCount: "habilidades",
   ofCards: "de",
-  attribution: "Este trabajo se inspira en los Inner Development Goals. Más información en innerdevelopmentgoals.org",
+  attribution: "Este trabajo se inspira en el Inner Development Guide. Más información en innerdevelopmentgoals.org",
   dimensionLabel: "Dimensión",
   allCards: "Todas las cartas",
   close: "Cerrar",

@@ -10,9 +10,10 @@
 // cette application et sont traduits de l'allemand. Les disciplines du plan
 // d'études suisse ont été généralisées.
 export const ui = {
-  appName: "Les IDG en classe",
+  appName: "Inner Development Guide",
+  appNameSub: "en classe",
   tagline: "25 capacités. Une carte à la fois.",
-  intro: "Les Inner Development Goals décrivent les capacités intérieures dont nous avons besoin pour façonner le changement. Ces cartes les traduisent dans votre quotidien d'enseignement.",
+  intro: "Le Inner Development Guide 2.0 décrit les capacités intérieures dont nous avons besoin pour façonner le changement. Ces cartes les traduisent dans votre quotidien d'enseignement.",
   tabs: { stack: "Jeu", dimensions: "Dimensions", saved: "Favoris", settings: "Réglages" },
   language: "Langue",
   cardDesign: "Design des cartes",
@@ -23,7 +24,7 @@ export const ui = {
   flipV: "Vertical",
   clearSaved: "Vider les favoris",
   cleared: "Favoris vidés",
-  about: "Cette application rend les Inner Development Goals accessibles aux enseignantes et enseignants : 25 capacités, chacune avec des questions de réflexion pour vous et pour votre classe, ainsi que des idées pour le cours.",
+  about: "Cette application rend le Inner Development Guide accessible aux enseignantes et enseignants : 25 capacités, chacune avec des questions de réflexion pour vous et pour votre classe, ainsi que des idées pour le cours.",
   cardOfDay: "Carte du jour",
   random: "Carte au hasard",
   flipHint: "Toucher pour retourner",
@@ -47,7 +48,7 @@ export const ui = {
   emptySavedHint: "Touchez « Garder » si une carte doit vous accompagner.",
   skillsCount: "capacités",
   ofCards: "sur",
-  attribution: "Ce travail s'inspire des Inner Development Goals. Plus d'informations sur innerdevelopmentgoals.org",
+  attribution: "Ce travail s'inspire du Inner Development Guide. Plus d'informations sur innerdevelopmentgoals.org",
   dimensionLabel: "Dimension",
   allCards: "Toutes les cartes",
   close: "Fermer",

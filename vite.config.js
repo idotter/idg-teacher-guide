@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'node:path'
+import { injectSeoPlugin } from './src/seo/vite-plugin-seo.js'
 
 // Einstiegspunkte:
 //   /                      Landingpage
@@ -10,7 +11,7 @@ import { resolve } from 'node:path'
 //   /datenschutz/          Datenschutz
 //   /nutzungsbedingungen/  Nutzungsbedingungen
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), injectSeoPlugin()],
   base: '/',
   build: {
     rollupOptions: {

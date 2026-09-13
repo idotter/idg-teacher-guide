@@ -8,9 +8,10 @@
 // not part of the IDG framework — they were written for this app and are translated
 // from the German original. Swiss curriculum subjects have been generalised.
 export const ui = {
-  appName: "IDG in the classroom",
+  appName: "Inner Development Guide",
+  appNameSub: "in the classroom",
   tagline: "25 skills. One card at a time.",
-  intro: "The Inner Development Goals describe inner abilities we need in order to shape change. These cards translate them into your teaching day.",
+  intro: "The Inner Development Guide 2.0 describes inner abilities we need in order to shape change. These cards translate them into your teaching day.",
   tabs: { stack: "Deck", dimensions: "Dimensions", saved: "Saved", settings: "Settings" },
   language: "Language",
   cardDesign: "Card design",
@@ -21,7 +22,7 @@ export const ui = {
   flipV: "Vertical",
   clearSaved: "Clear saved cards",
   cleared: "Saved cards cleared",
-  about: "This app makes the Inner Development Goals accessible to teachers: 25 skills, each with reflection questions for you and for your class, plus ideas for the classroom.",
+  about: "This app makes the Inner Development Guide accessible to teachers: 25 skills, each with reflection questions for you and for your class, plus ideas for the classroom.",
   cardOfDay: "Card of the day",
   random: "Random card",
   flipHint: "Tap to flip",
@@ -45,7 +46,7 @@ export const ui = {
   emptySavedHint: "Tap “Save” when a card should stay with you.",
   skillsCount: "skills",
   ofCards: "of",
-  attribution: "This work is inspired by the Inner Development Goals. More at innerdevelopmentgoals.org",
+  attribution: "This work is inspired by the Inner Development Guide. More at innerdevelopmentgoals.org",
   dimensionLabel: "Dimension",
   allCards: "All cards",
   close: "Close",
