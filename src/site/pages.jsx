@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { contentPageFromPath } from '../seo/content-pages.js'
-import { CONTACT_MAIL } from '../seo/meta.js'
+import { CONTACT_MAIL, SITE_NAME } from '../seo/site-info.js'
 import {
   dimensionCrumbs,
   dimensionPageBody,
@@ -152,19 +151,50 @@ function ContactForm({ labels }) {
   )
 }
 
-/* Dimensions- und Kompetenzseiten kommen weiter aus den Kartendaten; ihre
-   Sprachumstellung ist Task 6. */
-function contentPage(pathname) {
-  const page = contentPageFromPath(pathname)
-  if (!page) return null
-  return {
-    title: page.title,
-    documentTitle: page.documentTitle,
-    description: page.description,
-    lead: page.kind === 'dimension' ? page.dim.subtitle : page.skill.desc,
-    crumbs: page.kind === 'dimension' ? dimensionCrumbs(page) : skillCrumbs(page),
-    body: page.kind === 'dimension' ? dimensionPageBody(page) : skillPageBody(page),
+function pageLabel(name) {
+  return `${name} — ${SITE_NAME}`
+}
+
+/* Dimensions- und Kompetenzseiten kommen aus den Kartendaten der
+   Route-Sprache (`content`, von lang-modules.js geladen) — nicht mehr aus
+   dem build-only `seo/content-pages.js`. Das importiert inzwischen alle
+   sechs Sprachen statisch und darf deshalb nie ins Client-Bundle geraten. */
+function contentPage(pathname, lang, site, content) {
+  const { key, id } = routeKeyFromPath(pathname)
+  const { dimensions, skills, ui } = content
+
+  if (key === 'dimension') {
+    const dim = dimensions.find((d) => d.id === id)
+    if (!dim) return null
+    const dimSkills = skills.filter((s) => s.dim === dim.id)
+    const page = { kind: 'dimension', lang, dim, dimSkills }
+    return {
+      title: dim.name,
+      documentTitle: pageLabel(dim.name),
+      description: `${dim.subtitle}. ${dim.intro.slice(0, 140).trim()}…`,
+      lead: dim.subtitle,
+      crumbs: dimensionCrumbs(page, site),
+      body: dimensionPageBody(page),
+    }
   }
+
+  if (key === 'skill') {
+    const skill = skills.find((s) => s.id === id)
+    if (!skill) return null
+    const dim = dimensions.find((d) => d.id === skill.dim)
+    const dimSkills = skills.filter((item) => item.dim === skill.dim)
+    const page = { kind: 'skill', lang, skill, dim, dimSkills }
+    return {
+      title: skill.name,
+      documentTitle: pageLabel(skill.name),
+      description: `${skill.desc} ${site.contentPages.skillDescriptionSuffix}`,
+      lead: skill.desc,
+      crumbs: skillCrumbs(page, site),
+      body: skillPageBody(page, ui),
+    }
+  }
+
+  return null
 }
 
 /**
@@ -175,7 +205,7 @@ export function pageFromPath(pathname, site, content) {
   const lang = langFromPath(pathname)
   const { key } = routeKeyFromPath(pathname)
 
-  if (key === 'dimension' || key === 'skill') return contentPage(pathname)
+  if (key === 'dimension' || key === 'skill') return contentPage(pathname, lang, site, content)
 
   const page = site.pages[key]
   // home und app tragen nur Metatexte: die Startseite ist die Landingpage,

@@ -1,7 +1,27 @@
 import { landingNoscriptHtml, pageFromHtmlFilename, renderSeoHead } from './meta.js'
 import { renderStaticPageHtml } from './static-page.jsx'
+import { langFromPath, routeKeyFromPath } from '../site/routes.js'
 
-const SKIP_STATIC_BODY = new Set(['/', '/app/'])
+import deSite from '../site/i18n/de.js'
+import enSite from '../site/i18n/en.js'
+import frSite from '../site/i18n/fr.js'
+import esSite from '../site/i18n/es.js'
+import itSite from '../site/i18n/it.js'
+import svSite from '../site/i18n/sv.js'
+
+import deContent from '../content/de.js'
+import enContent from '../content/en.js'
+import frContent from '../content/fr.js'
+import esContent from '../content/es.js'
+import itContent from '../content/it.js'
+import svContent from '../content/sv.js'
+
+// Statisch statt über `site/lang-modules.js`: dieses Plugin läuft nur im
+// Build (Node, Teil der Vite-Konfiguration), nie im Client — ein dynamischer
+// Import bräuchte hier keine Bundle-Splitting-Vorteile, würde die
+// Konfigurations-Bündelung von Vite aber unnötig verkomplizieren.
+const SITE_BY_LANG = { de: deSite, en: enSite, fr: frSite, es: esSite, it: itSite, sv: svSite }
+const CONTENT_BY_LANG = { de: deContent, en: enContent, fr: frContent, es: esContent, it: itContent, sv: svContent }
 
 /** Entfernt manuell gepflegte SEO-Tags — das Plugin ist die einzige Quelle. */
 function stripExistingSeo(html) {
@@ -31,10 +51,13 @@ export function injectSeoPlugin() {
         const cleaned = stripExistingSeo(html)
         const seoHead = renderSeoHead(page)
         let out = cleaned.replace('</head>', `  ${seoHead}\n</head>`)
-        if (page.path === '/') {
+
+        const { key } = routeKeyFromPath(page.path)
+        if (key === 'home') {
           out = out.replace('</body>', `  ${landingNoscriptHtml()}\n</body>`)
-        } else if (!SKIP_STATIC_BODY.has(page.path)) {
-          const markup = renderStaticPageHtml(page.path)
+        } else if (key !== 'app') {
+          const lang = langFromPath(page.path)
+          const markup = renderStaticPageHtml(page.path, SITE_BY_LANG[lang], CONTENT_BY_LANG[lang])
           if (markup) {
             out = out.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
           }

@@ -1,6 +1,5 @@
 import React from 'react'
-import { ui } from '../content/de.js'
-import { dimensionPath, skillPath } from '../seo/content-pages.js'
+import { localizedPath } from './routes.js'
 
 export function Crumbs({ items }) {
   if (!items?.length) return null
@@ -22,17 +21,21 @@ export function Crumbs({ items }) {
   )
 }
 
-export function dimensionCrumbs(page) {
+/* `site.contentPages.crumbHome` statt festem 'Startseite': crumbHome ist
+   ausschliesslich für diese Inhaltsseiten gedacht (Dimensionen/Kompetenzen) —
+   die Unterseiten (/projekt/, /kontakt/, …) tragen laut Task 4 gar keine
+   sichtbaren Brotkrumen. */
+export function dimensionCrumbs(page, site) {
   return [
-    { href: '/', label: 'Startseite' },
+    { href: localizedPath('home', page.lang), label: site.contentPages.crumbHome },
     { label: page.dim.name },
   ]
 }
 
-export function skillCrumbs(page) {
+export function skillCrumbs(page, site) {
   return [
-    { href: '/', label: 'Startseite' },
-    { href: dimensionPath(page.dim.id), label: page.dim.name },
+    { href: localizedPath('home', page.lang), label: site.contentPages.crumbHome },
+    { href: localizedPath('dimension', page.lang, page.dim.id), label: page.dim.name },
     { label: page.skill.name },
   ]
 }
@@ -47,8 +50,12 @@ function QuestionList({ items }) {
   )
 }
 
+/* `ui` kommt vom Aufrufer (die Kartendaten der Route-Sprache aus
+   `pages.jsx`/`lang-modules.js`) statt fest aus `content/de.js` — sonst
+   stünden auf `/it/competenze/mut/` deutsche Beschriftungen im
+   vorgerenderten Rumpf. */
 export function dimensionPageBody(page) {
-  const { dim, dimSkills } = page
+  const { dim, dimSkills, lang } = page
   return (
     <>
       <p>{dim.intro}</p>
@@ -56,7 +63,7 @@ export function dimensionPageBody(page) {
       <ul>
         {dimSkills.map((skill) => (
           <li key={skill.id}>
-            <a href={skillPath(skill.id)}>{skill.name}</a>
+            <a href={localizedPath('skill', lang, skill.id)}>{skill.name}</a>
             {' — '}
             {skill.desc}
           </li>
@@ -69,15 +76,15 @@ export function dimensionPageBody(page) {
   )
 }
 
-export function skillPageBody(page) {
-  const { skill, dim, dimSkills } = page
+export function skillPageBody(page, ui) {
+  const { skill, dim, dimSkills, lang } = page
   const siblings = (dimSkills || []).filter((item) => item.id !== skill.id)
 
   return (
     <>
       <p>
         Dimension{' '}
-        <a href={dimensionPath(dim.id)}>{dim.name}</a>
+        <a href={localizedPath('dimension', lang, dim.id)}>{dim.name}</a>
         {' '}— {dim.subtitle}
       </p>
 
@@ -129,7 +136,7 @@ export function skillPageBody(page) {
           <ul>
             {siblings.map((item) => (
               <li key={item.id}>
-                <a href={skillPath(item.id)}>{item.name}</a>
+                <a href={localizedPath('skill', lang, item.id)}>{item.name}</a>
               </li>
             ))}
           </ul>

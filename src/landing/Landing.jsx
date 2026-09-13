@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import IdgCards from '../app/IdgCards.jsx'
 import { writeStoredLang } from '../content/langs.js'
-import { dimensionPath } from '../seo/content-pages.js'
 import { SiteFooter, SiteHeader, pagePath } from '../site/chrome.jsx'
-import { langFromPath } from '../site/routes.js'
+import { langFromPath, localizedPath } from '../site/routes.js'
 
 /* Ersetzt {platzhalter} in einem Landingtext. Dieselbe Regel wie der Renderer
    der Unterseiten (pages.jsx), aber bewusst eine eigene Zeile: pages.jsx zöge
@@ -238,7 +237,7 @@ export default function Landing({ site, content, here = pagePath() }) {
                 <a
                   className="band"
                   key={d.id}
-                  href={dimensionPath(d.id)}
+                  href={localizedPath('dimension', lang, d.id)}
                   style={{ background: d.color, color: '#fff' }}
                 >
                   <div className="band-in">
