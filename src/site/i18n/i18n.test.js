@@ -1,13 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { LANGS } from '../../content/langs.js'
+import { keyPaths } from './key-paths.js'
 import { SEGMENTS } from './segments.js'
 import de from './de.js'
-
-/** Rekursive Schlüsselpfade, Arrays als eine Einheit. */
-function keyPaths(value, prefix = '') {
-  if (Array.isArray(value) || value === null || typeof value !== 'object') return [prefix]
-  return Object.keys(value).flatMap((k) => keyPaths(value[k], prefix ? `${prefix}.${k}` : k))
-}
 
 describe('deutsche i18n-Datei', () => {
   it('hat keine leeren Werte', () => {
@@ -17,8 +12,8 @@ describe('deutsche i18n-Datei', () => {
     })
     expect(empty).toEqual([])
   })
-  it('führt alle vier Unterseiten', () => {
-    expect(Object.keys(de.pages).sort()).toEqual(['contact', 'privacy', 'project', 'terms'])
+  it('führt alle sechs Seiten', () => {
+    expect(Object.keys(de.pages).sort()).toEqual(['app', 'contact', 'home', 'privacy', 'project', 'terms'])
   })
   it('hat für jede Sprache vollständige Segmente', () => {
     const keys = Object.keys(SEGMENTS.de).sort()

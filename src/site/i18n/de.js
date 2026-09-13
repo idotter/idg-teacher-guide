@@ -41,6 +41,20 @@ export const site = {
   },
 
   pages: {
+    // home und app haben keine eigene Nav-Beschriftung, Lead oder Body: home
+    // ist die Landingpage (eigener Hero-Text unter `landing`), app ist die
+    // App-Route selbst. Nur documentTitle/description werden für den
+    // <title>/<meta name="description"> der jeweiligen HTML-Datei gebraucht.
+    home: {
+      documentTitle: 'Inner Development Guide im Schulalltag — Zukunft gestalten in fünf Minuten',
+      description: '25 Kompetenzen des Inner Development Guide 2.0 als digitale Reflexionskarten für Lehrpersonen: Fragen für dich und deine Klasse, Ideen für den Unterricht und Anknüpfung an den Lehrplan 21 — ohne Konto, offline nutzbar.',
+    },
+
+    app: {
+      documentTitle: 'Reflexionskarten — Inner Development Guide im Schulalltag',
+      description: '25 Kompetenzen des Inner Development Guide 2.0 als Reflexionskarten für den Unterricht — installierbar, offline, ohne Konto.',
+    },
+
     project: {
       navLabel: 'Das Projekt',
       title: 'Das Projekt',

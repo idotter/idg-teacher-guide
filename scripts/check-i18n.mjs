@@ -1,9 +1,18 @@
 #!/usr/bin/env node
 /**
- * Vergleicht die Schlüsselpfade aller vorhandenen src/site/i18n/<lang>.js
- * gegen die deutsche Datei (die massgebliche Quelle) und meldet Abweichungen:
- * fehlende Schlüssel, überzählige Schlüssel und — nur für die fünf
- * Übersetzungen — ein fehlendes `precedenceNote` in pages.privacy/pages.terms.
+ * Vergleicht alle vorhandenen src/site/i18n/<lang>.js gegen die deutsche Datei
+ * (die massgebliche Quelle) und meldet Abweichungen:
+ *
+ *  - fehlende / überzählige Schlüsselpfade (inkl. `precedenceNote`: im
+ *    Deutschen erlaubt zu fehlen, in den fünf Übersetzungen Pflicht)
+ *  - je Array: abweichende Länge, abweichende Folge der `t`-Blocktypen
+ *    (bei Block-Listen wie `body`) und abweichende Markup-Ziele
+ *    (`[Text](url)` / `[Text](path:key)`) — reine Schlüsselgleichheit sieht
+ *    ein Array als einen einzigen Pfad und wäre blind für fehlende Absätze,
+ *    verkürzte FAQ-Listen oder verlorene Links
+ *  - `lang`, das nicht zum Dateinamen passt, und `htmlLang`/`ogLocale`, die
+ *    identisch mit dem Deutschen geblieben sind (typisches Zeichen einer
+ *    kopierten, aber nicht übersetzten Datei)
  *
  * Übersetzungsdateien, die es noch nicht gibt (z. B. vor Task 3), werden
  * stillschweigend übersprungen — das ist kein Befund.
@@ -15,15 +24,99 @@ import { existsSync } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { LANGS } from '../src/content/langs.js'
+import { keyPaths } from '../src/site/i18n/key-paths.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const I18N_DIR = path.resolve(__dirname, '../src/site/i18n')
 const DEFAULT_LANG = 'de'
 
-/** Rekursive Schlüsselpfade, Arrays als eine Einheit (identisch zu i18n.test.js). */
-function keyPaths(value, prefix = '') {
-  if (Array.isArray(value) || value === null || typeof value !== 'object') return [prefix]
-  return Object.keys(value).flatMap((k) => keyPaths(value[k], prefix ? `${prefix}.${k}` : k))
+// Erkennt `[Text](ziel)` — nur das Ziel (Klammerinhalt) ist für den Vergleich
+// relevant, der sichtbare Linktext wird ja übersetzt.
+const LINK_TARGET_RE = /\[[^\]]*\]\(([^)]+)\)/g
+
+function linkTargets(str) {
+  if (typeof str !== 'string') return []
+  const out = []
+  let m
+  LINK_TARGET_RE.lastIndex = 0
+  while ((m = LINK_TARGET_RE.exec(str))) out.push(m[1])
+  return out
+}
+
+/** Sammelt alle Link-Ziele aus einem beliebig verschachtelten Wert, in Fundreihenfolge. */
+function collectLinkTargets(value) {
+  if (typeof value === 'string') return linkTargets(value)
+  if (Array.isArray(value)) return value.flatMap(collectLinkTargets)
+  if (value && typeof value === 'object') return Object.keys(value).flatMap((k) => collectLinkTargets(value[k]))
+  return []
+}
+
+/**
+ * Vergleicht Array-Strukturen rekursiv gegen die deutsche Referenz (`de`):
+ * Länge, Blocktyp-Folge (wenn Elemente ein `t`-Feld tragen, wie `body`) und
+ * Markup-Ziele. `keyPaths` behandelt Arrays als ein einziges Blatt und sieht
+ * das nicht — das holt diese Funktion nach. Gibt lesbare Befund-Strings zurück.
+ */
+function structuralFindings(de, other, path_ = '') {
+  const findings = []
+
+  if (Array.isArray(de)) {
+    if (!Array.isArray(other)) {
+      findings.push(`${path_}: kein Array in der Übersetzung`)
+      return findings
+    }
+    if (de.length !== other.length) {
+      findings.push(`${path_}: Länge weicht ab (DE=${de.length}, Übersetzung=${other.length})`)
+    }
+
+    const hasBlockTypes = de.length > 0 && de.every((el) => el && typeof el === 'object' && 't' in el)
+    if (hasBlockTypes) {
+      const deTypes = de.map((el) => el.t)
+      const otherTypes = other.map((el) => el?.t)
+      if (JSON.stringify(deTypes) !== JSON.stringify(otherTypes)) {
+        findings.push(`${path_}: Blocktyp-Folge weicht ab (DE=[${deTypes.join(', ')}], Übersetzung=[${otherTypes.join(', ')}])`)
+      }
+    }
+
+    const deTargets = collectLinkTargets(de)
+    const otherTargets = collectLinkTargets(other)
+    if (JSON.stringify(deTargets) !== JSON.stringify(otherTargets)) {
+      findings.push(`${path_}: Markup-Ziele weichen ab (DE=[${deTargets.join(', ')}], Übersetzung=[${otherTargets.join(', ')}])`)
+    }
+
+    // In gemeinsame Elemente absteigen, damit verschachtelte Arrays (z. B.
+    // der `v`-Array eines `ul`-Blocks) ebenfalls geprüft werden.
+    const n = Math.min(de.length, other.length)
+    for (let i = 0; i < n; i++) {
+      findings.push(...structuralFindings(de[i], other[i], `${path_}[${i}]`))
+    }
+    return findings
+  }
+
+  if (de && typeof de === 'object') {
+    for (const k of Object.keys(de)) {
+      const childPath = path_ ? `${path_}.${k}` : k
+      findings.push(...structuralFindings(de[k], other?.[k], childPath))
+    }
+    return findings
+  }
+
+  return findings
+}
+
+/** Prüft lang/htmlLang/ogLocale — typische Zeichen einer kopierten, aber nicht übersetzten Datei. */
+function identityFindings(lang, translation, de) {
+  const findings = []
+  if (translation.lang !== lang) {
+    findings.push(`lang stimmt nicht mit Dateiname überein (erwartet '${lang}', gefunden '${translation.lang}')`)
+  }
+  if (translation.htmlLang === de.htmlLang) {
+    findings.push(`htmlLang ist identisch mit Deutsch ('${translation.htmlLang}') — vermutlich unübersetzte Kopie`)
+  }
+  if (translation.ogLocale === de.ogLocale) {
+    findings.push(`ogLocale ist identisch mit Deutsch ('${translation.ogLocale}') — vermutlich unübersetzte Kopie`)
+  }
+  return findings
 }
 
 async function loadSite(lang) {
@@ -60,9 +153,11 @@ async function main() {
 
     const missing = [...expected].filter((k) => !ownKeys.has(k)).sort()
     const extra = [...ownKeys].filter((k) => !expected.has(k)).sort()
+    const structural = structuralFindings(de, translation)
+    const identity = identityFindings(lang, translation, de)
 
-    if (missing.length || extra.length) {
-      findings.push({ lang, missing, extra })
+    if (missing.length || extra.length || structural.length || identity.length) {
+      findings.push({ lang, missing, extra, structural, identity })
     }
   }
 
@@ -75,10 +170,12 @@ async function main() {
   }
 
   console.error('i18n-Check: Abweichungen gefunden:\n')
-  for (const { lang, missing, extra } of findings) {
+  for (const { lang, missing, extra, structural, identity } of findings) {
     console.error(`  ${lang}.js`)
     for (const key of missing) console.error(`    fehlt:      ${key}`)
     for (const key of extra) console.error(`    überzählig: ${key}`)
+    for (const msg of identity) console.error(`    identität:  ${msg}`)
+    for (const msg of structural) console.error(`    struktur:   ${msg}`)
   }
   console.error('')
   process.exit(1)
