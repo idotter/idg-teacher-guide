@@ -23,7 +23,11 @@ describe('stripLangPrefix', () => {
     expect(stripLangPrefix('/fr/projet/')).toBe('/projet/')
     expect(stripLangPrefix('/en/')).toBe('/')
   })
-  it('lässt deutsche Pfade unberührt', () => {
+  it('entfernt auch das explizite deutsche Präfix', () => {
+    expect(stripLangPrefix('/de/')).toBe('/')
+    expect(stripLangPrefix('/de/projekt/')).toBe('/projekt/')
+  })
+  it('lässt deutsche Pfade ohne Präfix unberührt', () => {
     expect(stripLangPrefix('/projekt/')).toBe('/projekt/')
   })
 })
@@ -33,15 +37,24 @@ describe('routeKeyFromPath', () => {
     expect(routeKeyFromPath('/')).toEqual({ key: 'home', id: null })
     expect(routeKeyFromPath('/it/')).toEqual({ key: 'home', id: null })
   })
+  it('erkennt Startseite auch mit explizitem deutschem Präfix', () => {
+    expect(routeKeyFromPath('/de/')).toEqual({ key: 'home', id: null })
+  })
   it('erkennt Unterseiten in jeder Sprache', () => {
     expect(routeKeyFromPath('/projekt/')).toEqual({ key: 'project', id: null })
     expect(routeKeyFromPath('/fr/projet/')).toEqual({ key: 'project', id: null })
     expect(routeKeyFromPath('/sv/villkor/')).toEqual({ key: 'terms', id: null })
   })
+  it('erkennt Unterseiten auch mit explizitem deutschem Präfix', () => {
+    expect(routeKeyFromPath('/de/projekt/')).toEqual({ key: 'project', id: null })
+  })
   it('erkennt Inhaltsseiten samt ID', () => {
     expect(routeKeyFromPath('/kompetenzen/mut/')).toEqual({ key: 'skill', id: 'mut' })
     expect(routeKeyFromPath('/fr/competences/vergebung/')).toEqual({ key: 'skill', id: 'vergebung' })
     expect(routeKeyFromPath('/es/dimensiones/being/')).toEqual({ key: 'dimension', id: 'being' })
+  })
+  it('erkennt Inhaltsseiten mit ID auch bei explizitem deutschem Präfix', () => {
+    expect(routeKeyFromPath('/de/kompetenzen/mut/')).toEqual({ key: 'skill', id: 'mut' })
   })
   it('erkennt die App', () => {
     expect(routeKeyFromPath('/app/')).toEqual({ key: 'app', id: null })
@@ -56,6 +69,10 @@ describe('localizedPath', () => {
     expect(localizedPath('home', 'de')).toBe('/')
     expect(localizedPath('project', 'de')).toBe('/projekt/')
     expect(localizedPath('skill', 'de', 'mut')).toBe('/kompetenzen/mut/')
+  })
+  it('erzeugt nie ein explizites /de/-Präfix', () => {
+    expect(localizedPath('project', 'de')).toBe('/projekt/')
+    expect(localizedPath('home', 'de')).toBe('/')
   })
   it('baut fremdsprachige Pfade mit Präfix', () => {
     expect(localizedPath('home', 'fr')).toBe('/fr/')

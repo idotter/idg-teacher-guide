@@ -17,8 +17,8 @@ export function langFromPath(pathname) {
 
 export function stripLangPrefix(pathname) {
   const path = normalize(pathname)
-  const lang = langFromPath(path)
-  return lang === DEFAULT_LANG ? path : normalize(path.slice(lang.length + 1))
+  const first = path.split('/')[1]
+  return LANG_IDS.includes(first) ? normalize(path.slice(first.length + 1)) : path
 }
 
 export function routeKeyFromPath(pathname) {
