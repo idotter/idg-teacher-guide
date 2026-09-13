@@ -13,8 +13,9 @@
     "generate:og": "node scripts/generate-og.mjs",
     "generate:seo": "node scripts/generate-seo-files.mjs",
     "generate:content": "node scripts/generate-content-pages.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs",
     "predev": "npm run generate:content",
-    "prebuild": "npm run generate:share && npm run generate:og && npm run generate:content && npm run generate:seo"
+    "prebuild": "npm run generate:share && npm run generate:og && npm run check:i18n && npm run generate:content && npm run generate:seo"
   },
   "dependencies": {
     "react": "^18.3.1",
