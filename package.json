@@ -1,0 +1,20 @@
+{
+  "name": "idg-teacher-guide",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "IDG Reflexionskarten für den Unterricht — PWA und Landingpage mit Simulator",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7"
+  }
+}

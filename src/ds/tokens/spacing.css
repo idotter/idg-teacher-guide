@@ -1,0 +1,18 @@
+:root{
+/* Spacing — inferred 4px base (brandguide defines no numeric scale) */
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;
+/* Corners: the brand is flat + square (cards, slides, framework tiles all sharp-cornered) */
+--radius-none:0;
+--radius-sm:2px;   /* optional soft edge for small UI controls */
+--radius-pill:999px;
+/* Borders */
+--border-w:1px;
+--border-w-strong:2px;
+/* Shadows: brand is flat print-like; use none by default, soft only for overlays */
+--shadow-none:none;
+--shadow-overlay:0 8px 40px rgba(0,0,0,0.18);
+/* Motion (inferred: calm, no bounces) */
+--ease-brand:cubic-bezier(0.4,0,0.2,1);
+--dur-fast:120ms;
+--dur-med:220ms;
+}

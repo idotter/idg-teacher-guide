@@ -1,0 +1,10 @@
+node_modules
+dist
+.work
+.DS_Store
+.gstack/
+.cursor/
+.claude/
+.claudine/
+.vercel/
+.icon-backup/

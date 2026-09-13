@@ -1,0 +1,22 @@
+:root{
+--font-sans:"Inter",-apple-system,"Segoe UI",sans-serif; /* Inter is the only brand face */
+/* Weights per brandguide type settings */
+--weight-light:300;   /* secondary headlines / secondary subtitle */
+--weight-regular:400; /* body copy */
+--weight-semibold:600;/* UI-level emphasis (inferred, between brand Light/Bold) */
+--weight-bold:700;    /* main headlines, subtitles, copy highlight */
+--weight-heavy:800;   /* wordmark-style display (logo look, use sparingly) */
+/* Scale (slides at 1280x720 base; screens use the smaller steps) */
+--text-display:64px;  /* main slide headline */
+--text-h1:44px;
+--text-h2:32px;
+--text-h3:24px;
+--text-subtitle:20px;
+--text-body:16px;
+--text-small:13px;
+--text-caption:11px;
+--leading-tight:1.12; /* headlines: tight, ragged-right */
+--leading-normal:1.5;
+--tracking-display:-0.02em;
+--tracking-caps:0.08em; /* dimension labels e.g. BEING */
+}

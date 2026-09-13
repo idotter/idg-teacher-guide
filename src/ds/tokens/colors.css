@@ -1,0 +1,31 @@
+:root{
+/* ---- Main brand colors: one per IDG dimension (Brandguide p35) ---- */
+--idg-being:#D4B88C;         /* BEING / Sein — Beige, Pantone 467C */
+--idg-thinking:#E585A1;      /* THINKING / Denken — Pink, Pantone 701C */
+--idg-relating:#EF4136;      /* RELATING / Beziehung — Red, Pantone 179C */
+--idg-collaborating:#FF7E2A; /* COLLABORATING / Zusammenarbeit — Orange, Pantone 165C */
+--idg-acting:#661A30;        /* ACTING / Handeln — Burgundy, Pantone 7421C */
+/* ---- Secondary brand colors ---- */
+--idg-white:#FFFFFF;
+--idg-grey-light:#FAF7F5;    /* Light Grey, Pantone Cool Grey 1 */
+--idg-black:#000000;         /* Jet Black */
+/* ---- Semantic aliases ---- */
+--surface-page:var(--idg-white);
+--surface-alt:var(--idg-grey-light);
+--surface-card:var(--idg-white);
+--surface-inverse:var(--idg-black);
+--text-body:var(--idg-black);
+--text-muted:rgba(0,0,0,0.62);
+--text-inverse:var(--idg-white);
+--border-subtle:rgba(0,0,0,0.14);
+--border-strong:var(--idg-black);
+--action-primary:var(--idg-black);      /* interactive default: black, per flat b/w+accent brand */
+--action-primary-text:var(--idg-white);
+--focus-ring:var(--idg-black);
+/* Dimension tints — ONLY for large surfaces where the brandguide shows white type on dimension color */
+--on-being:var(--idg-black);        /* beige is light: black or white type both used; prefer white for cards */
+--on-thinking:var(--idg-white);
+--on-relating:var(--idg-white);
+--on-collaborating:var(--idg-white);
+--on-acting:var(--idg-white);
+}

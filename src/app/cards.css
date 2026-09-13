@@ -1,0 +1,71 @@
+/* ------------------------------------------------------------------
+   IDG Reflexionskarten — Laufzeit-Styles der App.
+   Die Vorlage nutzte style-hover/style-active Attribute des Design-
+   Runtimes. React kann Pseudoklassen nicht inline setzen, darum hier
+   als Klassen. Alles Übrige bleibt inline wie im Design.
+   ------------------------------------------------------------------ */
+
+.idg-root {
+  --idg-sat: env(safe-area-inset-top, 0px);
+  --idg-sab: env(safe-area-inset-bottom, 0px);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  background: #FAF7F5;
+  color: #000;
+  font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Im Simulator sitzt die App in einem Rahmen: keine Geräte-Insets, volle Höhe des Containers. */
+.idg-root.is-embedded {
+  --idg-sat: 0px;
+  --idg-sab: 0px;
+  height: 100%;
+}
+
+/* ui="ohne": der Stapel liegt frei auf der einbettenden Seite — kein eigener
+   Grund, keine Kante, damit der Schatten der Karten nicht abgeschnitten wird. */
+.idg-root.is-bare { background: transparent; }
+
+.idg-root button { font-family: inherit; }
+.idg-root ::-webkit-scrollbar { width: 0; height: 0; }
+.idg-root *, .idg-root *::before, .idg-root *::after { box-sizing: border-box; }
+
+/* Fokus nur für Tastaturnutzung sichtbar — die Vorlage arbeitet flächig ohne Rahmen. */
+.idg-root :focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* --- Interaktionszustände --- */
+.idg-h6:hover  { opacity: .6; }
+.idg-h6:active { opacity: .6; }
+.idg-h7:hover  { opacity: .7; }
+.idg-h8:hover  { opacity: .8; }
+.idg-h85:hover { opacity: .85; }
+.idg-a85:active { opacity: .85; }
+.idg-a8:active  { opacity: .8; }
+.idg-a6:active  { opacity: .6; }
+.idg-press:active    { transform: scale(.98); }
+.idg-press97:active  { transform: scale(.97); }
+.idg-invert:hover,
+.idg-invert:active   { background: #000 !important; color: #fff !important; }
+.idg-tint:hover,
+.idg-tint:active     { background: #FAF7F5; }
+
+/* --- Animationen (identisch zur Vorlage) --- */
+@keyframes idgRing     { 0% { transform: scale(.6); opacity: .7 } 100% { transform: scale(2.2); opacity: 0 } }
+@keyframes idgFadeUp   { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+@keyframes idgSymIn    { 0% { opacity: 0; transform: scale(.4) } 60% { opacity: 1; transform: scale(1.08) } 100% { opacity: 1; transform: scale(1) } }
+@keyframes idgSplashOut{ to { opacity: 0; visibility: hidden } }
+@keyframes idgWordIn   { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+@keyframes idgToast    { 0% { opacity: 0; transform: translate(-50%, 8px) } 12% { opacity: 1; transform: translate(-50%, 0) } 80% { opacity: 1 } 100% { opacity: 0 } }
+
+@media (prefers-reduced-motion: reduce) {
+  .idg-root *, .idg-root *::before, .idg-root *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

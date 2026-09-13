@@ -1,0 +1,4 @@
+body{font-family:var(--font-sans);color:var(--text-body);background:var(--surface-page);font-weight:var(--weight-regular);line-height:var(--leading-normal);-webkit-font-smoothing:antialiased}
+a{color:var(--idg-black);text-decoration:underline;text-underline-offset:2px;transition:opacity var(--dur-fast) var(--ease-brand)}
+a:hover{opacity:0.6}
+::selection{background:var(--idg-being);color:var(--idg-black)}
