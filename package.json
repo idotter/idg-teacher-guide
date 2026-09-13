@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:share": "node scripts/generate-share-cards.mjs",
+    "prebuild": "npm run generate:share"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -15,6 +17,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "^0.33.5",
     "vite": "^6.0.7"
   }
 }

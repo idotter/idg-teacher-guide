@@ -24,6 +24,10 @@ npm run build
 npm run preview
 ```
 
+Share-Bilder der Kartenfront (`public/assets/share/{lang}/{id}.png`) werden beim
+Build erzeugt (`npm run generate:share`, läuft automatisch als `prebuild`). Nach
+Änderungen an `src/content/` oder am Front-Layout das Skript erneut ausführen.
+
 ## Aufbau
 
 ```

@@ -131,9 +131,9 @@ const oSvg = (els) => (
   </svg>
 )
 
-function buildShareText(sk, dim, ui, code) {
+function buildShareText(sk, dim, ui) {
   const parts = [
-    `${sk.name}${code ? ` · ${code}` : ''} (${dim.name})`,
+    `${sk.name} - (${dim.name})`,
     '',
     sk.desc,
     '',
@@ -162,13 +162,29 @@ function buildShareText(sk, dim, ui, code) {
     parts.push(`${sk.exercise.title}: ${sk.exercise.text}`)
     parts.push('')
   }
-  parts.push(ui.attribution)
   return parts.join('\n').trim()
 }
 
 function cardShareUrl(id) {
   if (typeof window === 'undefined') return `/app/?card=${encodeURIComponent(id)}`
   return `${window.location.origin}/app/?card=${encodeURIComponent(id)}`
+}
+
+function shareImageUrl(lang, id) {
+  return `/assets/share/${encodeURIComponent(lang)}/${encodeURIComponent(id)}.png`
+}
+
+async function fetchShareImage(lang, id) {
+  try {
+    const res = await fetch(shareImageUrl(lang, id))
+    if (!res.ok) return null
+    const blob = await res.blob()
+    if (!blob.type.startsWith('image/')) return null
+    const safeName = `${id}.png`.replace(/[^\w.-]/g, '')
+    return new File([blob], safeName, { type: blob.type || 'image/png' })
+  } catch {
+    return null
+  }
 }
 
 const TOUR_STEPS = [
@@ -432,10 +448,17 @@ export default class IdgCards extends React.Component {
 
   doShare = async (sk, card, dim, ui) => {
     if (!sk) return
-    const body = buildShareText(sk, dim, ui, card.code)
+    const lang = (this.state.prefs || {}).lang ?? this.props.lang ?? 'de'
+    const body = buildShareText(sk, dim, ui)
     const text = `${body}\n\n${cardShareUrl(sk.id)}`
+    const file = await fetchShareImage(lang, sk.id)
     try {
       if (navigator.share) {
+        const payload = file ? { title: card.name, text, files: [file] } : { title: card.name, text }
+        if (!file || navigator.canShare?.(payload)) {
+          await navigator.share(payload)
+          return
+        }
         await navigator.share({ title: card.name, text })
         return
       }

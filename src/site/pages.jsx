@@ -177,9 +177,10 @@ export const pages = {
         <h2>Teilen</h2>
         <p>
           Wenn du eine Karte teilst, nutzt das Gerät die Systemfunktion «Teilen» oder
-          kopiert den Kartentext samt Link in die Zwischenablage. Der Link öffnet genau
-          diese Karte in der App. Wir empfangen weder den Text noch erfahren wir, an wen
-          du ihn sendest.
+          kopiert den Kartentext samt Link in die Zwischenablage. Wo das Gerät es
+          unterstützt, wird auch ein Bild der Kartenfront mitgeschickt. Der Link öffnet
+          genau diese Karte in der App. Wir empfangen weder Text noch Bild und erfahren
+          nicht, an wen du sie sendest.
         </p>
 
         <h2>Kontaktaufnahme</h2>
