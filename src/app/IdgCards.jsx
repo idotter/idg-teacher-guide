@@ -1077,7 +1077,7 @@ export default class IdgCards extends React.Component {
 
             {/* ---------------- Splash ---------------- */}
             {s.splash && (
-              <div style={{ position: 'absolute', inset: 0, zIndex: 20, background: '#FAF7F5', color: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 36, animation: 'idgSplashOut .5s ease 2.6s forwards', pointerEvents: 'none' }}>
+              <div style={{ position: 'absolute', inset: 0, zIndex: 20, background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 36, animation: 'idgSplashOut .5s ease 2.6s forwards', pointerEvents: 'none' }}>
                 <div style={{ display: 'flex', gap: 14, alignItems: 'center' }}>
                   {/* Die Dimensionssymbole sind Vollflächen, keine Linienzeichen:
                       die reine Markenfarbe trägt hier auch auf hellem Grund. */}
