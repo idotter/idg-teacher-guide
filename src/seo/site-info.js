@@ -16,18 +16,20 @@
  * `site/Page.jsx`). Stünden sie an zwei Stellen, liefe eine Änderung am
  * Trennzeichen nur auf einer Seite still auseinander.
  *
- * `SITE_NAME` bleibt der feste, sprachübergreifende Produktname für JSON-LD
- * (`og:site_name`, `WebApplication.name` u. Ä. in `seo/meta.js`) — das ist
- * eine bewusste Design-Entscheidung aus Task 6. Für sichtbaren Text wie den
- * `<title>` einer Inhaltsseite oder den Noscript-Block der Startseite ist er
- * aber falsch: `pageLabel`/`landingNoscriptHtml` sollen den lokalisierten
- * Markennamen zeigen (`chrome.brand` + `chrome.brandSub` der Route-Sprache),
- * sonst trägt z. B. `/fr/dimensions/being/` einen deutschen Titelanhang neben
- * einem `<title>`, das für `/fr/projet/` korrekt "Inner Development Guide en
- * classe" zeigt (Fix-Runde 1, Punkt 1+3). `siteBrand` baut genau diesen
- * String; für Deutsch ist er wortgleich mit `SITE_NAME` (geprüft in
- * `site-info.test.js`), darum bleibt `pageLabel(name)` ohne zweites Argument
- * unverändert deutsch.
+ * `SITE_NAME` bleibt der feste, sprachübergreifende Produktname für
+ * strukturelles JSON-LD (`WebApplication.name`, `WebSite.name` u. Ä. in
+ * `seo/meta.js`) — das ist eine bewusste Design-Entscheidung aus Task 6. Für
+ * sichtbaren Text wie den `<title>` einer Inhaltsseite, den Noscript-Block der
+ * Startseite oder `og:site_name` (sichtbar in der Teilen-Vorschau von
+ * Messengern/sozialen Netzwerken) ist er aber falsch: `pageLabel`/
+ * `landingNoscriptHtml`/`renderSeoHead`s `og:site_name` sollen den
+ * lokalisierten Markennamen zeigen (`chrome.brand` + `chrome.brandSub` der
+ * Route-Sprache), sonst trägt z. B. `/fr/dimensions/being/` einen deutschen
+ * Titelanhang neben einem `<title>`, das für `/fr/projet/` korrekt "Inner
+ * Development Guide en classe" zeigt (Fix-Runde 1, Punkt 1+3; `og:site_name`
+ * folgte in Task 8, Rest 1). `siteBrand` baut genau diesen String; für
+ * Deutsch ist er wortgleich mit `SITE_NAME` (geprüft in `site-info.test.js`),
+ * darum bleibt `pageLabel(name)` ohne zweites Argument unverändert deutsch.
  */
 export const SITE_NAME = 'Inner Development Guide im Schulalltag'
 export const CONTACT_MAIL = 'guide@zukunftskompetenzchallenge.ch'

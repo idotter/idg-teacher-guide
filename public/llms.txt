@@ -32,6 +32,12 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 - Kontakt: https://guide.zukunftskompetenzchallenge.ch/kontakt/
 - Datenschutz: https://guide.zukunftskompetenzchallenge.ch/datenschutz/
 - Nutzungsbedingungen: https://guide.zukunftskompetenzchallenge.ch/nutzungsbedingungen/
+- Andere Sprachfassungen der Startseite:
+  - English: https://guide.zukunftskompetenzchallenge.ch/en/
+  - Français: https://guide.zukunftskompetenzchallenge.ch/fr/
+  - Español: https://guide.zukunftskompetenzchallenge.ch/es/
+  - Italiano: https://guide.zukunftskompetenzchallenge.ch/it/
+  - Svenska: https://guide.zukunftskompetenzchallenge.ch/sv/
 
 ### Dimensionen
 

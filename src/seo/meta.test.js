@@ -128,6 +128,23 @@ describe('renderSeoHead', () => {
     expect(head).toContain('<meta property="og:locale" content="it_IT">')
     expect(head).toContain(`<link rel="canonical" href="${SITE_URL}/it/">`)
   })
+
+  /* Task 8, Rest 1: og:site_name stand fest auf dem deutschen SITE_NAME, auch
+     auf den 175 fremdsprachigen Seiten — beim Teilen von /fr/projet/ erschien
+     der deutsche Name in der Vorschau. Jetzt trägt es siteBrand(site), wie
+     schon <title> und der Noscript-Block (Fix-Runde 1). */
+  it('og:site_name trägt den lokalisierten Markennamen, nicht das feste SITE_NAME', () => {
+    const page = pagesFor('fr')['/fr/projet/']
+    const head = renderSeoHead(page)
+    expect(head).toContain('<meta property="og:site_name" content="Inner Development Guide en classe">')
+    expect(head).not.toContain(`<meta property="og:site_name" content="${SITE_NAME}">`)
+  })
+
+  it('og:site_name bleibt für Deutsch wortgleich mit SITE_NAME (keine Regression)', () => {
+    const page = pagesFor('de')['/']
+    const head = renderSeoHead(page)
+    expect(head).toContain(`<meta property="og:site_name" content="${SITE_NAME}">`)
+  })
 })
 
 /* Vor Task 7 war dieser Block fest Deutsch (deutscher Text, feste Links auf

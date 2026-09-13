@@ -561,7 +561,14 @@ export function renderSeoHead(page) {
     metaTag('og:title', page.title, true),
     metaTag('og:description', page.description, true),
     metaTag('og:locale', site.ogLocale, true),
-    metaTag('og:site_name', SITE_NAME, true),
+    // Lokalisierter Markenname (siteBrand), nicht das feste, sprachübergreifende
+    // SITE_NAME: og:site_name erscheint sichtbar in der Teilen-Vorschau von
+    // Messengern/sozialen Netzwerken — beim Teilen von /fr/projet/ zeigte das
+    // feste SITE_NAME dort den deutschen Namen neben einem französischen Titel
+    // (Task 8, Rest 1). Anders als bei JSON-LD (SITE_NAME bleibt dort bewusst
+    // sprachübergreifend, siehe site-info.js) ist og:site_name Fliesstext, kein
+    // struktureller Produktbezeichner.
+    metaTag('og:site_name', siteBrand(site), true),
     metaTag('og:image', OG_IMAGE, true),
     metaTag('og:image:width', String(OG_IMAGE_WIDTH), true),
     metaTag('og:image:height', String(OG_IMAGE_HEIGHT), true),

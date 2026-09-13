@@ -7,6 +7,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 import { buildContentPages } from '../src/seo/content-pages.js'
 import { CONTACT_MAIL, SITE_NAME, SITE_URL, absoluteUrl } from '../src/seo/meta.js'
 import { buildSitemapXml } from '../src/seo/sitemap.js'
+import { LANGS } from '../src/content/langs.js'
+import { DEFAULT_LANG, localizedPath } from '../src/site/routes.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PUBLIC = join(__dirname, '..', 'public')
@@ -109,6 +111,8 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 - Kontakt: ${absoluteUrl('/kontakt/')}
 - Datenschutz: ${absoluteUrl('/datenschutz/')}
 - Nutzungsbedingungen: ${absoluteUrl('/nutzungsbedingungen/')}
+- Andere Sprachfassungen der Startseite:
+${LANGS.filter((l) => l.v !== DEFAULT_LANG).map((l) => `  - ${l.label}: ${absoluteUrl(localizedPath('home', l.v))}`).join('\n')}
 
 ### Dimensionen
 
