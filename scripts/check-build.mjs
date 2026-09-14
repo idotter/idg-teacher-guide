@@ -89,12 +89,28 @@ function isForeignPath(relPath) {
   return FOREIGN_LANGS.some((lang) => relPath === `${lang}/index.html` || relPath.startsWith(`${lang}/`))
 }
 
-/** Entfernt JSON-LD-Blöcke vor Prüfung 7 — siehe Kopfkommentar: dort benennen
- *  vier Felder (`WebSite.name`, `WebApplication.name`, `publisher.name`, das
- *  `Organization`-`mainEntity` der Kontaktseite) weiterhin bewusst
- *  sprachübergreifend den festen `SITE_NAME`. */
+/** Im JSON-LD ist genau ein deutscher Markenname legitim: `WebApplication.name`.
+ *  `/app/` ist eine einzige Route, deren `inLanguage` alle sechs Sprachen nennt
+ *  — die Entität gehört keiner Fassung, und sie je Seite anders zu benennen
+ *  wäre schlimmer als ein fester Name (siehe `webApplicationJsonLd` in
+ *  `src/seo/meta.js`). Alles übrige JSON-LD wird geprüft: früher fiel der ganze
+ *  Block heraus, und damit wäre ein deutscher Rest in `WebSite.name` oder
+ *  `isPartOf` unbemerkt geblieben. */
 function stripJsonLd(html) {
-  return html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '')
+  return html.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (whole, body) => {
+      let blocks
+      try {
+        const parsed = JSON.parse(body)
+        blocks = Array.isArray(parsed) ? parsed : [parsed]
+      } catch {
+        return whole // unlesbar: nichts ausnehmen, lieber melden
+      }
+      const kept = blocks.filter((b) => b && b['@type'] !== 'WebApplication')
+      return `<script type="application/ld+json">${JSON.stringify(kept)}</script>`
+    },
+  )
 }
 
 function stripCheck7Exemptions(html) {

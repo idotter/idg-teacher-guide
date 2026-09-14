@@ -240,31 +240,36 @@ function breadcrumbJsonLd(page) {
   }
 }
 
-/** `name`/`publisher.name` bleiben hier bewusst der feste, sprachübergreifende
- *  SITE_NAME (site-info.js) — anders als `isPartOf.name` weiter unten, das
- *  seit Task 9 `siteBrand(site)` trägt. Die beiden sind unterschiedliche
- *  JSON-LD-Rollen: `WebSite.name`/`publisher.name` benennen die Entität
- *  selbst (ein struktureller Produktbezeichner, Task-6-Entscheidung, siehe
- *  site-info.js), `isPartOf.name` referenziert sie aus der Sicht einer
- *  einzelnen Seite — dieselbe Unterscheidung wie zuvor schon bei og:site_name
- *  gegenüber sonstigem strukturellem JSON-LD (siehe renderSeoHead). */
+/** Jede Sprachfassung nennt die Website unter ihrem eigenen Namen —
+ *  `siteBrand(site)`, derselbe, den Kopfzeile, `<title>` und `og:site_name`
+ *  tragen. Eine Rolle im JSON-LD davon auszunehmen ginge nicht auf: `isPartOf`
+ *  und `mainEntity` zeigen auf dieselbe Entität wie `WebSite.name`, und zwei
+ *  Namen für dasselbe auf einer Seite sind ein Widerspruch, keine
+ *  Unterscheidung. `inLanguage` sagt daneben, um welche Fassung es geht.
+ *  Auf Deutsch ist `siteBrand(site)` wortgleich mit SITE_NAME, die deutsche
+ *  Ausgabe ändert sich also nicht. */
 function webSiteJsonLd(page, site) {
   const home = localizedPath('home', page.lang)
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: SITE_NAME,
+    name: siteBrand(site),
     url: absoluteUrl(home),
     inLanguage: site.htmlLang,
     description: site.pages.home.description,
     publisher: {
       '@type': 'Organization',
-      name: SITE_NAME,
+      name: siteBrand(site),
       url: absoluteUrl(home),
     },
   }
 }
 
+/** Hier bleibt der feste SITE_NAME, anders als bei `WebSite` oben — und der
+ *  Grund steht drei Zeilen tiefer: `inLanguage` nennt alle sechs Sprachen.
+ *  `/app/` ist eine einzige Route, die ihre Sprache selbst umschaltet; diese
+ *  Entität gehört keiner Fassung. `WebSite` dagegen hat je Sprache eine eigene
+ *  URL und eine einzelne `inLanguage` und trägt darum den Namen dieser Fassung. */
 function webApplicationJsonLd({ slim = false, site } = {}) {
   const base = {
     '@context': 'https://schema.org',
@@ -350,13 +355,9 @@ function contactPageJsonLd(page, site) {
       name: siteBrand(site),
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
-    // mainEntity nennt hier die Organisation selbst (SITE_NAME), nicht die
-    // Seite — dieselbe Unterscheidung wie bei webSiteJsonLd oben, isPartOf
-    // zwei Zeilen darüber referenziert dagegen die Website aus Sicht dieser
-    // Seite und trägt darum siteBrand(site).
     mainEntity: {
       '@type': 'Organization',
-      name: SITE_NAME,
+      name: siteBrand(site),
       email: CONTACT_MAIL,
       url: absoluteUrl(localizedPath('home', page.lang)),
     },

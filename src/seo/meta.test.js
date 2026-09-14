@@ -356,18 +356,31 @@ describe('jsonLdForPage — isPartOf.name', () => {
     expect(siteBrand(deSite)).toBe(SITE_NAME)
   })
 
-  it('lässt WebSite.name, WebApplication.name, publisher.name und das Organization-mainEntity der Kontaktseite bewusst bei SITE_NAME', () => {
+  /* Eine Seite darf dieselbe Entität nicht unter zwei Namen führen. Auf der
+     Kontaktseite standen `isPartOf.name` und `mainEntity.name` zwei Zeilen
+     auseinander und benannten beide die Website — einmal französisch, einmal
+     deutsch. Alles, was die Sprachfassung meint, trägt deshalb denselben
+     lokalisierten Namen. */
+  it('nennt die Website in jedem JSON-LD-Block derselben Seite gleich', () => {
     const home = jsonLdForPage(pagesFor('fr')['/fr/'])
     const webSite = home.find((b) => b['@type'] === 'WebSite')
-    const webApplication = home.find((b) => b['@type'] === 'WebApplication')
-    expect(webSite.name).toBe(SITE_NAME)
-    expect(webSite.publisher.name).toBe(SITE_NAME)
-    expect(webApplication.name).toBe(SITE_NAME)
+    expect(webSite.name).toBe(siteBrand(frSite))
+    expect(webSite.publisher.name).toBe(siteBrand(frSite))
 
     const contact = jsonLdForPage(pagesFor('fr')['/fr/contact/'])
     const contactPage = contact.find((b) => b['@type'] === 'ContactPage')
-    expect(contactPage.mainEntity.name).toBe(SITE_NAME)
-    // isPartOf derselben Seite ist dagegen lokalisiert:
+    expect(contactPage.mainEntity.name).toBe(siteBrand(frSite))
     expect(contactPage.isPartOf.name).toBe(siteBrand(frSite))
+    expect(contactPage.mainEntity.name).not.toBe(SITE_NAME)
+  })
+
+  /* Die einzige Ausnahme, und sie steht im Datensatz selbst: `/app/` ist eine
+     einzige Route, deren `inLanguage` alle sechs Sprachen nennt. Diese Entität
+     gehört keiner Fassung, also trägt sie den festen Namen. */
+  it('lässt WebApplication.name beim festen SITE_NAME, weil die Entität alle sechs Sprachen umfasst', () => {
+    const home = jsonLdForPage(pagesFor('fr')['/fr/'])
+    const webApplication = home.find((b) => b['@type'] === 'WebApplication')
+    expect(webApplication.name).toBe(SITE_NAME)
+    expect(webApplication.inLanguage).toHaveLength(6)
   })
 })
