@@ -14,28 +14,31 @@
  *  5. keine Datei unter `dist/{en,fr,es,it,sv}/` enthält ein deutsches
  *     Kartenwort (`Reflexionsfragen`, `Lehrperson`, `Anknüpfungspunkte`) —
  *     der Brief nennt nur fr/es/it/sv, das deckt `dist/en/` nicht ab
- *     (Task 8, Teil A)
+ *     (Task 8, Teil A). Seit Task 9 (`seo/meta.js#webApplicationJsonLd`
+ *     lokalisiert) kommt keines dieser Wörter mehr in JSON-LD vor — die
+ *     Prüfung läuft darum über die volle Datei, ohne Ausschluss.
  *  6. jeder Pfad aus `scripts/content-routes.json` existiert als Datei
  *  7. keine Datei unter `dist/{en,fr,es,it,sv}/` enthält den deutschen
- *     Markennamen "im Schulalltag" — mit einer benannten Ausnahme:
- *     `og:image:alt`/`twitter:image:alt` bleiben deutsch, weil sie ein
- *     tatsächlich deutschsprachiges Bild beschreiben (`/og-image.png`), das
- *     bewusst für alle Sprachen dasselbe ist (Task 8, Teil B Rest 1). Eine
- *     Prüfung, die diese beiden Attribute mitzählte, würde diese bewusste
- *     Entscheidung als Fehler melden.
+ *     Markennamen "im Schulalltag" — mit zwei benannten Ausnahmen:
+ *     - `og:image:alt`/`twitter:image:alt` bleiben deutsch, weil sie ein
+ *       tatsächlich deutschsprachiges Bild beschreiben (`/og-image.png`), das
+ *       bewusst für alle Sprachen dasselbe ist (Task 8, Teil B Rest 1).
+ *     - `<script type="application/ld+json">`-Blöcke: vier Felder benennen
+ *       dort bewusst die Entität selbst statt die Seite (`WebSite.name`,
+ *       `WebApplication.name`, `publisher.name`, das `Organization`-
+ *       `mainEntity` der Kontaktseite) und bleiben darum weiterhin der feste,
+ *       sprachübergreifende `SITE_NAME` (Task 6, siehe Kommentar in
+ *       `site-info.js`). Die übrigen JSON-LD-Felder, die vor Task 9 ebenfalls
+ *       fest Deutsch waren (`keywords`, `featureList`, `audience.audienceType`,
+ *       `isPartOf.name`, `mainEntity.name` der Dimensionsseite), sind seither
+ *       lokalisiert und stünden ohne den `SITE_NAME`-Ausschluss oben nicht
+ *       mehr im Weg — sie bleiben aber Teil des Ausschlusses, weil dieser
+ *       ganze `<script>`-Block übersprungen wird, nicht einzelne Felder darin.
  *
- * Eigene Entscheidung (im Bericht festgehalten, siehe task-8-report.md):
- * Prüfung 5 und 7 lassen `<script type="application/ld+json">`-Blöcke aus.
- * `seo/meta.js` hält `SITE_NAME`, `keywords`, `featureList` und
- * `audience.audienceType` in JSON-LD bewusst sprachübergreifend Deutsch (Task
- * 6, siehe Kommentar in `site-info.js`) — das trifft dort u. a. auf
- * "Lehrperson"/"Lehrpersonen" und "im Schulalltag". Ohne diesen Ausschluss
- * meldeten beide Prüfungen auf jeder der 175 fremdsprachigen Seiten dieselbe,
- * bereits vor Task 8 bewusst getroffene Entscheidung als Befund — nicht die
- * Art Regression, die diese Prüfungen fangen sollen (untübersetzter
- * Kartentext oder deutscher Markenname im sichtbaren/teilbaren Bereich).
- * Verifiziert: nach Ausschluss von JSON-LD und den beiden genannten
- * Attributen bleiben in keiner der 175 Dateien Treffer übrig (siehe Bericht).
+ * Verifiziert: nach diesen beiden Ausnahmen bleiben in keiner der 175
+ * fremdsprachigen Dateien Treffer auf "im Schulalltag" übrig, und ganz ohne
+ * JSON-LD-Ausschluss auch keine auf die drei Kartenwörter aus Prüfung 5
+ * (siehe restsprachen-report.md).
  *
  * Rückgabecode 1 bei Befunden (Datei + Prüfungsname stehen in der Meldung),
  * sonst 0.
@@ -86,11 +89,28 @@ function isForeignPath(relPath) {
   return FOREIGN_LANGS.some((lang) => relPath === `${lang}/index.html` || relPath.startsWith(`${lang}/`))
 }
 
-/** Entfernt JSON-LD-Blöcke vor Prüfung 5/7 — siehe Kopfkommentar: `seo/meta.js`
- *  hält dort bewusst sprachübergreifend deutschen Text (SITE_NAME, keywords,
- *  featureList, audience.audienceType). */
+/** Im JSON-LD ist genau ein deutscher Markenname legitim: `WebApplication.name`.
+ *  `/app/` ist eine einzige Route, deren `inLanguage` alle sechs Sprachen nennt
+ *  — die Entität gehört keiner Fassung, und sie je Seite anders zu benennen
+ *  wäre schlimmer als ein fester Name (siehe `webApplicationJsonLd` in
+ *  `src/seo/meta.js`). Alles übrige JSON-LD wird geprüft: früher fiel der ganze
+ *  Block heraus, und damit wäre ein deutscher Rest in `WebSite.name` oder
+ *  `isPartOf` unbemerkt geblieben. */
 function stripJsonLd(html) {
-  return html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, '')
+  return html.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,
+    (whole, body) => {
+      let blocks
+      try {
+        const parsed = JSON.parse(body)
+        blocks = Array.isArray(parsed) ? parsed : [parsed]
+      } catch {
+        return whole // unlesbar: nichts ausnehmen, lieber melden
+      }
+      const kept = blocks.filter((b) => b && b['@type'] !== 'WebApplication')
+      return `<script type="application/ld+json">${JSON.stringify(kept)}</script>`
+    },
+  )
 }
 
 function stripCheck7Exemptions(html) {
@@ -133,18 +153,18 @@ function checkHtmlFile(relPath) {
 
   const foreign = isForeignPath(relPath)
   if (foreign) {
-    const withoutJsonLd = stripJsonLd(html)
-
-    // Prüfung 5: keine deutschen Kartenwörter unter en/fr/es/it/sv (ausserhalb
-    // von JSON-LD, siehe Kopfkommentar).
+    // Prüfung 5: keine deutschen Kartenwörter unter en/fr/es/it/sv — über die
+    // volle Datei, JSON-LD eingeschlossen (siehe Kopfkommentar: keines dieser
+    // Wörter steht seit Task 9 noch in JSON-LD).
     for (const word of GERMAN_CARD_WORDS) {
-      if (withoutJsonLd.includes(word)) {
-        report(relPath, 'deutsches-kartenwort', `enthält "${word}" ausserhalb von JSON-LD`)
+      if (html.includes(word)) {
+        report(relPath, 'deutsches-kartenwort', `enthält "${word}"`)
       }
     }
 
     // Prüfung 7: kein deutscher Markenname unter en/fr/es/it/sv, ausser in
     // JSON-LD und og:image:alt/twitter:image:alt (siehe Kopfkommentar).
+    const withoutJsonLd = stripJsonLd(html)
     if (stripCheck7Exemptions(withoutJsonLd).includes(GERMAN_BRAND_PHRASE)) {
       report(relPath, 'deutscher-markenname', `enthält "${GERMAN_BRAND_PHRASE}" ausserhalb von JSON-LD/og:image:alt/twitter:image:alt`)
     }

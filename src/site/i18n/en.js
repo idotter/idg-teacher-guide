@@ -238,6 +238,22 @@ export const site = {
     openCardCta: 'Open the “{skillName}” card',
     otherSkillsHeading: 'More skills in “{dimName}”',
   },
+
+  // Structured data (JSON-LD) — see the comment in i18n/de.js. `keywords`
+  // leaves out "Lehrplan 21" on purpose: the body text of these same skill
+  // pages limits that link to German (see `educationalFramework` in
+  // seo/meta.js), so listing it as a keyword here would contradict it.
+  seo: {
+    audienceType: 'Teachers in Switzerland',
+    keywords: 'Inner Development Guide, Inner Development Goals, IDG, reflection cards, classroom, teachers, future skills',
+    featureList: [
+      '25 reflection cards on Inner Development Guide skills',
+      'Questions for teacher and class',
+      'Classroom ideas and mini-exercises',
+      'Works offline as an installable web app',
+      'Six languages: German, English, French, Spanish, Italian, Swedish',
+    ],
+  },
 }
 
 export default site

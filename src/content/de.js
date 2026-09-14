@@ -55,7 +55,22 @@ export const ui = {
   orderGuide: "Reihenfolge gemäss Guide",
   on: "Ein",
   off: "Aus",
-  tapNext: "Tippen für nächste Frage"
+  tapNext: "Tippen für nächste Frage",
+  // Die vierteilige Einführungstour (IdgCards.jsx#TOUR_STEPS/tourSteps) —
+  // vorher fest Deutsch, seit Task 9 aus diesen Schlüsseln gebaut. `ofCards`
+  // (oben, "von") liefert das Verbindungswort für die Schrittanzeige "{n} von
+  // {TOUR_STEPS.length}", statt eines eigenen, wortgleichen Schlüssels.
+  tourStep1Title: "Karte umdrehen",
+  tourStep1Text: "Tippe auf die Karte: Vorne die Fähigkeit, hinten Reflexionsfragen für dich und deine Klasse.",
+  tourStep2Title: "Durch das Set blättern",
+  tourStep2Text: "Wische die Karte nach links oder rechts. Die Punkte oben zeigen deine Position im Set.",
+  tourStep3Title: "Karten merken",
+  tourStep3Text: "Der Kreis oben rechts auf der Karte füllt sich und legt sie in deine Merkliste.",
+  tourStep4Title: "Alles andere im Menü",
+  tourStep4Text: "Hinter den Ringen oben rechts findest du Dimensionen, Merkliste, Reihenfolge und Einstellungen.",
+  tourSkip: "Überspringen",
+  tourNext: "Weiter",
+  tourDone: "Los geht’s"
 };
 
 export const dimensions = [

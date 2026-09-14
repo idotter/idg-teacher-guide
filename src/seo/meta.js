@@ -182,6 +182,23 @@ export function absoluteUrl(path) {
   return `${SITE_URL}${path}`
 }
 
+/** Text für `mainEntity.name` der Dimensions-CollectionPage ("Kompetenzen in
+ *  X"), in der Sprache der Seite. Baut auf `site.contentPages.dimensionHeading`
+ *  auf — der schon vorhandene Schlüssel für dieselbe Überschrift im sichtbaren
+ *  Markup (`content-page-bodies.jsx`) — statt einen achten, praktisch
+ *  wortgleichen Schlüssel zu erfinden. Die Anführungszeichen, die dort für den
+ *  Fliesstext gedacht sind («…», "…", "…", je nach Sprache), fallen hier weg:
+ *  ein strukturiertes `name`-Feld ist keine Prosa, und das deutsche Ergebnis
+ *  bleibt dadurch exakt "Kompetenzen in {dimName}" wie vor dieser Änderung —
+ *  keine Abweichung an der deutschen Ausgabe. */
+function dimensionCollectionName(site, dimName) {
+  return site.contentPages.dimensionHeading
+    .replace('{dimName}', dimName)
+    .replace(/[«»“”]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 function breadcrumbJsonLd(page) {
   const site = siteOf(page.lang)
   const home = localizedPath('home', page.lang)
@@ -223,23 +240,36 @@ function breadcrumbJsonLd(page) {
   }
 }
 
+/** Jede Sprachfassung nennt die Website unter ihrem eigenen Namen —
+ *  `siteBrand(site)`, derselbe, den Kopfzeile, `<title>` und `og:site_name`
+ *  tragen. Eine Rolle im JSON-LD davon auszunehmen ginge nicht auf: `isPartOf`
+ *  und `mainEntity` zeigen auf dieselbe Entität wie `WebSite.name`, und zwei
+ *  Namen für dasselbe auf einer Seite sind ein Widerspruch, keine
+ *  Unterscheidung. `inLanguage` sagt daneben, um welche Fassung es geht.
+ *  Auf Deutsch ist `siteBrand(site)` wortgleich mit SITE_NAME, die deutsche
+ *  Ausgabe ändert sich also nicht. */
 function webSiteJsonLd(page, site) {
   const home = localizedPath('home', page.lang)
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: SITE_NAME,
+    name: siteBrand(site),
     url: absoluteUrl(home),
     inLanguage: site.htmlLang,
     description: site.pages.home.description,
     publisher: {
       '@type': 'Organization',
-      name: SITE_NAME,
+      name: siteBrand(site),
       url: absoluteUrl(home),
     },
   }
 }
 
+/** Hier bleibt der feste SITE_NAME, anders als bei `WebSite` oben — und der
+ *  Grund steht drei Zeilen tiefer: `inLanguage` nennt alle sechs Sprachen.
+ *  `/app/` ist eine einzige Route, die ihre Sprache selbst umschaltet; diese
+ *  Entität gehört keiner Fassung. `WebSite` dagegen hat je Sprache eine eigene
+ *  URL und eine einzelne `inLanguage` und trägt darum den Namen dieser Fassung. */
 function webApplicationJsonLd({ slim = false, site } = {}) {
   const base = {
     '@context': 'https://schema.org',
@@ -259,14 +289,13 @@ function webApplicationJsonLd({ slim = false, site } = {}) {
     audience: {
       '@type': 'EducationalAudience',
       educationalRole: 'teacher',
-      audienceType: 'Lehrpersonen in der Schweiz',
+      audienceType: site.seo.audienceType,
     },
     sameAs: [
       'https://zukunftskompetenzchallenge.ch',
       'https://innerdevelopmentgoals.org',
     ],
-    keywords:
-      'Inner Development Guide, Inner Development Goals, IDG, Reflexionskarten, Lehrplan 21, Unterricht, Lehrpersonen, Zukunftskompetenzen',
+    keywords: site.seo.keywords,
   }
   if (slim) {
     return {
@@ -277,13 +306,7 @@ function webApplicationJsonLd({ slim = false, site } = {}) {
   return {
     ...base,
     description: site.pages.home.description,
-    featureList: [
-      '25 Reflexionskarten zu Kompetenzen des Inner Development Guide',
-      'Fragen für Lehrperson und Klasse',
-      'Unterrichtsideen und Mini-Übungen',
-      'Offline-fähig als installierbare Web-App',
-      'Sechs Sprachen: Deutsch, Englisch, Französisch, Spanisch, Italienisch, Schwedisch',
-    ],
+    featureList: site.seo.featureList,
   }
 }
 
@@ -297,7 +320,7 @@ function landingWebPageJsonLd(page, site) {
     inLanguage: site.htmlLang,
     isPartOf: {
       '@type': 'WebSite',
-      name: SITE_NAME,
+      name: siteBrand(site),
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
   }
@@ -313,7 +336,7 @@ function aboutPageJsonLd(page, site) {
     inLanguage: site.htmlLang,
     isPartOf: {
       '@type': 'WebSite',
-      name: SITE_NAME,
+      name: siteBrand(site),
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
   }
@@ -329,12 +352,12 @@ function contactPageJsonLd(page, site) {
     inLanguage: site.htmlLang,
     isPartOf: {
       '@type': 'WebSite',
-      name: SITE_NAME,
+      name: siteBrand(site),
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
     mainEntity: {
       '@type': 'Organization',
-      name: SITE_NAME,
+      name: siteBrand(site),
       email: CONTACT_MAIL,
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
@@ -351,7 +374,7 @@ function genericWebPageJsonLd(page, site) {
     inLanguage: site.htmlLang,
     isPartOf: {
       '@type': 'WebSite',
-      name: SITE_NAME,
+      name: siteBrand(site),
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
   }
@@ -411,12 +434,12 @@ export function jsonLdForPage(page) {
           about: page.dim.name,
           isPartOf: {
             '@type': 'WebSite',
-            name: SITE_NAME,
+            name: siteBrand(site),
             url: absoluteUrl(localizedPath('home', page.lang)),
           },
           mainEntity: {
             '@type': 'ItemList',
-            name: `Kompetenzen in ${page.dim.name}`,
+            name: dimensionCollectionName(site, page.dim.name),
             numberOfItems: page.dimSkills.length,
             itemListElement: page.dimSkills.map((skill, index) => ({
               '@type': 'ListItem',
@@ -472,7 +495,7 @@ export function jsonLdForPage(page) {
           hasPart: parts,
           isPartOf: {
             '@type': 'WebSite',
-            name: SITE_NAME,
+            name: siteBrand(site),
             url: absoluteUrl(localizedPath('home', page.lang)),
           },
         })

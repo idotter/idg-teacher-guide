@@ -57,7 +57,21 @@ export const ui = {
   orderGuide: "Ordning enligt guiden",
   on: "På",
   off: "Av",
-  tapNext: "Tryck för nästa fråga"
+  tapNext: "Tryck för nästa fråga",
+  // Introduktionsturen i fyra steg (IdgCards.jsx#tourSteps) — se kommentaren
+  // i content/de.js. `ofCards` (ovan, "av") ger bindeordet till
+  // stegindikatorn ”{n} av {tourSteps.length}”.
+  tourStep1Title: "Vänd kortet",
+  tourStep1Text: "Tryck på kortet: förmågan på framsidan, reflektionsfrågor för dig och din klass på baksidan.",
+  tourStep2Title: "Bläddra i kortleken",
+  tourStep2Text: "Svep kortet åt vänster eller höger. Prickarna högst upp visar var du är i kortleken.",
+  tourStep3Title: "Spara kort",
+  tourStep3Text: "Cirkeln uppe till höger på kortet fylls i och lägger till kortet bland dina sparade.",
+  tourStep4Title: "Allt annat i menyn",
+  tourStep4Text: "Bakom ringarna uppe till höger hittar du dimensioner, sparade kort, ordning och inställningar.",
+  tourSkip: "Hoppa över",
+  tourNext: "Nästa",
+  tourDone: "Nu kör vi"
 };
 
 export const dimensions = [

@@ -117,7 +117,7 @@ const targetGlyph = (stroke, fill, size = 22) => (
   </svg>
 )
 
-// Die vier Tour-Schritte der Vorlage.
+// Baustein für die vier Tour-Symbole (TOUR_ICONS unten).
 const oSvg = (els) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
     {els.map(([T, a], i) => React.createElement(T, { key: i, ...a }))}
@@ -180,32 +180,30 @@ async function fetchShareImage(lang, id) {
   }
 }
 
-const TOUR_STEPS = [
-  {
-    t: 'Karte umdrehen',
-    x: 'Tippe auf die Karte: Vorne die Fähigkeit, hinten Reflexionsfragen für dich und deine Klasse.',
-    o: oSvg([['circle', { cx: 12, cy: 12, r: 9 }], ['path', { d: 'M12 3a9 9 0 0 1 0 18z', fill: 'currentColor', stroke: 'none' }]]),
-  },
-  {
-    t: 'Durch das Set blättern',
-    x: 'Wische die Karte nach links oder rechts. Die Punkte oben zeigen deine Position im Set.',
-    o: oSvg([
-      ['circle', { cx: 4, cy: 12, r: 1.5, fill: 'currentColor', stroke: 'none' }],
-      ['circle', { cx: 12, cy: 12, r: 3.5, fill: 'currentColor', stroke: 'none' }],
-      ['circle', { cx: 20, cy: 12, r: 1.5, fill: 'currentColor', stroke: 'none' }],
-    ]),
-  },
-  {
-    t: 'Karten merken',
-    x: 'Der Kreis oben rechts auf der Karte füllt sich und legt sie in deine Merkliste.',
-    o: oSvg([['circle', { cx: 12, cy: 12, r: 8 }], ['circle', { cx: 12, cy: 12, r: 4, fill: 'currentColor', stroke: 'none' }]]),
-  },
-  {
-    t: 'Alles andere im Menü',
-    x: 'Hinter den Ringen oben rechts findest du Dimensionen, Merkliste, Reihenfolge und Einstellungen.',
-    o: oSvg([['circle', { cx: 12, cy: 12, r: 2.5 }], ['circle', { cx: 12, cy: 12, r: 6 }], ['circle', { cx: 12, cy: 12, r: 9.5 }]]),
-  },
+/* Die vier Tour-Schritte der Vorlage — die Symbole (`o`) sind fest, sprach-
+   unabhängige Vektorzeichnungen und bleiben eine Konstante. Titel (`t`) und
+   Text (`x`) kamen bis Task 9 fest Deutsch mit; jetzt kommen sie aus `ui`
+   (content/<lang>.js), darum eine Funktion statt einer Modul-Konstante — sie
+   läuft im render() der Sprache der Route. */
+const TOUR_ICONS = [
+  oSvg([['circle', { cx: 12, cy: 12, r: 9 }], ['path', { d: 'M12 3a9 9 0 0 1 0 18z', fill: 'currentColor', stroke: 'none' }]]),
+  oSvg([
+    ['circle', { cx: 4, cy: 12, r: 1.5, fill: 'currentColor', stroke: 'none' }],
+    ['circle', { cx: 12, cy: 12, r: 3.5, fill: 'currentColor', stroke: 'none' }],
+    ['circle', { cx: 20, cy: 12, r: 1.5, fill: 'currentColor', stroke: 'none' }],
+  ]),
+  oSvg([['circle', { cx: 12, cy: 12, r: 8 }], ['circle', { cx: 12, cy: 12, r: 4, fill: 'currentColor', stroke: 'none' }]]),
+  oSvg([['circle', { cx: 12, cy: 12, r: 2.5 }], ['circle', { cx: 12, cy: 12, r: 6 }], ['circle', { cx: 12, cy: 12, r: 9.5 }]]),
 ]
+
+export function tourSteps(ui) {
+  return [
+    { t: ui.tourStep1Title, x: ui.tourStep1Text, o: TOUR_ICONS[0] },
+    { t: ui.tourStep2Title, x: ui.tourStep2Text, o: TOUR_ICONS[1] },
+    { t: ui.tourStep3Title, x: ui.tourStep3Text, o: TOUR_ICONS[2] },
+    { t: ui.tourStep4Title, x: ui.tourStep4Text, o: TOUR_ICONS[3] },
+  ]
+}
 
 export default class IdgCards extends React.Component {
   static defaultProps = {
@@ -578,6 +576,7 @@ export default class IdgCards extends React.Component {
       : null
 
     const tourOn = s.tour != null && s.tour >= 0 && !!d
+    const TOUR_STEPS = tourSteps(ui)
     const tourStep = TOUR_STEPS[s.tour] || TOUR_STEPS[0]
     const tourLast = s.tour === TOUR_STEPS.length - 1
 
@@ -1106,19 +1105,19 @@ export default class IdgCards extends React.Component {
                       ))}
                     </div>
                     <button onClick={this.endTour} className="idg-h8"
-                      style={{ all: 'unset', cursor: 'pointer', fontSize: 12, fontWeight: 600, opacity: .6, padding: '6px 0' }}>Überspringen</button>
+                      style={{ all: 'unset', cursor: 'pointer', fontSize: 12, fontWeight: 600, opacity: .6, padding: '6px 0' }}>{ui.tourSkip}</button>
                   </div>
                   <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                     <div style={{ flex: 'none', width: 52, height: 52, border: '1px solid #000', borderRadius: '50%', display: 'grid', placeItems: 'center' }}>{tourStep.o}</div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                      <span style={{ fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .6 }}>{(s.tour || 0) + 1} von {TOUR_STEPS.length}</span>
+                      <span style={{ fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .6 }}>{(s.tour || 0) + 1} {ui.ofCards} {TOUR_STEPS.length}</span>
                       <h2 style={{ margin: 0, fontSize: 22, lineHeight: 1.12, fontWeight: 700, letterSpacing: '-.01em', textWrap: 'pretty' }}>{tourStep.t}</h2>
                       <p style={{ margin: 0, fontSize: 14, lineHeight: 1.45, fontWeight: 300, textWrap: 'pretty' }}>{tourStep.x}</p>
                     </div>
                   </div>
                   <button onClick={() => (tourLast ? this.endTour() : this.setState((q) => ({ tour: q.tour + 1 })))} className="idg-h8"
                     style={{ height: 48, border: '1px solid #000', borderRadius: 999, background: '#000', color: '#fff', fontSize: 14, fontWeight: 700, cursor: 'pointer', transition: 'opacity .15s' }}>
-                    {tourLast ? 'Los geht’s' : 'Weiter'}
+                    {tourLast ? ui.tourDone : ui.tourNext}
                   </button>
                 </div>
               </div>
