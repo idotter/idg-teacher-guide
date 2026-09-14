@@ -1021,7 +1021,7 @@ export default class IdgCards extends React.Component {
             {/* ---------------- Sheet: Im Unterricht ---------------- */}
             <div onClick={() => this.setState({ sheet: false })}
               style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,.35)', opacity: sheet ? 1 : 0, pointerEvents: sheet ? 'auto' : 'none', transition: 'opacity .3s ease', zIndex: 5 }} />
-            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, maxHeight: '88%', background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, transform: sheet ? 'translateY(0)' : 'translateY(105%)', visibility: sheet ? 'visible' : 'hidden', transition: 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s', zIndex: 6 }}>
+            <div style={{ position: 'absolute', left: 0, right: 0, top: '12%', bottom: 0, background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, overflow: 'hidden', transform: sheet ? 'translateY(0)' : 'translateY(105%)', visibility: sheet ? 'visible' : 'hidden', transition: 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s', zIndex: 6 }}>
               <div style={{ flex: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, padding: '16px 20px 12px', borderBottom: '1px solid rgba(0,0,0,.14)' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   <span style={{ fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
