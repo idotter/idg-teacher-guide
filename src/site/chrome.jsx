@@ -1,16 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { dimensions } from '../content/de.js'
-import { LANGS, readStoredLang, writeStoredLang } from '../content/langs.js'
+import { RING_COLORS } from './ring-colors.js'
+import { LANGS, writeStoredLang } from '../content/langs.js'
+import { langFromPath, localizedPath, translationsOf } from './routes.js'
 
-export const FOOT_ABOUT = [
-  { href: '/projekt/', label: 'Das Projekt' },
-  { href: '/kontakt/', label: 'Kontakt' },
-]
+/* Die Fusszeilenspalten hängen an der Sprache: der Pfad kommt aus routes.js,
+   die Beschriftung aus derselben Sprachdatei wie die Seite darüber. Deshalb
+   Funktionen statt Konstanten. */
+export function footAbout(site, lang) {
+  return [
+    { href: localizedPath('project', lang), label: site.pages.project.navLabel },
+    { href: localizedPath('contact', lang), label: site.pages.contact.navLabel },
+  ]
+}
 
-export const FOOT_LEGAL = [
-  { href: '/datenschutz/', label: 'Datenschutz' },
-  { href: '/nutzungsbedingungen/', label: 'Nutzungsbedingungen' },
-]
+export function footLegal(site, lang) {
+  return [
+    { href: localizedPath('privacy', lang), label: site.pages.privacy.navLabel },
+    { href: localizedPath('terms', lang), label: site.pages.terms.navLabel },
+  ]
+}
 
 export function pagePath(pathname = window.location.pathname) {
   const clean = pathname.replace(/\/+$/, '')
@@ -24,14 +32,14 @@ export function pagePath(pathname = window.location.pathname) {
 export function RingMark({ size = 28 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      {dimensions.map((d, i) => (
+      {RING_COLORS.map((d, i) => (
         <circle key={d.id} cx="12" cy="12" r={3 + i * 1.95} stroke={d.color} strokeWidth="1.1" />
       ))}
     </svg>
   )
 }
 
-function LangSwitcher({ lang, onChange }) {
+function LangSwitcher({ lang, label, onChange }) {
   const [open, setOpen] = useState(false)
   const box = useRef(null)
   const current = LANGS.find((l) => l.v === lang) || LANGS[0]
@@ -59,7 +67,7 @@ function LangSwitcher({ lang, onChange }) {
       <button
         type="button"
         className="lang-btn"
-        aria-label="Sprache"
+        aria-label={label}
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => setOpen((v) => !v)}
@@ -68,7 +76,7 @@ function LangSwitcher({ lang, onChange }) {
         <span className="lang-short">{current.v}</span>
       </button>
       {open && (
-        <ul className="lang-menu" role="listbox" aria-label="Sprache">
+        <ul className="lang-menu" role="listbox" aria-label={label}>
           {LANGS.map((o) => (
             <li key={o.v} role="option" aria-selected={o.v === lang}>
               <button type="button" onClick={() => { onChange(o.v); setOpen(false) }}>
@@ -82,24 +90,36 @@ function LangSwitcher({ lang, onChange }) {
   )
 }
 
-export function SiteHeader({ lang: langProp, onLangChange } = {}) {
-  const [langState, setLangState] = useState(readStoredLang)
-  const lang = langProp ?? langState
+/* Der Wähler ist Navigation, keine Einstellung: er führt auf dieselbe Seite
+   in der Zielsprache. Gibt es sie dort nicht (unbekannter Pfad, App), führt
+   er auf die Startseite der Zielsprache. Reine Funktion, ausgelagert aus dem
+   Klick-Handler unten, damit die Zielberechnung ohne DOM/window testbar ist. */
+export function langSwitchTarget(here, next) {
+  const target = translationsOf(here).find((t) => t.lang === next)
+  return target ? target.path : localizedPath('home', next)
+}
 
+/* Die angezeigte Sprache kommt aus dem Pfad, nicht aus dem Speicher — sonst
+   zeigte der Wähler etwas anderes an als die Seite darunter. */
+export function SiteHeader({ site, here = '/' }) {
+  const lang = langFromPath(here)
+  const { chrome } = site
+
+  /* `writeStoredLang` bleibt trotzdem, damit /app/ — die einzige Route ohne
+     Präfix — derselben Wahl folgt. */
   const changeLang = (next) => {
     writeStoredLang(next)
-    setLangState(next)
-    onLangChange?.(next)
+    window.location.assign(langSwitchTarget(here, next))
   }
 
   return (
     <header className="top">
       <div className="wrap top-in">
-        <a className="top-mark" href="/" aria-label="Zur Startseite">
+        <a className="top-mark" href={localizedPath('home', lang)} aria-label={chrome.homeAria}>
           <RingMark />
-          <span className="top-words"><b>Inner Development Guide</b><span>im Schulalltag</span></span>
+          <span className="top-words"><b>{chrome.brand}</b><span>{chrome.brandSub}</span></span>
         </a>
-        <LangSwitcher lang={lang} onChange={changeLang} />
+        <LangSwitcher lang={lang} label={chrome.langAria} onChange={changeLang} />
       </div>
     </header>
   )
@@ -119,28 +139,31 @@ function FootList({ items, here }) {
   )
 }
 
-export function SiteFooter({ here: hereProp } = {}) {
+export function SiteFooter({ site, here: hereProp } = {}) {
   const here = hereProp ?? (typeof window !== 'undefined' ? pagePath() : '/')
+  const lang = langFromPath(here)
+  const { chrome } = site
+
   return (
     <footer className="foot">
       <div className="wrap foot-in">
         <div className="foot-brand">
           <img src="/assets/inspired-by-idg.png" alt="Inspired by IDG" />
           <p>
-            Dieses Angebot ist inspiriert vom Inner Development Guide. Mehr unter{' '}
+            {chrome.footerNote}{' '}
             <a href="https://innerdevelopmentgoals.org" rel="noopener noreferrer">
               innerdevelopmentgoals.org
             </a>
           </p>
         </div>
-        <nav className="foot-nav" aria-label="Fusszeile">
+        <nav className="foot-nav" aria-label={chrome.footerAria}>
           <div className="foot-col">
-            <h2>Über das Projekt</h2>
-            <FootList items={FOOT_ABOUT} here={here} />
+            <h2>{chrome.footerAbout}</h2>
+            <FootList items={footAbout(site, lang)} here={here} />
           </div>
           <div className="foot-col">
-            <h2>Rechtliches</h2>
-            <FootList items={FOOT_LEGAL} here={here} />
+            <h2>{chrome.footerLegal}</h2>
+            <FootList items={footLegal(site, lang)} here={here} />
           </div>
         </nav>
       </div>

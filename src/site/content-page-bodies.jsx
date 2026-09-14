@@ -1,11 +1,17 @@
 import React from 'react'
-import { ui } from '../content/de.js'
-import { dimensionPath, skillPath } from '../seo/content-pages.js'
+import { localizedPath } from './routes.js'
 
-export function Crumbs({ items }) {
+/* Ersetzt {platzhalter} in einem contentPages-Text — dieselbe Regel wie in
+   pages.jsx/Landing.jsx, hier bewusst eine eigene, kleine Kopie statt eines
+   gemeinsamen Imports: diese Datei soll nicht an deren Bundle hängen. */
+function fill(text, vars) {
+  return text.replace(/\{(\w+)\}/g, (whole, name) => (name in vars ? vars[name] : whole))
+}
+
+export function Crumbs({ items, ariaLabel }) {
   if (!items?.length) return null
   return (
-    <nav className="crumbs" aria-label="Brotkrumen">
+    <nav className="crumbs" aria-label={ariaLabel}>
       <ol>
         {items.map((item, i) => {
           const last = i === items.length - 1
@@ -22,17 +28,21 @@ export function Crumbs({ items }) {
   )
 }
 
-export function dimensionCrumbs(page) {
+/* `site.contentPages.crumbHome` statt festem 'Startseite': crumbHome ist
+   ausschliesslich für diese Inhaltsseiten gedacht (Dimensionen/Kompetenzen) —
+   die Unterseiten (/projekt/, /kontakt/, …) tragen laut Task 4 gar keine
+   sichtbaren Brotkrumen. */
+export function dimensionCrumbs(page, site) {
   return [
-    { href: '/', label: 'Startseite' },
+    { href: localizedPath('home', page.lang), label: site.contentPages.crumbHome },
     { label: page.dim.name },
   ]
 }
 
-export function skillCrumbs(page) {
+export function skillCrumbs(page, site) {
   return [
-    { href: '/', label: 'Startseite' },
-    { href: dimensionPath(page.dim.id), label: page.dim.name },
+    { href: localizedPath('home', page.lang), label: site.contentPages.crumbHome },
+    { href: localizedPath('dimension', page.lang, page.dim.id), label: page.dim.name },
     { label: page.skill.name },
   ]
 }
@@ -47,37 +57,44 @@ function QuestionList({ items }) {
   )
 }
 
-export function dimensionPageBody(page) {
-  const { dim, dimSkills } = page
+/* `ui` kommt vom Aufrufer (die Kartendaten der Route-Sprache aus
+   `pages.jsx`/`lang-modules.js`) statt fest aus `content/de.js`; die
+   sichtbaren Beschriftungen dieser Datei selbst (Knöpfe, Überschriften,
+   Brotkrumen-aria-label) kommen aus `site.contentPages` — sonst stünden auf
+   `/it/competenze/mut/` deutsche Beschriftungen im vorgerenderten Rumpf. */
+export function dimensionPageBody(page, site) {
+  const { dim, dimSkills, lang } = page
+  const cp = site.contentPages
   return (
     <>
       <p>{dim.intro}</p>
-      <h2>Kompetenzen in «{dim.name}»</h2>
+      <h2>{fill(cp.dimensionHeading, { dimName: dim.name })}</h2>
       <ul>
         {dimSkills.map((skill) => (
           <li key={skill.id}>
-            <a href={skillPath(skill.id)}>{skill.name}</a>
+            <a href={localizedPath('skill', lang, skill.id)}>{skill.name}</a>
             {' — '}
             {skill.desc}
           </li>
         ))}
       </ul>
       <p>
-        <a className="btn" href="/app/">Reflexionskarten öffnen</a>
+        <a className="btn" href="/app/">{cp.openAppCta}</a>
       </p>
     </>
   )
 }
 
-export function skillPageBody(page) {
-  const { skill, dim, dimSkills } = page
+export function skillPageBody(page, site, ui) {
+  const { skill, dim, dimSkills, lang } = page
+  const cp = site.contentPages
   const siblings = (dimSkills || []).filter((item) => item.id !== skill.id)
 
   return (
     <>
       <p>
-        Dimension{' '}
-        <a href={dimensionPath(dim.id)}>{dim.name}</a>
+        {cp.dimensionPrefix}{' '}
+        <a href={localizedPath('dimension', lang, dim.id)}>{dim.name}</a>
         {' '}— {dim.subtitle}
       </p>
 
@@ -119,17 +136,17 @@ export function skillPageBody(page) {
 
       <p>
         <a className="btn" href={`/app/?card=${encodeURIComponent(skill.id)}`}>
-          Karte «{skill.name}» öffnen
+          {fill(cp.openCardCta, { skillName: skill.name })}
         </a>
       </p>
 
       {siblings.length > 0 && (
         <>
-          <h2>Weitere Kompetenzen in «{dim.name}»</h2>
+          <h2>{fill(cp.otherSkillsHeading, { dimName: dim.name })}</h2>
           <ul>
             {siblings.map((item) => (
               <li key={item.id}>
-                <a href={skillPath(item.id)}>{item.name}</a>
+                <a href={localizedPath('skill', lang, item.id)}>{item.name}</a>
               </li>
             ))}
           </ul>

@@ -390,6 +390,16 @@ a.band:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
   text-wrap: pretty;
 }
 .prose a { color: inherit; }
+/* Die Vorrangklausel über den übersetzten Rechtstexten: Haarlinie und
+   gedämpfter Ton statt Kasten und Farbe — sie soll sich abheben, nicht
+   rufen. Dieselben Mittel wie sonst auf dieser Seite, kein neuer Farbwert. */
+.prose .note {
+  margin: 0 0 22px;
+  padding-left: 16px;
+  border-left: 1px solid var(--lp-hair);
+  color: var(--text-muted);
+  font-size: 15px;
+}
 .prose .btn { margin-top: 8px; }
 .prose ul {
   margin: 0 0 16px; padding: 0 0 0 1.15em;

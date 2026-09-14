@@ -8,12 +8,17 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest run",
     "generate:share": "node scripts/generate-share-cards.mjs",
     "generate:og": "node scripts/generate-og.mjs",
     "generate:seo": "node scripts/generate-seo-files.mjs",
     "generate:content": "node scripts/generate-content-pages.mjs",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "check:build": "node scripts/check-build.mjs",
     "predev": "npm run generate:content",
-    "prebuild": "npm run generate:share && npm run generate:og && npm run generate:content && npm run generate:seo"
+    "pretest": "npm run generate:content",
+    "prebuild": "npm run generate:share && npm run generate:og && npm run check:i18n && npm run generate:content && npm run generate:seo",
+    "postbuild": "npm run check:build"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -22,6 +27,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "sharp": "^0.33.5",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "vitest": "^5.0.0"
   }
 }

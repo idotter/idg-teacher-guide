@@ -10,4 +10,9 @@ dist
 .icon-backup/
 /dimensionen/
 /kompetenzen/
+/en/
+/fr/
+/es/
+/it/
+/sv/
 /scripts/content-routes.json
