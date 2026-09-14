@@ -60,7 +60,21 @@ export const ui = {
   orderGuide: "Ordre du guide",
   on: "Activé",
   off: "Désactivé",
-  tapNext: "Toucher pour la question suivante"
+  tapNext: "Toucher pour la question suivante",
+  // La visite guidée en quatre étapes (IdgCards.jsx#tourSteps) — voir le
+  // commentaire dans content/de.js. `ofCards` (plus haut, "sur") fournit le
+  // mot de liaison pour l'indicateur d'étape « {n} sur {tourSteps.length} ».
+  tourStep1Title: "Retourner la carte",
+  tourStep1Text: "Touchez la carte : la capacité au recto, des questions de réflexion pour vous et pour votre classe au verso.",
+  tourStep2Title: "Parcourir le jeu",
+  tourStep2Text: "Glissez la carte vers la gauche ou la droite. Les points en haut indiquent votre position dans le jeu.",
+  tourStep3Title: "Garder des cartes",
+  tourStep3Text: "Le cercle en haut à droite de la carte se remplit et l'ajoute à vos favoris.",
+  tourStep4Title: "Tout le reste dans le menu",
+  tourStep4Text: "Derrière les anneaux en haut à droite, vous trouverez les dimensions, les favoris, l'ordre et les réglages.",
+  tourSkip: "Passer",
+  tourNext: "Suivant",
+  tourDone: "C'est parti"
 };
 
 export const dimensions = [

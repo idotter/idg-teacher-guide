@@ -58,7 +58,21 @@ export const ui = {
   orderGuide: "Ordine della guida",
   on: "Attivo",
   off: "Disattivo",
-  tapNext: "Tocca per la domanda successiva"
+  tapNext: "Tocca per la domanda successiva",
+  // Il tour introduttivo in quattro passi (IdgCards.jsx#tourSteps) — vedi il
+  // commento in content/de.js. `ofCards` (sopra, "di") fornisce la parola di
+  // collegamento per l'indicatore di passo «{n} di {tourSteps.length}».
+  tourStep1Title: "Girare la carta",
+  tourStep1Text: "Tocca la carta: la competenza davanti, domande di riflessione per te e per la tua classe dietro.",
+  tourStep2Title: "Sfogliare il mazzo",
+  tourStep2Text: "Scorri la carta a sinistra o a destra. I puntini in alto mostrano la tua posizione nel mazzo.",
+  tourStep3Title: "Salvare le carte",
+  tourStep3Text: "Il cerchio in alto a destra della carta si riempie e la aggiunge alle tue salvate.",
+  tourStep4Title: "Tutto il resto nel menu",
+  tourStep4Text: "Dietro gli anelli in alto a destra trovi le dimensioni, le salvate, l'ordine e le impostazioni.",
+  tourSkip: "Salta",
+  tourNext: "Avanti",
+  tourDone: "Iniziamo"
 };
 
 export const dimensions = [

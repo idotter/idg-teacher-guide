@@ -24,6 +24,12 @@
  * Übersetzungsdateien, die es noch nicht gibt (z. B. vor Task 3), werden
  * stillschweigend übersprungen — das ist kein Befund.
  *
+ * Dazu (Task 9, Teil C): derselbe Schlüsselabgleich (fehlend/überzählig,
+ * gegen Deutsch) für `src/content/<lang>.js#ui` — die Kartendaten-Texte, aus
+ * denen u. a. die Einführungstour der App (`src/app/IdgCards.jsx`) ihre Texte
+ * bezieht. Ein eigener, kleinerer Baum als site/i18n/*: keine Blocktypen,
+ * keine Linkziele, kein precedenceNote — nur die Schlüsselmenge.
+ *
  * Aufruf: node scripts/check-i18n.mjs
  * Rückgabecode 1, wenn es Befunde gibt, sonst 0.
  */
@@ -113,6 +119,20 @@ async function loadSite(lang) {
   return mod.default
 }
 
+// Kartendaten (src/content/<lang>.js) — eigener Baum, eigener Import. Die
+// Tour-Texte von IdgCards.jsx (Task 9, Teil C) liegen in deren `ui`-Export,
+// nicht in site/i18n/*; ohne diese Prüfung gäbe es für diesen Baum keinen
+// automatischen Schlüsselabgleich über alle sechs Sprachen (anders als bei
+// site/i18n/*, das oben schon geprüft wird). Nur `ui` — `dimensions`/`skills`
+// sind Kartendaten mit eigenem Übersetzungsprozess, kein Teil dieser Prüfung.
+const CONTENT_DIR = path.resolve(__dirname, '../src/content')
+
+async function loadContentUi(lang) {
+  const file = path.join(CONTENT_DIR, `${lang}.js`)
+  const mod = await import(pathToFileURL(file).href)
+  return mod.ui
+}
+
 async function main() {
   const findings = []
 
@@ -159,17 +179,39 @@ async function main() {
     }
   }
 
+  // Schlüsselabgleich für content/<lang>.js#ui, Deutsch als Referenz — analog
+  // zu site/i18n/* oben, aber ein eigener, kleinerer Baum (keine Blocktypen,
+  // keine Linkziele, kein precedenceNote): nur fehlende/überzählige Schlüssel.
+  const deUi = await loadContentUi(DEFAULT_LANG)
+  const uiBaseKeys = new Set(keyPaths(deUi))
+  let uiChecked = 0
+
+  for (const lang of translationLangs) {
+    const file = path.join(CONTENT_DIR, `${lang}.js`)
+    if (!existsSync(file)) continue // noch nicht übersetzt — kein Befund
+    uiChecked += 1
+
+    const ui = await loadContentUi(lang)
+    const ownKeys = new Set(keyPaths(ui))
+    const missing = [...uiBaseKeys].filter((k) => !ownKeys.has(k)).sort()
+    const extra = [...ownKeys].filter((k) => !uiBaseKeys.has(k)).sort()
+
+    if (missing.length || extra.length) {
+      findings.push({ lang, label: `content/${lang}.js#ui`, missing, extra, structural: [], identity: [], links: [] })
+    }
+  }
+
   if (findings.length === 0) {
     const note = checked === 0
       ? '(noch keine Übersetzungsdateien vorhanden)'
       : `(${checked} Übersetzung${checked === 1 ? '' : 'en'} geprüft)`
-    console.log(`i18n-Check: keine Abweichungen ${note}, Linkziele in ${linkChecked} Dateien geprüft.`)
+    console.log(`i18n-Check: keine Abweichungen ${note}, Linkziele in ${linkChecked} Dateien geprüft, content/*.js#ui in ${uiChecked} Übersetzung${uiChecked === 1 ? '' : 'en'} geprüft.`)
     process.exit(0)
   }
 
   console.error('i18n-Check: Abweichungen gefunden:\n')
-  for (const { lang, missing, extra, structural, identity, links = [] } of findings) {
-    console.error(`  ${lang}.js`)
+  for (const { lang, label, missing, extra, structural, identity, links = [] } of findings) {
+    console.error(`  ${label || `${lang}.js`}`)
     for (const key of missing) console.error(`    fehlt:      ${key}`)
     for (const key of extra) console.error(`    überzählig: ${key}`)
     for (const msg of identity) console.error(`    identität:  ${msg}`)

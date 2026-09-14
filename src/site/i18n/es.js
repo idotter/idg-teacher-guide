@@ -240,6 +240,23 @@ export const site = {
     openCardCta: 'Abrir la carta «{skillName}»',
     otherSkillsHeading: 'Más habilidades en «{dimName}»',
   },
+
+  // Datos estructurados (JSON-LD) — ver el comentario en i18n/de.js.
+  // `keywords` omite «Lehrplan 21» a propósito: el texto de estas mismas
+  // páginas de habilidades limita ese vínculo al alemán (ver
+  // `educationalFramework` en seo/meta.js), una palabra clave aquí lo
+  // contradiría.
+  seo: {
+    audienceType: 'Docentes en Suiza',
+    keywords: 'Inner Development Guide, Inner Development Goals, IDG, cartas de reflexión, aula, profesorado, competencias de futuro',
+    featureList: [
+      '25 cartas de reflexión sobre las habilidades del Inner Development Guide',
+      'Preguntas para el profesorado y para la clase',
+      'Ideas para el aula y miniejercicios',
+      'Funciona sin conexión como aplicación web instalable',
+      'Seis idiomas: alemán, inglés, francés, español, italiano y sueco',
+    ],
+  },
 }
 
 export default site

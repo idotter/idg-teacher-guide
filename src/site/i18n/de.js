@@ -258,6 +258,25 @@ export const site = {
     openCardCta: 'Karte «{skillName}» öffnen',
     otherSkillsHeading: 'Weitere Kompetenzen in «{dimName}»',
   },
+
+  // Strukturierte Daten (JSON-LD, seo/meta.js#webApplicationJsonLd) — nicht
+  // sichtbarer Text, aber je Sprache der Route zu übersetzen: vor Task 9
+  // standen diese drei Felder fest auf Deutsch, auch im JSON-LD der übrigen
+  // fünf Sprachen. `keywords` lässt „Lehrplan 21" für die Übersetzungen bewusst
+  // weg: Der Fliesstext derselben Kompetenzseiten schränkt den Bezug explizit
+  // aufs Deutsche ein (siehe `educationalFramework` in seo/meta.js), ein
+  // Schlagwort in der fremdsprachigen Seite widerspräche dem.
+  seo: {
+    audienceType: 'Lehrpersonen in der Schweiz',
+    keywords: 'Inner Development Guide, Inner Development Goals, IDG, Reflexionskarten, Lehrplan 21, Unterricht, Lehrpersonen, Zukunftskompetenzen',
+    featureList: [
+      '25 Reflexionskarten zu Kompetenzen des Inner Development Guide',
+      'Fragen für Lehrperson und Klasse',
+      'Unterrichtsideen und Mini-Übungen',
+      'Offline-fähig als installierbare Web-App',
+      'Sechs Sprachen: Deutsch, Englisch, Französisch, Spanisch, Italienisch, Schwedisch',
+    ],
+  },
 }
 
 export default site

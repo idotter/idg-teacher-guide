@@ -242,6 +242,22 @@ export const site = {
     openCardCta: 'Apri la carta «{skillName}»',
     otherSkillsHeading: 'Altre competenze in «{dimName}»',
   },
+
+  // Dati strutturati (JSON-LD) — vedi il commento in i18n/de.js. `keywords`
+  // omette volutamente «Lehrplan 21»: il testo di queste stesse pagine di
+  // competenze limita quel legame al tedesco (vedi `educationalFramework` in
+  // seo/meta.js), una parola chiave qui lo contraddirebbe.
+  seo: {
+    audienceType: "Insegnanti in Svizzera",
+    keywords: "Inner Development Guide, Inner Development Goals, IDG, carte di riflessione, lezione, insegnanti, competenze per il futuro",
+    featureList: [
+      "25 carte di riflessione sulle competenze dell'Inner Development Guide",
+      "Domande per l'insegnante e per la classe",
+      "Idee per la lezione e miniesercizi",
+      "Funziona offline come web app installabile",
+      "Sei lingue: tedesco, inglese, francese, spagnolo, italiano e svedese",
+    ],
+  },
 }
 
 export default site

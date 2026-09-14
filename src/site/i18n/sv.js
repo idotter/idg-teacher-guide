@@ -240,6 +240,22 @@ export const site = {
     openCardCta: 'Öppna kortet ”{skillName}”',
     otherSkillsHeading: 'Fler förmågor inom ”{dimName}”',
   },
+
+  // Strukturerad data (JSON-LD) — se kommentaren i i18n/de.js. `keywords`
+  // utelämnar medvetet ”Lehrplan 21”: brödtexten på samma förmågesidor
+  // begränsar den kopplingen till tyska (se `educationalFramework` i
+  // seo/meta.js), ett nyckelord här skulle motsäga det.
+  seo: {
+    audienceType: 'Lärare i Schweiz',
+    keywords: 'Inner Development Guide, Inner Development Goals, IDG, reflektionskort, undervisning, lärare, framtidskompetenser',
+    featureList: [
+      '25 reflektionskort om förmågor ur Inner Development Guide',
+      'Frågor för läraren och för klassen',
+      'Undervisningsidéer och miniövningar',
+      'Fungerar offline som en installerbar webbapp',
+      'Sex språk: tyska, engelska, franska, spanska, italienska och svenska',
+    ],
+  },
 }
 
 export default site

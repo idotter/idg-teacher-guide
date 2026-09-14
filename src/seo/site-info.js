@@ -16,8 +16,9 @@
  * `site/Page.jsx`). Stünden sie an zwei Stellen, liefe eine Änderung am
  * Trennzeichen nur auf einer Seite still auseinander.
  *
- * `SITE_NAME` bleibt der feste, sprachübergreifende Produktname für
- * strukturelles JSON-LD (`WebApplication.name`, `WebSite.name` u. Ä. in
+ * `SITE_NAME` bleibt der feste, sprachübergreifende Produktname, wo JSON-LD
+ * die Entität selbst benennt (`WebApplication.name`, `WebSite.name`,
+ * `publisher.name`, das `Organization`-`mainEntity` der Kontaktseite in
  * `seo/meta.js`) — das ist eine bewusste Design-Entscheidung aus Task 6. Für
  * sichtbaren Text wie den `<title>` einer Inhaltsseite, den Noscript-Block der
  * Startseite oder `og:site_name` (sichtbar in der Teilen-Vorschau von
@@ -27,9 +28,12 @@
  * Route-Sprache), sonst trägt z. B. `/fr/dimensions/being/` einen deutschen
  * Titelanhang neben einem `<title>`, das für `/fr/projet/` korrekt "Inner
  * Development Guide en classe" zeigt (Fix-Runde 1, Punkt 1+3; `og:site_name`
- * folgte in Task 8, Rest 1). `siteBrand` baut genau diesen String; für
- * Deutsch ist er wortgleich mit `SITE_NAME` (geprüft in `site-info.test.js`),
- * darum bleibt `pageLabel(name)` ohne zweites Argument unverändert deutsch.
+ * folgte in Task 8, Rest 1). Seit Task 9 gilt dasselbe für `isPartOf.name` in
+ * `seo/meta.js`: es referenziert die Website aus Sicht einer einzelnen Seite,
+ * nicht die Entität selbst, und trägt darum ebenfalls `siteBrand(site)` statt
+ * `SITE_NAME`. `siteBrand` baut genau diesen String; für Deutsch ist er
+ * wortgleich mit `SITE_NAME` (geprüft in `site-info.test.js`), darum bleibt
+ * `pageLabel(name)` ohne zweites Argument unverändert deutsch.
  */
 export const SITE_NAME = 'Inner Development Guide im Schulalltag'
 export const CONTACT_MAIL = 'guide@zukunftskompetenzchallenge.ch'

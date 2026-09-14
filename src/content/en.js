@@ -56,7 +56,21 @@ export const ui = {
   orderGuide: "Order as in the guide",
   on: "On",
   off: "Off",
-  tapNext: "Tap for the next question"
+  tapNext: "Tap for the next question",
+  // The four-step intro tour (IdgCards.jsx#tourSteps) — see the comment in
+  // content/de.js. `ofCards` (above, "of") supplies the connector for the
+  // step indicator "{n} of {tourSteps.length}".
+  tourStep1Title: "Flip the card",
+  tourStep1Text: "Tap the card: the skill up front, reflection questions for you and your class on the back.",
+  tourStep2Title: "Browse the deck",
+  tourStep2Text: "Swipe the card left or right. The dots at the top show where you are in the deck.",
+  tourStep3Title: "Save cards",
+  tourStep3Text: "The circle at the top right of the card fills in and adds it to your saved cards.",
+  tourStep4Title: "Everything else in the menu",
+  tourStep4Text: "Behind the rings at the top right you'll find dimensions, saved cards, order and settings.",
+  tourSkip: "Skip",
+  tourNext: "Next",
+  tourDone: "Let's go"
 };
 
 export const dimensions = [

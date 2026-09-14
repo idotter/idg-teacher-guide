@@ -1,8 +1,12 @@
 import { describe, expect, it } from 'vitest'
-import { LANG_IDS } from '../site/routes.js'
+import { LANG_IDS, localizedPath } from '../site/routes.js'
+import deSite from '../site/i18n/de.js'
 import enSite from '../site/i18n/en.js'
 import frSite from '../site/i18n/fr.js'
+import itSite from '../site/i18n/it.js'
+import svSite from '../site/i18n/sv.js'
 import { buildContentPages } from './content-pages.js'
+import { siteBrand } from './site-info.js'
 import { htmlRouteMap, jsonLdForPage, landingNoscriptHtml, pagesFor, renderSeoHead, SITE_NAME } from './meta.js'
 
 describe('htmlRouteMap', () => {
@@ -254,5 +258,116 @@ describe('jsonLdForPage — educationalFramework', () => {
         expect(alignment).not.toHaveProperty('educationalFramework')
       }
     }
+  })
+})
+
+/* Task 9, Teil A: audienceType/keywords/featureList im WebApplication-JSON-LD
+   standen fest auf Deutsch, auch auf den 175 fremdsprachigen Seiten — jetzt
+   kommen sie aus site.seo.*. Jeder Fall hier ist gegen eine Mutation
+   (Rückbau auf die alten, fest deutschen Literale) gegengeprüft. */
+describe('jsonLdForPage — WebApplication (audienceType/keywords/featureList)', () => {
+  // featureList steht nur im WebApplication-Block der Startseite (nicht im
+  // "slim"-Block von /app/, siehe webApplicationJsonLd in meta.js) —
+  // deshalb hier die Startseite jeder Sprache statt /app/.
+  const webApp = (lang) => jsonLdForPage(pagesFor(lang)[localizedPath('home', lang)]).find((b) => b['@type'] === 'WebApplication')
+
+  it('trägt für Deutsch weiterhin die bisherigen, fest deutschen Werte (keine Regression)', () => {
+    const block = webApp('de')
+    expect(block.audience.audienceType).toBe('Lehrpersonen in der Schweiz')
+    expect(block.keywords).toContain('Lehrplan 21')
+    expect(block.featureList).toHaveLength(5)
+  })
+
+  it('trägt für Italienisch die italienischen site.seo-Werte, nicht die deutschen', () => {
+    const block = webApp('it')
+    expect(block.audience.audienceType).toBe(itSite.seo.audienceType)
+    expect(block.audience.audienceType).not.toBe('Lehrpersonen in der Schweiz')
+    expect(block.keywords).toBe(itSite.seo.keywords)
+    expect(block.featureList).toEqual(itSite.seo.featureList)
+  })
+
+  it('lässt "Lehrplan 21" in den fremdsprachigen keywords bewusst weg (der Fliesstext schränkt den Bezug aufs Deutsche ein)', () => {
+    for (const lang of LANG_IDS.filter((l) => l !== 'de')) {
+      const block = webApp(lang)
+      expect(block.keywords).not.toContain('Lehrplan 21')
+    }
+  })
+
+  it('trägt für jede Sprache genau fünf featureList-Einträge', () => {
+    for (const lang of LANG_IDS) {
+      expect(webApp(lang).featureList).toHaveLength(5)
+    }
+  })
+})
+
+/* Task 9, Teil A: mainEntity.name der Dimensions-CollectionPage war fest
+   "Kompetenzen in {dimName}" — auf /it/dimensioni/being/ stand "Kompetenzen
+   in Essere". Jetzt baut es auf site.contentPages.dimensionHeading auf, ohne
+   dessen Anführungszeichen (die sind für den Fliesstext gedacht, nicht für
+   ein JSON-LD-`name`-Feld). */
+describe('jsonLdForPage — mainEntity.name der Dimensionsseite', () => {
+  const dimensionBlock = (lang) => {
+    const page = buildContentPages(lang).find((p) => p.kind === 'dimension' && p.dim.id === 'being')
+    return jsonLdForPage(page).find((b) => b['@type'] === 'CollectionPage')
+  }
+
+  it('bleibt für Deutsch wortgleich "Kompetenzen in Sein" (keine Regression)', () => {
+    expect(dimensionBlock('de').mainEntity.name).toBe('Kompetenzen in Sein')
+  })
+
+  it('trägt für Italienisch "Competenze in Essere", nicht den deutschen Präfix', () => {
+    expect(dimensionBlock('it').mainEntity.name).toBe('Competenze in Essere')
+    expect(dimensionBlock('it').mainEntity.name).not.toContain('Kompetenzen')
+  })
+
+  it('übernimmt keine Anführungszeichen aus dimensionHeading (das ist Fliesstext-Formatierung, kein Teil des Namens)', () => {
+    for (const lang of LANG_IDS) {
+      const name = dimensionBlock(lang).mainEntity.name
+      expect(name).not.toMatch(/[«»“”]/)
+    }
+  })
+})
+
+/* Task 9, Teil A: isPartOf.name (WebPage → WebSite) trug überall fest den
+   sprachübergreifenden SITE_NAME — dieselbe Art Fehler, die og:site_name
+   schon in Task 8 hatte. Jetzt trägt es siteBrand(site), wie og:site_name.
+   WebSite.name/WebApplication.name/publisher.name/das Organization-
+   mainEntity der Kontaktseite bleiben bewusst SITE_NAME (Task-6-Entscheidung,
+   siehe site-info.js) — das prüft der letzte Fall hier gegen. */
+describe('jsonLdForPage — isPartOf.name', () => {
+  const isPartOfName = (lang, path, type) =>
+    jsonLdForPage(pagesFor(lang)[path]).find((b) => b['@type'] === type)?.isPartOf?.name
+
+  it('trägt für Französisch den lokalisierten Markennamen auf der Projektseite, nicht SITE_NAME', () => {
+    const name = isPartOfName('fr', '/fr/projet/', 'AboutPage')
+    expect(name).toBe(siteBrand(frSite))
+    expect(name).toBe('Inner Development Guide en classe')
+    expect(name).not.toBe(SITE_NAME)
+  })
+
+  it('trägt für Schwedisch den lokalisierten Markennamen auf der Kontaktseite', () => {
+    const name = isPartOfName('sv', '/sv/kontakt/', 'ContactPage')
+    expect(name).toBe(siteBrand(svSite))
+    expect(name).not.toBe(SITE_NAME)
+  })
+
+  it('bleibt für Deutsch wortgleich mit SITE_NAME (siteBrand(deSite) === SITE_NAME, keine Regression)', () => {
+    expect(isPartOfName('de', '/projekt/', 'AboutPage')).toBe(SITE_NAME)
+    expect(siteBrand(deSite)).toBe(SITE_NAME)
+  })
+
+  it('lässt WebSite.name, WebApplication.name, publisher.name und das Organization-mainEntity der Kontaktseite bewusst bei SITE_NAME', () => {
+    const home = jsonLdForPage(pagesFor('fr')['/fr/'])
+    const webSite = home.find((b) => b['@type'] === 'WebSite')
+    const webApplication = home.find((b) => b['@type'] === 'WebApplication')
+    expect(webSite.name).toBe(SITE_NAME)
+    expect(webSite.publisher.name).toBe(SITE_NAME)
+    expect(webApplication.name).toBe(SITE_NAME)
+
+    const contact = jsonLdForPage(pagesFor('fr')['/fr/contact/'])
+    const contactPage = contact.find((b) => b['@type'] === 'ContactPage')
+    expect(contactPage.mainEntity.name).toBe(SITE_NAME)
+    // isPartOf derselben Seite ist dagegen lokalisiert:
+    expect(contactPage.isPartOf.name).toBe(siteBrand(frSite))
   })
 })
