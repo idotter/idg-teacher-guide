@@ -110,13 +110,6 @@ const closeGlyph = (
   </svg>
 )
 
-const targetGlyph = (stroke, fill, size = 22) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={stroke} strokeWidth="1.5" style={{ flex: 'none' }}>
-    <circle cx="12" cy="12" r="9.5" />
-    <circle cx="12" cy="12" r="3" fill={fill} stroke="none" />
-  </svg>
-)
-
 // Die vier Tour-Schritte der Vorlage.
 const oSvg = (els) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -225,7 +218,7 @@ export default class IdgCards extends React.Component {
   }
 
   state = {
-    aud: 'teacher', qi: 0, splash: false, data: null, tab: 'stack', filter: 'all',
+    aud: 'teacher', qi: 0, splash: !!this.props.autoSplash, data: null, tab: 'stack', filter: 'all',
     index: 0, flipped: false, dx: 0, dragging: false, leaving: 0, noTrans: false,
     saved: [], toast: null, openDim: null, ring: 0, prefs: {}, tour: -1,
     sheet: false, menu: false,
@@ -293,6 +286,10 @@ export default class IdgCards extends React.Component {
     if (bare || p.embedded) return null
 
     const s = this.state
+    // Während des Splash ist der ganze Bildschirm weiss — auch html/body und
+    // damit die Safe-Areas, die der Splash-Layer in <main> nicht abdeckt.
+    // Danach folgt alles der Dimensionsfarbe der Karte.
+    if (s.splash) return '#fff'
     const farbe = (p.variant ?? 'farbe') === 'farbe'
     const list = this.list()
     const sk = list[s.index] || list[0]
@@ -312,6 +309,9 @@ export default class IdgCards extends React.Component {
 
   async componentDidMount() {
     this.mounted = true
+    // Vor dem ersten Paint: Bildschirmfarbe (weiss im Splash) auf html setzen,
+    // sonst blitzt für einen Frame das Creme der CSS-Voreinstellung auf.
+    this.syncRootScreenBg()
 
     // Der Tastatur-Handler wird synchron registriert, noch vor dem await auf
     // loadLang. Sonst hängt eine bereits abgehängte Instanz ihren Handler nach
@@ -528,7 +528,7 @@ export default class IdgCards extends React.Component {
     // die Karten liegen direkt auf dem, was die einbettende Seite hergibt.
     const bare = (p.ui ?? 'minimal') === 'ohne'
     const onColor = farbe && s.tab === 'stack' && !!sk && !bare
-    const screenBg = bare ? 'transparent' : onColor ? dim.color : '#FAF7F5'
+    const screenBg = bare ? 'transparent' : s.splash ? '#fff' : onColor ? dim.color : '#FAF7F5'
     const ctrlFg = onColor ? '#fff' : '#000'
     const nextFg = onColor ? (dim.id === 'being' ? '#D4B88C' : dim.color) : '#fff'
     const axis = p.flipAxis ?? 'y'
@@ -639,6 +639,7 @@ export default class IdgCards extends React.Component {
       label: ui.language,
       options: LANGS.map((o) => ({
         label: o.label,
+        on: lang === o.v,
         bg: lang === o.v ? '#000' : '#fff',
         fg: lang === o.v ? '#fff' : '#000',
         select: () => this.setPref('lang', o.v),
@@ -790,7 +791,6 @@ export default class IdgCards extends React.Component {
                               <button onClick={openSheet} className="idg-h85 idg-press"
                                 style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '12px 16px 12px 20px', border: '1px solid currentColor', borderRadius: 999, background: 'transparent', color: 'inherit', fontSize: 13.5, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s, transform .12s' }}>
                                 {ideasButtonLabel}
-                                {targetGlyph('currentColor', 'currentColor')}
                               </button>
                             </div>
                           </>
@@ -825,7 +825,6 @@ export default class IdgCards extends React.Component {
                               <button onClick={openSheet} className="idg-h85 idg-press"
                                 style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '12px 16px 12px 20px', border: '1px solid transparent', borderRadius: 999, background: accent, color: accentFg, fontSize: 13.5, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s, transform .12s' }}>
                                 {ideasButtonLabel}
-                                {targetGlyph('currentColor', 'currentColor')}
                               </button>
                             </div>
                           </>
@@ -852,7 +851,6 @@ export default class IdgCards extends React.Component {
                               </section>
                               <button onClick={openSheet} className="idg-h6"
                                 style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0 0', border: 0, background: 'transparent', color: 'inherit', fontSize: 14, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s' }}>
-                                {targetGlyph(accent, accent, 26)}
                                 <span style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                                   <span>{ui.ideas}</span>
                                   <span style={{ fontWeight: 300, fontSize: 12, opacity: .7 }}>{ui.sheetSub}</span>
@@ -978,25 +976,25 @@ export default class IdgCards extends React.Component {
                 {settingGroups.map((g, gi) => (
                   <section key={gi} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                     <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{g.label}</h3>
-                    <div style={{ display: 'flex', border: '1px solid #000' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                       {g.options.map((o, oi) => (
-                        <button key={oi} onClick={o.select} className="idg-a8"
-                          style={{ flex: 1, height: 44, border: 0, borderRight: '1px solid #000', background: o.bg, color: o.fg, fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .18s, color .18s' }}>{o.label}</button>
+                        <button key={oi} onClick={o.select} aria-pressed={o.on} className="idg-a8 idg-press"
+                          style={{ height: 40, padding: '0 16px', border: '1px solid #000', borderRadius: 999, background: o.bg, color: o.fg, fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .18s, color .18s, transform .12s' }}>{o.label}</button>
                       ))}
                     </div>
                   </section>
                 ))}
                 <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.tabs?.saved}</h3>
-                  <button onClick={() => { this.write('saved', []); this.setState({ saved: [] }); this.toast(ui.cleared) }} className="idg-invert"
-                    style={{ height: 44, border: '1px solid #000', background: '#fff', color: '#000', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .15s, color .15s' }}>
+                  <button onClick={() => { this.write('saved', []); this.setState({ saved: [] }); this.toast(ui.cleared) }} className="idg-invert idg-press"
+                    style={{ height: 44, padding: '0 20px', border: '1px solid #000', borderRadius: 999, background: '#fff', color: '#000', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .15s, color .15s, transform .12s' }}>
                     {ui.clearSaved} ({s.saved.length})
                   </button>
                 </section>
                 <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>Als App installieren</h3>
-                  <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', border: '1px solid #000', padding: 14 }}>
-                    <img src={asset('icons/icon-192.png')} alt="" style={{ width: 48, height: 48, flex: 'none' }} />
+                  <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start', border: '1px solid #000', borderRadius: 16, padding: 16 }}>
+                    <img src={asset('icons/icon-192.png')} alt="" style={{ width: 48, height: 48, flex: 'none', borderRadius: 11 }} />
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                       <span style={{ fontWeight: 700, fontSize: 14, lineHeight: 1.2 }}>Zum Startbildschirm hinzufügen</span>
                       <p style={{ margin: 0, fontSize: 13, lineHeight: 1.45, fontWeight: 300, textWrap: 'pretty' }}>{installHint}</p>
@@ -1005,8 +1003,8 @@ export default class IdgCards extends React.Component {
                 </section>
                 <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>Hilfe</h3>
-                  <button onClick={this.startTour} className="idg-invert"
-                    style={{ height: 44, border: '1px solid #000', background: '#fff', color: '#000', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .15s, color .15s' }}>
+                  <button onClick={this.startTour} className="idg-invert idg-press"
+                    style={{ height: 44, padding: '0 20px', border: '1px solid #000', borderRadius: 999, background: '#fff', color: '#000', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .15s, color .15s, transform .12s' }}>
                     Tutorial erneut anzeigen
                   </button>
                 </section>

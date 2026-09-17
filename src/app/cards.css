@@ -8,6 +8,7 @@
 html:has(.idg-root:not(.is-embedded)),
 html:has(.idg-root:not(.is-embedded)) body {
   background: var(--idg-screen-bg, #FAF7F5);
+  transition: background .35s ease;
 }
 
 .idg-root {
@@ -33,6 +34,7 @@ html:has(.idg-root:not(.is-embedded)) body {
   min-height: -webkit-fill-available;
   min-height: 100dvh;
   background: var(--idg-screen-bg, #FAF7F5);
+  transition: background .35s ease;
 }
 
 /* Im Simulator sitzt die App in einem Rahmen: keine Geräte-Insets, volle Höhe des Containers. */

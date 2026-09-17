@@ -1,12 +1,13 @@
 ## Learned User Preferences
 
 - Diese Seite auf Vercel hosten, dort wo bereits `zukunftskompetenzchallenge.ch` liegt — nicht über Hostinger.
-- Im sichtbaren Text und in Titles das Angebot als Inner Development Guide bezeichnen, nicht als Inner Development Goals und nicht als IDG; der Attribution-Link bleibt `innerdevelopmentgoals.org`. «IDG»/«Inner Development Goals» nur als Alias in JSON-LD und `llms.txt`.
+- Im sichtbaren Text und in Titles das Angebot als Inner Development Guide bezeichnen, nicht als Inner Development Goals und nicht als IDG; der Attribution-Link bleibt `innerdevelopmentgoals.org`. «IDG»/«Inner Development Goals» nur als Alias in JSON-LD und `llms.txt`. Einzige Ausnahme: Die PWA heisst «IDG Guide für Lehrpersonen» (Kurzname «IDG Guide») — Manifest, iOS-Titel, Splash-Wortmarke, `<title>` von `/app/` und `WebApplication.name`; der Website-Markenname bleibt «Inner Development Guide im Schulalltag».
 - Die Landingpage visuell schlank halten: keine Kompetenzzahlen auf den Dimensionsbändern, keine Kartennummern und keine dekorativen Icons, die dem Text Platz nehmen.
 - Hero-Copy führt mit dem Ziel («Zukunft gestalten»), die fünf Minuten stehen als zweite Zeile.
 - Header-Wortmarke ausschreiben («Inner Development Guide im Schulalltag»); oben rechts Sprachwähler statt «App öffnen» — der App-Button bleibt in Hero und Install-Bereich.
-- App-Splashscreen weiss (`#fff`), nicht beige — gilt für In-App-Overlay, Manifest-`background_color` und Boot-Hintergrund in `app/index.html`; nach dem Splash bleibt die App cremefarben bzw. in der Dimensionsfarbe.
+- App-Splashscreen weiss (`#fff`), nicht beige — gilt für In-App-Overlay, Manifest-`background_color` und Boot-Hintergrund in `app/index.html` sowie für `html`/`body`/Safe-Areas, solange der Splash läuft (`getScreenBg` liefert dann `#fff`); nach dem Splash füllt die Dimensionsfarbe der Karte den ganzen Bildschirm, sonst Creme.
 - Kartentexte und Beispiele sollen über eine kleine Bearbeitungsoberfläche anpassbar sein: eine Seite pro Karte mit allen Texten.
+- Organisches UI überall in der App, auch in den Einstellungen: Pill-Buttons (`borderRadius: 999`), Sprachwahl als Chips, Boxen mit runden Ecken — keine eckigen Rahmen. Der «Im Unterricht»-Button auf der Kartenrückseite trägt kein Icon.
 
 ## Learned Workspace Facts
 
