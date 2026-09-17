@@ -13,8 +13,8 @@
 // cette application et sont traduits de l'allemand. Les disciplines du plan
 // d'études suisse ont été généralisées.
 export const ui = {
-  appName: "Inner Development Guide",
-  appNameSub: "en classe",
+  appName: "IDG Guide",
+  appNameSub: "pour le corps enseignant",
   tagline: "25 capacités. Une carte à la fois.",
   intro: "Le Inner Development Guide 2.0 décrit les capacités intérieures dont nous avons besoin pour façonner le changement. Ces cartes les traduisent dans votre quotidien d'enseignement.",
   tabs: { stack: "Jeu", dimensions: "Dimensions", saved: "Favoris", settings: "Réglages" },

@@ -44,7 +44,7 @@ export const site = {
     },
 
     app: {
-      documentTitle: "Cartes de réflexion — Inner Development Guide en classe",
+      documentTitle: "IDG Guide pour le corps enseignant",
       description: "25 capacités du Inner Development Guide 2.0 sous forme de cartes de réflexion pour le cours — installable, hors ligne, sans compte.",
     },
 

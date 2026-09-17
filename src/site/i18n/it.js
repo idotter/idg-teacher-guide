@@ -43,7 +43,7 @@ export const site = {
     },
 
     app: {
-      documentTitle: "Carte di riflessione — Inner Development Guide in classe",
+      documentTitle: "IDG Guide per insegnanti",
       description: "25 competenze dell'Inner Development Guide 2.0 come carte di riflessione per la lezione — installabili, offline, senza account.",
     },
 

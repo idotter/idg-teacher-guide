@@ -51,7 +51,7 @@ export const site = {
     },
 
     app: {
-      documentTitle: 'Reflexionskarten — Inner Development Guide im Schulalltag',
+      documentTitle: 'IDG Guide für Lehrpersonen',
       description: '25 Kompetenzen des Inner Development Guide 2.0 als Reflexionskarten für den Unterricht — installierbar, offline, ohne Konto.',
     },
 

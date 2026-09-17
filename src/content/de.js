@@ -8,8 +8,8 @@
 // heisst hier «zusammenarbeiten» — die Vorlage trennt «zusammen arbeiten» nur, weil dort
 // ein Zeilenumbruch sitzt.
 export const ui = {
-  appName: "Inner Development Guide",
-  appNameSub: "im Schulalltag",
+  appName: "IDG Guide",
+  appNameSub: "für Lehrpersonen",
   tagline: "25 Kompetenzen. Eine Karte pro Moment.",
   intro: "Der Inner Development Guide 2.0 beschreibt innere Fähigkeiten, die wir brauchen, um Wandel zu gestalten. Diese Karten übersetzen sie in deinen Unterrichtsalltag.",
   tabs: { stack: "Stapel", dimensions: "Dimensionen", saved: "Merkliste", settings: "Einstellungen" },

@@ -6,7 +6,7 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/projekt/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/projekt/"/>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kontakt/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kontakt/"/>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/"/>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/"/>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/"/>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/"/>
@@ -90,7 +90,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/"/>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/"/>
@@ -114,7 +114,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/"/>
@@ -126,7 +126,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/"/>
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/"/>
@@ -150,7 +150,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/"/>
@@ -162,7 +162,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/"/>
@@ -174,7 +174,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/"/>
@@ -186,7 +186,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/"/>
@@ -198,7 +198,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/"/>
@@ -210,7 +210,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/"/>
@@ -222,7 +222,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/"/>
@@ -234,7 +234,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/"/>
@@ -246,7 +246,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/"/>
@@ -258,7 +258,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/"/>
@@ -270,7 +270,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/"/>
@@ -282,7 +282,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/"/>
@@ -294,7 +294,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/"/>
@@ -306,7 +306,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/"/>
@@ -318,7 +318,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/"/>
@@ -330,7 +330,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/"/>
@@ -342,7 +342,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/"/>
@@ -354,7 +354,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/"/>
@@ -366,7 +366,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/"/>
@@ -378,7 +378,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/"/>
@@ -390,7 +390,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/"/>
@@ -402,7 +402,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/"/>
@@ -414,7 +414,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/project/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/projekt/"/>
@@ -426,7 +426,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/contact/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kontakt/"/>
@@ -438,7 +438,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/dimensions/being/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/"/>
@@ -450,7 +450,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/dimensions/thinking/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/"/>
@@ -462,7 +462,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/dimensions/relating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/"/>
@@ -474,7 +474,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/dimensions/collaborating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/"/>
@@ -486,7 +486,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/dimensions/acting/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/"/>
@@ -498,7 +498,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/innerer-kompass/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/"/>
@@ -510,7 +510,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/integritaet-und-authentizitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/"/>
@@ -522,7 +522,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/offenheit-und-lernbereitschaft/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/"/>
@@ -534,7 +534,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/selbsterkenntnis/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/"/>
@@ -546,7 +546,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/praesenz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/"/>
@@ -558,7 +558,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/kritisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/"/>
@@ -570,7 +570,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/perspektivische-faehigkeiten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/"/>
@@ -582,7 +582,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/systemisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/"/>
@@ -594,7 +594,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/langfristige-orientierung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/"/>
@@ -606,7 +606,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/kreativitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/"/>
@@ -618,7 +618,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/wertschaetzung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/"/>
@@ -630,7 +630,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/verbundenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/"/>
@@ -642,7 +642,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/demut-und-bescheidenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/"/>
@@ -654,7 +654,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/empathie-und-mitgefuehl/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/"/>
@@ -666,7 +666,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/vergebung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/"/>
@@ -678,7 +678,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/beziehungen-aufbauen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/"/>
@@ -690,7 +690,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/inklusive-denkweise/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/"/>
@@ -702,7 +702,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/gemeinsam-gestalten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/"/>
@@ -714,7 +714,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/kommunizieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/"/>
@@ -726,7 +726,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/mobilisieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/"/>
@@ -738,7 +738,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/mut/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/"/>
@@ -750,7 +750,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/hoffnung-und-optimismus/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/"/>
@@ -762,7 +762,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/bewusster-umgang-mit-ressourcen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/"/>
@@ -774,7 +774,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/proaktiv-handeln/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/"/>
@@ -786,7 +786,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/en/skills/resilienz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/"/>
@@ -798,7 +798,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/"/>
@@ -810,7 +810,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/projet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/projekt/"/>
@@ -822,7 +822,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/contact/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kontakt/"/>
@@ -834,7 +834,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/being/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/"/>
@@ -846,7 +846,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/thinking/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/"/>
@@ -858,7 +858,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/relating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/"/>
@@ -870,7 +870,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/collaborating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/"/>
@@ -882,7 +882,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/acting/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/"/>
@@ -894,7 +894,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/innerer-kompass/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/"/>
@@ -906,7 +906,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/integritaet-und-authentizitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/"/>
@@ -918,7 +918,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/offenheit-und-lernbereitschaft/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/"/>
@@ -930,7 +930,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/selbsterkenntnis/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/"/>
@@ -942,7 +942,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/praesenz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/"/>
@@ -954,7 +954,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/kritisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/"/>
@@ -966,7 +966,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/perspektivische-faehigkeiten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/"/>
@@ -978,7 +978,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/systemisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/"/>
@@ -990,7 +990,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/langfristige-orientierung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/"/>
@@ -1002,7 +1002,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/kreativitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/"/>
@@ -1014,7 +1014,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/wertschaetzung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/"/>
@@ -1026,7 +1026,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/verbundenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/"/>
@@ -1038,7 +1038,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/demut-und-bescheidenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/"/>
@@ -1050,7 +1050,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/empathie-und-mitgefuehl/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/"/>
@@ -1062,7 +1062,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/vergebung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/"/>
@@ -1074,7 +1074,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/beziehungen-aufbauen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/"/>
@@ -1086,7 +1086,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/inklusive-denkweise/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/"/>
@@ -1098,7 +1098,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/gemeinsam-gestalten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/"/>
@@ -1110,7 +1110,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/kommunizieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/"/>
@@ -1122,7 +1122,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/mobilisieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/"/>
@@ -1134,7 +1134,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/mut/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/"/>
@@ -1146,7 +1146,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/hoffnung-und-optimismus/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/"/>
@@ -1158,7 +1158,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/bewusster-umgang-mit-ressourcen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/"/>
@@ -1170,7 +1170,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/proaktiv-handeln/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/"/>
@@ -1182,7 +1182,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/fr/competences/resilienz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/"/>
@@ -1194,7 +1194,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/"/>
@@ -1206,7 +1206,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/proyecto/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/projekt/"/>
@@ -1218,7 +1218,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/contacto/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kontakt/"/>
@@ -1230,7 +1230,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/being/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/"/>
@@ -1242,7 +1242,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/thinking/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/"/>
@@ -1254,7 +1254,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/relating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/"/>
@@ -1266,7 +1266,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/collaborating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/"/>
@@ -1278,7 +1278,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/acting/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/"/>
@@ -1290,7 +1290,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/innerer-kompass/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/"/>
@@ -1302,7 +1302,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/integritaet-und-authentizitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/"/>
@@ -1314,7 +1314,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/offenheit-und-lernbereitschaft/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/"/>
@@ -1326,7 +1326,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/selbsterkenntnis/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/"/>
@@ -1338,7 +1338,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/praesenz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/"/>
@@ -1350,7 +1350,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/kritisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/"/>
@@ -1362,7 +1362,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/perspektivische-faehigkeiten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/"/>
@@ -1374,7 +1374,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/systemisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/"/>
@@ -1386,7 +1386,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/langfristige-orientierung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/"/>
@@ -1398,7 +1398,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/kreativitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/"/>
@@ -1410,7 +1410,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/wertschaetzung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/"/>
@@ -1422,7 +1422,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/verbundenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/"/>
@@ -1434,7 +1434,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/demut-und-bescheidenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/"/>
@@ -1446,7 +1446,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/empathie-und-mitgefuehl/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/"/>
@@ -1458,7 +1458,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/vergebung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/"/>
@@ -1470,7 +1470,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/beziehungen-aufbauen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/"/>
@@ -1482,7 +1482,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/inklusive-denkweise/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/"/>
@@ -1494,7 +1494,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/gemeinsam-gestalten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/"/>
@@ -1506,7 +1506,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/kommunizieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/"/>
@@ -1518,7 +1518,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/mobilisieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/"/>
@@ -1530,7 +1530,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/mut/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/"/>
@@ -1542,7 +1542,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/hoffnung-und-optimismus/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/"/>
@@ -1554,7 +1554,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/bewusster-umgang-mit-ressourcen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/"/>
@@ -1566,7 +1566,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/proaktiv-handeln/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/"/>
@@ -1578,7 +1578,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/es/competencias/resilienz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/"/>
@@ -1590,7 +1590,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/"/>
@@ -1602,7 +1602,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/progetto/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/projekt/"/>
@@ -1614,7 +1614,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/contatti/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kontakt/"/>
@@ -1626,7 +1626,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/being/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/"/>
@@ -1638,7 +1638,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/thinking/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/"/>
@@ -1650,7 +1650,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/relating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/"/>
@@ -1662,7 +1662,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/collaborating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/"/>
@@ -1674,7 +1674,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/acting/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/"/>
@@ -1686,7 +1686,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/innerer-kompass/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/"/>
@@ -1698,7 +1698,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/integritaet-und-authentizitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/"/>
@@ -1710,7 +1710,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/offenheit-und-lernbereitschaft/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/"/>
@@ -1722,7 +1722,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/selbsterkenntnis/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/"/>
@@ -1734,7 +1734,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/praesenz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/"/>
@@ -1746,7 +1746,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/kritisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/"/>
@@ -1758,7 +1758,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/perspektivische-faehigkeiten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/"/>
@@ -1770,7 +1770,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/systemisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/"/>
@@ -1782,7 +1782,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/langfristige-orientierung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/"/>
@@ -1794,7 +1794,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/kreativitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/"/>
@@ -1806,7 +1806,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/wertschaetzung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/"/>
@@ -1818,7 +1818,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/verbundenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/"/>
@@ -1830,7 +1830,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/demut-und-bescheidenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/"/>
@@ -1842,7 +1842,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/empathie-und-mitgefuehl/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/"/>
@@ -1854,7 +1854,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/vergebung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/"/>
@@ -1866,7 +1866,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/beziehungen-aufbauen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/"/>
@@ -1878,7 +1878,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/inklusive-denkweise/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/"/>
@@ -1890,7 +1890,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/gemeinsam-gestalten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/"/>
@@ -1902,7 +1902,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/kommunizieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/"/>
@@ -1914,7 +1914,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/mobilisieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/"/>
@@ -1926,7 +1926,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/mut/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/"/>
@@ -1938,7 +1938,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/hoffnung-und-optimismus/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/"/>
@@ -1950,7 +1950,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/bewusster-umgang-mit-ressourcen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/"/>
@@ -1962,7 +1962,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/proaktiv-handeln/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/"/>
@@ -1974,7 +1974,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/it/competenze/resilienz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/"/>
@@ -1986,7 +1986,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/"/>
@@ -1998,7 +1998,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/projektet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/projekt/"/>
@@ -2010,7 +2010,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/kontakt/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kontakt/"/>
@@ -2022,7 +2022,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/being/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/"/>
@@ -2034,7 +2034,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/thinking/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/"/>
@@ -2046,7 +2046,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/relating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/"/>
@@ -2058,7 +2058,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/collaborating/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/"/>
@@ -2070,7 +2070,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/acting/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/"/>
@@ -2082,7 +2082,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/innerer-kompass/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/"/>
@@ -2094,7 +2094,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/integritaet-und-authentizitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/"/>
@@ -2106,7 +2106,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/offenheit-und-lernbereitschaft/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/"/>
@@ -2118,7 +2118,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/selbsterkenntnis/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/"/>
@@ -2130,7 +2130,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/praesenz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/"/>
@@ -2142,7 +2142,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/kritisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/"/>
@@ -2154,7 +2154,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/perspektivische-faehigkeiten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/"/>
@@ -2166,7 +2166,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/systemisches-denken/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/"/>
@@ -2178,7 +2178,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/langfristige-orientierung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/"/>
@@ -2190,7 +2190,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/kreativitaet/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/"/>
@@ -2202,7 +2202,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/wertschaetzung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/"/>
@@ -2214,7 +2214,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/verbundenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/"/>
@@ -2226,7 +2226,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/demut-und-bescheidenheit/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/"/>
@@ -2238,7 +2238,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/empathie-und-mitgefuehl/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/"/>
@@ -2250,7 +2250,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/vergebung/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/"/>
@@ -2262,7 +2262,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/beziehungen-aufbauen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/"/>
@@ -2274,7 +2274,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/inklusive-denkweise/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/"/>
@@ -2286,7 +2286,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/gemeinsam-gestalten/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/"/>
@@ -2298,7 +2298,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/kommunizieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/"/>
@@ -2310,7 +2310,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/mobilisieren/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/"/>
@@ -2322,7 +2322,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/mut/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/"/>
@@ -2334,7 +2334,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/hoffnung-und-optimismus/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/"/>
@@ -2346,7 +2346,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/bewusster-umgang-mit-ressourcen/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/"/>
@@ -2358,7 +2358,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/proaktiv-handeln/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/"/>
@@ -2370,7 +2370,7 @@
   </url>
   <url>
     <loc>https://guide.zukunftskompetenzchallenge.ch/sv/formagor/resilienz/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/"/>

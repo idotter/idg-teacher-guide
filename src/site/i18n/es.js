@@ -41,7 +41,7 @@ export const site = {
     },
 
     app: {
-      documentTitle: 'Cartas de reflexión — Inner Development Guide en el aula',
+      documentTitle: 'IDG Guide para docentes',
       description: '25 habilidades del Inner Development Guide 2.0 como cartas de reflexión para el aula — instalable, sin conexión, sin cuenta.',
     },
 

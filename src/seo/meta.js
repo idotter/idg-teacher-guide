@@ -4,7 +4,7 @@ import {
   contentPageFromHtmlFilename,
 } from './content-pages.js'
 import { SEGMENTS } from '../site/i18n/segments.js'
-import { CONTACT_MAIL, SITE_NAME, siteBrand } from './site-info.js'
+import { APP_NAME, CONTACT_MAIL, SITE_NAME, siteBrand } from './site-info.js'
 import {
   DEFAULT_LANG,
   LANG_IDS,
@@ -42,7 +42,7 @@ export function htmlLangOf(lang) {
 // eigentliche Definition liegt in `site-info.js`, damit `src/site/pages.jsx`
 // sie importieren kann, ohne den ganzen (sprachstatisch importierenden)
 // SEO-Baum ins Client-Bundle zu ziehen.
-export { CONTACT_MAIL, SITE_NAME } from './site-info.js'
+export { APP_NAME, CONTACT_MAIL, SITE_NAME } from './site-info.js'
 
 export const SITE_URL = 'https://guide.zukunftskompetenzchallenge.ch'
 export const OG_IMAGE = `${SITE_URL}/og-image.png`
@@ -244,7 +244,7 @@ function webApplicationJsonLd({ slim = false, site } = {}) {
   const base = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: SITE_NAME,
+    name: APP_NAME,
     url: absoluteUrl('/app/'),
     applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web',

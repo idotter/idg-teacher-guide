@@ -11,8 +11,8 @@
 // tradotti dal tedesco. Le discipline del piano di studi svizzero sono state
 // generalizzate.
 export const ui = {
-  appName: "Inner Development Guide",
-  appNameSub: "in classe",
+  appName: "IDG Guide",
+  appNameSub: "per insegnanti",
   tagline: "25 competenze. Una carta alla volta.",
   intro: "L'Inner Development Guide 2.0 descrive le capacità interiori di cui abbiamo bisogno per dare forma al cambiamento. Queste carte le traducono nella tua giornata di scuola.",
   tabs: { stack: "Mazzo", dimensions: "Dimensioni", saved: "Salvate", settings: "Impostazioni" },

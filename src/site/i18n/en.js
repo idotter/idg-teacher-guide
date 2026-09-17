@@ -39,7 +39,7 @@ export const site = {
     },
 
     app: {
-      documentTitle: 'Reflection cards — Inner Development Guide in the classroom',
+      documentTitle: 'IDG Guide for teachers',
       description: '25 skills from the Inner Development Guide 2.0 as reflection cards for the classroom — installable, offline, no account.',
     },
 

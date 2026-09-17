@@ -13,12 +13,12 @@ import { localizedPath } from './routes.js'
    kein solches Feld — dafür aber `ui.appNameSub`, in jeder der sechs Sprachen
    einen eigenen, unverwechselbaren Text. */
 const EXPECTED_APP_NAME_SUB = {
-  de: 'im Schulalltag',
-  en: 'in the classroom',
-  fr: 'en classe',
-  es: 'en el aula',
-  it: 'in classe',
-  sv: 'i skolvardagen',
+  de: 'für Lehrpersonen',
+  en: 'for teachers',
+  fr: 'pour le corps enseignant',
+  es: 'para docentes',
+  it: 'per insegnanti',
+  sv: 'för lärare',
 }
 
 describe('loadLangModules', () => {

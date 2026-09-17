@@ -41,7 +41,7 @@ export const site = {
     },
 
     app: {
-      documentTitle: 'Reflektionskort — Inner Development Guide i skolvardagen',
+      documentTitle: 'IDG Guide för lärare',
       description: '25 förmågor ur Inner Development Guide 2.0 som reflektionskort för undervisningen — installerbara, offline, utan konto.',
     },
 

@@ -10,8 +10,8 @@
 // inte i IDG-ramverket – de skrevs för den här appen och är översatta från tyskan.
 // De schweiziska läroplansämnena har generaliserats.
 export const ui = {
-  appName: "Inner Development Guide",
-  appNameSub: "i skolvardagen",
+  appName: "IDG Guide",
+  appNameSub: "för lärare",
   tagline: "25 förmågor. Ett kort i taget.",
   intro: "Inner Development Guide 2.0 beskriver inre förmågor som vi behöver för att kunna forma förändring. De här korten översätter dem till din skolvardag.",
   tabs: { stack: "Kortlek", dimensions: "Dimensioner", saved: "Sparade", settings: "Inställningar" },

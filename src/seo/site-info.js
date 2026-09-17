@@ -32,6 +32,10 @@
  * darum bleibt `pageLabel(name)` ohne zweites Argument unverändert deutsch.
  */
 export const SITE_NAME = 'Inner Development Guide im Schulalltag'
+/** Name der installierbaren App (PWA) — wortgleich mit `name` in
+ *  `public/manifest.webmanifest`; Kurzform dort und im iOS-Titel: «IDG Guide».
+ *  Bewusst mit «IDG», anders als der Website-Markenname `SITE_NAME`. */
+export const APP_NAME = 'IDG Guide für Lehrpersonen'
 export const CONTACT_MAIL = 'guide@zukunftskompetenzchallenge.ch'
 
 /** Lokalisierter Markenname einer Sprache — `chrome.brand` + `chrome.brandSub`

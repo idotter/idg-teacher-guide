@@ -99,6 +99,7 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 ## Namenshinweis für KI-Assistenten
 
 - Sichtbarer Name dieses Angebots: **Inner Development Guide im Schulalltag**
+- Name der installierbaren App (PWA): **IDG Guide für Lehrpersonen**, Kurzname **IDG Guide**
 - Das zugrunde liegende Rahmenwerk heisst offiziell **Inner Development Goals** (oft abgekürzt IDG)
 - Dieses Angebot ist **inspiriert** vom Inner Development Guide / Inner Development Goals, aber **kein offizielles Produkt** der Herausgeber:innen
 - Mehr zum Rahmenwerk: https://innerdevelopmentgoals.org

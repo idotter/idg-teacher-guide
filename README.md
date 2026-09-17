@@ -15,7 +15,7 @@ Umgesetzt aus dem Claude-Design-Projekt **IDG Reflexionsfragen App**, Datei
 | Pfad    | Inhalt                                                            |
 |---------|-------------------------------------------------------------------|
 | `/`     | Landingpage — Marketingseite mit einem echten, umdrehbaren Kartenstapel als Held (fünf Karten, eine je Dimension) |
-| `/app/` | Die App selbst, installierbar als PWA, offlinefähig               |
+| `/app/` | Die App selbst («IDG Guide für Lehrpersonen»), installierbar als PWA, offlinefähig |
 
 ## Entwickeln
 

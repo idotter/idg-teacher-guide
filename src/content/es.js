@@ -14,8 +14,8 @@
 // aplicación y están traducidos del alemán. Las materias del plan de estudios suizo
 // se han generalizado.
 export const ui = {
-  appName: "Inner Development Guide",
-  appNameSub: "en el aula",
+  appName: "IDG Guide",
+  appNameSub: "para docentes",
   tagline: "25 habilidades. Una carta cada vez.",
   intro: "El Inner Development Guide 2.0 describe habilidades interiores que necesitamos para dar forma al cambio. Estas cartas las traducen a tu día a día docente.",
   tabs: { stack: "Mazo", dimensions: "Dimensiones", saved: "Guardadas", settings: "Ajustes" },

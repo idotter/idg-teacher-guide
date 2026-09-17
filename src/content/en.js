@@ -9,8 +9,8 @@
 // not part of the IDG framework — they were written for this app and are translated
 // from the German original. Swiss curriculum subjects have been generalised.
 export const ui = {
-  appName: "Inner Development Guide",
-  appNameSub: "in the classroom",
+  appName: "IDG Guide",
+  appNameSub: "for teachers",
   tagline: "25 skills. One card at a time.",
   intro: "The Inner Development Guide 2.0 describes inner abilities we need in order to shape change. These cards translate them into your teaching day.",
   tabs: { stack: "Deck", dimensions: "Dimensions", saved: "Saved", settings: "Settings" },

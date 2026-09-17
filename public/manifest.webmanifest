@@ -1,6 +1,6 @@
 {
-  "name": "Inner Development Guide im Schulalltag",
-  "short_name": "Guide-Karten",
+  "name": "IDG Guide für Lehrpersonen",
+  "short_name": "IDG Guide",
   "description": "25 Kompetenzen des Inner Development Guide 2.0 als Reflexionskarten für den Unterricht.",
   "start_url": "/app/",
   "scope": "/",
