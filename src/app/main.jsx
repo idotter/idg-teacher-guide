@@ -2,6 +2,9 @@ import React from 'react'
 import { createRoot } from 'react-dom/client'
 import '../ds/styles.css'
 import IdgCards from './IdgCards.jsx'
+import { initAnalytics } from '../analytics.js'
+
+initAnalytics()
 
 // Standalone-PWA: die Vorgaben aus den data-props von
 // "IDG Karten v3 organisch.dc.html".

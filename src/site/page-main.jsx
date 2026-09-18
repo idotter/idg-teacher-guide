@@ -5,6 +5,9 @@ import '../landing/landing.css'
 import Page from './Page.jsx'
 import { pagePath } from './chrome.jsx'
 import { loadLangModules } from './lang-modules.js'
+import { initAnalytics } from '../analytics.js'
+
+initAnalytics()
 
 /* Erst die Sprachdateien, dann mounten: React leert den Container beim ersten
    Commit, und der Rumpf aus dem Build soll bis dahin stehen bleiben. */

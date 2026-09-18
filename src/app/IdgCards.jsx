@@ -1,4 +1,5 @@
 import React from 'react'
+import { trackCardFlip, trackTeachingOpen } from '../analytics.js'
 import { LANGS } from '../content/langs.js'
 import './cards.css'
 
@@ -256,6 +257,15 @@ export default class IdgCards extends React.Component {
     return true
   }
 
+  /* Anonyme Nutzungsstatistik: aktuelle Karte, Sprache und Ort an eine der
+     track-Funktionen aus analytics.js geben. */
+  report = (fn) => {
+    const sk = this.list()[this.state.index]
+    if (!sk) return
+    const lang = (this.state.prefs || {}).lang ?? this.props.lang ?? 'de'
+    fn({ id: sk.id, lang, embedded: !!this.props.embedded })
+  }
+
   syncUrlToCard = (sk) => {
     if (!this.usesDeepLink() || !sk || typeof window === 'undefined') return
     const url = new URL(window.location.href)
@@ -411,7 +421,9 @@ export default class IdgCards extends React.Component {
 
   flipNow() {
     if (this.moved || this.state.sheet || this.state.menu) return
+    const toBack = !this.state.flipped
     this.setState((s) => ({ flipped: !s.flipped }))
+    if (toBack) this.report(trackCardFlip)
   }
 
   go(dir, out) {
@@ -676,7 +688,7 @@ export default class IdgCards extends React.Component {
       </span>
     )
 
-    const openSheet = (e) => { e.stopPropagation(); this.setState({ sheet: true }) }
+    const openSheet = (e) => { e.stopPropagation(); this.setState({ sheet: true }); this.report(trackTeachingOpen) }
 
     return (
       <div

@@ -5,6 +5,9 @@ import './landing.css'
 import Landing from './Landing.jsx'
 import { pagePath } from '../site/chrome.jsx'
 import { loadLangModules } from '../site/lang-modules.js'
+import { initAnalytics } from '../analytics.js'
+
+initAnalytics()
 
 /* Erst die Sprachdateien, dann mounten — wie bei den Unterseiten. */
 const here = pagePath()
