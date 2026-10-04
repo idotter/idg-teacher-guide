@@ -131,7 +131,7 @@ export const site = {
       description: 'Wie der Inner Development Guide im Schulalltag Daten bearbeitet: lokal auf dem Gerät, ohne Konto, ohne Upload.',
       lead: 'Dieses Angebot kommt ohne Benutzerkonto aus. Was du merkst, bleibt auf deinem Gerät.',
       body: [
-        { t: 'p', v: 'Stand: 18. September 2026' },
+        { t: 'p', v: 'Stand: 23. September 2026' },
         { t: 'h2', v: 'Verantwortliche Stelle' },
         { t: 'p', v: 'Verantwortlich für die Datenbearbeitung auf dieser Website ist die herausgebende Person dieses Angebots. Erreichbar über die Seite [Kontakt](path:contact).' },
         { t: 'h2', v: 'Was diese Website nicht tut' },
@@ -151,7 +151,7 @@ export const site = {
         { t: 'h2', v: 'Kontaktaufnahme' },
         { t: 'p', v: 'Das Formular auf der Kontaktseite öffnet dein eigenes Mailprogramm. Erst wenn du die Nachricht absendest, erhält die herausgebende Person Name, E-Mail und Text — über den Weg, den dein Mailanbieter vorsieht.' },
         { t: 'h2', v: 'Anonyme Nutzungsstatistik' },
-        { t: 'p', v: 'Damit wir wissen, ob das Angebot genutzt wird, zählen wir Seitenaufrufe und zwei Ereignisse in der App: wenn eine Karte umgedreht und wenn «Im Unterricht» geöffnet wird, je mit Karte und Sprache. Dafür nutzen wir Web Analytics unseres Hosts Vercel Inc. (USA). Es werden keine Cookies gesetzt und nichts im Browser abgelegt. Übermittelt werden Zeitpunkt, aufgerufene Adresse ohne Parameter, verweisende Seite, Land und Region, Betriebssystem, Browser und Gerätetyp. Die IP-Adresse wird nicht gespeichert; Besuche werden nur für 24 Stunden über einen aus der Anfrage gebildeten Hash zusammengefasst. Wir sehen ausschliesslich Summen und können niemanden erkennen. Details: [Datenschutz bei Vercel Web Analytics](https://vercel.com/docs/analytics/privacy-policy).' },
+        { t: 'p', v: 'Damit wir wissen, ob das Angebot genutzt wird, zählen wir Seitenaufrufe und zwei Ereignisse in der App: wenn eine Karte umgedreht und wenn «Im Unterricht» geöffnet wird, je mit Karte, Sprache und Ort (App oder Startseite). Dafür nutzen wir Umami Cloud (cloud.umami.is, Server in den USA und der EU). Es werden keine Cookies gesetzt und nichts im Browser abgelegt. Übermittelt werden Zeitpunkt, aufgerufene Adresse ohne Parameter, Seitentitel, verweisende Seite, Land, Region und Stadt, Betriebssystem, Browser, Gerätetyp, Bildschirmgrösse und Browsersprache. Die IP-Adresse dient nur der Ortsbestimmung und wird nicht gespeichert. Besuche werden über einen Hash aus Website, Browserkennung und einem Salz zusammengefasst, das zu Monatsbeginn wechselt. Wir sehen ausschliesslich Summen und können niemanden erkennen. Details: [Datenschutz bei Umami](https://umami.is/privacy).' },
         { t: 'h2', v: 'Hosting und Serverprotokolle' },
         { t: 'p', v: 'Die Website wird über den Webhost Vercel Inc. (USA) ausgeliefert. Der Host kann technische Protokolle (etwa Zeitpunkt, aufgerufene Adresse, gekürzte IP, Browserkennung) bearbeiten, soweit das für Betrieb, Sicherheit und Fehlerbehebung nötig ist. Dazu gelten die Angaben des jeweiligen Hosts.' },
         { t: 'h2', v: 'Externe Links' },

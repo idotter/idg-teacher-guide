@@ -1,3 +1,4 @@
+import { umamiScriptHtml } from '../analytics.js'
 import { landingNoscriptHtml, pageFromHtmlFilename, renderSeoHead } from './meta.js'
 import { renderStaticPageHtml } from './static-page.jsx'
 import { langFromPath, routeKeyFromPath } from '../site/routes.js'
@@ -51,6 +52,13 @@ export function injectSeoPlugin() {
         const cleaned = stripExistingSeo(html)
         const seoHead = renderSeoHead(page)
         let out = cleaned.replace('</head>', `  ${seoHead}\n</head>`)
+
+        // Nur im Build. Im Dev-Server bleibt das Tag weg; initAnalytics loggt
+        // dort in die Konsole. data-domains lässt ohnehin nur die Produktions-
+        // Domain senden.
+        if (!ctx.server) {
+          out = out.replace('</head>', `  ${umamiScriptHtml()}\n</head>`)
+        }
 
         const { key } = routeKeyFromPath(page.path)
         if (key === 'home') {

@@ -120,7 +120,7 @@ export const site = {
       description: 'How Inner Development Guide in the classroom processes data: locally on the device, without an account, without upload.',
       lead: 'This offering works without a user account. What you save stays on your device.',
       body: [
-        { t: 'p', v: 'Last updated: 18 September 2026' },
+        { t: 'p', v: 'Last updated: 23 September 2026' },
         { t: 'h2', v: 'Controller' },
         { t: 'p', v: 'The person publishing this offering is responsible for the processing of data on this website, and can be reached via the [Contact](path:contact) page.' },
         { t: 'h2', v: 'What this website does not do' },
@@ -140,7 +140,7 @@ export const site = {
         { t: 'h2', v: 'Getting in touch' },
         { t: 'p', v: 'The form on the contact page opens your own mail program. Only when you send the message does the publishing person receive your name, email address and text — by the route your mail provider provides.' },
         { t: 'h2', v: 'Anonymous usage statistics' },
-        { t: 'p', v: 'To know whether this offer is being used, we count page views and two events in the app: when a card is flipped and when “In the classroom” is opened, each with card and language. For this we use Web Analytics from our host Vercel Inc. (USA). No cookies are set and nothing is stored in your browser. Transmitted are the time, the address requested without parameters, the referring page, country and region, operating system, browser and device type. The IP address is not stored; visits are grouped for 24 hours only, using a hash derived from the request. We only ever see totals and cannot recognise anyone. Details: [Vercel Web Analytics privacy](https://vercel.com/docs/analytics/privacy-policy).' },
+        { t: 'p', v: 'To know whether this offer is being used, we count page views and two events in the app: when a card is flipped and when “In the classroom” is opened, each with card, language and place (app or home page). For this we use Umami Cloud (cloud.umami.is, servers in the USA and the EU). No cookies are set and nothing is stored in your browser. Transmitted are the time, the address requested without parameters, the page title, the referring page, country, region and city, operating system, browser, device type, screen size and browser language. The IP address is used only to determine location and is not stored. Visits are grouped using a hash of the website, the browser identification and a salt that changes at the start of each month. We only ever see totals and cannot recognise anyone. Details: [Umami privacy](https://umami.is/privacy).' },
         { t: 'h2', v: 'Hosting and server logs' },
         { t: 'p', v: 'The website is delivered through the web host Vercel Inc. (USA). The host may process technical logs (such as time, address requested, shortened IP address, browser identification) as far as this is necessary for operation, security and troubleshooting. The information provided by the respective host applies to this.' },
         { t: 'h2', v: 'External links' },

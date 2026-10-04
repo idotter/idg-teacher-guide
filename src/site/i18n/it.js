@@ -124,7 +124,7 @@ export const site = {
       description: "Come Inner Development Guide in classe tratta i dati: in locale sul dispositivo, senza account, senza caricamenti.",
       lead: "Questa proposta funziona senza account utente. Ciò che salvi resta sul tuo dispositivo.",
       body: [
-        { t: "p", v: "Ultimo aggiornamento: 18 settembre 2026" },
+        { t: "p", v: "Ultimo aggiornamento: 23 settembre 2026" },
         { t: "h2", v: "Titolare del trattamento" },
         { t: "p", v: "Il titolare del trattamento dei dati su questo sito è la persona che pubblica questa proposta. È raggiungibile tramite la pagina [Contatti](path:contact)." },
         { t: "h2", v: "Che cosa questo sito non fa" },
@@ -144,7 +144,7 @@ export const site = {
         { t: "h2", v: "Come contattarci" },
         { t: "p", v: "Il modulo della pagina dei contatti apre il tuo programma di posta. Solo quando invii il messaggio la persona che pubblica la proposta riceve nome, indirizzo e-mail e testo, per la via prevista dal tuo fornitore di posta." },
         { t: "h2", v: "Statistica d'uso anonima" },
-        { t: "p", v: "Per sapere se l'offerta viene usata contiamo le pagine visualizzate e due eventi nell'app: quando una carta viene girata e quando viene aperto «In classe», ogni volta con carta e lingua. Per questo usiamo Web Analytics del nostro fornitore di hosting Vercel Inc. (USA). Non vengono impostati cookie e nulla viene salvato nel tuo browser. Vengono trasmessi momento, indirizzo richiamato senza parametri, pagina di provenienza, paese e regione, sistema operativo, browser e tipo di dispositivo. L'indirizzo IP non viene memorizzato; le visite vengono raggruppate solo per 24 ore tramite un hash derivato dalla richiesta. Vediamo soltanto totali e non possiamo riconoscere nessuno. Dettagli: [Privacy di Vercel Web Analytics](https://vercel.com/docs/analytics/privacy-policy)." },
+        { t: "p", v: "Per sapere se l'offerta viene usata contiamo le pagine visualizzate e due eventi nell'app: quando una carta viene girata e quando viene aperto «In classe», ogni volta con carta, lingua e luogo (app o pagina iniziale). Per questo usiamo Umami Cloud (cloud.umami.is, server negli USA e nell'UE). Non vengono impostati cookie e nulla viene salvato nel tuo browser. Vengono trasmessi momento, indirizzo richiamato senza parametri, titolo della pagina, pagina di provenienza, paese, regione e città, sistema operativo, browser, tipo di dispositivo, dimensioni dello schermo e lingua del browser. L'indirizzo IP serve solo a determinare il luogo e non viene memorizzato. Le visite vengono raggruppate tramite un hash ricavato dal sito, dall'identificazione del browser e da un sale che cambia all'inizio di ogni mese. Vediamo soltanto totali e non possiamo riconoscere nessuno. Dettagli: [Privacy di Umami](https://umami.is/privacy)." },
         { t: "h2", v: "Hosting e registri del server" },
         { t: "p", v: "Il sito viene distribuito tramite il fornitore di hosting Vercel Inc. (USA). Il fornitore può trattare registri tecnici (per esempio momento, indirizzo richiamato, indirizzo IP abbreviato, identificativo del browser) nella misura necessaria a funzionamento, sicurezza e risoluzione dei problemi. Valgono in proposito le indicazioni del fornitore interessato." },
         { t: "h2", v: "Link esterni" },

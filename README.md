@@ -98,16 +98,18 @@ der Landingpage überschreibt also keine echte Merkliste.
 
 ## Nutzungsstatistik
 
-Anonyme Zahlen über Vercel Web Analytics, eingebunden in `src/analytics.js` und
-von den drei Einstiegen (`landing/main.jsx`, `app/main.jsx`, `site/page-main.jsx`)
-aufgerufen: Seitenaufrufe auf allen Seiten, dazu die Events «Karte gedreht» und
-«Unterricht geöffnet» mit Karten-ID, Sprache und Ort (App oder Demo-Stapel der
-Startseite). Keine Cookies, keine IP; Query-Parameter werden vor dem Senden
-entfernt, Starts der installierten App laufen unter `/app/standalone/`. Die
-Events wertet Vercel nur im Pro-Plan aus, Seitenaufrufe auf jedem Plan.
-Aktiviert wird die Sammlung im Vercel-Dashboard unter «Analytics»; im Dev-Modus
-loggt das Skript nur in die Konsole. Was gemeldet wird, steht in der
-Datenschutzerklärung — Änderungen dort in allen sechs Sprachen nachziehen.
+Anonyme Zahlen über Umami Cloud. Der Build schreibt das Skript-Tag in jede
+HTML-Seite (`umamiScriptHtml` in `src/analytics.js`, eingehängt im SEO-Plugin).
+Umami startet nur, wenn das Tag schon im Dokument steht. Die drei Einstiege
+(`landing/main.jsx`, `app/main.jsx`, `site/page-main.jsx`) setzen davor die
+Bereinigung und melden die Events «Karte gedreht» und «Unterricht geöffnet»
+mit Karten-ID, Sprache und Ort (App oder Demo-Stapel der Startseite). Keine
+Cookies; die IP dient nur der Ortsbestimmung und wird nicht gespeichert.
+Query-Parameter werden vor dem Senden entfernt, Starts der installierten App
+laufen unter `/app/standalone/`. Gesendet wird nur auf
+`guide.zukunftskompetenzchallenge.ch`; im Dev-Modus loggt die Konsole. Was
+gemeldet wird, steht in der Datenschutzerklärung — Änderungen dort in allen
+sechs Sprachen nachziehen.
 
 ## Sprachen
 

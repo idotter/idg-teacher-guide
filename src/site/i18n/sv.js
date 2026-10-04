@@ -122,7 +122,7 @@ export const site = {
       description: 'Så behandlar Inner Development Guide i skolvardagen data: lokalt på enheten, utan konto, utan uppladdning.',
       lead: 'Det här erbjudandet fungerar utan användarkonto. Det du sparar stannar på din enhet.',
       body: [
-        { t: 'p', v: 'Uppdaterad: 18 september 2026' },
+        { t: 'p', v: 'Uppdaterad: 23 september 2026' },
         { t: 'h2', v: 'Personuppgiftsansvarig' },
         { t: 'p', v: 'Ansvarig för databehandlingen på den här webbplatsen är den person som ger ut erbjudandet. Den personen nås via sidan [Kontakt](path:contact).' },
         { t: 'h2', v: 'Vad den här webbplatsen inte gör' },
@@ -142,7 +142,7 @@ export const site = {
         { t: 'h2', v: 'Att ta kontakt' },
         { t: 'p', v: 'Formuläret på kontaktsidan öppnar ditt eget e-postprogram. Först när du skickar meddelandet får den utgivande personen ditt namn, din e-postadress och din text — på den väg som din e-postleverantör erbjuder.' },
         { t: 'h2', v: 'Anonym användningsstatistik' },
-        { t: 'p', v: 'För att veta om erbjudandet används räknar vi sidvisningar och två händelser i appen: när ett kort vänds och när ”I undervisningen” öppnas, varje gång med kort och språk. För detta använder vi Web Analytics från vårt webbhotell Vercel Inc. (USA). Inga cookies sätts och ingenting lagras i din webbläsare. Det som överförs är tidpunkt, anropad adress utan parametrar, hänvisande sida, land och region, operativsystem, webbläsare och enhetstyp. IP-adressen lagras inte; besök grupperas bara i 24 timmar via en hash som bildas ur förfrågan. Vi ser enbart summor och kan inte känna igen någon. Mer: [Integritet hos Vercel Web Analytics](https://vercel.com/docs/analytics/privacy-policy).' },
+        { t: 'p', v: 'För att veta om erbjudandet används räknar vi sidvisningar och två händelser i appen: när ett kort vänds och när ”I undervisningen” öppnas, varje gång med kort, språk och plats (appen eller startsidan). För detta använder vi Umami Cloud (cloud.umami.is, servrar i USA och EU). Inga cookies sätts och ingenting lagras i din webbläsare. Det som överförs är tidpunkt, anropad adress utan parametrar, sidtitel, hänvisande sida, land, region och stad, operativsystem, webbläsare, enhetstyp, skärmstorlek och webbläsarens språk. IP-adressen används bara för att bestämma plats och lagras inte. Besök grupperas via en hash av webbplats, webbläsaridentitet och ett salt som byts i början av varje månad. Vi ser enbart summor och kan inte känna igen någon. Mer: [Integritet hos Umami](https://umami.is/privacy).' },
         { t: 'h2', v: 'Webbhotell och serverloggar' },
         { t: 'p', v: 'Webbplatsen levereras via webbhotellet Vercel Inc. (USA). Webbhotellet kan behandla tekniska loggar (till exempel tidpunkt, anropad adress, förkortad IP-adress, webbläsarkännetecken) i den mån det behövs för drift, säkerhet och felsökning. För detta gäller uppgifterna från respektive webbhotell.' },
         { t: 'h2', v: 'Externa länkar' },

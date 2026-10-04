@@ -125,7 +125,7 @@ export const site = {
       description: "Comment Inner Development Guide en classe traite les données : localement sur l'appareil, sans compte, sans téléversement.",
       lead: "Cette offre fonctionne sans compte d'utilisateur. Ce que vous gardez reste sur votre appareil.",
       body: [
-        { t: "p", v: "Mise à jour : 18 septembre 2026" },
+        { t: "p", v: "Mise à jour : 23 septembre 2026" },
         { t: "h2", v: "Responsable du traitement" },
         { t: "p", v: "La personne qui édite cette offre est responsable du traitement des données sur ce site. Elle est joignable via la page [Contact](path:contact)." },
         { t: "h2", v: "Ce que ce site ne fait pas" },
@@ -145,7 +145,7 @@ export const site = {
         { t: "h2", v: "Prise de contact" },
         { t: "p", v: "Le formulaire de la page de contact ouvre votre propre programme de messagerie. Ce n'est qu'au moment où vous envoyez le message que la personne qui édite l'offre reçoit votre nom, votre adresse électronique et votre texte — par la voie prévue par votre fournisseur de messagerie." },
         { t: "h2", v: "Statistique d'utilisation anonyme" },
-        { t: "p", v: "Pour savoir si l'offre est utilisée, nous comptons les pages vues et deux événements dans l'application : lorsqu'une carte est retournée et lorsque « En classe » est ouvert, avec à chaque fois la carte et la langue. Nous utilisons pour cela Web Analytics de notre hébergeur Vercel Inc. (États-Unis). Aucun cookie n'est déposé et rien n'est enregistré dans votre navigateur. Sont transmis l'heure, l'adresse appelée sans paramètres, la page d'origine, le pays et la région, le système d'exploitation, le navigateur et le type d'appareil. L'adresse IP n'est pas conservée ; les visites ne sont regroupées que pendant 24 heures, au moyen d'un hachage dérivé de la requête. Nous ne voyons que des totaux et ne pouvons reconnaître personne. Détails : [Confidentialité de Vercel Web Analytics](https://vercel.com/docs/analytics/privacy-policy)." },
+        { t: "p", v: "Pour savoir si l'offre est utilisée, nous comptons les pages vues et deux événements dans l'application : lorsqu'une carte est retournée et lorsque « En classe » est ouvert, avec à chaque fois la carte, la langue et le lieu (application ou page d'accueil). Nous utilisons pour cela Umami Cloud (cloud.umami.is, serveurs aux États-Unis et dans l'UE). Aucun cookie n'est déposé et rien n'est enregistré dans votre navigateur. Sont transmis l'heure, l'adresse appelée sans paramètres, le titre de la page, la page d'origine, le pays, la région et la ville, le système d'exploitation, le navigateur, le type d'appareil, la taille de l'écran et la langue du navigateur. L'adresse IP sert uniquement à déterminer le lieu et n'est pas conservée. Les visites sont regroupées au moyen d'un hachage formé à partir du site, de l'identifiant du navigateur et d'un sel qui change au début de chaque mois. Nous ne voyons que des totaux et ne pouvons reconnaître personne. Détails : [Confidentialité d'Umami](https://umami.is/privacy)." },
         { t: "h2", v: "Hébergement et journaux du serveur" },
         { t: "p", v: "Le site est diffusé par l'hébergeur web Vercel Inc. (États-Unis). L'hébergeur peut traiter des journaux techniques (par exemple l'heure, l'adresse appelée, l'adresse IP raccourcie, l'identifiant du navigateur), dans la mesure où cela est nécessaire à l'exploitation, à la sécurité et au dépannage. Les indications de l'hébergeur concerné s'appliquent à ce traitement." },
         { t: "h2", v: "Liens externes" },

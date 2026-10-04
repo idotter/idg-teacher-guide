@@ -122,7 +122,7 @@ export const site = {
       description: 'Cómo trata los datos Inner Development Guide en el aula: de forma local en el dispositivo, sin cuenta y sin subidas.',
       lead: 'Esta propuesta funciona sin cuenta de usuario. Lo que guardas permanece en tu dispositivo.',
       body: [
-        { t: 'p', v: 'Última actualización: 18 de septiembre de 2026' },
+        { t: 'p', v: 'Última actualización: 23 de septiembre de 2026' },
         { t: 'h2', v: 'Responsable del tratamiento' },
         { t: 'p', v: 'La persona que edita esta propuesta es responsable del tratamiento de datos en este sitio web. Se la puede contactar a través de la página [Contacto](path:contact).' },
         { t: 'h2', v: 'Lo que este sitio no hace' },
@@ -142,7 +142,7 @@ export const site = {
         { t: 'h2', v: 'Contacto' },
         { t: 'p', v: 'El formulario de la página de contacto abre tu propio programa de correo. Solo cuando envías el mensaje, la persona que edita la propuesta recibe tu nombre, tu correo electrónico y tu texto, por la vía que prevea tu proveedor de correo.' },
         { t: 'h2', v: 'Estadística de uso anónima' },
-        { t: 'p', v: 'Para saber si la oferta se utiliza, contamos las páginas vistas y dos eventos en la aplicación: cuando se gira una carta y cuando se abre «En el aula», en cada caso con la carta y el idioma. Para ello usamos Web Analytics de nuestro proveedor de alojamiento Vercel Inc. (EE. UU.). No se colocan cookies ni se guarda nada en tu navegador. Se transmiten el momento, la dirección solicitada sin parámetros, la página de origen, el país y la región, el sistema operativo, el navegador y el tipo de dispositivo. La dirección IP no se almacena; las visitas se agrupan solo durante 24 horas mediante un hash derivado de la solicitud. Solo vemos totales y no podemos reconocer a nadie. Detalles: [Privacidad de Vercel Web Analytics](https://vercel.com/docs/analytics/privacy-policy).' },
+        { t: 'p', v: 'Para saber si la oferta se utiliza, contamos las páginas vistas y dos eventos en la aplicación: cuando se gira una carta y cuando se abre «En el aula», en cada caso con la carta, el idioma y el lugar (aplicación o página de inicio). Para ello usamos Umami Cloud (cloud.umami.is, servidores en EE. UU. y en la UE). No se colocan cookies ni se guarda nada en tu navegador. Se transmiten el momento, la dirección solicitada sin parámetros, el título de la página, la página de origen, el país, la región y la ciudad, el sistema operativo, el navegador, el tipo de dispositivo, el tamaño de la pantalla y el idioma del navegador. La dirección IP solo se usa para determinar el lugar y no se almacena. Las visitas se agrupan mediante un hash formado a partir del sitio, la identificación del navegador y una sal que cambia al inicio de cada mes. Solo vemos totales y no podemos reconocer a nadie. Detalles: [Privacidad de Umami](https://umami.is/privacy).' },
         { t: 'h2', v: 'Alojamiento y registros del servidor' },
         { t: 'p', v: 'El sitio web se sirve a través del proveedor de alojamiento Vercel Inc. (EE. UU.). El proveedor puede tratar registros técnicos (por ejemplo el momento, la dirección solicitada, la dirección IP abreviada o la identificación del navegador) en la medida en que sea necesario para el funcionamiento, la seguridad y la resolución de errores. A ello se aplican las indicaciones del proveedor correspondiente.' },
         { t: 'h2', v: 'Enlaces externos' },
