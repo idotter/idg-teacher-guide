@@ -33,9 +33,10 @@ body {
 /* --- Kopfzeile --- */
 .top {
   position: sticky; top: 0; z-index: 50;
-  background: color-mix(in srgb, var(--idg-grey-light) 88%, transparent);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  /* Deckungsgleich mit dem Seitengrund. Eine milchige Fläche lässt den
+     Text darunter als Geisterschrift durch — der Kartenstapel scrollt
+     direkt unter der Zeile durch. */
+  background: var(--idg-grey-light);
   border-bottom: 1px solid var(--lp-hair);
 }
 .top-in {
@@ -390,6 +391,10 @@ a.band:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
   text-wrap: pretty;
 }
 .prose a { color: inherit; }
+/* Der Knopf ist ein Link. Ohne diese Zeile gewinnt die Regel oben
+   und die Beschriftung wird schwarz auf schwarzem Grund. */
+.prose a.btn { color: var(--idg-white); }
+.prose a.btn:hover { color: var(--idg-black); }
 /* Die Vorrangklausel über den übersetzten Rechtstexten: Haarlinie und
    gedämpfter Ton statt Kasten und Farbe — sie soll sich abheben, nicht
    rufen. Dieselben Mittel wie sonst auf dieser Seite, kein neuer Farbwert. */
