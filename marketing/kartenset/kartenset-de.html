@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<title>Inner Development Guide im Schulalltag – Kartenset</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=block">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: Inter, system-ui, sans-serif; color: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.sheet { width: 210mm; height: 297mm; display: grid; grid-template-columns: 105mm 105mm; grid-template-rows: 148.5mm 148.5mm; page-break-after: always; position: relative; overflow: hidden; }
+.sheet.fronts::before, .sheet.fronts::after { content: ''; position: absolute; background: none; border-color: #c9c9c9; border-style: dashed; z-index: 2; }
+.sheet.fronts::before { left: 105mm; top: 0; bottom: 0; border-width: 0 0 0 .2mm; }
+.sheet.fronts::after { top: 148.5mm; left: 0; right: 0; border-width: .2mm 0 0 0; }
+.card { width: 105mm; height: 148.5mm; padding: 6mm; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+
+/* Vorderseite */
+.front .dimlabel { text-align: right; font-size: 6.5pt; font-weight: 300; letter-spacing: .08em; text-transform: uppercase; height: 4mm; }
+.front .art { flex: 1; border-radius: 3mm; margin: 2mm 0 4mm; display: flex; align-items: center; justify-content: center; }
+.front .art img { width: 58%; max-height: 80%; object-fit: contain; }
+.front h2 { margin: 0 1mm 2mm; font-size: 15pt; line-height: 1.1; font-weight: 700; letter-spacing: -.01em; }
+.front .desc { margin: 0 1mm; font-size: 8pt; line-height: 1.4; font-weight: 300; min-height: 3lh; }
+
+/* Rückseite */
+.back { gap: 3mm; font-size: 8.2pt; line-height: 1.38; }
+.back header { display: flex; align-items: center; gap: 2mm; padding-bottom: 2.2mm; border-bottom: .2mm solid rgba(0,0,0,.14); }
+.back header .dot { width: 3mm; height: 3mm; border-radius: 50%; background: var(--accent); flex: none; }
+.back header .name { font-weight: 700; font-size: 11.5pt; line-height: 1.15; flex: 1; }
+.back header .dimlabel { font-size: 6pt; letter-spacing: .08em; text-transform: uppercase; font-weight: 300; }
+.back section { display: flex; flex-direction: column; gap: 1mm; }
+.back h3 { margin: 0; font-size: 6.2pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; opacity: .62; }
+.back p { margin: 0; font-weight: 300; }
+.back p.strong { font-weight: 600; }
+.back ul { margin: 0; padding-left: 3.2mm; font-weight: 300; }
+.back li + li { margin-top: .8mm; }
+.back .exercise { margin-top: auto; background: var(--accent); color: #fff; border-radius: 3mm; padding: 2.6mm 3.2mm; display: flex; flex-direction: column; gap: .8mm; }
+.back .exercise h3 { opacity: .85; }
+.back .exercise b { font-weight: 700; }
+.back footer { font-size: 6.4pt; font-weight: 300; opacity: .7; }
+
+/* Zusatzkarten */
+.titlecard { justify-content: center; gap: 0; padding: 10mm; }
+.titlecard .dots, .dimlabel:has(.mini) { display: flex; gap: 1.6mm; }
+.titlecard .dots span { width: 6mm; height: 6mm; border-radius: 50%; }
+.titlecard .dots { margin-bottom: 8mm; }
+.titlecard h1 { margin: 0 0 4mm; font-size: 20pt; line-height: 1.08; font-weight: 800; letter-spacing: -.02em; }
+.titlecard .claim { margin: 0 0 2mm; font-size: 10.5pt; font-weight: 600; }
+.titlecard .sub { margin: 0; font-size: 8.5pt; font-weight: 300; }
+.titlecard .url { position: absolute; left: 10mm; bottom: 10mm; font-size: 7pt; font-weight: 300; }
+.dimlabel:has(.mini) { justify-content: flex-end; }
+.mini { width: 2.6mm; height: 2.6mm; border-radius: 50%; display: inline-block; }
+.plain { padding: 8mm; gap: 3.2mm; font-size: 8pt; }
+h2.small { margin: 0 0 1mm; font-size: 12pt; font-weight: 700; }
+.plain .note { margin-top: auto; padding: 2.6mm 3.2mm; background: #FAF7F5; border-radius: 3mm; }
+.dimscard { gap: 2mm; padding: 8mm; }
+.dimscard .band { flex: 1; border-radius: 3mm; color: #fff; padding: 2.5mm 3.5mm; display: flex; flex-direction: column; justify-content: center; gap: .6mm; }
+.dimscard .band b { font-size: 10.5pt; }
+.dimscard .band span { font-size: 7pt; font-weight: 300; }
+.more .qr { display: flex; gap: 4mm; align-items: center; }
+.more .qr .code { width: 22mm; height: 22mm; flex: none; }
+.more .qr svg { width: 100%; height: 100%; display: block; }
+.more .attr { margin-top: auto; display: flex; gap: 3mm; align-items: center; }
+.more .attr img { width: 20mm; }
+.more .attr p { font-size: 6.5pt; }
+.owncard .art.blank { background: none; border: .3mm dashed #bdbdbd; }
+.own section { flex: 1; }
+.own .lines { flex: 1; background: repeating-linear-gradient(to bottom, transparent 0 6.3mm, #d6d6d6 6.3mm 6.5mm); }
+.empty { background: #fff; }
+</style></head>
+<body><div class="sheet fronts"><div class="card front titlecard">
+      <div class="dots"><span style="background:#D4B88C"></span><span style="background:#E585A1"></span><span style="background:#EF4136"></span><span style="background:#FF7E2A"></span><span style="background:#661A30"></span></div>
+      <h1>Inner Development Guide im Schulalltag</h1>
+      <p class="claim">Zukunft gestalten. In fünf Minuten.</p>
+      <p class="sub">25 Reflexionskarten für Lehrpersonen</p>
+      <div class="url">guide.zukunftskompetenzchallenge.ch</div>
+    </div><div class="card front">
+      <div class="dimlabel">Sein</div>
+      <div class="art" style="background:#D4B88C">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/innerer-kompass.png" alt="">
+      </div>
+      <h2>Innerer Kompass</h2>
+      <p class="desc">Eine tief empfundene Verpflichtung, in Übereinstimmung mit Werten und Zielen zu leben und zu handeln, die dem Wohl des Ganzen dienen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Sein</div>
+      <div class="art" style="background:#D4B88C">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/integritaet-und-authentizitaet.png" alt="">
+      </div>
+      <h2>Integrität und Authentizität</h2>
+      <p class="desc">Eine aufrichtige Verpflichtung zu Ehrlichkeit und fest verankerten Werten, die in allen Handlungen zum Ausdruck kommen und verkörpert werden.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Sein</div>
+      <div class="art" style="background:#D4B88C">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/offenheit-und-lernbereitschaft.png" alt="">
+      </div>
+      <h2>Offenheit und Lernbereitschaft</h2>
+      <p class="desc">Eine neugierige, anpassungsfähige Haltung und die Bereitschaft, die Perspektive zu wechseln, verletzlich zu sein, Veränderungen zu begrüssen und zu wachsen.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#8a7350">
+      <header><span class="dot"></span><span class="name">Innerer Kompass</span><span class="dimlabel">Sein</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welcher Wert hat heute meine Entscheidungen im Klassenzimmer geleitet – und wo bin ich davon abgewichen?</p><p class="strong">Wofür bin ich Lehrperson geworden? Wie viel davon war diese Woche spürbar?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was ist dir so wichtig, dass du dafür einstehen würdest?</p><p>Woran merkst du, dass etwas für dich richtig oder falsch ist?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Werte-Landkarte: Die Klasse sammelt Werte auf Karten und ordnet sie gemeinsam – was verbindet uns, wo unterscheiden wir uns?</li><li>Klassenregeln nicht vorgeben, sondern aus den gemeinsamen Werten ableiten.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Mein Satz für heute</b> Alle schreiben in einem Satz auf, was ihnen heute wichtig ist. Freiwillig vorlesen. Am Ende des Tages kurz prüfen: Hat es gestimmt?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Ethik, Religionen, Gemeinschaft · Klassenstunde · Deutsch</span></footer>
+    </div><div class="card back plain">
+      <h2 class="small">So nutzt du die Karten</h2>
+      <section><h3>Vorderseite</h3><p>Eine von 25 Kompetenzen des Inner Development Guide, geordnet in fünf Dimensionen.</p></section><section><h3>Für mich</h3><p>Zwei Fragen an dich als Lehrperson – für den Morgen, den Heimweg oder das Team.</p></section><section><h3>Für meine Klasse</h3><p>Zwei Fragen für das Gespräch mit der Klasse. Für Jüngere vereinfachen, für Ältere vertiefen.</p></section><section><h3>Mini-Übung</h3><p>Fünf Minuten, ohne Vorbereitung. Gut als Einstieg in eine Lektion oder Klassenstunde.</p></section>
+      <p class="note">Ziehe eine Karte pro Woche oder am Morgen. Die Karten sind Impulse – ob eine Frage in deine Klasse passt, entscheidest du.</p>
+    </div><div class="card back" style="--accent:#8a7350">
+      <header><span class="dot"></span><span class="name">Offenheit und Lernbereitschaft</span><span class="dimlabel">Sein</span></header>
+      <section><h3>Für mich</h3><p class="strong">Was habe ich diese Woche von meinen Schüler:innen gelernt?</p><p class="strong">Welche Unterrichtsroutine mache ich, weil ich sie immer so gemacht habe?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wann hast du zuletzt deine Meinung geändert? Was hat dich überzeugt?</p><p>Was möchtest du lernen, auch wenn es niemand von dir verlangt?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Rollentausch: Schüler:innen unterrichten die Lehrperson in etwas, das sie gut können.</li><li>«Ich weiss es noch nicht»-Karten als erlaubte Antwort im Unterricht einführen.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Neugier-Frage</b> Jede Person notiert eine Frage, auf die sie keine Antwort hat. Fragen an die Wand – eine wird gemeinsam ausgewählt und in der Woche verfolgt.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Alle Fächer · Klassenstunde · Projektunterricht</span></footer>
+    </div><div class="card back" style="--accent:#8a7350">
+      <header><span class="dot"></span><span class="name">Integrität und Authentizität</span><span class="dimlabel">Sein</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wann habe ich zuletzt vor der Klasse zugegeben, etwas nicht zu wissen oder einen Fehler gemacht zu haben?</p><p class="strong">Wo sage ich Dinge, die ich selbst nicht ganz meine – und warum?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wann fällt es dir schwer, ehrlich zu sein?</p><p>Was bedeutet es für dich, du selbst zu sein?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Fehlerkultur sichtbar machen: eine Wand mit «Fehler, aus denen wir gelernt haben».</li><li>Dilemma-Geschichten diskutieren: Was würdest du tun, wenn niemand es erfährt?</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Echte Antwort</b> Auf «Wie geht es dir?» antworten alle einmal ehrlich statt mit «gut». Zwei Minuten still, dann Austausch zu zweit.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Ethik, Religionen, Gemeinschaft · Deutsch · Klassenstunde</span></footer>
+    </div></div>
+<div class="sheet fronts"><div class="card front">
+      <div class="dimlabel">Sein</div>
+      <div class="art" style="background:#D4B88C">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/selbsterkenntnis.png" alt="">
+      </div>
+      <h2>Selbsterkenntnis</h2>
+      <p class="desc">Die Fähigkeit, reflektiert mit Gedanken, Emotionen, Wünschen und Handlungen umzugehen, ein realistisches Selbstbild zu bewahren und sich selbst zu regulieren.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Sein</div>
+      <div class="art" style="background:#D4B88C">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/praesenz.png" alt="">
+      </div>
+      <h2>Präsenz</h2>
+      <p class="desc">Die Fähigkeit, ganz im Hier und Jetzt präsent zu sein, die Realität so zu akzeptieren, wie sie ist, und auf sinnvolle Weise darauf zu reagieren.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Denken</div>
+      <div class="art" style="background:#E585A1">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/kritisches-denken.png" alt="">
+      </div>
+      <h2>Kritisches Denken</h2>
+      <p class="desc">Die Fähigkeit, über die Gültigkeit von Ideen, Beweisen, Annahmen und Plänen nachzudenken.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Denken</div>
+      <div class="art" style="background:#E585A1">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/perspektivische-faehigkeiten.png" alt="">
+      </div>
+      <h2>Perspektivische Fähigkeiten</h2>
+      <p class="desc">Die Fähigkeit, unterschiedliche Perspektiven zu berücksichtigen und die Erkenntnisse in ein reflektiertes Verstehen und Handeln einfliessen zu lassen.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#8a7350">
+      <header><span class="dot"></span><span class="name">Präsenz</span><span class="dimlabel">Sein</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wie oft bin ich während der Lektion mit den Gedanken schon bei der nächsten?</p><p class="strong">Wann habe ich einer Schülerin, einem Schüler heute wirklich zugehört – ohne die Antwort schon zu kennen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wann warst du zuletzt so vertieft, dass du die Zeit vergessen hast?</p><p>Was hörst du gerade, wenn du eine Minute ganz still bist?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Stille Minute als festes Ritual nach der Pause.</li><li>Achtsames Beobachten in Natur oder Kunst: fünf Minuten nur schauen, dann beschreiben.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Fünf Sinne</b> Nacheinander: Was sehe ich, höre ich, spüre ich, rieche ich, schmecke ich? Je 30 Sekunden, ohne zu bewerten.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Bewegung und Sport · Bildnerisches Gestalten · Musik · Natur, Mensch, Gesellschaft</span></footer>
+    </div><div class="card back" style="--accent:#8a7350">
+      <header><span class="dot"></span><span class="name">Selbsterkenntnis</span><span class="dimlabel">Sein</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welche Situationen im Unterricht bringen mich aus dem Gleichgewicht – und was steckt dahinter?</p><p class="strong">Wie reagiere ich unter Stress, und was nimmt meine Klasse davon wahr?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Woran merkst du in deinem Körper, dass du wütend oder nervös wirst?</p><p>Was kannst du gut – und woher weisst du das?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Gefühls-Check-in zu Beginn der Lektion mit Wetterkarten oder einer Skala von 1 bis 5.</li><li>Lerntagebuch mit einer wöchentlichen Frage: Was hat mir heute geholfen, was hat mich gebremst?</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Innenwetter</b> Augen schliessen, drei Atemzüge. Wie ist mein Wetter gerade – sonnig, bewölkt, stürmisch? Wer will, teilt es in einem Wort.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Klassenstunde · Natur, Mensch, Gesellschaft · Bewegung und Sport</span></footer>
+    </div><div class="card back" style="--accent:#E585A1">
+      <header><span class="dot"></span><span class="name">Perspektivische Fähigkeiten</span><span class="dimlabel">Denken</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wie sieht meine Lektion aus der Perspektive des stillsten Kindes aus?</p><p class="strong">Welche Geschichte erzähle ich mir über meine Klasse – und stimmt sie noch?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wie würde diese Geschichte klingen, wenn eine andere Figur sie erzählt?</p><p>Was könnte jemand denken, der ganz anders lebt als du?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Texte oder historische Ereignisse aus der Sicht einer Nebenfigur neu erzählen.</li><li>Standpunkt-Linie: Zu einer Aussage im Raum positionieren und mit jemandem am anderen Ende austauschen.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Stuhlwechsel</b> Zu zweit ein Thema besprechen. Nach zwei Minuten Plätze tauschen – und die Position der anderen Person weiterführen.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Deutsch · Räume, Zeiten, Gesellschaften · Fremdsprachen · Ethik, Religionen, Gemeinschaft</span></footer>
+    </div><div class="card back" style="--accent:#E585A1">
+      <header><span class="dot"></span><span class="name">Kritisches Denken</span><span class="dimlabel">Denken</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welche Annahmen über meine Klasse habe ich in letzter Zeit nicht überprüft?</p><p class="strong">Wo lasse ich Widerspruch im Unterricht zu – und wo unterbinde ich ihn unbewusst?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Woher weisst du, dass das stimmt?</p><p>Wer hat ein Interesse daran, dass du das glaubst?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Fake-News-Check: Zwei Meldungen vergleichen, Quellen prüfen, Kriterien entwickeln.</li><li>Debattier-Format mit Seitenwechsel – jede Position wird einmal vertreten.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Drei Fragen an eine Behauptung</b> Eine Aussage an die Tafel. In Gruppen: Woher stammt sie? Was spricht dagegen? Was müssten wir wissen, um sicher zu sein?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Medien und Informatik · Deutsch · Räume, Zeiten, Gesellschaften · Natur und Technik</span></footer>
+    </div></div>
+<div class="sheet fronts"><div class="card front">
+      <div class="dimlabel">Denken</div>
+      <div class="art" style="background:#E585A1">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/systemisches-denken.png" alt="">
+      </div>
+      <h2>Systemisches Denken</h2>
+      <p class="desc">Die Fähigkeit, die komplexen Zusammenhänge und Eigenschaften von Systemen zu verstehen und sie aktiv zu nutzen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Denken</div>
+      <div class="art" style="background:#E585A1">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/langfristige-orientierung.png" alt="">
+      </div>
+      <h2>Langfristige Orientierung und Visionen</h2>
+      <p class="desc">Langfristige Ziele entwickeln und diese auf eine Weise verfolgen, die das gesellschaftliche und ökologische Wohlergehen fördert.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Denken</div>
+      <div class="art" style="background:#E585A1">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/kreativitaet.png" alt="">
+      </div>
+      <h2>Kreativität</h2>
+      <p class="desc">Die Fähigkeit, über konventionelle Muster hinauszudenken, neue Möglichkeiten zu entwickeln und diese in transformative Ideen umzusetzen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Beziehungen</div>
+      <div class="art" style="background:#EF4136">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/wertschaetzung.png" alt="">
+      </div>
+      <h2>Wertschätzung</h2>
+      <p class="desc">Mit positiver Wertschätzung, Freude und Dankbarkeit den Menschen und dem Planeten Erde begegnen.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#E585A1">
+      <header><span class="dot"></span><span class="name">Langfristige Orientierung und Visionen</span><span class="dimlabel">Denken</span></header>
+      <section><h3>Für mich</h3><p class="strong">Was sollen meine Schüler:innen in zwanzig Jahren von meinem Unterricht noch tragen?</p><p class="strong">Wo optimiere ich für die nächste Prüfung statt für langfristiges Verstehen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wie soll dein Quartier in 30 Jahren aussehen?</p><p>Was möchtest du, dass Menschen später über deine Generation sagen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Lektion mit «Warum lernen wir das?» beginnen und am Ende von der Klasse beantworten lassen – was davon trägt über das Schuljahr hinaus?</li><li>Zukunftswerkstatt: Kritik – Vision – Umsetzung zu einem Thema, das die Klasse betrifft.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Zeitreise</b> Augen schliessen: Es ist das Jahr 2050. Was ist besser geworden? Wer hat dazu beigetragen? Ein Satz pro Person.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Räume, Zeiten, Gesellschaften · Deutsch · Projektunterricht · Berufliche Orientierung</span></footer>
+    </div><div class="card back" style="--accent:#E585A1">
+      <header><span class="dot"></span><span class="name">Systemisches Denken</span><span class="dimlabel">Denken</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welches Problem in meiner Klasse versuche ich mit einer einfachen Lösung zu beheben, obwohl es viele Ursachen hat?</p><p class="strong">Welche Zusammenhänge ausserhalb der Schule wirken in meinen Unterricht hinein?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was passiert alles, wenn eine Sache passiert?</p><p>Welches Muster erkennst du hier – und wo hast du es schon einmal gesehen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Wirkungsnetz statt Zusammenfassung: Ein Thema (z. B. Klassenlärm, Plastik) in die Mitte, Ursachen und Folgen als Pfeile – Zusammenhänge zeichnen, nicht auflisten.</li><li>Systemspiel: Alle sind Teil eines Kreislaufs und erleben, wie eine Veränderung durchgereicht wird. Danach suchen: Wo liegt der Hebel?</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Und dann?</b> Eine Veränderung nennen (z. B. «Es gibt keine Hausaufgaben mehr»). Im Kreis fragen: Und dann? Fünf Runden, bis die Folgen überraschen.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Natur, Mensch, Gesellschaft · Räume, Zeiten, Gesellschaften · Wirtschaft, Arbeit, Haushalt · Natur und Technik</span></footer>
+    </div><div class="card back" style="--accent:#EF4136">
+      <header><span class="dot"></span><span class="name">Wertschätzung</span><span class="dimlabel">Beziehungen</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wem in meiner Klasse habe ich diese Woche noch nichts Anerkennendes gesagt?</p><p class="strong">Wofür bin ich in meinem Beruf dankbar – auch an schwierigen Tagen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wer hat dir heute geholfen, ohne dass es auffiel?</p><p>Was nimmst du als selbstverständlich, das eigentlich besonders ist?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Warme Dusche: Eine Person sitzt in der Mitte, alle nennen etwas, das sie an ihr schätzen.</li><li>Dankbarkeitswand im Klassenzimmer, wöchentlich ergänzt.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Drei gute Dinge</b> Jede Person schreibt drei Dinge auf, die heute gut waren – so klein sie sind. Eines davon mit der Nachbarin oder dem Nachbarn teilen.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Klassenstunde · Ethik, Religionen, Gemeinschaft · Deutsch</span></footer>
+    </div><div class="card back" style="--accent:#E585A1">
+      <header><span class="dot"></span><span class="name">Kreativität</span><span class="dimlabel">Denken</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wann durften meine Schüler:innen zuletzt etwas machen, das es noch nicht gibt?</p><p class="strong">Welche Aufgabe habe ich diese Woche so gestellt, dass es nur eine richtige Antwort gibt – und musste das so sein?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wie könnte man das ganz anders lösen?</p><p>Was würdest du erfinden, wenn alles möglich wäre?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Offene Aufgaben mit mehreren Lösungswegen – gerade in Mathematik.</li><li>Umkehr-Übung: Ein Alltagsgegenstand bekommt einen neuen Zweck.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>30 Kreise</b> Ein Blatt mit 30 leeren Kreisen. In drei Minuten möglichst viele zu etwas machen – Ball, Uhr, Pizza. Quantität vor Qualität.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Bildnerisches Gestalten · Mathematik · Textiles und Technisches Gestalten · Musik</span></footer>
+    </div></div>
+<div class="sheet fronts"><div class="card front">
+      <div class="dimlabel">Beziehungen</div>
+      <div class="art" style="background:#EF4136">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/verbundenheit.png" alt="">
+      </div>
+      <h2>Verbundenheit</h2>
+      <p class="desc">Das Gefühl der Zugehörigkeit zu einem grösseren Ganzen, wie der Menschheit, dem Netz des Lebens auf dem Planeten und der spirituellen Dimensionen der Existenz.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Beziehungen</div>
+      <div class="art" style="background:#EF4136">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/demut-und-bescheidenheit.png" alt="">
+      </div>
+      <h2>Demut und Bescheidenheit</h2>
+      <p class="desc">In der Lage sein, auf die Erfordernisse einer Situation zu reagieren, ohne die eigene Bedeutung voranzustellen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Beziehungen</div>
+      <div class="art" style="background:#EF4136">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/empathie-und-mitgefuehl.png" alt="">
+      </div>
+      <h2>Empathie und Mitgefühl</h2>
+      <p class="desc">Mit Freundlichkeit, Fürsorge und Liebe sich mit anderen, mit sich selbst und mit der Natur verbinden – mit dem Ziel und der Absicht, Leiden zu verringern.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Beziehungen</div>
+      <div class="art" style="background:#EF4136">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/vergebung.png" alt="">
+      </div>
+      <h2>Vergebung</h2>
+      <p class="desc">Die Bereitschaft, Feindseligkeiten zu überwinden, Traumata zu verarbeiten und Raum für Heilung zu schaffen.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#EF4136">
+      <header><span class="dot"></span><span class="name">Demut und Bescheidenheit</span><span class="dimlabel">Beziehungen</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wie viel spreche ich in einer Lektion, wie viel die Klasse?</p><p class="strong">Wann habe ich zuletzt eine Idee einer Schülerin, eines Schülers meiner eigenen vorgezogen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wann ist es wichtiger, dass die Gruppe weiterkommt, als dass du recht hast?</p><p>Was können andere besser als du – und wie fühlt sich das an?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Stille Diskussion auf Papier: Jede Stimme bekommt gleich viel Platz.</li><li>Rollen in Gruppenarbeiten rotieren lassen, auch die unscheinbaren.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Zuhören ohne Antwort</b> Zu zweit: Eine Person erzählt zwei Minuten, die andere hört nur zu – kein Kommentar, kein Rat. Dann wechseln. Wie war es?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Klassenstunde · Bewegung und Sport · Alle Fächer</span></footer>
+    </div><div class="card back" style="--accent:#EF4136">
+      <header><span class="dot"></span><span class="name">Verbundenheit</span><span class="dimlabel">Beziehungen</span></header>
+      <section><h3>Für mich</h3><p class="strong">Fühlt sich jedes Kind in meiner Klasse als Teil der Gruppe? Woran erkenne ich das?</p><p class="strong">Wo spüre ich selbst Verbundenheit mit dem Kollegium, der Schule, dem Ort?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Zu wem oder was gehörst du?</p><p>Was verbindet dich mit einem Kind auf einem anderen Kontinent?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Herkunft eines Alltagsgegenstands zurückverfolgen: Wer hat alles daran mitgewirkt?</li><li>Klassen-Partnerschaft mit einer Schule in einem anderen Land oder einer anderen Region.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Fadennetz</b> Im Kreis: Ein Wollknäuel wird geworfen. Wer fängt, nennt etwas, das er oder sie mit der werfenden Person gemeinsam hat. Am Ende halten alle ein Netz.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Natur, Mensch, Gesellschaft · Räume, Zeiten, Gesellschaften · Fremdsprachen</span></footer>
+    </div><div class="card back" style="--accent:#EF4136">
+      <header><span class="dot"></span><span class="name">Vergebung</span><span class="dimlabel">Beziehungen</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welchem Kind begegne ich noch mit dem Konflikt von letzter Woche im Hinterkopf?</p><p class="strong">Wie zeige ich, dass eine Sache für mich erledigt ist – und merkt die Klasse das auch?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was muss passieren, damit eine Sache für dich wirklich erledigt ist?</p><p>Trägst du jemandem etwas nach? Was würde es leichter machen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Konflikte mit Wiedergutmachung statt Strafe abschliessen: Was braucht die betroffene Person, damit es für sie wieder stimmt?</li><li>Ritual für den Neuanfang: Nach einem Streit sagt jede Seite, was sie beim nächsten Mal anders macht – entschuldigen muss sich niemand.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Abgeschlossen</b> Alle schreiben eine Sache auf, die sie noch beschäftigt, und entscheiden für sich: behalten oder loslassen. Die Loslass-Zettel werden ungelesen eingesammelt und entsorgt.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Ethik, Religionen, Gemeinschaft · Klassenstunde · Deutsch</span></footer>
+    </div><div class="card back" style="--accent:#EF4136">
+      <header><span class="dot"></span><span class="name">Empathie und Mitgefühl</span><span class="dimlabel">Beziehungen</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welches Verhalten in meiner Klasse nervt mich – und welches Bedürfnis könnte dahinterstecken?</p><p class="strong">Wie gehe ich mit mir selbst um, wenn eine Lektion misslingt?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Woran merkst du, dass es jemandem nicht gut geht?</p><p>Was tut dir gut, wenn du traurig bist – und könnte das auch anderen helfen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Gefühlswortschatz erweitern: Bilder oder Szenen beschreiben, differenzierte Wörter sammeln.</li><li>Perspektivenwechsel in Konflikten: Beide Seiten schreiben auf, was die andere wohl gefühlt hat.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Freundlicher Gedanke</b> Alle denken an jemanden, der es gerade schwer hat. Still einen guten Wunsch formulieren. Dann denselben Wunsch an sich selbst richten.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Deutsch · Ethik, Religionen, Gemeinschaft · Klassenstunde · Bildnerisches Gestalten</span></footer>
+    </div></div>
+<div class="sheet fronts"><div class="card front">
+      <div class="dimlabel">Zusammenarbeit</div>
+      <div class="art" style="background:#FF7E2A">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/beziehungen-aufbauen.png" alt="">
+      </div>
+      <h2>Beziehungen aufbauen</h2>
+      <p class="desc">Die Pflege von Beziehungen mit emotionaler Intelligenz, die auf Vertrauen, Respekt, gegenseitigem Verständnis und einem Geist der Zusammenarbeit beruhen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Zusammenarbeit</div>
+      <div class="art" style="background:#FF7E2A">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/inklusive-denkweise.png" alt="">
+      </div>
+      <h2>Inklusive Denkweise und interkulturelle Kompetenz</h2>
+      <p class="desc">Die Bereitschaft und Kompetenz, Vielfalt anzuerkennen und zu leben, und Menschen und Gemeinschaften mit unterschiedlichen Perspektiven und Hintergründen einzubeziehen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Zusammenarbeit</div>
+      <div class="art" style="background:#FF7E2A">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/gemeinsam-gestalten.png" alt="">
+      </div>
+      <h2>Gemeinsam Gestalten</h2>
+      <p class="desc">Förderung von Kooperationsprozessen mit verschiedenen Interessengruppen, Förderung von Teamarbeit und psychologischer Sicherheit sowie Bewusstsein für Machtverhältnisse.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Zusammenarbeit</div>
+      <div class="art" style="background:#FF7E2A">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/kommunizieren.png" alt="">
+      </div>
+      <h2>Kommunizieren</h2>
+      <p class="desc">Die Fähigkeit, aufmerksam zuzuhören, einen echten Dialog zu fördern, die eigenen Ansichten geschickt zu vertreten, Konflikte konstruktiv zu bewältigen und die Kommunikation an unterschiedliche Gruppen anzupassen.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#FF7E2A">
+      <header><span class="dot"></span><span class="name">Inklusive Denkweise und interkulturelle Kompetenz</span><span class="dimlabel">Zusammenarbeit</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wer in meiner Klasse kommt in Beispielen, Bildern und Texten vor – und wer nicht?</p><p class="strong">Welche Normalität setze ich unbewusst voraus?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was ist bei dir zu Hause anders als bei anderen – und was daran magst du?</p><p>Wann hast du dich schon einmal ausgeschlossen gefühlt?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Sprachenporträt: Alle zeichnen ihre Sprachen in eine Körpersilhouette und stellen sie vor.</li><li>Feste und Rituale aus der Klasse in den Jahreskalender aufnehmen.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Gemeinsam und verschieden</b> Zu zweit in zwei Minuten drei Gemeinsamkeiten und drei Unterschiede finden. Welche waren überraschend?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Fremdsprachen · Ethik, Religionen, Gemeinschaft · Räume, Zeiten, Gesellschaften · Musik</span></footer>
+    </div><div class="card back" style="--accent:#FF7E2A">
+      <header><span class="dot"></span><span class="name">Beziehungen aufbauen</span><span class="dimlabel">Zusammenarbeit</span></header>
+      <section><h3>Für mich</h3><p class="strong">Zu welchem Kind in meiner Klasse habe ich kaum eine Beziehung – und wann hätte ich zwei Minuten Zeit dafür?</p><p class="strong">Wo kontrolliere ich, obwohl ich vertrauen könnte?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Woran merkst du, dass jemand dich mag, auch ohne dass er es sagt?</p><p>Was müsste passieren, damit du jemandem wieder vertraust?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Zwei-Minuten-Regel: Zehn Tage lang täglich zwei Minuten mit dem Kind sprechen, zu dem die Beziehung am dünnsten ist – über alles ausser Schule.</li><li>Verantwortung übergeben: Klassenämter, Materialverwaltung, Pausenorganisation ohne Kontrolle.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Blind führen</b> Zu zweit: Eine Person schliesst die Augen, die andere führt sie nur mit der Stimme durch den Raum. Wechseln. Was hat geholfen?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Klassenstunde · Bewegung und Sport · Alle Fächer</span></footer>
+    </div><div class="card back" style="--accent:#FF7E2A">
+      <header><span class="dot"></span><span class="name">Kommunizieren</span><span class="dimlabel">Zusammenarbeit</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wie viele meiner Fragen im Unterricht sind echte Fragen, auf die ich die Antwort nicht kenne?</p><p class="strong">Wie spreche ich mit Eltern anders als mit Schüler:innen – und was davon ist hilfreich?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Woran merkst du, dass dir jemand wirklich zuhört?</p><p>Wie sagst du jemandem, dass dich etwas stört, ohne zu verletzen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Gesprächsregeln gemeinsam erarbeiten und als Plakat sichtbar machen.</li><li>Klassenrat mit festen Rollen: Leitung, Protokoll, Zeit, Stimmung.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Spiegeln</b> Zu zweit: A erzählt eine Minute. B fasst zusammen: «Ich habe verstanden, dass …» A korrigiert oder bestätigt. Wechseln.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Deutsch · Fremdsprachen · Klassenstunde</span></footer>
+    </div><div class="card back" style="--accent:#FF7E2A">
+      <header><span class="dot"></span><span class="name">Gemeinsam Gestalten</span><span class="dimlabel">Zusammenarbeit</span></header>
+      <section><h3>Für mich</h3><p class="strong">Worüber dürfen meine Schüler:innen tatsächlich mitentscheiden – und worüber nur scheinbar?</p><p class="strong">Fühlen sich alle sicher genug, eine halbfertige Idee zu äussern?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wer redet in eurer Gruppe am meisten – und wer entscheidet am Ende?</p><p>Was brauchst du, um eine unfertige Idee zu sagen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Klassenprojekt von der Idee bis zur Umsetzung gemeinsam planen – die Lehrperson als Coach.</li><li>Redeanteile sichtbar machen: In einer Gruppenarbeit zählt eine Person mit, wer wie viel spricht. Danach gemeinsam anschauen.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Gemeinsam bauen</b> Gruppen erhalten zehn Blätter Papier und bauen den höchsten Turm – ohne zu sprechen. Danach: Wer hat wie beigetragen?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Projektunterricht · Textiles und Technisches Gestalten · Klassenstunde</span></footer>
+    </div></div>
+<div class="sheet fronts"><div class="card front">
+      <div class="dimlabel">Zusammenarbeit</div>
+      <div class="art" style="background:#FF7E2A">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/mobilisieren.png" alt="">
+      </div>
+      <h2>Mobilisieren</h2>
+      <p class="desc">Andere inspirieren und befähigen, sich für gemeinsame Ziele und kollektives Handeln zu engagieren.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Handeln</div>
+      <div class="art" style="background:#661A30">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/mut.png" alt="">
+      </div>
+      <h2>Mut</h2>
+      <p class="desc">Für grundlegende Werte einstehen, Entscheidungen treffen, Massnahmen ergreifen und, wenn nötig, etablierte Strukturen und Ansichten hinterfragen und aufbrechen.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Handeln</div>
+      <div class="art" style="background:#661A30">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/hoffnung-und-optimismus.png" alt="">
+      </div>
+      <h2>Hoffnung und Optimismus</h2>
+      <p class="desc">Die gemeinsame Überzeugung, eine gerechtere, integrativere und nachhaltigere Zukunft schaffen, aufbauen und aufrechterhalten zu können.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Handeln</div>
+      <div class="art" style="background:#661A30">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/bewusster-umgang-mit-ressourcen.png" alt="">
+      </div>
+      <h2>Bewusster Umgang mit Ressourcen</h2>
+      <p class="desc">Mit dem Bewusstsein für die begrenzten natürlichen Ressourcen unseres Planeten handeln, dabei den Schwerpunkt auf Erhaltung, Regeneration und Sparsamkeit legen, um schädlichen Konsum zu vermeiden.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#661A30">
+      <header><span class="dot"></span><span class="name">Mut</span><span class="dimlabel">Handeln</span></header>
+      <section><h3>Für mich</h3><p class="strong">Was würde ich in meinem Unterricht ändern, wenn ich keine Angst vor Kritik hätte?</p><p class="strong">Wann habe ich zuletzt im Kollegium widersprochen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wann hast du dich getraut, etwas zu sagen, obwohl es schwierig war?</p><p>Was ist der Unterschied zwischen mutig und leichtsinnig?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Mut-Geschichten sammeln: Kinder erzählen von kleinen mutigen Momenten – nicht von Heldentaten.</li><li>Zivilcourage-Szenen im Rollenspiel üben: Was sage ich, wenn jemand ausgelacht wird?</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Kleiner Mut</b> Alle überlegen: Was wäre heute ein kleiner mutiger Schritt für mich? Aufschreiben, zusammenfalten. Morgen: Wer hat es getan?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Ethik, Religionen, Gemeinschaft · Deutsch · Theater · Bewegung und Sport</span></footer>
+    </div><div class="card back" style="--accent:#FF7E2A">
+      <header><span class="dot"></span><span class="name">Mobilisieren</span><span class="dimlabel">Zusammenarbeit</span></header>
+      <section><h3>Für mich</h3><p class="strong">Was begeistert mich an meinem Fach – und sieht meine Klasse diese Begeisterung?</p><p class="strong">Wie gewinne ich Kolleg:innen für eine Idee, statt sie zu überzeugen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Wofür würdest du andere begeistern wollen?</p><p>Wer hat dich schon einmal mitgerissen – wie hat die Person das gemacht?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Schüler:innen planen eine Aktion für die Schule (Sammelaktion, Pausenkiosk, Ausstellung) und werben dafür.</li><li>Kurzreden: In 60 Sekunden für ein Anliegen gewinnen.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Ein-Minuten-Pitch</b> Alle wählen eine kleine Verbesserung für die Klasse. In einer Minute dafür werben. Die Klasse stimmt ab – und setzt die Gewinnerin um.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Deutsch · Projektunterricht · Wirtschaft, Arbeit, Haushalt</span></footer>
+    </div><div class="card back" style="--accent:#661A30">
+      <header><span class="dot"></span><span class="name">Bewusster Umgang mit Ressourcen</span><span class="dimlabel">Handeln</span></header>
+      <section><h3>Für mich</h3><p class="strong">Was verbrauche ich in meinem Unterricht, ohne darüber nachzudenken – Papier, Strom, Material?</p><p class="strong">Rede ich über Nachhaltigkeit, oder ist sie im Schulzimmer auch sichtbar?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was landet bei dir am Ende des Tages im Abfall – und wo käme es sonst hin?</p><p>Was von dem, was du besitzt, brauchst du wirklich?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Abfall-Audit: Eine Woche lang sammeln, was im Schulzimmer weggeworfen wird, dann sortieren und Regeln daraus ableiten.</li><li>Reparieren statt ersetzen: Kaputte Dinge von zu Hause mitbringen und gemeinsam flicken.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Ein Ding, drei Leben</b> Einen Gegenstand aus dem Etui wählen. Woher kam er, was passiert mit ihm, wenn er kaputt ist? Zu zweit in zwei Minuten die Geschichte erzählen.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Natur und Technik · Wirtschaft, Arbeit, Haushalt · Textiles und Technisches Gestalten · Natur, Mensch, Gesellschaft</span></footer>
+    </div><div class="card back" style="--accent:#661A30">
+      <header><span class="dot"></span><span class="name">Hoffnung und Optimismus</span><span class="dimlabel">Handeln</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welche Zukunft vermittle ich meiner Klasse – eine, die man gestalten kann, oder eine, die man aushalten muss?</p><p class="strong">Was gibt mir Hoffnung in meinem Beruf?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was ist in den letzten Jahren besser geworden?</p><p>Was könnten wir als Klasse schaffen, das eine Person allein nicht schafft?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Gute Nachrichten der Woche: Schüler:innen recherchieren, was sich positiv entwickelt.</li><li>Lösungsgeschichten statt Problemgeschichten: Wer hat ein ähnliches Problem schon gelöst – und wie?</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Trotzdem</b> Jede Person nennt eine Sorge in einem Satz. Die Nachbarin, der Nachbar antwortet mit einem Satz, der mit «Trotzdem …» beginnt.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Medien und Informatik · Natur, Mensch, Gesellschaft · Deutsch</span></footer>
+    </div></div>
+<div class="sheet fronts"><div class="card front">
+      <div class="dimlabel">Handeln</div>
+      <div class="art" style="background:#661A30">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/proaktiv-handeln.png" alt="">
+      </div>
+      <h2>Proaktiv Handeln</h2>
+      <p class="desc">Die aktuellen globalen Herausforderungen erfordern ein zukunftsorientiertes und verantwortungsbewusstes Handeln, das auf Solidarität und Achtung der Menschenwürde und der lebenden Erde basiert.</p>
+    </div><div class="card front">
+      <div class="dimlabel">Handeln</div>
+      <div class="art" style="background:#661A30">
+        <img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/skills/white/resilienz.png" alt="">
+      </div>
+      <h2>Resilienz</h2>
+      <p class="desc">Widrigkeiten und Hindernisse mit Flexibilität, Engagement und Ausdauer angehen, auch wenn der Fortschritt langsam oder ungewiss ist.</p>
+    </div><div class="card front dimscard">
+      <h2 class="small">Fünf Dimensionen</h2>
+      <div class="band" style="background:#D4B88C"><b>Sein</b><span>Unser inneres Leben kultivieren</span></div><div class="band" style="background:#E585A1"><b>Denken</b><span>Unsere komplexe Welt verstehen</span></div><div class="band" style="background:#EF4136"><b>Beziehungen</b><span>Fürsorge für andere und die Welt</span></div><div class="band" style="background:#FF7E2A"><b>Zusammenarbeit</b><span>Vertrauen aufbauen und zusammenarbeiten</span></div><div class="band" style="background:#661A30"><b>Handeln</b><span>Veränderungen einleiten und ermöglichen</span></div>
+    </div><div class="card front owncard">
+      <div class="dimlabel"><span class="mini" style="background:#D4B88C"></span><span class="mini" style="background:#E585A1"></span><span class="mini" style="background:#EF4136"></span><span class="mini" style="background:#FF7E2A"></span><span class="mini" style="background:#661A30"></span></div>
+      <div class="art blank"></div>
+      <h2>Eigene Karte</h2>
+      <p class="desc">Welche Fähigkeit fehlt dir noch? Schreib deine eigene Karte.</p>
+    </div></div>
+<div class="sheet backs"><div class="card back" style="--accent:#661A30">
+      <header><span class="dot"></span><span class="name">Resilienz</span><span class="dimlabel">Handeln</span></header>
+      <section><h3>Für mich</h3><p class="strong">Welches Kind gebe ich innerlich schon ein wenig auf – und was würde es brauchen, dranzubleiben?</p><p class="strong">Welches Vorhaben habe ich zu früh fallen lassen – und welches hätte ich früher anpassen sollen?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was kannst du heute, das du früher nicht konntest? Wie hast du es gelernt?</p><p>Was machst du, wenn etwas zum dritten Mal nicht klappt – weitermachen oder anders versuchen?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Lernfortschritt sichtbar machen: Arbeiten von September und Juni nebeneinanderlegen.</li><li>Langzeitprojekt über ein Semester mit Zwischenständen – z. B. Pflanzen, Tagebuch, Fertigkeit üben.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Noch nicht</b> Sätze mit «Ich kann das nicht» sammeln und laut um ein Wort ergänzen: «Ich kann das noch nicht.» Was verändert das kleine Wort?</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Mathematik · Musik · Bewegung und Sport · Natur und Technik</span></footer>
+    </div><div class="card back" style="--accent:#661A30">
+      <header><span class="dot"></span><span class="name">Proaktiv Handeln</span><span class="dimlabel">Handeln</span></header>
+      <section><h3>Für mich</h3><p class="strong">Wo warte ich, bis jemand anderes ein Problem löst, das ich längst sehe?</p><p class="strong">Welche Verantwortung traue ich meiner Klasse zu – und welche nehme ich ihr ab?</p></section>
+      <section><h3>Für meine Klasse</h3><p>Was stört dich an der Schule so sehr, dass du etwas dagegen tun würdest?</p><p>Was könntest du schon morgen tun, ohne dass jemand es dir aufträgt?</p></section>
+      <section><h3>Im Unterricht</h3><ul><li>Ein echtes Anliegen aus dem Schulhaus aufgreifen und bis zur Umsetzung begleiten – mit Brief an die Schulleitung, nicht nur mit Plakat.</li><li>Verantwortung fest vergeben: Jede Person übernimmt für ein Quartal eine Aufgabe, die der Gemeinschaft dient.</li></ul></section>
+      <div class="exercise">
+        <h3>Mini-Übung · 5 Minuten</h3>
+        <p><b>Vom Ärgern zum Tun</b> Jede Person nennt etwas, das sie ärgert. Die Nachbarin, der Nachbar antwortet mit einem ersten Schritt, der schon heute möglich wäre.</p>
+      </div>
+      <footer><span>Anknüpfungspunkte: Räume, Zeiten, Gesellschaften · Projektunterricht · Ethik, Religionen, Gemeinschaft · Wirtschaft, Arbeit, Haushalt</span></footer>
+    </div><div class="card back plain own">
+      <section><h3>Kompetenz</h3><div class="lines"></div></section><section><h3>Für mich</h3><div class="lines"></div></section><section><h3>Für meine Klasse</h3><div class="lines"></div></section><section><h3>Mini-Übung</h3><div class="lines"></div></section>
+    </div><div class="card back plain more">
+      <h2 class="small">Mehr entdecken</h2>
+      <div class="qr"><div class="code"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h33v33H0z"/><path stroke="#000000" d="M0 0.5h7m2 0h5m2 0h2m1 0h2m2 0h2m1 0h7M0 1.5h1m5 0h1m5 0h6m4 0h1m3 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h2m1 0h3m1 0h4m1 0h1m5 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h4m2 0h3m3 0h3m1 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h1m2 0h1m5 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m2 0h7m1 0h1m1 0h1m3 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h2m2 0h1m2 0h1m5 0h1m1 0h1M0 8.5h1m1 0h5m2 0h3m1 0h3m1 0h1m2 0h1m1 0h3m1 0h5M2 9.5h1m1 0h2m1 0h2m2 0h1m2 0h1m1 0h1m1 0h6m2 0h2m1 0h2m1 0h1M0 10.5h1m1 0h3m1 0h2m1 0h2m1 0h1m2 0h1m2 0h1m2 0h1m2 0h2m2 0h1m1 0h2M0 11.5h1m2 0h1m1 0h1m3 0h1m2 0h1m1 0h3m2 0h4m2 0h2m1 0h3M1 12.5h1m2 0h4m2 0h3m2 0h1m2 0h1m2 0h1m2 0h2m1 0h3m2 0h1M3 13.5h3m3 0h3m1 0h5m2 0h1m1 0h3m1 0h1m3 0h3M0 14.5h2m2 0h1m1 0h1m2 0h1m1 0h3m3 0h3m4 0h8M1 15.5h4m4 0h1m2 0h1m3 0h1m2 0h3m2 0h3m1 0h3M6 16.5h1m2 0h1m1 0h1m4 0h2m1 0h1m2 0h4m1 0h2m3 0h1M0 17.5h2m1 0h3m1 0h2m1 0h3m1 0h1m1 0h5m1 0h2m2 0h2m1 0h2m1 0h1M0 18.5h2m1 0h2m1 0h1m2 0h4m1 0h4m4 0h1m2 0h1m1 0h2m1 0h2M4 19.5h2m1 0h1m2 0h2m1 0h8m3 0h2m1 0h6M0 20.5h3m1 0h1m1 0h2m3 0h1m1 0h4m2 0h6m2 0h3M0 21.5h3m1 0h2m1 0h1m3 0h2m1 0h2m1 0h2m2 0h1m1 0h1m2 0h1m2 0h1m2 0h1M0 22.5h1m1 0h1m2 0h3m2 0h1m1 0h1m2 0h3m2 0h3m2 0h1m4 0h2M0 23.5h1m1 0h2m3 0h3m1 0h1m1 0h3m5 0h6m2 0h2M0 24.5h1m3 0h4m2 0h1m1 0h2m1 0h1m1 0h1m4 0h1m1 0h5m2 0h2M8 25.5h2m2 0h1m3 0h1m1 0h4m2 0h1m3 0h1m1 0h1m1 0h1M0 26.5h7m2 0h2m1 0h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m1 0h2M0 27.5h1m5 0h1m1 0h4m1 0h3m4 0h5m3 0h3m1 0h1M0 28.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h2m2 0h1m2 0h1m2 0h6m2 0h1M0 29.5h1m1 0h3m1 0h1m1 0h3m1 0h1m2 0h3m2 0h1m1 0h4m2 0h2m2 0h1M0 30.5h1m1 0h3m1 0h1m1 0h2m1 0h3m5 0h1m3 0h5m2 0h1M0 31.5h1m5 0h1m2 0h2m1 0h1m1 0h1m1 0h1m2 0h4m2 0h2m1 0h3M0 32.5h7m1 0h1m1 0h5m1 0h2m1 0h2m1 0h3m1 0h2m3 0h1"/></svg>
+</div><p><b>guide.zukunftskompetenzchallenge.ch</b><br>Alle Karten als App, offline und ohne Konto</p></div>
+      <div class="qr"><div class="code"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29" shape-rendering="crispEdges"><path fill="#ffffff" d="M0 0h29v29H0z"/><path stroke="#000000" d="M0 0.5h7m1 0h2m2 0h2m2 0h1m1 0h3m1 0h7M0 1.5h1m5 0h1m1 0h4m2 0h1m1 0h3m1 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m2 0h5m1 0h2m1 0h3m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m3 0h1m1 0h5m2 0h1m2 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m7 0h1m1 0h5m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h3m4 0h3M0 8.5h1m1 0h2m1 0h3m5 0h1m1 0h5m2 0h1m2 0h1m1 0h2M3 9.5h1m1 0h1m1 0h1m2 0h1m1 0h2m3 0h1m1 0h6m3 0h1M1 10.5h4m1 0h3m1 0h1m1 0h2m2 0h1m3 0h3m3 0h2M1 11.5h1m5 0h1m2 0h3m6 0h1m3 0h1m4 0h1M0 12.5h1m1 0h2m2 0h1m2 0h1m1 0h2m1 0h2m1 0h1m2 0h1m2 0h1m1 0h2M0 13.5h2m1 0h2m4 0h4m1 0h4m1 0h1m2 0h1m3 0h3M1 14.5h1m1 0h1m1 0h2m2 0h3m1 0h1m3 0h1m1 0h6m1 0h3M0 15.5h6m3 0h2m3 0h1m1 0h1m3 0h3m4 0h1M1 16.5h1m2 0h1m1 0h1m1 0h3m3 0h1m3 0h4m1 0h3m1 0h1M2 17.5h1m1 0h1m3 0h1m2 0h1m2 0h2m1 0h1m2 0h2m1 0h1m1 0h3M0 18.5h1m2 0h2m1 0h1m4 0h1m1 0h3m2 0h1m1 0h1m2 0h2m1 0h1M3 19.5h2m2 0h1m1 0h1m3 0h5m1 0h1m6 0h1M1 20.5h1m1 0h1m2 0h2m2 0h1m2 0h6m1 0h7M8 21.5h2m6 0h1m1 0h1m1 0h1m3 0h5M0 22.5h7m1 0h4m2 0h1m1 0h2m1 0h2m1 0h1m1 0h2m1 0h1M0 23.5h1m5 0h1m1 0h1m1 0h1m2 0h2m3 0h1m1 0h1m3 0h2M0 24.5h1m1 0h3m1 0h1m2 0h1m1 0h2m2 0h1m1 0h1m2 0h5m1 0h1M0 25.5h1m1 0h3m1 0h1m1 0h2m2 0h2m1 0h2m2 0h1m1 0h1m2 0h2m2 0h1M0 26.5h1m1 0h3m1 0h1m1 0h4m1 0h2m1 0h1m1 0h4m1 0h1m2 0h1m1 0h1M0 27.5h1m5 0h1m4 0h3m1 0h2m1 0h1m1 0h2m3 0h1m1 0h1M0 28.5h7m1 0h8m2 0h8m1 0h1"/></svg>
+</div><p><b>zukunftskompetenzchallenge.ch</b><br>Zukunftskompetenz-Challenge: sechs Wochen per E-Mail, kostenlos</p></div>
+      <div class="attr"><img src="file:///Users/marc/Dev/idg-teacher-guide/public/assets/inspired-by-idg.png" alt=""><p>Diese Arbeit ist inspiriert vom Inner Development Guide. Mehr unter innerdevelopmentgoals.org</p></div>
+    </div></div>
+<script>
+document.fonts.ready.then(() => {
+  const over = [...document.querySelectorAll('.card')].filter((c) => c.scrollHeight > c.clientHeight + 1)
+  document.body.dataset.overflow = over.map((c) => (c.querySelector('h2, .name, h3') || {}).textContent).join(' | ')
+})
+</script></body></html>

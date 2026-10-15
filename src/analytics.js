@@ -7,8 +7,12 @@
    «Karte gedreht» und «Unterricht geöffnet», je mit Karten-ID, Sprache und
    Ort (App oder Demo-Stapel der Startseite).
 
-   Query und Hash kommen nie mit (`data-exclude-search`, `data-exclude-hash`
-   und noch einmal in `beforeSend`). Starts der installierten App laufen unter
+   Der Hash kommt nie mit (`data-exclude-hash` und noch einmal in `beforeSend`).
+   Von der Query bleiben nur die Kampagnenkennungen utm_source, utm_medium,
+   utm_campaign, utm_content und utm_term — Umami liest sie aus der Adresse.
+   `data-exclude-search` bleibt deshalb aus: es würde die Kennungen streichen,
+   bevor `beforeSend` sie sieht. Alles andere, insbesondere `?card=`, fällt
+   weg. Starts der installierten App laufen unter
    /app/standalone/, damit sich Installationen von Browserbesuchen
    unterscheiden lassen. Gesendet wird nur auf der Produktions-Domain; lokal
    loggt die Konsole. Das Skript-Tag steht im gebauten HTML: Umami bricht ab,
@@ -25,33 +29,58 @@ export const BEFORE_SEND_NAME = 'idgUmamiBeforeSend'
 /** Klassisches defer-Tag, wie von Umami vorgegeben. Kein type=module:
     sonst ist document.currentScript leer und das Skript tut nichts. */
 export function umamiScriptHtml() {
-  return `<script defer src="${UMAMI_SRC}" data-website-id="${UMAMI_WEBSITE_ID}" data-domains="${UMAMI_DOMAIN}" data-exclude-search="true" data-exclude-hash="true" data-before-send="${BEFORE_SEND_NAME}"></script>`
+  return `<script defer src="${UMAMI_SRC}" data-website-id="${UMAMI_WEBSITE_ID}" data-domains="${UMAMI_DOMAIN}" data-exclude-hash="true" data-before-send="${BEFORE_SEND_NAME}"></script>`
 }
 
 const APP_PATH = '/app/'
 const STANDALONE_PATH = '/app/standalone/'
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
 
-function withoutQuery(raw, base) {
+function parsed(raw, base) {
   const url = new URL(raw, base)
-  const absolute = /^https?:\/\//i.test(raw)
-  url.search = ''
-  url.hash = ''
-  return { url, absolute }
+  return { url, absolute: /^https?:\/\//i.test(raw) }
 }
 
-/** Reine Funktion: Query und Hash weg, Standalone-Start der App markieren. */
+function format(url, absolute) {
+  return absolute ? url.toString() : `${url.pathname}${url.search}`
+}
+
+/** Hash weg. Query nur behalten, wenn sie eine der fünf Kampagnenkennungen ist. */
+function keepUtm(url) {
+  const kept = new URLSearchParams()
+  for (const [key, value] of url.searchParams) {
+    const canon = key.toLowerCase()
+    if (!value || !UTM_KEYS.includes(canon) || kept.has(canon)) continue
+    kept.set(canon, value)
+  }
+  const ordered = new URLSearchParams()
+  for (const key of UTM_KEYS) {
+    if (kept.has(key)) ordered.set(key, kept.get(key))
+  }
+  url.search = ordered.toString()
+  url.hash = ''
+}
+
+function stripQuery(url) {
+  url.search = ''
+  url.hash = ''
+}
+
+/** Reine Funktion: nur UTM-Parameter an der Adresse, Referrer ohne Query, Standalone markieren. */
 export function sanitizeEvent(event, { standalone = false, base = `https://${UMAMI_DOMAIN}` } = {}) {
   if (!event || typeof event !== 'object') return event
   const next = { ...event }
   if (typeof event.url === 'string' && event.url) {
-    const { url, absolute } = withoutQuery(event.url, base)
+    const { url, absolute } = parsed(event.url, base)
+    keepUtm(url)
     if (standalone && url.pathname === APP_PATH) url.pathname = STANDALONE_PATH
-    next.url = absolute ? url.toString() : url.pathname
+    next.url = format(url, absolute)
   }
   if (typeof event.referrer === 'string' && event.referrer) {
     try {
-      const { url, absolute } = withoutQuery(event.referrer, base)
-      next.referrer = absolute ? url.toString() : url.pathname
+      const { url, absolute } = parsed(event.referrer, base)
+      stripQuery(url)
+      next.referrer = format(url, absolute)
     } catch { /* Referrer unparsebar: Original behalten */ }
   }
   return next
@@ -99,7 +128,6 @@ export function initAnalytics({
   script.src = UMAMI_SRC
   script.dataset.websiteId = UMAMI_WEBSITE_ID
   script.dataset.domains = UMAMI_DOMAIN
-  script.dataset.excludeSearch = 'true'
   script.dataset.excludeHash = 'true'
   script.dataset.beforeSend = BEFORE_SEND_NAME
   win.document.head.appendChild(script)

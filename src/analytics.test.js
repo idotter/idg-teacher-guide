@@ -35,7 +35,13 @@ function fakeWindow({ hostname = UMAMI_DOMAIN, href = `${ORIGIN}/app/?card=mut` 
 beforeEach(() => { calls.length = 0 })
 
 describe('sanitizeEvent', () => {
-  it('entfernt Query und Hash aus der gemeldeten Adresse', () => {
+  it('entfernt Kartendaten und Hash, lässt aber die fünf UTM-Parameter stehen', () => {
+    const out = sanitizeEvent({
+      url: `${ORIGIN}/app/?card=resilienz&utm_source=Newsletter&UTM_MEDIUM=email&utm_campaign=herbst&utm_content=kopf&utm_term=guide&ref=intern#oben`,
+    }, { standalone: false })
+    expect(out.url).toBe(`${ORIGIN}/app/?utm_source=Newsletter&utm_medium=email&utm_campaign=herbst&utm_content=kopf&utm_term=guide`)
+  })
+  it('meldet eine Adresse ohne Kampagnenkennung ohne Query', () => {
     const out = sanitizeEvent({ url: `${ORIGIN}/app/?card=resilienz#oben` }, { standalone: false })
     expect(out.url).toBe(`${ORIGIN}/app/`)
   })
@@ -92,6 +98,7 @@ describe('umamiScriptHtml', () => {
     expect(html).toContain(`data-website-id="${UMAMI_WEBSITE_ID}"`)
     expect(html).toContain(`data-domains="${UMAMI_DOMAIN}"`)
     expect(html).toContain(`data-before-send="${BEFORE_SEND_NAME}"`)
+    expect(html).not.toContain('data-exclude-search')
     expect(html).not.toContain('type="module"')
   })
 })
@@ -107,7 +114,7 @@ describe('initAnalytics', () => {
     expect(script.defer).toBe(true)
     expect(script.dataset.websiteId).toBe(UMAMI_WEBSITE_ID)
     expect(script.dataset.domains).toBe(UMAMI_DOMAIN)
-    expect(script.dataset.excludeSearch).toBe('true')
+    expect(script.dataset.excludeSearch).toBeUndefined()
     expect(script.dataset.excludeHash).toBe('true')
     expect(script.dataset.beforeSend).toBe(BEFORE_SEND_NAME)
     expect(win[BEFORE_SEND_NAME]('event', { url: `${ORIGIN}/app/?card=mut` }).url).toBe(`${ORIGIN}/app/`)

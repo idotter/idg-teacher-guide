@@ -105,7 +105,8 @@ Umami startet nur, wenn das Tag schon im Dokument steht. Die drei Einstiege
 Bereinigung und melden die Events «Karte gedreht» und «Unterricht geöffnet»
 mit Karten-ID, Sprache und Ort (App oder Demo-Stapel der Startseite). Keine
 Cookies; die IP dient nur der Ortsbestimmung und wird nicht gespeichert.
-Query-Parameter werden vor dem Senden entfernt, Starts der installierten App
+Query-Parameter werden vor dem Senden entfernt, ausser utm_source, utm_medium,
+utm_campaign, utm_content und utm_term. Starts der installierten App
 laufen unter `/app/standalone/`. Gesendet wird nur auf
 `guide.zukunftskompetenzchallenge.ch`; im Dev-Modus loggt die Konsole. Was
 gemeldet wird, steht in der Datenschutzerklärung — Änderungen dort in allen
