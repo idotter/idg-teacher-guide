@@ -579,6 +579,10 @@ export default class IdgCards extends React.Component {
     const isSaved = !!(sk && s.saved.includes(sk.id))
     const sheet = !!s.sheet && !!sk
     const menu = !!s.menu
+    /* Das Blatt hängt am Stapel. Wechselt der Tab (Einstellungen, Merkliste),
+       ist das Blatt im selben Render zu, ohne die 420-ms-Ausfahrt — sonst
+       liegt es noch über dem neuen Inhalt. */
+    const menuOpen = menu && s.tab === 'stack'
     const accent = dim.color || '#000'
     const accentFg = fgOn(dim)
     const accentText = dim.id === 'being' ? '#8a7350' : (dim.color || '#000')
@@ -1073,8 +1077,8 @@ export default class IdgCards extends React.Component {
 
             {/* ---------------- Menü ---------------- */}
             <div onClick={() => this.setState({ menu: false })}
-              style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,.35)', opacity: menu ? 1 : 0, pointerEvents: menu ? 'auto' : 'none', transition: 'opacity .3s ease', zIndex: 5 }} />
-            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, overflow: 'hidden', paddingBottom: 'calc(var(--idg-sab) + 8px)', transform: menu ? 'translateY(0)' : 'translateY(105%)', visibility: menu ? 'visible' : 'hidden', transition: 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s', zIndex: 6 }}>
+              style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,.35)', opacity: menuOpen ? 1 : 0, pointerEvents: menuOpen ? 'auto' : 'none', transition: s.tab === 'stack' ? 'opacity .3s ease' : 'none', zIndex: 5 }} />
+            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, overflow: 'hidden', paddingBottom: 'calc(var(--idg-sab) + 8px)', transform: menuOpen ? 'translateY(0)' : 'translateY(105%)', visibility: menuOpen ? 'visible' : 'hidden', transition: s.tab === 'stack' ? 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s' : 'none', zIndex: 6 }}>
               {menuItems.map((m, mi) => (
                 <button key={mi} onClick={m.go} className="idg-tint"
                   style={{ all: 'unset', boxSizing: 'border-box', width: '100%', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 16, padding: '0 20px', height: 56, borderBottom: '1px solid rgba(0,0,0,.1)', fontSize: 15, fontWeight: 600, transition: 'background .15s' }}>
