@@ -621,6 +621,12 @@ export default class IdgCards extends React.Component {
     const menuOpen = menu && s.tab === 'stack'
     const accent = dim.color || '#000'
     const accentFg = fgOn(dim)
+    const questionBullet = (q, i, extra) => (
+      <p key={i} style={{ margin: 0, textWrap: 'pretty', paddingLeft: 20, position: 'relative', ...extra }}>
+        <span aria-hidden="true" style={{ position: 'absolute', left: 0, top: '0.45em', width: 8, height: 8, borderRadius: '50%', background: accent }} />
+        {q}
+      </p>
+    )
     const accentText = dim.id === 'being' ? '#8a7350' : (dim.color || '#000')
     const saveIconFill = isSaved ? 'currentColor' : 'none'
     const saveLabel = isSaved ? ui.saved : ui.save
@@ -838,11 +844,11 @@ export default class IdgCards extends React.Component {
                             <div style={{ flex: 1, overflowY: 'auto', padding: '14px 20px 20px', display: 'flex', flexDirection: 'column', gap: 18, WebkitOverflowScrolling: 'touch' }}>
                               <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                                 <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.forMe}</h3>
-                                {(card.teacher || []).map((q, i) => <p key={i} style={{ margin: 0, fontSize: 14, lineHeight: 1.4, fontWeight: 700, textWrap: 'pretty' }}>{q}</p>)}
+                                {(card.teacher || []).map((q, i) => questionBullet(q, i, { fontSize: 14, lineHeight: 1.4, fontWeight: 700 }))}
                               </section>
                               <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                                 <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.forStudents}</h3>
-                                {(card.students || []).map((q, i) => <p key={i} style={{ margin: 0, fontSize: 14, lineHeight: 1.4, fontWeight: 300, textWrap: 'pretty' }}>{q}</p>)}
+                                {(card.students || []).map((q, i) => questionBullet(q, i, { fontSize: 14, lineHeight: 1.4, fontWeight: 300 }))}
                               </section>
                               <button onClick={openSheet} className="idg-h85 idg-press"
                                 style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '12px 16px 12px 20px', border: '1px solid currentColor', borderRadius: 999, background: 'transparent', color: 'inherit', fontSize: 13.5, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s, transform .12s' }}>
@@ -899,11 +905,11 @@ export default class IdgCards extends React.Component {
                             <div style={{ flex: 1, overflowY: 'auto', padding: '18px 20px 20px', display: 'flex', flexDirection: 'column', gap: 22, WebkitOverflowScrolling: 'touch' }}>
                               <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                                 <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, color: accentText }}>{ui.forMe}</h3>
-                                {(card.teacher || []).map((q, i) => <p key={i} style={{ margin: 0, fontSize: 16, lineHeight: 1.3, fontWeight: 700, letterSpacing: '-.01em', textWrap: 'pretty' }}>{q}</p>)}
+                                {(card.teacher || []).map((q, i) => questionBullet(q, i, { fontSize: 16, lineHeight: 1.3, fontWeight: 700, letterSpacing: '-.01em' }))}
                               </section>
                               <section style={{ display: 'flex', flexDirection: 'column', gap: 10, paddingTop: 18, borderTop: '1px solid rgba(0,0,0,.12)' }}>
                                 <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, color: accentText }}>{ui.forStudents}</h3>
-                                {(card.students || []).map((q, i) => <p key={i} style={{ margin: 0, fontSize: 15, lineHeight: 1.35, fontWeight: 300, textWrap: 'pretty' }}>{q}</p>)}
+                                {(card.students || []).map((q, i) => questionBullet(q, i, { fontSize: 15, lineHeight: 1.35, fontWeight: 300 }))}
                               </section>
                               <button onClick={openSheet} className="idg-h6"
                                 style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0 0', border: 0, background: 'transparent', color: 'inherit', fontSize: 14, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s' }}>
@@ -1084,7 +1090,7 @@ export default class IdgCards extends React.Component {
             {/* ---------------- Sheet: Im Unterricht ---------------- */}
             <div onClick={() => this.setState({ sheet: false })}
               style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,.35)', opacity: sheet ? 1 : 0, pointerEvents: sheet ? 'auto' : 'none', transition: 'opacity .3s ease', zIndex: 5 }} />
-            <div style={{ position: 'absolute', left: 0, right: 0, top: '12%', bottom: 0, background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, overflow: 'hidden', transform: sheet ? 'translateY(0)' : 'translateY(105%)', visibility: sheet ? 'visible' : 'hidden', transition: 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s', zIndex: 6 }}>
+            <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, maxHeight: 'calc(100% - var(--idg-sat) - 168px)', background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, overflow: 'hidden', transform: sheet ? 'translateY(0)' : 'translateY(105%)', visibility: sheet ? 'visible' : 'hidden', transition: 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s', zIndex: 6 }}>
               <div style={{ flex: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, padding: '16px 20px 12px', borderBottom: '1px solid rgba(0,0,0,.14)' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                   <span style={{ fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -1099,7 +1105,7 @@ export default class IdgCards extends React.Component {
                   {closeGlyph}
                 </button>
               </div>
-              <div style={{ flex: 1, overflowY: 'auto', padding: '16px 20px calc(var(--idg-sab) + 24px)', display: 'flex', flexDirection: 'column', gap: 20 }}>
+              <div style={{ flex: '0 1 auto', minHeight: 0, overflowY: 'auto', padding: '16px 20px calc(var(--idg-sab) + 25px)', display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <section style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                   <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.ideas}</h3>
                   {(card.ideas || []).map((i, ix) => (
