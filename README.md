@@ -48,7 +48,7 @@ src/
   content/{en,fr,es,sv}.js  dieselbe Struktur, gleiche IDs
   ds/                   Design-System-Tokens, unverändert aus dem Projekt
 scripts/
-  extract-skill-glyphs.mjs   Kompetenzglyphen aus dem Guide-PDF schneiden
+  fetch-skill-glyphs.mjs     Kompetenzglyphen aus der Brand-API rendern
   generate-share-cards.mjs   Share-PNG der Kartenfront je Sprache und Kompetenz
   generate-og.mjs            Open-Graph-Bild
   generate-seo-files.mjs     robots.txt, sitemap.xml, llms.txt
@@ -202,20 +202,20 @@ weg.
 ## Herkunft der Grafiken
 
 Die Dimensionssymbole, die App-Icons und das Kartenlayout stammen aus dem
-Design-Projekt. Die 25 Kompetenzglyphen sind aus dem Guide-PDF selbst
-geschnitten — `scripts/extract-skill-glyphs.mjs` rendert die Kachelspalte jeder
-Dimensionsseite mit `pdftoppm` in 600 dpi, findet die fünf Kacheln über den
-Kontrast zum Seitenhintergrund und rechnet jede in eine Alpha-Maske um (Alpha =
-Projektion des Pixels auf die Strecke von der Dimensionsfarbe nach Weiss):
+Design-Projekt. Die 25 Kompetenzglyphen kommen als Vektor aus der Brand-API
+des Inner Development Guide (`https://idg.guide/api/v1/brand`) —
+`scripts/fetch-skill-glyphs.mjs` lädt je Kompetenz das SVG, blendet die farbige
+Dimensionsform aus und rendert die weisse Glyphe als Maske:
 
 ```
-node scripts/extract-skill-glyphs.mjs "~/Downloads/Inner Development Guide (German).pdf"
+node scripts/fetch-skill-glyphs.mjs
 ```
 
-Aus dem PDF statt aus dem Design-Projekt, weil die Version 2.0 vier Glyphen
-mitbringt, die es im alten Satz nicht gab (Kreativität als Neuneck der Dimension
-„Denken", Vergebung, Bewusster Umgang mit Ressourcen, Proaktiv Handeln). Alle 25
-aus einer Quelle zu schneiden hält den Satz in sich konsistent. Der Faktor
+Aus der API statt aus dem Guide-PDF, weil die Kacheln im PDF JPEG-komprimiert
+sind: Auf dem hellen Beige von „Sein" wurden die Glyphen dadurch körnig. Die
+Version 2.0 bringt vier Glyphen mit, die es im alten Satz des Design-Projekts
+nicht gab (Kreativität als Neuneck der Dimension „Denken", Vergebung, Bewusster
+Umgang mit Ressourcen, Proaktiv Handeln); die API liefert alle 25. Der Faktor
 `scale` je Dimension hält die Glyphen auf der Grösse des bisherigen Satzes, damit
 die Karten beim Update nicht springen.
 
