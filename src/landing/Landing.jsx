@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import IdgCards from '../app/IdgCards.jsx'
 import { writeStoredLang } from '../content/langs.js'
 import { SiteFooter, SiteHeader, pagePath } from '../site/chrome.jsx'
 import { langFromPath, localizedPath } from '../site/routes.js'
@@ -47,7 +46,7 @@ const ringGlyph = (size = 18, dotFill = 'none') => (
 /* Eine Karte je Dimension — der Stapel zeigt die Bandbreite, nicht den Umfang.
    Aus den Daten abgeleitet statt hart notiert, damit die Auswahl mitwandert,
    wenn sich die Reihenfolge im Guide ändert. */
-function heroDeckOf({ dimensions, skills }) {
+export function heroDeckOf({ dimensions, skills }) {
   return [
     START_ID,
     ...dimensions
@@ -56,33 +55,6 @@ function heroDeckOf({ dimensions, skills }) {
       .map((k) => k.id)
       .filter((id) => id !== START_ID),
   ]
-}
-
-/* Der Held ist das Produkt selbst: ein echter, umdrehbarer Kartenstapel.
-   Kein Rahmen, kein Grund, keine Bedienelemente — nur die Karten, wie sie
-   auf einem Tisch liegen würden.
-   (Das frühere Schaltpult liegt weiterhin in Simulator.jsx.) */
-function HeroDeck({ lang, deck, label }) {
-  return (
-    <div className="deck" aria-label={label}>
-      <IdgCards
-        variant="farbe"
-        back="liste"
-        depth="stapel"
-        flipAxis="y"
-        radius="weich"
-        ui="ohne"
-        showNumbers={false}
-        lang={lang}
-        key={lang}
-        embedded
-        only={deck}
-        storagePrefix="idg-demo"
-        autoSplash={false}
-        autoTour={false}
-      />
-    </div>
-  )
 }
 
 /* Die Karte in Ruhe. Kein Bildschirmfoto, sondern dieselben Daten in
@@ -106,6 +78,19 @@ function CardFront({ sample, sampleDim }) {
         <b>{sample.name}</b>
         <p>{sample.desc}</p>
       </div>
+    </div>
+  )
+}
+
+/* Standbild für den vorgerenderten Rumpf. Dieselbe Kartenfront wie in der
+   Anatomie, damit Crawler den Kompetenznamen und die Beschreibung im Hero
+   lesen, ohne die interaktive App (und deren Fenster-APIs) mitzubauen. */
+export function staticHeroDeck(content, label) {
+  const sample = content.skills.find((k) => k.id === START_ID)
+  const sampleDim = content.dimensions.find((d) => d.id === sample.dim)
+  return (
+    <div className="deck" aria-label={label}>
+      <CardFront sample={sample} sampleDim={sampleDim} />
     </div>
   )
 }
@@ -166,7 +151,7 @@ function AppLink({ lang, children }) {
   )
 }
 
-export default function Landing({ site, content, here = pagePath() }) {
+export function LandingView({ site, content, here = pagePath(), deck = null }) {
   const lang = langFromPath(here)
   const { ui, dimensions, skills } = content
   const L = site.landing
@@ -200,7 +185,7 @@ export default function Landing({ site, content, here = pagePath() }) {
               </div>
             </div>
             <div className="hero-deck">
-              <HeroDeck lang={lang} deck={heroDeckOf(content)} label={L.deckAria} />
+              {deck}
             </div>
           </div>
         </section>

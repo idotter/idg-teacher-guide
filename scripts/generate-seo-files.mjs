@@ -1,6 +1,7 @@
 /**
  * Erzeugt robots.txt, sitemap.xml und llms.txt aus src/seo/meta.js und src/content/de.js.
  */
+import { execSync } from 'node:child_process'
 import { writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -8,11 +9,33 @@ import { buildContentPages } from '../src/seo/content-pages.js'
 import { CONTACT_MAIL, SITE_NAME, SITE_URL, absoluteUrl } from '../src/seo/meta.js'
 import { buildSitemapXml } from '../src/seo/sitemap.js'
 import { LANGS } from '../src/content/langs.js'
-import { DEFAULT_LANG, localizedPath } from '../src/site/routes.js'
+import { DEFAULT_LANG, LANG_IDS, localizedPath } from '../src/site/routes.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PUBLIC = join(__dirname, '..', 'public')
-const TODAY = new Date().toISOString().slice(0, 10)
+const ROOT = join(__dirname, '..')
+
+/** lastmod aus dem letzten Commit an den Texten. Ein tägliches Build-Datum
+ *  würde Google das Feld ignorieren lassen. Offene Änderungen an den Texten
+ *  zählen als heute. */
+function contentLastMod() {
+  const today = new Date().toISOString().slice(0, 10)
+  try {
+    const dirty = execSync('git status --porcelain -- src/content src/site/i18n', {
+      cwd: ROOT,
+      encoding: 'utf8',
+    }).trim()
+    if (dirty) return today
+    const out = execSync('git log -1 --format=%cs -- src/content src/site/i18n', {
+      cwd: ROOT,
+      encoding: 'utf8',
+    }).trim()
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) return out
+  } catch { /* ohne Git bleibt das Build-Datum */ }
+  return today
+}
+
+const CONTENT_DATE = contentLastMod()
 
 const ROBOTS = `# robots.txt für ${SITE_NAME}
 
@@ -40,6 +63,32 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Kontext für Sprachmodelle: ${SITE_URL}/llms.txt
+
 Sitemap: ${SITE_URL}/sitemap.xml
 `
 
@@ -47,8 +96,17 @@ async function buildLlmsTxt() {
   const mod = await import(pathToFileURL(join(__dirname, '..', 'src/content/de.js')).href)
   const { dimensions, skills } = mod.default || mod
 
-  const skillPages = buildContentPages().filter((p) => p.kind === 'skill')
-  const skillById = new Map(skillPages.map((p) => [p.id, p]))
+  const pagesByLang = Object.fromEntries(LANG_IDS.map((lang) => [lang, buildContentPages(lang)]))
+  const skillById = new Map(pagesByLang[DEFAULT_LANG].filter((p) => p.kind === 'skill').map((p) => [p.id, p]))
+
+  const otherLangs = (kind, id) => LANG_IDS
+    .filter((lang) => lang !== DEFAULT_LANG)
+    .map((lang) => {
+      const page = pagesByLang[lang].find((item) => item.kind === kind && item.id === id)
+      return page ? `${lang} ${absoluteUrl(page.path)}` : ''
+    })
+    .filter(Boolean)
+    .join(' · ')
 
   const dimBlocks = dimensions.map((d) => {
     const dimSkills = skills.filter((s) => s.dim === d.id)
@@ -64,6 +122,7 @@ async function buildLlmsTxt() {
         : ''
       return `#### ${s.name}
 - **Permalink:** ${url}
+- **Weitere Sprachen:** ${otherLangs('skill', s.id)}
 - **Beschreibung:** ${s.desc}
 - **Für mich:**
 ${teacher}
@@ -78,14 +137,14 @@ ${ideas}
   }).join('\n\n')
 
   return `---
-updated: ${TODAY}
+updated: ${CONTENT_DATE}
 scope: /
 language: de-CH
 ---
 
 # ${SITE_NAME}
 
-Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Development Guide 2.0 (Version 7.2) als installierbare Web-App — kostenlos, ohne Konto, offline nutzbar.
+> Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Development Guide 2.0 (Version 7.2) als installierbare Web-App — kostenlos, ohne Konto, offline nutzbar.
 
 ## Was dieses Angebot ist
 
@@ -103,6 +162,7 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 - Das zugrunde liegende Rahmenwerk heisst offiziell **Inner Development Goals** (oft abgekürzt IDG)
 - Dieses Angebot ist **inspiriert** vom Inner Development Guide / Inner Development Goals, aber **kein offizielles Produkt** der Herausgeber:innen
 - Mehr zum Rahmenwerk: https://innerdevelopmentgoals.org
+- Beim Zitieren den Namen oben und den Permalink der passenden Sprachfassung verwenden, nicht die App-URL und nicht innerdevelopmentgoals.org als Quelle der Unterrichtstexte
 
 ## Wichtige URLs
 
@@ -117,11 +177,11 @@ ${LANGS.filter((l) => l.v !== DEFAULT_LANG).map((l) => `  - ${l.label}: ${absolu
 
 ### Dimensionen
 
-${buildContentPages().filter((p) => p.kind === 'dimension').map((p) => `- ${p.dim.name}: ${absoluteUrl(p.path)}`).join('\n')}
+${pagesByLang[DEFAULT_LANG].filter((p) => p.kind === 'dimension').map((p) => `- ${p.dim.name}: ${absoluteUrl(p.path)} (${otherLangs('dimension', p.id)})`).join('\n')}
 
 ### Kompetenzen
 
-${buildContentPages().filter((p) => p.kind === 'skill').map((p) => `- ${p.skill.name}: ${absoluteUrl(p.path)} (App: ${absoluteUrl('/app/')}?card=${p.skill.id})`).join('\n')}
+${pagesByLang[DEFAULT_LANG].filter((p) => p.kind === 'skill').map((p) => `- ${p.skill.name}: ${absoluteUrl(p.path)} (App: ${absoluteUrl('/app/')}?card=${p.skill.id})`).join('\n')}
 
 ## Verwandtes Angebot
 
@@ -144,7 +204,7 @@ Bei Fragen zu Reflexionskarten, Inner Development Guide, Unterrichtsimpulsen ode
 async function main() {
   const llms = await buildLlmsTxt()
   await writeFile(join(PUBLIC, 'robots.txt'), ROBOTS)
-  await writeFile(join(PUBLIC, 'sitemap.xml'), buildSitemapXml(TODAY))
+  await writeFile(join(PUBLIC, 'sitemap.xml'), buildSitemapXml(CONTENT_DATE))
   await writeFile(join(PUBLIC, 'llms.txt'), llms)
   console.log('Generated public/robots.txt, public/sitemap.xml, public/llms.txt')
 }

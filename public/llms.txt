@@ -1,12 +1,12 @@
 ---
-updated: 2026-09-17
+updated: 2026-10-23
 scope: /
 language: de-CH
 ---
 
 # Inner Development Guide im Schulalltag
 
-Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Development Guide 2.0 (Version 7.2) als installierbare Web-App — kostenlos, ohne Konto, offline nutzbar.
+> Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Development Guide 2.0 (Version 7.2) als installierbare Web-App — kostenlos, ohne Konto, offline nutzbar.
 
 ## Was dieses Angebot ist
 
@@ -24,6 +24,7 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 - Das zugrunde liegende Rahmenwerk heisst offiziell **Inner Development Goals** (oft abgekürzt IDG)
 - Dieses Angebot ist **inspiriert** vom Inner Development Guide / Inner Development Goals, aber **kein offizielles Produkt** der Herausgeber:innen
 - Mehr zum Rahmenwerk: https://innerdevelopmentgoals.org
+- Beim Zitieren den Namen oben und den Permalink der passenden Sprachfassung verwenden, nicht die App-URL und nicht innerdevelopmentgoals.org als Quelle der Unterrichtstexte
 
 ## Wichtige URLs
 
@@ -42,11 +43,11 @@ Digitale Reflexionskarten für Lehrpersonen: 25 Kompetenzen des Inner Developmen
 
 ### Dimensionen
 
-- Sein: https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/
-- Denken: https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/
-- Beziehungen: https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/
-- Zusammenarbeit: https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/
-- Handeln: https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/
+- Sein: https://guide.zukunftskompetenzchallenge.ch/dimensionen/being/ (en https://guide.zukunftskompetenzchallenge.ch/en/dimensions/being/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/being/ · es https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/being/ · it https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/being/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/being/)
+- Denken: https://guide.zukunftskompetenzchallenge.ch/dimensionen/thinking/ (en https://guide.zukunftskompetenzchallenge.ch/en/dimensions/thinking/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/thinking/ · es https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/thinking/ · it https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/thinking/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/thinking/)
+- Beziehungen: https://guide.zukunftskompetenzchallenge.ch/dimensionen/relating/ (en https://guide.zukunftskompetenzchallenge.ch/en/dimensions/relating/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/relating/ · es https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/relating/ · it https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/relating/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/relating/)
+- Zusammenarbeit: https://guide.zukunftskompetenzchallenge.ch/dimensionen/collaborating/ (en https://guide.zukunftskompetenzchallenge.ch/en/dimensions/collaborating/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/collaborating/ · es https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/collaborating/ · it https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/collaborating/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/collaborating/)
+- Handeln: https://guide.zukunftskompetenzchallenge.ch/dimensionen/acting/ (en https://guide.zukunftskompetenzchallenge.ch/en/dimensions/acting/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/dimensions/acting/ · es https://guide.zukunftskompetenzchallenge.ch/es/dimensiones/acting/ · it https://guide.zukunftskompetenzchallenge.ch/it/dimensioni/acting/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/dimensioner/acting/)
 
 ### Kompetenzen
 
@@ -91,6 +92,7 @@ Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unse
 
 #### Innerer Kompass
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/innerer-kompass/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/innerer-kompass/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/innerer-kompass/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/innerer-kompass/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/innerer-kompass/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/innerer-kompass/
 - **Beschreibung:** Eine tief empfundene Verpflichtung, in Übereinstimmung mit Werten und Zielen zu leben und zu handeln, die dem Wohl des Ganzen dienen.
 - **Für mich:**
   - Welcher Wert hat heute meine Entscheidungen im Klassenzimmer geleitet – und wo bin ich davon abgewichen?
@@ -106,6 +108,7 @@ Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unse
 
 #### Integrität und Authentizität
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/integritaet-und-authentizitaet/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/integritaet-und-authentizitaet/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/integritaet-und-authentizitaet/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/integritaet-und-authentizitaet/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/integritaet-und-authentizitaet/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/integritaet-und-authentizitaet/
 - **Beschreibung:** Eine aufrichtige Verpflichtung zu Ehrlichkeit und fest verankerten Werten, die in allen Handlungen zum Ausdruck kommen und verkörpert werden.
 - **Für mich:**
   - Wann habe ich zuletzt vor der Klasse zugegeben, etwas nicht zu wissen oder einen Fehler gemacht zu haben?
@@ -121,6 +124,7 @@ Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unse
 
 #### Offenheit und Lernbereitschaft
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/offenheit-und-lernbereitschaft/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/offenheit-und-lernbereitschaft/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/offenheit-und-lernbereitschaft/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/offenheit-und-lernbereitschaft/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/offenheit-und-lernbereitschaft/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/offenheit-und-lernbereitschaft/
 - **Beschreibung:** Eine neugierige, anpassungsfähige Haltung und die Bereitschaft, die Perspektive zu wechseln, verletzlich zu sein, Veränderungen zu begrüssen und zu wachsen.
 - **Für mich:**
   - Was habe ich diese Woche von meinen Schüler:innen gelernt?
@@ -136,6 +140,7 @@ Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unse
 
 #### Selbsterkenntnis
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/selbsterkenntnis/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/selbsterkenntnis/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/selbsterkenntnis/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/selbsterkenntnis/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/selbsterkenntnis/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/selbsterkenntnis/
 - **Beschreibung:** Die Fähigkeit, reflektiert mit Gedanken, Emotionen, Wünschen und Handlungen umzugehen, ein realistisches Selbstbild zu bewahren und sich selbst zu regulieren.
 - **Für mich:**
   - Welche Situationen im Unterricht bringen mich aus dem Gleichgewicht – und was steckt dahinter?
@@ -151,6 +156,7 @@ Eine komplexe Welt erfordert (mehr denn je) ein vertieftes Bewusstsein für unse
 
 #### Präsenz
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/praesenz/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/praesenz/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/praesenz/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/praesenz/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/praesenz/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/praesenz/
 - **Beschreibung:** Die Fähigkeit, ganz im Hier und Jetzt präsent zu sein, die Realität so zu akzeptieren, wie sie ist, und auf sinnvolle Weise darauf zu reagieren.
 - **Für mich:**
   - Wie oft bin ich während der Lektion mit den Gedanken schon bei der nächsten?
@@ -169,6 +175,7 @@ Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unsere
 
 #### Kritisches Denken
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kritisches-denken/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/kritisches-denken/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/kritisches-denken/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/kritisches-denken/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/kritisches-denken/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/kritisches-denken/
 - **Beschreibung:** Die Fähigkeit, über die Gültigkeit von Ideen, Beweisen, Annahmen und Plänen nachzudenken.
 - **Für mich:**
   - Welche Annahmen über meine Klasse habe ich in letzter Zeit nicht überprüft?
@@ -184,6 +191,7 @@ Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unsere
 
 #### Perspektivische Fähigkeiten
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/perspektivische-faehigkeiten/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/perspektivische-faehigkeiten/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/perspektivische-faehigkeiten/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/perspektivische-faehigkeiten/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/perspektivische-faehigkeiten/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/perspektivische-faehigkeiten/
 - **Beschreibung:** Die Fähigkeit, unterschiedliche Perspektiven zu berücksichtigen und die Erkenntnisse in ein reflektiertes Verstehen und Handeln einfliessen zu lassen.
 - **Für mich:**
   - Wie sieht meine Lektion aus der Perspektive des stillsten Kindes aus?
@@ -199,6 +207,7 @@ Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unsere
 
 #### Systemisches Denken
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/systemisches-denken/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/systemisches-denken/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/systemisches-denken/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/systemisches-denken/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/systemisches-denken/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/systemisches-denken/
 - **Beschreibung:** Die Fähigkeit, die komplexen Zusammenhänge und Eigenschaften von Systemen zu verstehen und sie aktiv zu nutzen.
 - **Für mich:**
   - Welches Problem in meiner Klasse versuche ich mit einer einfachen Lösung zu beheben, obwohl es viele Ursachen hat?
@@ -214,6 +223,7 @@ Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unsere
 
 #### Langfristige Orientierung und Visionen
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/langfristige-orientierung/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/langfristige-orientierung/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/langfristige-orientierung/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/langfristige-orientierung/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/langfristige-orientierung/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/langfristige-orientierung/
 - **Beschreibung:** Langfristige Ziele entwickeln und diese auf eine Weise verfolgen, die das gesellschaftliche und ökologische Wohlergehen fördert.
 - **Für mich:**
   - Was sollen meine Schüler:innen in zwanzig Jahren von meinem Unterricht noch tragen?
@@ -229,6 +239,7 @@ Wenn wir unterschiedliche Perspektiven und die langfristigen Konsequenzen unsere
 
 #### Kreativität
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kreativitaet/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/kreativitaet/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/kreativitaet/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/kreativitaet/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/kreativitaet/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/kreativitaet/
 - **Beschreibung:** Die Fähigkeit, über konventionelle Muster hinauszudenken, neue Möglichkeiten zu entwickeln und diese in transformative Ideen umzusetzen.
 - **Für mich:**
   - Wann durften meine Schüler:innen zuletzt etwas machen, das es noch nicht gibt?
@@ -247,6 +258,7 @@ Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinsch
 
 #### Wertschätzung
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/wertschaetzung/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/wertschaetzung/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/wertschaetzung/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/wertschaetzung/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/wertschaetzung/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/wertschaetzung/
 - **Beschreibung:** Mit positiver Wertschätzung, Freude und Dankbarkeit den Menschen und dem Planeten Erde begegnen.
 - **Für mich:**
   - Wem in meiner Klasse habe ich diese Woche noch nichts Anerkennendes gesagt?
@@ -262,6 +274,7 @@ Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinsch
 
 #### Verbundenheit
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/verbundenheit/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/verbundenheit/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/verbundenheit/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/verbundenheit/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/verbundenheit/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/verbundenheit/
 - **Beschreibung:** Das Gefühl der Zugehörigkeit zu einem grösseren Ganzen, wie der Menschheit, dem Netz des Lebens auf dem Planeten und der spirituellen Dimensionen der Existenz.
 - **Für mich:**
   - Fühlt sich jedes Kind in meiner Klasse als Teil der Gruppe? Woran erkenne ich das?
@@ -277,6 +290,7 @@ Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinsch
 
 #### Demut und Bescheidenheit
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/demut-und-bescheidenheit/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/demut-und-bescheidenheit/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/demut-und-bescheidenheit/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/demut-und-bescheidenheit/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/demut-und-bescheidenheit/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/demut-und-bescheidenheit/
 - **Beschreibung:** In der Lage sein, auf die Erfordernisse einer Situation zu reagieren, ohne die eigene Bedeutung voranzustellen.
 - **Für mich:**
   - Wie viel spreche ich in einer Lektion, wie viel die Klasse?
@@ -292,6 +306,7 @@ Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinsch
 
 #### Empathie und Mitgefühl
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/empathie-und-mitgefuehl/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/empathie-und-mitgefuehl/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/empathie-und-mitgefuehl/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/empathie-und-mitgefuehl/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/empathie-und-mitgefuehl/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/empathie-und-mitgefuehl/
 - **Beschreibung:** Mit Freundlichkeit, Fürsorge und Liebe sich mit anderen, mit sich selbst und mit der Natur verbinden – mit dem Ziel und der Absicht, Leiden zu verringern.
 - **Für mich:**
   - Welches Verhalten in meiner Klasse nervt mich – und welches Bedürfnis könnte dahinterstecken?
@@ -307,6 +322,7 @@ Durch Freundlichkeit, Mitgefühl und ein Gefühl der Zugehörigkeit zu Gemeinsch
 
 #### Vergebung
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/vergebung/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/vergebung/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/vergebung/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/vergebung/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/vergebung/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/vergebung/
 - **Beschreibung:** Die Bereitschaft, Feindseligkeiten zu überwinden, Traumata zu verarbeiten und Raum für Heilung zu schaffen.
 - **Für mich:**
   - Welchem Kind begegne ich noch mit dem Konflikt von letzter Woche im Hinterkopf?
@@ -325,6 +341,7 @@ Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte
 
 #### Beziehungen aufbauen
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/beziehungen-aufbauen/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/beziehungen-aufbauen/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/beziehungen-aufbauen/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/beziehungen-aufbauen/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/beziehungen-aufbauen/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/beziehungen-aufbauen/
 - **Beschreibung:** Die Pflege von Beziehungen mit emotionaler Intelligenz, die auf Vertrauen, Respekt, gegenseitigem Verständnis und einem Geist der Zusammenarbeit beruhen.
 - **Für mich:**
   - Zu welchem Kind in meiner Klasse habe ich kaum eine Beziehung – und wann hätte ich zwei Minuten Zeit dafür?
@@ -340,6 +357,7 @@ Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte
 
 #### Inklusive Denkweise und interkulturelle Kompetenz
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/inklusive-denkweise/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/inklusive-denkweise/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/inklusive-denkweise/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/inklusive-denkweise/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/inklusive-denkweise/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/inklusive-denkweise/
 - **Beschreibung:** Die Bereitschaft und Kompetenz, Vielfalt anzuerkennen und zu leben, und Menschen und Gemeinschaften mit unterschiedlichen Perspektiven und Hintergründen einzubeziehen.
 - **Für mich:**
   - Wer in meiner Klasse kommt in Beispielen, Bildern und Texten vor – und wer nicht?
@@ -355,6 +373,7 @@ Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte
 
 #### Gemeinsam Gestalten
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/gemeinsam-gestalten/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/gemeinsam-gestalten/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/gemeinsam-gestalten/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/gemeinsam-gestalten/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/gemeinsam-gestalten/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/gemeinsam-gestalten/
 - **Beschreibung:** Förderung von Kooperationsprozessen mit verschiedenen Interessengruppen, Förderung von Teamarbeit und psychologischer Sicherheit sowie Bewusstsein für Machtverhältnisse.
 - **Für mich:**
   - Worüber dürfen meine Schüler:innen tatsächlich mitentscheiden – und worüber nur scheinbar?
@@ -370,6 +389,7 @@ Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte
 
 #### Kommunizieren
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/kommunizieren/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/kommunizieren/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/kommunizieren/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/kommunizieren/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/kommunizieren/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/kommunizieren/
 - **Beschreibung:** Die Fähigkeit, aufmerksam zuzuhören, einen echten Dialog zu fördern, die eigenen Ansichten geschickt zu vertreten, Konflikte konstruktiv zu bewältigen und die Kommunikation an unterschiedliche Gruppen anzupassen.
 - **Für mich:**
   - Wie viele meiner Fragen im Unterricht sind echte Fragen, auf die ich die Antwort nicht kenne?
@@ -385,6 +405,7 @@ Der Aufbau vertrauensvoller Beziehungen, die Anerkennung unterschiedlicher Werte
 
 #### Mobilisieren
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mobilisieren/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/mobilisieren/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/mobilisieren/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/mobilisieren/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/mobilisieren/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/mobilisieren/
 - **Beschreibung:** Andere inspirieren und befähigen, sich für gemeinsame Ziele und kollektives Handeln zu engagieren.
 - **Für mich:**
   - Was begeistert mich an meinem Fach – und sieht meine Klasse diese Begeisterung?
@@ -403,6 +424,7 @@ Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten a
 
 #### Mut
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/mut/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/mut/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/mut/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/mut/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/mut/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/mut/
 - **Beschreibung:** Für grundlegende Werte einstehen, Entscheidungen treffen, Massnahmen ergreifen und, wenn nötig, etablierte Strukturen und Ansichten hinterfragen und aufbrechen.
 - **Für mich:**
   - Was würde ich in meinem Unterricht ändern, wenn ich keine Angst vor Kritik hätte?
@@ -418,6 +440,7 @@ Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten a
 
 #### Hoffnung und Optimismus
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/hoffnung-und-optimismus/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/hoffnung-und-optimismus/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/hoffnung-und-optimismus/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/hoffnung-und-optimismus/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/hoffnung-und-optimismus/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/hoffnung-und-optimismus/
 - **Beschreibung:** Die gemeinsame Überzeugung, eine gerechtere, integrativere und nachhaltigere Zukunft schaffen, aufbauen und aufrechterhalten zu können.
 - **Für mich:**
   - Welche Zukunft vermittle ich meiner Klasse – eine, die man gestalten kann, oder eine, die man aushalten muss?
@@ -433,6 +456,7 @@ Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten a
 
 #### Bewusster Umgang mit Ressourcen
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/bewusster-umgang-mit-ressourcen/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/bewusster-umgang-mit-ressourcen/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/bewusster-umgang-mit-ressourcen/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/bewusster-umgang-mit-ressourcen/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/bewusster-umgang-mit-ressourcen/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/bewusster-umgang-mit-ressourcen/
 - **Beschreibung:** Mit dem Bewusstsein für die begrenzten natürlichen Ressourcen unseres Planeten handeln, dabei den Schwerpunkt auf Erhaltung, Regeneration und Sparsamkeit legen, um schädlichen Konsum zu vermeiden.
 - **Für mich:**
   - Was verbrauche ich in meinem Unterricht, ohne darüber nachzudenken – Papier, Strom, Material?
@@ -448,6 +472,7 @@ Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten a
 
 #### Proaktiv Handeln
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/proaktiv-handeln/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/proaktiv-handeln/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/proaktiv-handeln/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/proaktiv-handeln/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/proaktiv-handeln/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/proaktiv-handeln/
 - **Beschreibung:** Die aktuellen globalen Herausforderungen erfordern ein zukunftsorientiertes und verantwortungsbewusstes Handeln, das auf Solidarität und Achtung der Menschenwürde und der lebenden Erde basiert.
 - **Für mich:**
   - Wo warte ich, bis jemand anderes ein Problem löst, das ich längst sehe?
@@ -463,6 +488,7 @@ Wenn wir mit Mut und Optimismus vorangehen und unsere gemeinsamen Fähigkeiten a
 
 #### Resilienz
 - **Permalink:** https://guide.zukunftskompetenzchallenge.ch/kompetenzen/resilienz/
+- **Weitere Sprachen:** en https://guide.zukunftskompetenzchallenge.ch/en/skills/resilienz/ · fr https://guide.zukunftskompetenzchallenge.ch/fr/competences/resilienz/ · es https://guide.zukunftskompetenzchallenge.ch/es/competencias/resilienz/ · it https://guide.zukunftskompetenzchallenge.ch/it/competenze/resilienz/ · sv https://guide.zukunftskompetenzchallenge.ch/sv/formagor/resilienz/
 - **Beschreibung:** Widrigkeiten und Hindernisse mit Flexibilität, Engagement und Ausdauer angehen, auch wenn der Fortschritt langsam oder ungewiss ist.
 - **Für mich:**
   - Welches Kind gebe ich innerlich schon ein wenig auf – und was würde es brauchen, dranzubleiben?

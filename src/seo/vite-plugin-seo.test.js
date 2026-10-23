@@ -17,4 +17,20 @@ describe('Umami-Tag im HTML', () => {
     const out = run({ filename: '/repo/app/index.html', server: {} })
     expect(out).not.toContain('cloud.umami.is')
   })
+
+  it('schreibt den Startseiten-Rumpf in #root, nicht nur in noscript', () => {
+    const out = run({ filename: '/repo/index.html', server: {} })
+    expect(out).toContain('<h1>Zukunft gestalten.')
+    expect(out).toContain('href="/dimensionen/being/"')
+    expect(out).toContain('Kritisches Denken')
+    expect(out).not.toContain('<noscript>')
+  })
+
+  it('schreibt die französische Startseite auf Französisch in #root', () => {
+    const out = run({ filename: '/repo/fr/index.html', server: {} })
+    const root = out.split('<div id="root">')[1]
+    expect(root).toContain('href="/fr/dimensions/being/"')
+    expect(root).not.toContain('Zukunft gestalten')
+    expect(root).not.toContain('im Schulalltag')
+  })
 })

@@ -49,6 +49,31 @@ export const OG_IMAGE = `${SITE_URL}/og-image.png`
 export const OG_IMAGE_WIDTH = 1200
 export const OG_IMAGE_HEIGHT = 630
 export const OG_IMAGE_ALT = 'Inner Development Guide im Schulalltag — 25 Reflexionskarten für den Unterricht'
+const LOGO = `${SITE_URL}/assets/icons/icon-512.png`
+const SAME_AS = [
+  'https://zukunftskompetenzchallenge.ch',
+  'https://innerdevelopmentgoals.org',
+]
+/** Snippet-Länge, ab der Google die Meta-Description selbst abschneidet. */
+const META_DESC_MAX = 155
+
+function fill(text, vars) {
+  return String(text).replace(/\{(\w+)\}/g, (whole, name) => (name in vars ? vars[name] : whole))
+}
+
+/** Meta-, Open-Graph- und Twitter-Description auf Snippet-Länge bringen.
+ *  Satzgrenze, wenn eine im Fenster liegt, sonst Wortgrenze. Der sichtbare
+ *  Seitentext bleibt ungekürzt. */
+export function clipMetaDescription(text) {
+  const value = String(text || '').replace(/\s+/g, ' ').trim()
+  if (value.length <= META_DESC_MAX) return value
+  const window = value.slice(0, META_DESC_MAX + 1)
+  const sentence = window.lastIndexOf('. ')
+  if (sentence >= 80) return value.slice(0, sentence + 1)
+  const space = window.lastIndexOf(' ')
+  const base = value.slice(0, space > 80 ? space : META_DESC_MAX).replace(/[.,;:–—-]+$/u, '')
+  return `${base}…`
+}
 
 const INDEX_ROBOTS = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
 const NOINDEX_ROBOTS = 'noindex, follow'
@@ -236,6 +261,9 @@ function webSiteJsonLd(page, site) {
       '@type': 'Organization',
       name: SITE_NAME,
       url: absoluteUrl(home),
+      logo: LOGO,
+      email: CONTACT_MAIL,
+      sameAs: SAME_AS,
     },
   }
 }
@@ -261,10 +289,7 @@ function webApplicationJsonLd({ slim = false, site } = {}) {
       educationalRole: 'teacher',
       audienceType: 'Lehrpersonen in der Schweiz',
     },
-    sameAs: [
-      'https://zukunftskompetenzchallenge.ch',
-      'https://innerdevelopmentgoals.org',
-    ],
+    sameAs: SAME_AS,
     keywords:
       'Inner Development Guide, Inner Development Goals, IDG, Reflexionskarten, Lehrplan 21, Unterricht, Lehrpersonen, Zukunftskompetenzen',
   }
@@ -300,6 +325,22 @@ function landingWebPageJsonLd(page, site) {
       name: SITE_NAME,
       url: absoluteUrl(localizedPath('home', page.lang)),
     },
+    mainEntity: dimensionItemList(page.lang, site.landing.dims.title),
+  }
+}
+
+function dimensionItemList(lang, name) {
+  const dims = buildContentPages(lang).filter((item) => item.kind === 'dimension')
+  return {
+    '@type': 'ItemList',
+    name,
+    numberOfItems: dims.length,
+    itemListElement: dims.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.dim.name,
+      url: absoluteUrl(item.path),
+    })),
   }
 }
 
@@ -416,7 +457,7 @@ export function jsonLdForPage(page) {
           },
           mainEntity: {
             '@type': 'ItemList',
-            name: `Kompetenzen in ${page.dim.name}`,
+            name: fill(site.contentPages.dimensionHeading, { dimName: page.dim.name }),
             numberOfItems: page.dimSkills.length,
             itemListElement: page.dimSkills.map((skill, index) => ({
               '@type': 'ListItem',
@@ -428,22 +469,19 @@ export function jsonLdForPage(page) {
         })
       } else if (page.kind === 'skill') {
         const ui = page.ui || {}
-        const parts = []
-        for (const text of page.skill.teacher || []) {
-          parts.push({ '@type': 'Question', name: ui.forMe, text })
-        }
-        for (const text of page.skill.students || []) {
-          parts.push({ '@type': 'Question', name: ui.forStudents, text })
-        }
-        for (const text of page.skill.ideas || []) {
-          parts.push({ '@type': 'CreativeWork', name: ui.ideas, text })
-        }
+        const part = (learningResourceType, name, description) => ({
+          '@type': 'LearningResource',
+          learningResourceType,
+          name,
+          ...(description ? { description } : {}),
+        })
+        const parts = [
+          ...(page.skill.teacher || []).map((text) => part(ui.forMe, text)),
+          ...(page.skill.students || []).map((text) => part(ui.forStudents, text)),
+          ...(page.skill.ideas || []).map((text) => part(ui.ideas, text)),
+        ]
         if (page.skill.exercise?.title) {
-          parts.push({
-            '@type': 'HowTo',
-            name: page.skill.exercise.title,
-            text: page.skill.exercise.text,
-          })
+          parts.push(part(ui.exercise, page.skill.exercise.title, page.skill.exercise.text))
         }
         blocks.unshift({
           '@context': 'https://schema.org',
@@ -454,9 +492,27 @@ export function jsonLdForPage(page) {
           inLanguage: site.htmlLang,
           learningResourceType: 'Reflection prompt',
           educationalLevel: 'Professional',
+          educationalUse: 'reflection',
           isAccessibleForFree: true,
           teaches: page.skill.name,
-          about: page.dim?.name,
+          isBasedOn: {
+            '@type': 'CreativeWork',
+            name: 'Inner Development Goals',
+            alternateName: ['Inner Development Guide', 'IDG'],
+            url: 'https://innerdevelopmentgoals.org',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: SITE_NAME,
+            url: absoluteUrl(localizedPath('home', page.lang)),
+          },
+          about: page.dim
+            ? {
+                '@type': 'Thing',
+                name: page.dim.name,
+                url: absoluteUrl(localizedPath('dimension', page.lang, page.dim.id)),
+              }
+            : undefined,
           // `educationalFramework` nur für Deutsch: der Fliesstext derselben
           // Kompetenzseiten schränkt den Lehrplan-21-Bezug ausdrücklich aufs
           // Deutsche ein (z. B. it: „In tedesco si collegano alle aree
@@ -540,13 +596,21 @@ export function landingNoscriptHtml(lang = DEFAULT_LANG) {
 }
 
 /** Vollständiger Head-Inhalt für eine Seite (ohne charset/viewport/favicon). */
+function ogLocaleAlternateTags(page) {
+  if (!page.indexed) return []
+  return translationsOf(page.path)
+    .filter((t) => t.path !== page.path)
+    .map((t) => metaTag('og:locale:alternate', siteOf(t.lang).ogLocale, true))
+}
+
 export function renderSeoHead(page) {
   const site = siteOf(page.lang)
   const url = absoluteUrl(page.path)
+  const description = clipMetaDescription(page.description)
   const { key, id } = routeKeyFromPath(page.path)
   const lines = [
     `<title>${escapeHtml(page.title)}</title>`,
-    metaTag('description', page.description),
+    metaTag('description', description),
     metaTag('robots', page.robots),
     // `site.lang` (kurzer Code, z. B. 'de'/'fr'), nicht `site.htmlLang`
     // ('de-CH'): Vor Task 6 stand hier fest 'de', nicht 'de-CH' — mit
@@ -565,8 +629,9 @@ export function renderSeoHead(page) {
     metaTag('og:type', page.ogType, true),
     metaTag('og:url', url, true),
     metaTag('og:title', page.title, true),
-    metaTag('og:description', page.description, true),
+    metaTag('og:description', description, true),
     metaTag('og:locale', site.ogLocale, true),
+    ...ogLocaleAlternateTags(page),
     // Lokalisierter Markenname (siteBrand), nicht das feste, sprachübergreifende
     // SITE_NAME: og:site_name erscheint sichtbar in der Teilen-Vorschau von
     // Messengern/sozialen Netzwerken — beim Teilen von /fr/projet/ zeigte das
@@ -582,7 +647,7 @@ export function renderSeoHead(page) {
     metaTag('twitter:card', 'summary_large_image'),
     metaTag('twitter:url', url),
     metaTag('twitter:title', page.title),
-    metaTag('twitter:description', page.description),
+    metaTag('twitter:description', description),
     metaTag('twitter:image', OG_IMAGE),
     metaTag('twitter:image:alt', OG_IMAGE_ALT),
     ...jsonLdForPage(page).map(jsonLdScript),

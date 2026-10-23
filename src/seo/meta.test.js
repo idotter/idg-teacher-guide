@@ -3,7 +3,7 @@ import { LANG_IDS } from '../site/routes.js'
 import enSite from '../site/i18n/en.js'
 import frSite from '../site/i18n/fr.js'
 import { buildContentPages } from './content-pages.js'
-import { htmlRouteMap, jsonLdForPage, landingNoscriptHtml, pagesFor, renderSeoHead, SITE_NAME } from './meta.js'
+import { clipMetaDescription, htmlRouteMap, jsonLdForPage, landingNoscriptHtml, pagesFor, renderSeoHead, SITE_NAME } from './meta.js'
 
 describe('htmlRouteMap', () => {
   it('deckt alle sechs Sprachen mal fünf Routen plus /app/ ab', () => {
@@ -245,6 +245,16 @@ describe('jsonLdForPage — educationalFramework', () => {
     }
   })
 
+  it('nennt das Rahmenwerk und liefert nur gültige Lernressourcen, keine Fragen ohne Antwort', () => {
+    const block = learningResourceBlock(skillPage('de'))
+    expect(block.isBasedOn.url).toBe('https://innerdevelopmentgoals.org')
+    expect(block.hasPart.length).toBeGreaterThan(0)
+    for (const part of block.hasPart) {
+      expect(part['@type']).toBe('LearningResource')
+      expect(part.name).toBeTruthy()
+    }
+  })
+
   it('lässt den Lehrplan-21-Bezug für die fünf anderen Sprachen weg', () => {
     for (const lang of LANG_IDS.filter((l) => l !== 'de')) {
       const block = learningResourceBlock(skillPage(lang))
@@ -254,5 +264,46 @@ describe('jsonLdForPage — educationalFramework', () => {
         expect(alignment).not.toHaveProperty('educationalFramework')
       }
     }
+  })
+
+  it('benennt die Kompetenzliste einer Dimensionsseite in der Sprache der Route', () => {
+    const page = buildContentPages('fr').find((item) => item.kind === 'dimension' && item.id === 'being')
+    const block = jsonLdForPage(page).find((item) => item['@type'] === 'CollectionPage')
+    expect(block.mainEntity.name).toBe(`Capacités dans « ${page.dim.name} »`)
+    expect(block.mainEntity.name).not.toMatch(/^Kompetenzen/)
+  })
+})
+
+describe('Snippet und Sprachalternaten', () => {
+  it('kürzt überlange Descriptions an einer Wortgrenze auf Snippet-Länge', () => {
+    const page = buildContentPages('de').find((item) => item.kind === 'skill')
+    const head = renderSeoHead(page)
+    const match = head.match(/<meta name="description" content="([^"]+)">/)
+    expect(match[1].length).toBeLessThanOrEqual(155)
+    expect(match[1].startsWith(page.description.slice(0, 40))).toBe(true)
+  })
+
+  it('lässt kurze Descriptions unverändert', () => {
+    expect(clipMetaDescription('Kurz und klar.')).toBe('Kurz und klar.')
+  })
+
+  it('setzt og:locale:alternate für die fünf anderen Sprachen', () => {
+    const head = renderSeoHead(pagesFor('fr')['/fr/projet/'])
+    for (const locale of ['de_CH', 'en_GB', 'es_ES', 'it_IT', 'sv_SE']) {
+      expect(head).toContain(`<meta property="og:locale:alternate" content="${locale}">`)
+    }
+    expect(head).not.toContain('<meta property="og:locale:alternate" content="fr_CH">')
+  })
+
+  it('lässt og:locale:alternate auf noindex-Seiten weg', () => {
+    const head = renderSeoHead(pagesFor('de')['/app/'])
+    expect(head).not.toContain('og:locale:alternate')
+  })
+
+  it('listet auf der Startseite die fünf Dimensionen mit URL', () => {
+    const block = jsonLdForPage(pagesFor('de')['/']).find((item) => item['@type'] === 'WebPage')
+    expect(block.mainEntity['@type']).toBe('ItemList')
+    expect(block.mainEntity.numberOfItems).toBe(5)
+    expect(block.mainEntity.itemListElement[0].url).toContain('/dimensionen/')
   })
 })

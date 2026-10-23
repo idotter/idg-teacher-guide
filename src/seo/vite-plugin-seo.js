@@ -1,5 +1,6 @@
 import { umamiScriptHtml } from '../analytics.js'
-import { landingNoscriptHtml, pageFromHtmlFilename, renderSeoHead } from './meta.js'
+import { renderLandingHtml } from './landing-html.jsx'
+import { pageFromHtmlFilename, renderSeoHead } from './meta.js'
 import { renderStaticPageHtml } from './static-page.jsx'
 import { langFromPath, routeKeyFromPath } from '../site/routes.js'
 
@@ -61,10 +62,15 @@ export function injectSeoPlugin() {
         }
 
         const { key } = routeKeyFromPath(page.path)
+        const lang = langFromPath(page.path)
         if (key === 'home') {
-          out = out.replace('</body>', `  ${landingNoscriptHtml(page.lang)}\n</body>`)
+          // Voller Seitenrumpf statt des kurzen noscript-Blocks: Sprachmodelle
+          // und Crawler ohne JavaScript lesen #root, nicht <noscript>.
+          const markup = renderLandingHtml(page.path, SITE_BY_LANG[lang], CONTENT_BY_LANG[lang])
+          if (markup) {
+            out = out.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
+          }
         } else if (key !== 'app') {
-          const lang = langFromPath(page.path)
           const markup = renderStaticPageHtml(page.path, SITE_BY_LANG[lang], CONTENT_BY_LANG[lang])
           if (markup) {
             out = out.replace('<div id="root"></div>', `<div id="root">${markup}</div>`)
