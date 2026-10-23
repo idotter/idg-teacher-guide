@@ -13,10 +13,20 @@
  *
  * SCALE hält die Glyphen auf derselben Grösse wie der bisherige Satz aus dem
  * Design-Projekt — sonst würden die Karten beim Update leicht springen.
+ *
+ * Die Kacheln im PDF sind JPEG-komprimiert. Je näher die Kachelfarbe an Weiss
+ * liegt, desto kürzer die Projektionsstrecke und desto stärker schlägt das
+ * Kompressionsrauschen aufs Alpha durch — beim Beige von "Sein" so stark, dass
+ * die Zeichen körnig wirken. Deshalb wird jede Maske geglättet und die Kante
+ * neu gezogen (smoothMask).
+ *
+ *   node scripts/extract-skill-glyphs.mjs --clean
+ *
+ * bereitet die vorhandenen Masken ohne PDF neu auf.
  */
 import sharp from 'sharp'
 import { execFileSync } from 'node:child_process'
-import { mkdir, rm, readdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, readdir, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { tmpdir } from 'node:os'
@@ -106,7 +116,48 @@ async function tileToMask(file, rect) {
   return { buf: out, W, H }
 }
 
+/**
+ * Rauschen raus, Kante neu ziehen: Alpha weichzeichnen, dann über eine
+ * Smoothstep-Rampe um 50 % wieder steil stellen. Die Strichbreite bleibt, weil
+ * die Schwelle in der Mitte liegt; die Kante ist danach rund 2 px breit.
+ */
+const SMOOTH = { sigma: 3.5, lo: 0.2, hi: 0.8 }
+
+async function smoothMask(input) {
+  const { data, info } = await sharp(input).extractChannel(3).blur(SMOOTH.sigma)
+    .raw().toBuffer({ resolveWithObject: true })
+  for (let i = 0; i < data.length; i++) {
+    const t = Math.max(0, Math.min(1, (data[i] / 255 - SMOOTH.lo) / (SMOOTH.hi - SMOOTH.lo)))
+    data[i] = Math.round(t * t * (3 - 2 * t) * 255)
+  }
+  const alpha = await sharp(data, { raw: { width: info.width, height: info.height, channels: 1 } }).png().toBuffer()
+  return sharp({ create: { width: info.width, height: info.height, channels: 3, background: '#fff' } })
+    .joinChannel(alpha).png().toBuffer()
+}
+
+// Erst quantisieren, dann einfärben: sonst quantisiert die farbige Variante
+// ein zweites Mal unabhängig und die beiden Alphakanäle laufen auseinander.
+async function writeGlyph(name, color, mask) {
+  const white = await sharp(await smoothMask(mask)).png(PNG).toBuffer()
+  await writeFile(join(WHITE_DIR, `${name}.png`), white)
+  await sharp({ create: { ...CANVAS, channels: 4, background: color } })
+    .composite([{ input: white, blend: 'dest-in' }])
+    .png(PNG).toFile(join(COLOR_DIR, `${name}.png`))
+}
+
+async function cleanExisting() {
+  let n = 0
+  for (const { color, skills } of PAGES) {
+    for (const name of skills) {
+      await writeGlyph(name, color, await readFile(join(WHITE_DIR, `${name}.png`)))
+      n++
+    }
+  }
+  console.log(`${n} Glyphen geglättet.`)
+}
+
 async function main() {
+  if (process.argv[2] === '--clean') return cleanExisting()
   const pdf = process.argv[2]
   if (!pdf) { console.error('Pfad zum Guide-PDF angeben.'); process.exit(1) }
 
@@ -130,17 +181,10 @@ async function main() {
       const mask = await sharp(buf, { raw: { width: W, height: H, channels: 4 } })
         .resize(Math.round(W * scale), Math.round(H * scale))
         .png().toBuffer()
-      const centred = sharp({ create: { ...CANVAS, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
+      const centred = await sharp({ create: { ...CANVAS, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0 } } })
         .composite([{ input: mask, gravity: 'centre' }])
-
-      // Erst quantisieren, dann einfärben: sonst quantisiert die farbige Variante
-      // ein zweites Mal unabhängig und die beiden Alphakanäle laufen auseinander.
-      const white = await centred.png(PNG).toBuffer()
-      await writeFile(join(WHITE_DIR, `${skills[i]}.png`), white)
-      // Eingefärbt: dieselbe Maske, Fläche in Dimensionsfarbe.
-      await sharp({ create: { ...CANVAS, channels: 4, background: color } })
-        .composite([{ input: white, blend: 'dest-in' }])
-        .png(PNG).toFile(join(COLOR_DIR, `${skills[i]}.png`))
+        .png().toBuffer()
+      await writeGlyph(skills[i], color, centred)
       n++
     }
     console.log(`${dim}: ${skills.join(', ')}`)
