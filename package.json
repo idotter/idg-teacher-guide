@@ -11,6 +11,7 @@
     "test": "vitest run",
     "generate:share": "node scripts/generate-share-cards.mjs",
     "generate:og": "node scripts/generate-og.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
     "generate:seo": "node scripts/generate-seo-files.mjs",
     "generate:content": "node scripts/generate-content-pages.mjs",
     "check:i18n": "node scripts/check-i18n.mjs",

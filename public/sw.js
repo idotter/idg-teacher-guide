@@ -3,7 +3,7 @@
    HTML und die gehashten Vite-Bundles -> network-first mit Cache als
    Rückfallebene, damit ein Deploy nicht in einer alten Version hängen bleibt. */
 
-const CACHE = 'idg-cards-v1'
+const CACHE = 'idg-cards-v2'
 const SHELL = ['/app/', '/manifest.webmanifest']
 
 self.addEventListener('install', (e) => {
