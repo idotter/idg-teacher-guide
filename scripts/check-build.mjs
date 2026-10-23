@@ -3,7 +3,8 @@
  * Prüft die gebaute Website (dist/) gegen die Mehrsprachigkeits-Spec. Läuft
  * nach `npm run build` (bzw. `npm run check:build`, das build voraussetzt).
  *
- * Sieben Prüfungen über alle HTML-Dateien in dist/:
+ * Sieben Prüfungen über alle HTML-Dateien in dist/, plus eine über den
+ * Service Worker:
  *
  *  1. `<html lang>` passt zur Route (htmlLangOf der Routensprache)
  *  2. genau ein `<link rel="canonical">`, und es zeigt auf die eigene URL
@@ -23,6 +24,10 @@
  *     bewusst für alle Sprachen dasselbe ist (Task 8, Teil B Rest 1). Eine
  *     Prüfung, die diese beiden Attribute mitzählte, würde diese bewusste
  *     Entscheidung als Fehler melden.
+ *
+ *  8. `dist/sw.js` enthält den Platzhalter `__BUILD_ID__` nicht mehr — das
+ *     Vite-Plugin ersetzt ihn durch die Commit-ID bzw. einen Zeitstempel,
+ *     sonst erkennt der Browser kein neues sw.js.
  *
  * Eigene Entscheidung (im Bericht festgehalten, siehe task-8-report.md):
  * Prüfung 5 und 7 lassen `<script type="application/ld+json">`-Blöcke aus.
@@ -176,6 +181,17 @@ function checkSitemap() {
   }
 }
 
+function checkServiceWorker() {
+  const file = join(DIST, 'sw.js')
+  if (!existsSync(file)) {
+    report('sw.js', 'service-worker', 'dist/sw.js fehlt')
+    return
+  }
+  if (readFileSync(file, 'utf8').includes('__BUILD_ID__')) {
+    report('sw.js', 'service-worker', 'Platzhalter __BUILD_ID__ wurde nicht ersetzt')
+  }
+}
+
 function checkContentRoutes() {
   const routesPath = join(__dirname, 'content-routes.json')
   if (!existsSync(routesPath)) {
@@ -202,6 +218,7 @@ function main() {
   }
   checkSitemap()
   checkContentRoutes()
+  checkServiceWorker()
 
   if (findings.length === 0) {
     console.log(`${htmlFiles.length} Routen geprüft, 0 Befunde`)

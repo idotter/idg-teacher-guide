@@ -57,7 +57,13 @@ export const ui = {
   orderGuide: "Ordning enligt guiden",
   on: "På",
   off: "Av",
-  tapNext: "Tryck för nästa fråga"
+  tapNext: "Tryck för nästa fråga",
+  newsTitle: "Nytt i IDG Guide",
+  newsOk: "Uppfattat",
+  newsShowCard: "Visa kortet",
+  newsSettings: "Nyheter",
+  updateReady: "Ny version finns",
+  updateReload: "Ladda om"
 };
 
 export const dimensions = [

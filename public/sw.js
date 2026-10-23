@@ -6,6 +6,12 @@
 const CACHE = 'idg-cards-v2'
 const SHELL = ['/app/', '/manifest.webmanifest']
 
+// Wird beim Build ersetzt, damit sich sw.js bei jedem Deploy unterscheidet
+// und der Browser ein Update erkennt. Der Cache-Name bleibt stabil, damit
+// eine noch offene App ihre gehashten Dateien weiterfindet.
+const BUILD = '__BUILD_ID__'
+self.__idgBuild = BUILD
+
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()))
 })

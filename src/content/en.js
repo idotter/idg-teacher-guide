@@ -56,7 +56,13 @@ export const ui = {
   orderGuide: "Order as in the guide",
   on: "On",
   off: "Off",
-  tapNext: "Tap for the next question"
+  tapNext: "Tap for the next question",
+  newsTitle: "New in IDG Guide",
+  newsOk: "Got it",
+  newsShowCard: "View card",
+  newsSettings: "What's new",
+  updateReady: "New version available",
+  updateReload: "Reload"
 };
 
 export const dimensions = [

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import { resolve } from 'node:path'
 import { injectSeoPlugin } from './src/seo/vite-plugin-seo.js'
 import { loadContentInputs } from './scripts/load-content-inputs.mjs'
+import { swBuildPlugin } from './src/app/sw-build.js'
 
 // Einstiegspunkte:
 //   /                      Landingpage (Deutsch, handgepflegt)
@@ -20,7 +21,7 @@ import { loadContentInputs } from './scripts/load-content-inputs.mjs'
 //                          siehe scripts/generate-content-pages.mjs und
 //                          scripts/content-routes.json)
 export default defineConfig({
-  plugins: [react(), injectSeoPlugin()],
+  plugins: [react(), injectSeoPlugin(), swBuildPlugin()],
   base: '/',
   build: {
     rollupOptions: {

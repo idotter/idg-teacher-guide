@@ -61,7 +61,13 @@ export const ui = {
   orderGuide: "Orden de la guía",
   on: "Activado",
   off: "Desactivado",
-  tapNext: "Toca para la siguiente pregunta"
+  tapNext: "Toca para la siguiente pregunta",
+  newsTitle: "Novedades en IDG Guide",
+  newsOk: "Entendido",
+  newsShowCard: "Ver la carta",
+  newsSettings: "Novedades",
+  updateReady: "Nueva versión disponible",
+  updateReload: "Recargar"
 };
 
 export const dimensions = [

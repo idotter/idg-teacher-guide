@@ -1,6 +1,7 @@
 import React from 'react'
 import { trackCardFlip, trackTeachingOpen } from '../analytics.js'
 import { LANGS } from '../content/langs.js'
+import { CHANGELOG, newsLines, pendingNews } from './changelog.js'
 import './cards.css'
 
 /* --------------------------------------------------------------------------
@@ -222,7 +223,7 @@ export default class IdgCards extends React.Component {
     aud: 'teacher', qi: 0, splash: !!this.props.autoSplash, data: null, tab: 'stack', filter: 'all',
     index: 0, flipped: false, dx: 0, dragging: false, leaving: 0, noTrans: false,
     saved: [], toast: null, openDim: null, ring: 0, prefs: {}, tour: -1,
-    sheet: false, menu: false,
+    sheet: false, menu: false, updateReady: false, news: null,
   }
 
   key = (k) => `${this.props.storagePrefix}-${k}`
@@ -330,7 +331,10 @@ export default class IdgCards extends React.Component {
     // die Karte hin und gleich wieder zurück).
     this.onKey = (e) => {
       if (!this.mounted || !this.state.data) return
-      if (e.key === 'Escape') this.setState({ sheet: false, menu: false })
+      if (e.key === 'Escape') {
+        this.setState({ sheet: false, menu: false })
+        if (this.state.news?.length) this.dismissNews()
+      }
       if (e.key === 'ArrowRight') this.go(1)
       if (e.key === 'ArrowLeft') this.go(-1)
       if (e.key === ' ') { e.preventDefault(); this.flipNow() }
@@ -344,11 +348,23 @@ export default class IdgCards extends React.Component {
     const prefs = this.read('prefs', {}) || {}
     const onboarded = this.read('onboarded', false)
 
+    let news = null
+    if (!this.props.embedded && CHANGELOG.length) {
+      if (!onboarded) this.write('seenNews', CHANGELOG[0].id)
+      else news = pendingNews(CHANGELOG, this.read('seenNews', null))
+    }
+
     this.setState({
       prefs,
       splash: !!this.props.autoSplash,
       tour: this.props.autoTour && !onboarded ? 0 : -1,
+      news: news?.length ? news : null,
     })
+
+    if (!this.props.embedded) {
+      this.onUpdateReady = () => { if (this.mounted) this.setState({ updateReady: true }) }
+      window.addEventListener('idg:update-ready', this.onUpdateReady)
+    }
 
     if (this.props.autoSplash) {
       this.splashT = setTimeout(() => this.setState({ splash: false }), 3200)
@@ -375,6 +391,7 @@ export default class IdgCards extends React.Component {
   componentWillUnmount() {
     this.mounted = false
     if (this.keyTarget && this.onKey) this.keyTarget.removeEventListener('keydown', this.onKey)
+    if (this.onUpdateReady) window.removeEventListener('idg:update-ready', this.onUpdateReady)
     clearTimeout(this.tt); clearTimeout(this.splashT); clearTimeout(this.toastT)
     if (typeof document !== 'undefined') document.documentElement.style.removeProperty('--idg-screen-bg')
   }
@@ -420,7 +437,7 @@ export default class IdgCards extends React.Component {
   }
 
   flipNow() {
-    if (this.moved || this.state.sheet || this.state.menu) return
+    if (this.moved || this.state.sheet || this.state.menu || this.newsOpen()) return
     const toBack = !this.state.flipped
     this.setState((s) => ({ flipped: !s.flipped }))
     if (toBack) this.report(trackCardFlip)
@@ -428,7 +445,7 @@ export default class IdgCards extends React.Component {
 
   go(dir, out) {
     const l = this.list()
-    if (l.length < 2 || this.state.leaving || this.state.sheet || this.state.menu) return
+    if (l.length < 2 || this.state.leaving || this.state.sheet || this.state.menu || this.newsOpen()) return
     this.setState({ leaving: out ?? dir, flipped: false, dragging: false })
     clearTimeout(this.tt)
     this.tt = setTimeout(() => {
@@ -470,6 +487,25 @@ export default class IdgCards extends React.Component {
   }
 
   endTour = () => { this.write('onboarded', true); this.setState({ tour: -1 }) }
+
+  newsOpen = () => {
+    const s = this.state
+    return !!s.news?.length && !s.splash && !(s.tour != null && s.tour >= 0)
+  }
+
+  dismissNews = () => {
+    if (CHANGELOG[0]) this.write('seenNews', CHANGELOG[0].id)
+    this.setState({ news: null })
+  }
+
+  openNews = () => {
+    this.setState({ news: CHANGELOG.slice(0, 3), sheet: false, menu: false })
+  }
+
+  openNewsCard = (id) => {
+    this.dismissNews()
+    this.openCardInFullStack(id)
+  }
 
   // Vom Simulator aus aufrufbar.
   startTour = () => this.setState({ tab: 'stack', tour: 0, sheet: false, flipped: false, menu: false })
@@ -594,6 +630,10 @@ export default class IdgCards extends React.Component {
       : null
 
     const tourOn = s.tour != null && s.tour >= 0 && !!d
+    const hasNews = !p.embedded && !!s.news?.length
+    const newsOn = hasNews && !!d && !s.splash && !tourOn
+    const newsCard = newsOn ? s.news.find((entry) => entry.card)?.card : null
+    const showUpdate = s.updateReady && !p.embedded && !!d && !s.splash && !tourOn && !newsOn
     const tourStep = TOUR_STEPS[s.tour] || TOUR_STEPS[0]
     const tourLast = s.tour === TOUR_STEPS.length - 1
 
@@ -725,7 +765,7 @@ export default class IdgCards extends React.Component {
                 <div
                   style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: bare ? '4px 16px 12px' : '4px 12px 12px', position: 'relative', perspective: 1400, containerType: 'size', touchAction: 'pan-y', userSelect: 'none', WebkitUserSelect: 'none' }}
                   onPointerDown={(e) => {
-                    if (s.leaving || s.sheet || s.menu) return
+                    if (s.leaving || s.sheet || s.menu || newsOn) return
                     if (e.pointerType === 'mouse' && e.button !== 0) return
                     this.x0 = e.clientX; this.y0 = e.clientY; this.moved = false
                     this.setState({ dragging: true })
@@ -1017,6 +1057,15 @@ export default class IdgCards extends React.Component {
                     </div>
                   </div>
                 </section>
+                {!p.embedded && CHANGELOG.length > 0 && (
+                  <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                    <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.newsSettings}</h3>
+                    <button onClick={this.openNews} className="idg-invert idg-press"
+                      style={{ height: 44, padding: '0 20px', border: '1px solid #000', borderRadius: 999, background: '#fff', color: '#000', fontSize: 13, fontWeight: 600, cursor: 'pointer', transition: 'background .15s, color .15s, transform .12s' }}>
+                      {ui.newsTitle}
+                    </button>
+                  </section>
+                )}
                 <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>Hilfe</h3>
                   <button onClick={this.startTour} className="idg-invert idg-press"
@@ -1136,6 +1185,54 @@ export default class IdgCards extends React.Component {
                   </button>
                 </div>
               </div>
+            )}
+
+            {/* ---------------- Was ist neu ---------------- */}
+            {hasNews && (
+              <>
+                <div onClick={this.dismissNews}
+                  style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,.35)', opacity: newsOn ? 1 : 0, pointerEvents: newsOn ? 'auto' : 'none', transition: 'opacity .3s ease', zIndex: 9 }} />
+                <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, maxHeight: 'calc(100% - var(--idg-sat) - 168px)', background: '#fff', color: '#000', display: 'flex', flexDirection: 'column', borderRadius: radTop, overflow: 'hidden', transform: newsOn ? 'translateY(0)' : 'translateY(105%)', visibility: newsOn ? 'visible' : 'hidden', transition: 'transform .42s cubic-bezier(.2,.8,.2,1), visibility .42s', zIndex: 10 }}>
+                  <div style={{ flex: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, padding: '16px 20px 12px', borderBottom: '1px solid rgba(0,0,0,.14)' }}>
+                    <h2 style={{ margin: 0, fontSize: 22, lineHeight: 1.15, fontWeight: 700, letterSpacing: '-.01em' }}>{ui.newsTitle}</h2>
+                    <button onClick={this.dismissNews} aria-label={ui.close} className="idg-invert"
+                      style={{ flex: 'none', width: 36, height: 36, border: '1px solid #000', borderRadius: '50%', background: '#fff', color: '#000', display: 'grid', placeItems: 'center', cursor: 'pointer', transition: 'background .15s, color .15s' }}>
+                      {closeGlyph}
+                    </button>
+                  </div>
+                  <div style={{ flex: '0 1 auto', minHeight: 0, overflowY: 'auto', padding: '16px 20px 8px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    {s.news.map((entry) => (
+                      <section key={entry.id} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {newsLines(entry, lang).map((line, ix) => (
+                          <p key={ix} style={{ margin: 0, fontSize: 14.5, lineHeight: 1.45, textWrap: 'pretty', paddingLeft: 20, position: 'relative' }}>
+                            <span style={{ position: 'absolute', left: 0, top: 7, width: 8, height: 8, borderRadius: '50%', background: '#000' }} />{line}
+                          </p>
+                        ))}
+                      </section>
+                    ))}
+                  </div>
+                  <div style={{ flex: 'none', display: 'flex', flexDirection: 'column', gap: 10, padding: '12px 20px calc(var(--idg-sab) + 16px)' }}>
+                    {newsCard && (
+                      <button type="button" onClick={() => this.openNewsCard(newsCard)} className="idg-invert idg-press"
+                        style={{ height: 48, border: '1px solid #000', borderRadius: 999, background: '#fff', color: '#000', fontSize: 14, fontWeight: 700, cursor: 'pointer', transition: 'background .15s, color .15s, transform .12s' }}>
+                        {ui.newsShowCard}
+                      </button>
+                    )}
+                    <button type="button" onClick={this.dismissNews} className="idg-h8"
+                      style={{ height: 48, border: '1px solid #000', borderRadius: 999, background: '#000', color: '#fff', fontSize: 14, fontWeight: 700, cursor: 'pointer', transition: 'opacity .15s' }}>
+                      {ui.newsOk}
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* ---------------- Neue Version ---------------- */}
+            {showUpdate && (
+              <button type="button" onClick={() => window.location.reload()}
+                style={{ position: 'absolute', left: '50%', bottom: 'calc(var(--idg-sab) + 16px)', transform: 'translateX(-50%)', zIndex: 12, maxWidth: 'calc(100% - 32px)', overflow: 'hidden', textOverflow: 'ellipsis', background: '#000', color: '#fff', fontSize: 13, fontWeight: 600, padding: '10px 18px', border: 0, borderRadius: 999, cursor: 'pointer', whiteSpace: 'nowrap' }}>
+                {ui.updateReady} · {ui.updateReload}
+              </button>
             )}
 
             {/* ---------------- Toast ---------------- */}
