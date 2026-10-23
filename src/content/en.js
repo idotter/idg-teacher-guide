@@ -62,7 +62,10 @@ export const ui = {
   newsShowCard: "View card",
   newsSettings: "What's new",
   updateReady: "New version available",
-  updateReload: "Reload"
+  updateReload: "Reload",
+  view: "View",
+  viewSimple: "Simple",
+  viewExtended: "Extended"
 };
 
 export const dimensions = [

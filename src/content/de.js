@@ -61,7 +61,10 @@ export const ui = {
   newsShowCard: "Karte ansehen",
   newsSettings: "Neuigkeiten",
   updateReady: "Neue Version verfügbar",
-  updateReload: "Neu laden"
+  updateReload: "Neu laden",
+  view: "Ansicht",
+  viewSimple: "Einfach",
+  viewExtended: "Erweitert"
 };
 
 export const dimensions = [

@@ -344,6 +344,12 @@ export default class IdgCards extends React.Component {
     this.keyTarget = this.props.embedded ? this.rootEl : window
     if (this.keyTarget) this.keyTarget.addEventListener('keydown', this.onKey)
 
+    this.backObserver = new ResizeObserver(() => this.fitBack())
+    if (this.backFrame) this.backObserver.observe(this.backFrame)
+    if (typeof document !== 'undefined' && document.fonts?.ready) {
+      document.fonts.ready.then(() => { if (this.mounted) this.fitBack() })
+    }
+
     const saved = this.read('saved', []) || []
     const prefs = this.read('prefs', {}) || {}
     const onboarded = this.read('onboarded', false)
@@ -378,6 +384,12 @@ export default class IdgCards extends React.Component {
 
   componentDidUpdate(_prevProps, prevState) {
     this.syncRootScreenBg()
+    if (
+      prevState.index !== this.state.index
+      || prevState.data !== this.state.data
+      || prevState.prefs !== this.state.prefs
+      || prevState.tab !== this.state.tab
+    ) this.fitBack()
 
     if (!this.usesDeepLink() || this.state.tab !== 'stack' || !this.state.data) return
     if (!prevState.data) return
@@ -392,6 +404,7 @@ export default class IdgCards extends React.Component {
     this.mounted = false
     if (this.keyTarget && this.onKey) this.keyTarget.removeEventListener('keydown', this.onKey)
     if (this.onUpdateReady) window.removeEventListener('idg:update-ready', this.onUpdateReady)
+    if (this.backObserver) this.backObserver.disconnect()
     clearTimeout(this.tt); clearTimeout(this.splashT); clearTimeout(this.toastT)
     if (typeof document !== 'undefined') document.documentElement.style.removeProperty('--idg-screen-bg')
   }
@@ -469,6 +482,28 @@ export default class IdgCards extends React.Component {
     this.setState({ toast: t })
     clearTimeout(this.toastT)
     this.toastT = setTimeout(() => this.setState({ toast: null }), 2200)
+  }
+
+  /* Rückseite ohne Scroll: Inhalt, der nicht in die Karte passt, wird
+     proportional verkleinert, statt überzulaufen. */
+  fitBack = () => {
+    const frame = this.backFrame
+    const inner = this.backInner
+    if (!frame || !inner || this.fitting) return
+    this.fitting = true
+    inner.style.zoom = '1'
+    const avail = frame.clientHeight
+    const need = inner.offsetHeight
+    const scale = avail > 0 && need > avail + 1 ? avail / need : 1
+    inner.style.zoom = scale < 1 ? String(scale) : ''
+    this.fitting = false
+  }
+
+  bindBackFrame = (el) => {
+    if (this.backObserver && this.backFrame) this.backObserver.unobserve(this.backFrame)
+    this.backFrame = el
+    if (el && this.backObserver) this.backObserver.observe(el)
+    this.fitBack()
   }
 
   setPref = (k, v) => {
@@ -584,6 +619,8 @@ export default class IdgCards extends React.Component {
     const mode = p.ui ?? 'minimal'
     const depth = p.depth ?? 'schatten'
     const back = p.back ?? 'liste'
+    const view = prefs.view ?? 'extended'
+    const simple = view === 'simple'
 
     const qs = (s.aud === 'students' ? card.students : card.teacher) || []
     const qiSafe = qs.length ? s.qi % qs.length : 0
@@ -705,6 +742,18 @@ export default class IdgCards extends React.Component {
         bg: lang === o.v ? '#000' : '#fff',
         fg: lang === o.v ? '#fff' : '#000',
         select: () => this.setPref('lang', o.v),
+      })),
+    }, {
+      label: ui.view || 'Ansicht',
+      options: [
+        { v: 'simple', label: ui.viewSimple || 'Einfach' },
+        { v: 'extended', label: ui.viewExtended || 'Erweitert' },
+      ].map((o) => ({
+        label: o.label,
+        on: view === o.v,
+        bg: view === o.v ? '#000' : '#fff',
+        fg: view === o.v ? '#fff' : '#000',
+        select: () => this.setPref('view', o.v),
       })),
     }] : []
 
@@ -841,19 +890,47 @@ export default class IdgCards extends React.Component {
                               <span style={{ fontWeight: 700, fontSize: 16, lineHeight: 1.15 }}>{card.name}</span>
                               {saveButton('inherit')}
                             </div>
-                            <div style={{ flex: 1, overflowY: 'auto', padding: '14px 20px 20px', display: 'flex', flexDirection: 'column', gap: 18, WebkitOverflowScrolling: 'touch' }}>
+                            <div ref={this.bindBackFrame} style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+                            <div ref={(el) => { this.backInner = el }} style={{ minHeight: '100%', boxSizing: 'border-box', padding: simple ? '12px 16px 14px' : '14px 20px 20px', display: 'flex', flexDirection: 'column', gap: simple ? 12 : 18 }}>
                               <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                                 <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.forMe}</h3>
-                                {(card.teacher || []).map((q, i) => questionBullet(q, i, { fontSize: 14, lineHeight: 1.4, fontWeight: 700 }))}
+                                {(card.teacher || []).map((q, i) => questionBullet(q, i, { fontSize: simple ? 13.5 : 14, lineHeight: 1.35, fontWeight: 700 }))}
                               </section>
-                              <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                                <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.forStudents}</h3>
-                                {(card.students || []).map((q, i) => questionBullet(q, i, { fontSize: 14, lineHeight: 1.4, fontWeight: 300 }))}
-                              </section>
-                              <button onClick={openSheet} className="idg-h85 idg-press"
-                                style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '12px 16px 12px 20px', border: '1px solid currentColor', borderRadius: 999, background: 'transparent', color: 'inherit', fontSize: 13.5, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s, transform .12s' }}>
-                                {ideasButtonLabel}
-                              </button>
+                              {simple ? (
+                                <>
+                                  <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                                    <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.ideas}</h3>
+                                    {(card.ideas || []).map((q, i) => questionBullet(q, i, { fontSize: 13, lineHeight: 1.35, fontWeight: 300 }))}
+                                  </section>
+                                  <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                                    <section style={{ flex: 'none', background: accent, color: accentFg, padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 3, borderRadius: radIn, transition: 'background .35s' }}>
+                                      <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .85 }}>{ui.exercise}</h3>
+                                      <span style={{ fontWeight: 700, fontSize: 14.5, lineHeight: 1.25 }}>{card.exercise?.title}</span>
+                                      <p style={{ margin: 0, fontSize: 13, lineHeight: 1.35, fontWeight: 300, textWrap: 'pretty' }}>{card.exercise?.text}</p>
+                                    </section>
+                                    <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                                      <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.subjects}</h3>
+                                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                                        {(card.subjects || []).map((sx, ix) => (
+                                          <span key={ix} style={{ fontSize: 11.5, fontWeight: 600, padding: '4px 10px', border: '1px solid #000', borderRadius: 999 }}>{sx}</span>
+                                        ))}
+                                      </div>
+                                    </section>
+                                  </div>
+                                </>
+                              ) : (
+                                <>
+                                  <section style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                                    <h3 style={{ margin: 0, fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', fontWeight: 600, opacity: .65 }}>{ui.forStudents}</h3>
+                                    {(card.students || []).map((q, i) => questionBullet(q, i, { fontSize: 14, lineHeight: 1.4, fontWeight: 300 }))}
+                                  </section>
+                                  <button onClick={openSheet} className="idg-h85 idg-press"
+                                    style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, padding: '12px 16px 12px 20px', border: '1px solid currentColor', borderRadius: 999, background: 'transparent', color: 'inherit', fontSize: 13.5, fontWeight: 700, cursor: 'pointer', textAlign: 'left', transition: 'opacity .15s, transform .12s' }}>
+                                    {ideasButtonLabel}
+                                  </button>
+                                </>
+                              )}
+                            </div>
                             </div>
                           </>
                         )}

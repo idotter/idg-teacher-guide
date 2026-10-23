@@ -63,7 +63,10 @@ export const ui = {
   newsShowCard: "Visa kortet",
   newsSettings: "Nyheter",
   updateReady: "Ny version finns",
-  updateReload: "Ladda om"
+  updateReload: "Ladda om",
+  view: "Visning",
+  viewSimple: "Enkel",
+  viewExtended: "Utökad"
 };
 
 export const dimensions = [
