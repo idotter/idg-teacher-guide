@@ -723,7 +723,7 @@ export default class IdgCards extends React.Component {
                 </div>
 
                 <div
-                  style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '4px 16px 12px', position: 'relative', perspective: 1400, containerType: 'size', touchAction: 'pan-y', userSelect: 'none', WebkitUserSelect: 'none' }}
+                  style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: bare ? '4px 16px 12px' : '4px 12px 12px', position: 'relative', perspective: 1400, containerType: 'size', touchAction: 'pan-y', userSelect: 'none', WebkitUserSelect: 'none' }}
                   onPointerDown={(e) => {
                     if (s.leaving || s.sheet || s.menu) return
                     if (e.pointerType === 'mouse' && e.button !== 0) return
@@ -751,7 +751,7 @@ export default class IdgCards extends React.Component {
                     setTimeout(() => { this.moved = false }, 50)
                   }}
                 >
-                  <div style={{ position: 'relative', height: 'min(calc(100cqh - 16px), calc((100cqw - 32px) * 7 / 5))', aspectRatio: '5 / 7', transformStyle: 'preserve-3d' }}>
+                  <div style={{ position: 'relative', height: bare ? 'min(calc(100cqh - 16px), calc((100cqw - 32px) * 7 / 5))' : 'min(calc(100cqh - 24px), calc((100cqw - 4px) * 7 / 5))', aspectRatio: '5 / 7', transformStyle: 'preserve-3d' }}>
                     {stackOn && (
                       <>
                         <div style={{ position: 'absolute', inset: 0, background: '#fff', borderRadius: rad, transform: 'translateY(22px) rotate(-3deg) scale(.94)', transformOrigin: '50% 100%', boxShadow: '0 8px 20px -10px rgba(0,0,0,.35), inset 0 0 0 1px rgba(0,0,0,.08)' }} />
